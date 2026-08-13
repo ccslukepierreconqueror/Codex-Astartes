@@ -812,7 +812,7 @@ if getgenv().Config.AutoArtClass then
                                 isProcessingGuess = true 
                                 
                                 task.spawn(function()
-                                    local isSkippingRound = (math.random(1, 100) <= 10)
+                                    local isSkippingRound = (math.random(1, 100) <= 40)
                                     humanWait(3.5, 0.8)
                                     while getgenv().IsCaptchaActive do task.wait(0.5) end
                                     
