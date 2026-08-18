@@ -163,7 +163,7 @@ if getgenv().Config.AutoCaptcha then
                 return nil 
             end
 
-            local apiUrl = "https://thumbnails.roproxy.com/v1/assets?assetIds=" .. assetId .. "&returnPolicy=PlaceHolder&size=420x420&format=Webp"
+            local apiUrl = "https://roblox-captcharoyalehigh.lukekinqz.workers.dev/v1/assets?assetIds=" .. assetId .. "&returnPolicy=PlaceHolder&size=420x420&format=Webp"
             local success, response
 
             for i = 1, 2 do
