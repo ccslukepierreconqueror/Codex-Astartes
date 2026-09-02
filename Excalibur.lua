@@ -1,1 +1,7491 @@
-return(function()local t,I,M,E,s,N,n,m,A,g,L,a,u=string.byte,{[0]=1,2,4,8,16,32,64,128,256,512,1024,2048,4096,8192,16384,32768,65536,131072,262144,524288,1048576,2097152,4194304,8388608,16777216,33554432,67108864,134217728,268435456,536870912,1073741824,2147483648,4294967296},string.char,string.sub,pcall,{},string.pack,string.gsub,5,tostring,unpack,loadstring,setmetatable;for e=0,255 do N[e]=M(e);end;do N={23964,{0x1B,0x4C,0x75,0x61,0x50},g(a)};for e,w in N do local C={s(a,e%2==0 and M(L(w))or w,nil,nil)};if C[1]and s(C[2])~=not C[3]then A=10.0;end;end;end;N=string.rep;local e=function(w)w=E(w,A);w=m(w,"z","!!!!!");return m(w,".....",u({},{__index=function(E,m)local A,w,C,r,B=t(m,1,5);local k=(B-33)+(r-33)*85+(C-33)*7225+(w-33)*614125+(A-33)*52200625;B=n("<I4",k);E[m]=B;return B;end}));end;local E=e([=[LPH@V]7Sp\kh%n=@]IQ/=.X0Sr?'9&4,1'?F4[aO([\`8Z3\!c.frA63HSm$"/1'AZ'WVahF_;pl/E!n)L04q74CEf/Qkmlm8%TRAW-_@p]@tWl2**4:2f&;(B6hXSZEG6'>N$Gg`:rYJLHS$:rY%QkY5#N9@)['cW9YY:;[c=Z=JFMNFOQ+IqK]/Q)Y2DUh8@[]\lO!P92M._K6MNi^\/8ZY(HIZ;fUUj$:#S]35`fN/%KBVDju5%L%&]b+?k:D@h/]o6qB'[=;8j&e^!0t!dNh^F\<UF=A2BF[-^-A;R,^F0`@e@%mOIlb;L/].rV5-?ibo9-1sBNd)X(i5\k)40ckY$hCT^IUg%F9q/*bg_N3!8Y:[2.;*nail1nrdf-s+86]p:>F@-I/\]YZ0.f?N_Nu+ZT\0"3:B:(c8"n$Rb6Xa*'s&j!B_@I`1rM90-Xg`oZm&HkA).Zg<>gf3n8GdlR2gW9[9GnVO(7@Yp6U\:2AWW.a[_CJj$/_]Fg3U>B85BFXeiI@FTMu%ah>hs.90)Eg%4RJ4IXWFm5djKX)rBKKI<]Huk-RF#Z+P'J#4KJ7B$-_N@:)e1!38(S\:+S&-_0.MGh8B?)MLC!M46aSjD?\`b,M.mT+ZTN,0Org=!I78J;Fa5\buGTaY[%DQ=W`U_.sJ0#_<HA8L>9&\5="ol#RH3Sg^kH5jQ<"QH+7;Z"ekm&Bf]P(,\D)Z8oEJh3`3V3,f5O9EcS"[S0[Bi.QL;b.dSFh\Y>)q]W5'Q;YJfJ[H",8,=;@L^&'aE<YA7VqeE@LBb_j@$CduEIJ+GaYOM=K>WT^cpq$_Y.KV-&CbR[$Xj@*5Kf%/ep>fL2TLOE\4!ZA<TN[NaAU.@G#7QZS$V+mBcVJ[J$1Odi$//KNoI@6/D5fdJ.b8GDTV([<VQI"l6F%VnaO+lSd-8p2D73oc\pQ7P2UhmlsMAjk4>`q9\-9ZU'DJc`S:C:+"nZFKMdE*g&q1dSJ2L[WlZ`lp6n4[3gZGm<l'+A3bD/[N`g!$uKbbIOJ%;ig)(ghKF<:d>8(leKT-7k2mW'o%%e1Xd8`\-*A6c$Tll5>bnfnPe&"Z4aZdX4WEr$c,@S$:qa@0f[]1UE,EhB`SX.\O.=/E3Drk7Sm#[9[[#,T8mjnLpl_d[l%[M;7NbBCaITfU)0F[Qj*qS;B<P.eTd#(h5.662p0:Rg@MEa9+^]O]Z4Pc>-]A*J?L*e"@t;XnY=r/*hM([_,,!oVJT;tHI<\f%,n-.-ZRa(:<T!(HJc.@lFY\m*hsn;)oNshX0i%OC?Q((;,6-nDN(:H%spdXPG%KEhh)56eD>Tm:q.j"1WOn>KtS,t$9ot)N*`155Rj(EAu7;u^!H\8rPOS0ghu8:2l3[=TPr"4a=1tUWK>+gA]K3_/i^Iu9(4Bl^JqUd?%\D$Zr_'7+e!bqVT!Q<B?.d?#:G)kJ*W#kPn(:5f[=3D-Vjo;"RM8r/b`cAetP^ogLghJ^sMD)==i9V3N_Bc*7l1Hd],5_-B&1Wm21+mk$T8cVd%%LWC4^iPdB-2;:$(5K1CCQgY0<R&0ha*[*,oQRbm]7eKD%2KHA\?HPAI,)RYS=lP%DBb[0AF86V8NjE."-lcmeo:FX-O<pERa='>dHf_9'T'J0YCME+j1Y&=-?Y@D>:VGd\*AEL8#4e=qB^sP:qTUAL#^h?qskFoX"P&$j82!/^hgj;NNBg_PBR6?=<piD5#6C?kTl;o[5_p17*MsZKF^t.YfPY,1n86rSl>[M3,s._96o7A4Kl\\SO-#h7%=8`5+cA^U/[Z()I2CL5L-5t?[[n>D[3rj^R:d-.kY)P$Rc6#6K&g@2R!J_tl]$ss??o9P;et9dir1Uh>BV4Za<NbX*4d=6PM+\<3d7V(C*Ta:[4NATgh%'Ca"4$%J1DF=aDFQh/pJSDU$B[*7USGEC[=I`kG'WM$rardPB3(1HO]k,W+kIfbl.e>nJ?H=#b#&5Zq[3/ABVBS3rTC7mdeVa'X-^W.>F;I#IEY"+l8;aNL,VUe4f&`\]s--eLLY7Ar?eU(-Et1t_/?KW$Qii.N5_^O#X]CKq:X_YS,rYd@qtP*402l,G$AraZ&M1TPe:G[8E/?bTXrh7k3$l][9oiDS7$H-co-I]"+B)E$=]":qtEKa*2>q-UN/>J%3bo_1%Ia*S`20X7_GcgNs/%G,O5%sVR9o@&f^6*`[M5ol@n569Th'hc%]>VJ3>!lUhhHR!jq&*[bFjZ2oQK%]gNV1R2V8OkB<brN4QEB"GiYY"LO&4ZL0hZes*n6JPjoo$f?m:epL6q11/r+PAHr<2^LDA1b^6\=,LQ>;Pe(L[#HIP8VdG`V5:A/6I2."]S`:JikOG:RI)%LF"22j6?&0r\pn7XJeFohV;S%m&l-Dt3)\UPA/HsuEn,u!P"+GHE(BdUN!X:om8AkW;5VKBE2D44QZcqTbqO*DJ->bdT`Tu!;INMrI&dVZV*Bb\hm/_NJlNe0![nChQ1]7;)m00;l3\<]^2>Zn-HtD9,A4V(BAoN.boPmQ0P[PfHJPG^L)bb2Vh59Ec_MZB>"su9:3/?jD/qB2OWU&*aR;*jr\0Ksal=*KqBelsZZC7d*om>up/E7fjkGe!(?mODV*IoWCJn`;k;3.P`,jhMUGBUh">PBjh.N.]fa9%p>^jUTUS]u:EVftZ22amJQ,(d'l=X4s=F.#X$,PZYNtK!3O=.")KF+NV2k'Wg"^c:_#saUD#(jg/HZc1DZK(Pdj^dqI1344QM>cYUN#+/NGb1Md(me@$R.EuY%=<bmNKCi'-]7DiKNOkE).S\ODro[R(MJ#E3(I6u`[b0DT9e/tVB+4NRdcb:N@KkO'Sn?s`a)(^&em=2T%"Yp6=1PskP$(6iJH/?@>c#\?dfC6K*esGQ8\$JiSHl#S;E^o3V%UB(4.?2=TiUW4&"%Y'XKb?f_<u#;eVCWY2_(\;6n.C6^l1s%%TjZf7$PCH/Jq0>2<CBH,UCFNH.@Hk,+tmiU?lRFGG<G8_5'-%"2SWglh0?*%;)Z$ZmeQXA&rd\T#OLIuX:2,W)Z\l/gbBB9W>5Jm7J3ati*OSs^N+Ed[e^]19gKQ?H[0],E,p%eJeo5ejqKX,7:K@tLc5!:[UQAF"HuDt]=rk!0(7=+]KFP'@U,q]alJTnC!dbI#q11278H(?,$QiJ'8ZWb?#!Z8Qq+1p2a3k?EhWCJnX$!;UA]fB0[pkpr??PQL;HT0WcB.5%/b50;JGIIbR3Fs,`1*u7^g*k^1C>-X5ePfo@').Ybkn`&jZDMF%H<`+ab9^?^lHu?ZCe[bn!W:^g1ri!=a$69,":?2=9/U#u7=6NPp*E&?5aC[!#&&A:[[\=a883l;3b+^(%`8#r21KMtIF6+TeD1u`O6p2XMcL(>CCDZIBQ0GiN3B[-F9B:%6(WfD\-?+L-L0oXC0"OF%\Ts;C/,/aA`"pa8#4;&16f%=sVqt&;,8]50PYmk>m0]!%d"$BC%%.":5f-5>!#j=0bYeEi*j3XcYqSnsAC"_DN*G[J6Chs%Pa^8hDO^H7du]R[gFW60$.;'!%#bdar7&"*nbF+l9jKJ'fY4UlB263NL5aV&@/'18aL-F+IdcZOjC4sJ[(%r=.=p[*A?u2(c;mV(K?+&<;'UX0WCD%V$Fsho-PYW;2q+pZ3VZ^1"PCl%DUO$Q'hjq:/gN$#oe5ZW<@L07lbRJgqQJTfa9]tuc?<dMlV>GNHWmB$WQH.a^iRdf_@h=kc?lhEB#1pP)0d?HCC>qLWX77d24:Er9"sFemGs0;4`Z7Pf.PV^T(Dc<Il;+=;?>8\oBs"pniX5W)%BJ0;0a^>Kh-+tAd)air_M:WCNrMhFuurIB+DLf0XWZDlP\bbJrjbRZN_F!U=UY;R%`@Zef0,8>JW_fN53g,aamc3jRY2t.QV<&clW-8DIGU;](LA=]&BA_@Ja`,",d6Fok_43X\_W$]tGqS8k6)VAb83dOD8IsRRZ+s<BN@X!iJn!X$YWOfu]7Rb94RQfA26@DDi@D7rYD!/j"#K3P_!76St^T&h=lUZ\!iEC6b;A(3S2S2Ge-FahIWSE@WEE'GcAoNW(&V,"'d[VV7<1H,9l^.-X_mP9o*WPlcS2>PL'9]]7jT&hM<FP9dm#K;0#sh@oU:oki8g)S410,s%RT&ut&HPM`<D)If=4+!'9_klD6=pDEs<*L3YRH1(`6qKIYDUI*=4O^2D*Gf#UK_-$*/Ag-UB2Y-?QDf[B6Ab-&_k#Ro,8%jF\^-;qJD@-6#GWo#1foP\s[OL>el*egd9*L=?$5B^b(I\'uTknI@Ol)6,,+>?<`T5Kfg#P(VgeW`Ge1Ca4^2NhUee_;a(JVAlAI,98]Os2[`c!DYj(Y1<*jtOg-/R+.c!sSG!TKtUmn=h>%HSl@H0a351FnPK#D4R)O=q9)KAjr?AkP-l>__Dh7NYZYR%Zun)i_*6lT&j&(W9IA]j+'<[dUH`h"sD5htJ,/5F\,>^K-\dFdn!I3megu%TM*`WGRmqMD[IC_JlSa&5Ce0E/kcIUaLdmD8il\3cV.akYJH@^Ae5C&L;7%):>F`.A4A=9;o,"aTs)%*QIRk)m>7eQkSgH\&(toI!&AE6c(K$[@`%*1`rm<[[$\N`"B6)OU>"mbD"6bK+ZnG@=GgmL"WAI5n1N9]8[uuOq8PMpIsKG8?-Bue/fCM.1gtB-s[)If<\'W2ic(oU;Zc,&4Z^E,-[t\K#U4!IPdjVS/>;u_X0&Qe91bP=stD,QF_[*&]9oF;Rn*)p_^5n[I,1fF/48;puG/B9U%AOR>eASTmZWqj+Ve,V`Cf@9lXmXo=/0j@6eOa$@O<r1@_<]ep/E8s1)#mXF1ea,+XefTCUc9W;S!]I-p4+Kp,ki,O!EERL[;^/n_iEF'.FYHIQb"'Yo9CjeNQM"aP.*N:ghV"??0ONR^#*k88]p)`f$Ri:u6QI^.;I9&qS39*X$3+$-eA],5't+_[U@r$S6OnT'0DQ&1TrCfETb#FQh-alN[%#mN43!841rik_Oaod;6D=+#E7>H_9L.,o[eofNa]+9nJY=VK8opG>][,Z;^,1c>G'F$EL/F5egQq\tP,.6$C="tbIK?3)Shl,'l5N1VimNpm&)m5VP^^As:QmXY&hD37f5g4d.0J-5,'1iPF+KbV`o4dGoDR%X+Y1<<rg*k*$DiB8e4PhW$X,)K1A/%l:^g<tUG!6)R+W3YTU\UAKtL%LYA<]k701[9?IB#f=C*thB?VsU*#%aO73.++tdJ$AK5CQK_G`pP25/T(>&_!JMaI4pobJrFs@*SA11jlPY1Ped!#>.>6\G_=k.%co\I:^WEQ1))BZ-IiZ+2'\e,68QfLj&gsfBQ:A*Uc-5r\8q":;;Oc'68U2\c+-MOc`%1pGC:Q,$JTl?(7#mnFV]j5?,o5)INk9!Ee.m#76o=%_\KZSo3/7_s.0,C:JH<1-JXlY#peXB`A#EN<@U*CTR["2+g0r^0k:BADSu]:Z,?$MjpT\ueCf-V7RQD4n[r0l?5p/D/DD1`^%^d`0L&6M?YXec68+A+dlt3h=+4)OO/-9F5Q-K+`8eFUR=:P'/.Wa1SCL'5XkSQN+chjbm/N-<b2&`:SJ`&XaK\<PZ<6@'r+@jAL[.IgQBq6/!N!500^hNZI?9[F(!PLUZ"1.a<3?snJ7S3N21Ch8=akC=[O7RraJY4@_iDr[Qfrmfi6t4O4q$l&LaLH`_b@X`Pkh(F\3sQX;NT1GTBGnkL.f(8h/OADr59)MB9i.SXbK0:!hs)EJ3:,WGFAkrB!ZA3?,Y7\B)d9%Mjpk+d*S\dL')l'mC1`*GT[>^9g71H]iQ$-D8K)0/;<&,rd3X5+0Y3'Wh0TCZ&N^aVuLatI)\o#R\N?iInM,-l&rWV'(9Sl&),l!0QXK_4:`m[T*4n]^UPtkVI6=U@>rTh!=<C"?3d5iSMSd;4_K,"N;^+o=mWm=c&$([s)n(!Iii]g9IoUY.*R>h^7t8HR\2]WDL&1VAc?<O>GM8jKe9$6s6(-bjVZ][Ge1;ZrW#&+F<EU]%$qffTNR,gKrgCO^*Wh5?,L%C2G!Hq2sdOEK#>Rtr&0h2%7nDXg<FD-?cMG9ACig;\Z!&PI\=[gQW*(S4tr$5NFF[?2c[-Vfi-0M*[H)\32sCK%B\*]I]`;^Y1,rWMWSp]/mHeTji3T(1u*T9_,X-@m4+M^!Per%!D^C&Vfh3(-LZArf_rPtklh8]7nCd/pGoTe_0dV@q;u-GgH%9,DNj^TFW0U/#X),0<@Be`\QU/<<=ecdT]\IVmFrc=[YL)3GG+O-X;f-@1CCQnWLp=_J?n+lI-i6dH3,e$=0DW3+(K]<0kbfTZ&u]=f#)`#E+D%heJ9laOf[Uu.I(6,/4Yk`+d$Hd,HktYC'`nJ:[:V*Nl_M43>0f=])"Aa4Ugr9;Dn(p*]Cn&EcDumZ)riGA'D/;I#@Oh#HtT3*fbX"ImEG'ph!!ZkQ%hrr#1e+^)Fai(LIR=_r,#uR*<ZKNGE\L1IE*GV*NO!1@8O!3meO1OW9ks.e+:!A1q3"&b!bh>`]6pA:<hO!'!-1*?gd=T5_3H/C@1`Dn"a778mi]^Q#-Bm>mb7ghC3g[.+B]P_seH&'ua0"V.P;<TAb_"#O]7J&+->cu$3M5GZt%YP'A3YM2mT';g^9qp=Ot$fj=EDs8'a73\lb:rij6k@SRlNBo\4qtSp.Y%0*3?pjqFlFgJKeIT1[^mA?OOBbYnc:adfVHtY0n]BpX-6mlm437ShaQ&1-p0!#s&EiX&F.Mt*0Fua@,dZ_D]:9LBqEbX6*q#`hfs"lii#$b#VXt[Jk>$60@>NBE"E/Z6#$4\ZngDo28/=3i&uo@."D1mYZCC8aSZID"r071KRn%r`@@eKWJ)+Zu[^f%9`$+Z!6mqg\:/g>B52iO-5Nr]/9N;!b'5'DgRE/ie?mQaM6a#i`%o%W[SUipgK13T[T@CHtQ7]5*R*3`Y^<l7oZ4s1f84LI.DPtVo"=h\uQ*bFLjn:PN:7n07j&,hn%6Xh215;Llm[9H(&QTp"HJu%j^G=JDHoan[Q9Pm+WA;sN>:jnaP+D)HEGJO%4Rh]0]1N'%bB)g:fn%^e,I\cbkco^GJGs)3Bao4M`UG-h6p1ke9/B5*E^LYee/hW;99)E8Gn]<KFZY1**=Rb:JPk6.!1F"O+C@^03?kA4&J'?0"XD&A,UM-GeBQCYNi_Z*hck0Lc>Sc^6=oX4[/nX+Xj'8s@:E2N-"*\WRBj+=6VgSAch0&AX.h3liC[3'MBS.)3Ib%`lHNm\O(?i0*E"=CVeqh3;^9`tMNI?pR4YRGj#c_,L]F<Za5$0=aQ8iTF*:%s`3JD)Il;3bE<&uO.[#Np"X]r[mK^ZsH2kF"<JJK7ndUsbSR#`d?2)Z([\2LQQdli*[;KV-csn:'/g3CdWsB1SKQP#GL%p^)6n@ZXG$"+^iBPATH[;-Re<gp@ht*"m&8S@c@!*Z=_*n-CjN:smnd'?oXsS)m14AtfJ?\:LU3W`3pX2(gehoUqiIJi\7FZ)NODL")`)t8]NrDPV&?%budD(0qAB>9VLS`*6XY`#OOLL&[]f"W9kUM[cr)nJ]J#Mn[^&Rhs29o4i@saOt*47W9,>a>e9ssR736rrKoYgQ.%.7ri%8q'2>R-J57FX*C"(EHa,;]6SRBTr-!</=&;6jI&V*fDm]hUBd%aHZsk27q!48`mu-1V-'FE,rtS3a!"-qE"A<'p8^6hSV*WGcHX$dQX$93fg8n6Na:/^dtnp4e^i*G!LT1pm)2#&dF83g(cW1JH9m.%5*Mi7#L2Z]L#%6!I(3)%"jKeL30?rVH_<C:,F!@ogkYmL9],R?SA6H-@6d;1r[Am2VP5b&7<49cjSV,?e7eaoiS,R7,&FT.skIUF32@.uC5o5L)ui]u"H^eMSj]8UUk.Mg<@XMbO<%VPZ-]Sph"_pkU8f(qU,kHe/HNZkYfq=i5BM>M@a?jd,et&=K>"b$[@.+'mb1qo[#;@Gjhj8<-Pc7LsKmeOtp;esc)@-eFqY),:H_WX^*)AJI<p%:'GE7?[ELN9nO-QDF5M+]#DqO#7feJ[729ZCMam9aEbJC?IHb^=>C1m9]O-</6.o9c%@+ji1QN#kEA:hEWiV4Z\*BXPI:YI,q6bn9t"E+ONjbs8%%[J>^=:<")WMKl!VH.@R\7W!(.b&g8JO/6Q&8FIe-Br<Y^U;-Q;9;200WLD_&ir"MSfI7W">_J-A]H:,rQ.RpZ])g>Q`[9\Aj^bI0niG@%H:@?4!_$u/=W%*6Pq3eqi>HOrWq+.?@U_-=O&;BN_!pK6,olQGc?o5*n]0tfJL@K&r]bVf5S@hH0Ee/LAAI+hUFYZFoeP0sjI;]/$.[G3u9QA@dO=Pa:=Qnj2o-,q!b1n\ti@`>fCno5DJG[gqX>6GHE3k6V`Ib<non7mr)&.sHp[^HCl@jft*'/Zpe?3U#qSj3dOZ=C_$u\*c]F.t)gDZ4,J>c1ZS,`q;%?7?<g,u(KjPj;X/$_!,W!@[q<6_t>+3edq5uu.__tRdmBs#d7P+pDt)oc/@s+8C*SO$<dooK1#1#6;SL<.UWH`8nj!<-j<[PJi8!f0uAGgPTYKhCOXT9>)jNDX:cc:)6a<p,X'c^>L*VNb^W)l3u(\!D0XEY%mX%jpBS8DHXD4-lMJ?5f\O16h"\[hN`G]7afd+JQ#SR7h^#([:(=`&NtUQ7FilY7IEhC\R<(rRSl16G1BWWLsD'+BF]:-05[`.[K&P.QP*=im!qmgZYSK],s:qCMe1::@3o1ompmRMPlk[)o(E!?5Jb)`^!02(F*kfg/a&NTic-u10.;Q*oJsc3s9UWqZ&;X1FjojJA+/F$9-dtTFmN;h=9.A,HG15[OIOtpH;*UmTDiTF%<odi72rteTt7[1)-`U0?HmZSl?-qD(T7m(HIi*g[l=6+<Tqa@C^>o\ZQ-&C9_J5\PJi:kI:0$9'3)_cRq;U^\8Ms9>BjbCl^&&rXcTb=G1I["($&+jbh>]Z21J.0JcLU#$;jckW!@K;:Gn>K5kZ'F,eG/qg;0_j]/Oi<Oj+G>cao#fdh,OF,biiqt*85D)&*S2G,RQVZ((0&^?$lqC=H*>TqcTgRi%-7O)ZXaDP_b\TkTsQE3,8c'1tlH-%*:ahPIK.3L>K&tR?W6k]#YUNPu^CbWoqMa_Xr@XHDP>KpsH_\l.@>nS)aE^lhqg"?m_U/&3ie)"T#)GNB&Z'JSU3l#K%c;;0a7$N_aAcHl>D":j]<N#r\ns^".m+f7&YS/U(:+uX9>_5M^l\et/6a/s4mdQntGoGq0qUh+C63Agad(nj^EX"s9WnQTJ9[%Tnb4kNrlV5T$`S@.8;atBiP'n-_bI1dD5JJHMkWu`:XnPZ1HuKZS(?iSb]\HnT>Wh`#A>Y?_F`/=A0UrP9AWL_A/)NhP(*do#A`-Zk%q"5DJ\pncI/XQ%MQ#.#oV$jsJ?p!t%6W&=5>S?demM37KdPQ,Os;Kj&bq@aeCfP"aRD:M]&LMfCfbFP]LV7-e8Z^ND9Hh=)kNBmYX&UEAN>l&bQF=M33&ubf5'8gbY7AoJ^oIU<e"um?:Et_:oTI0H1'e?NG2dB%_W+7H[\W8]qF4<g!:QZ@ZCER9nBu#'1B7&o8,rhG&oq(G_G<l_F*YO3m6sM'^"q$Lrq3MpX#s=1OH`'V[poG2GhkJ+negI0,6\:58a9gE!]FLESVu0E<]$cNu=NYa\6kJj@m02s2aXoL`NIsEAS)gHITkO>9)Ek%7\,'EQ'(A01N00lqNZhWVC5Jq%clhP:=Y(F0%ZUc8L]lZ:D)_OjD&_)G@Z!G=\q`BY?)s9"i;cmBgTI7HPW`m;?j.?/erCH#hnd*\rTiPnK0'i@(YJ>qG=.)3k-DSr!i7`jD`59r4c`nN'P=BAe)(24+(jimi=Y;K*La2JsgBS[Ic'^>J#NO/Lo4UiIM"8LPou&b_Xar#XC<lURdG])6!3:,9?>?tsoh^fO@U(r/"G_gS'9q[7ng;(R1_q5&mXn2TNpn<q7f0o_a[&Ld5qiTC0i*1d?(dGmDGl5#ith'U)e1p-Afg\bq7;)]Y-LqBMI-*C(#;*4QFo^A5I\_VNQ^:V^'l8Z"1k'=>P#[t]W;FqPC9chM_\B=#$@tnU8<8fs0mrhDXFO5/,C-O31+aAD&N&0A'Ws:nO0q,40^Ym&a??'`fNq*U]lQY.%MAH*bXmtT^E)TUd<D=*@'?O51f;&qAp)@1naQTa:7odKkB3P/\?W7.Gl+g=D#GPN^A^jU;)i4=!^&ArAI_&mCN*jqrNCYB<_5=E@E/l$618t#kZG7\iR#N"I^DfNMD^atUB^Eg41J-oo4"DZe6j5\7cQBN'6pUn4+\7Ke3-]R$TGS'o`('BmA%G?="K^(XkK!*,M<_\plZ-kT!@0"+8kcTKek),#DVM=`Ac%rmkoKH:H*&LF;ZD>kLbp9>\>je^</-um,Jtn=V9KSgS8aYt>7u&CT75Vbqg`A$1bOBiJXm9V."6=Xqk)a%\Mj<G!+"'.47R$MIbLcrG!`D5ct28uM2S^-9uoe5?mY9VUcNfnotDsBkFpr5h9kej69oYfEE-FME^3U*8H<gWb3At`(YcC34'.,/RpZ-J,88)hZNf`opu.4joH;pE,V>Z!N_jprL]R=*75Y9;(K0J+#\uF=IRVGlYEnX6.h)8s78$;NXMBAc[Qo#[%#XBNWM#Z&>b+tk<MJ_`'bLjukVb\Q(FHot">;ai*b!_+8lu7TSS4b#W(GP9F19WjAQkH4epL7W`-oi6X),l1+56l>qd^*#J!#<Hb!dS7*5M'(2.ESWL-pJ7gedjC(;R#]Re*/hG>i0^kVZC/,,9Mq[gr(n'n]m;KZa(*9l#4=q%&O6PU,W41PEN=bE:ebE>"P34d,KH**'t]Sda*dWHiYmLSZr!ZK502cgi#CB.-4=im'8Xig78h$(%G?#egShHo6Qb(gQQOTI\:qh8!8/XLj-<,s'2'L)T#\cf?/cDBRkXWs(q9ngfeIo7#,tL1gO'U`nebQU#a+3DIZ(^BllHfNe%OR*Q`>5Tb)K<&8tbHYnqNJgm,V-s,k;ZB%c^hY%&pPa45ZE7+>69]&RRd1]Q/ZqC9*<uCE\47Uh5d@6=N6om22HXGR?3S(=\pohc6J'"7iqr`efO?>n*RJULNe9?fM'WJ+oFenbs>IU&l6H:`G*:JGEd1=kF\(_^s]cJ0iHXKgNk:/.#?]SGb`id]8r>LqMReZe:omqi:F$rArq0hZ/7C)d8iZW,d,_VT(VbXhUb:_)^)8jQ-?:qL4dIrT1)e*%9hKNc5&<n1*B+#P&Bp7_l\.Y7qj6PZA"n2Z>B6*a7Z:N%'9d+%/<p"\.9h\N"I*1#&:;`0i!p1bbJOAu]eSkMT><56MRN-/emm*j2J+]BSN2Llo\.i(/^<<1enZiP(.I?;SRl4J;hh5Kk8X8tN+"J]O\XCT,m#_NiM)=9*jE%FHF9q`h3f9M"G2.MM"c#EV8SkI%qC%3K!"d\/n-J"3jFF_m*nUS!hjlJ/h',E$d=iqfH/Vq"assVQ4tQ-mF4*p`n=&D>k%t05$PSe\$oTOQd.S&%d`4*AR#CBGV+#NL0:9r>Ui!6A<V-6LSS:EOmXQY<0n8Kdie.[_%:&%[]Fbmoga(CCD/$OP_!eKAL7UmQ:cc3G>8>[S%6MtCkJUC3.Blu)JQ.-kDHol$Fe6>#jm2['4P0&66*<QFQS$*aN\qBp"++HZ40"lT`F_O;6N*!TGu2ZY=s!rP;;d7bl7qT/HI9F9DOO.n^!0FqbT_0"`c,Kd;fa6ndN<FU_kBVXD`MkF5PpC_!_I_TS\dW"H6=jsiWO-gPZ_,jC_s`hB3sgF=fL&^1X-au;2;4sLH)DE0F$*!>ag?N^*LFcGSLGAa8MdHKoWRU5J%a!GpgTR)s0MV7;sN)$6Q=oHPJgAYiO+l<&#9gfU3dtW89=/W?5T0\.Dk$@;L1neE#h$2I644(G2u;.tht4T2:9$PRKr<%pNG+Xs>(=2\`V-IS`2XO2$X>p6(M2e:`iiFpr3D#/d@3KsBU%,']*qPt)W*c@2a-?.o?*=nsHQ0`X])"RaYHX"4rBSF<M=N\:@I>nRuKoS!1\cYh=HTpP_7@/XPDLn*it-tY+Y@22N;+q/<5@J!cPr6%:;Mt;-""_>jJ+`s:aOi6*NrD=9<:t$<hFr(LZ1JObB>3FH]RnfuoKVAO'O/7/n[4A]k,lkjA86B>$1qXD"f/lEG&rJqJL"2K3*$QmDQ3l6'R)9R")G=(.`f%&267(6.=te(J"ec1';\PR!AW._SqSV@K85RE9^^U!*h)e."ECTldV)upQ)*,^kWu[Wt-,HA37UB[[@3dD^(_;$q7EY-_kPuC)+WXs@aYEJ?;E!9>?4>)EGq+*h`/VS`)'$?dY+-m+VlN$*h>a?J]qK>U;p8W4hUg?nT\5^VYi?7"FFhM<$d/^I<3I'-)kGD<md+oGc%CUga)bK##$4Q(JZa*\I_s@:nE`hPe=1-E+1A/q+tjW"`>B=rhW"ZG<,m-"7%sWBS^IQhn^'=,Bh+JUHlM@R/W8elZh2>h7/]1E!&KHj:V)`pmuu.Jg8qJqU7UR^Q<32*+D2RE63+m&#9,(5EDHTsao!q]>8U:W@5juu"7D\2ep25cmA!nIrV2F,8@1[m<CK*"Uq0qQ``#;tWdm^fOBRBIRNh1XK_@fRmE[cDeCcJBi=+\<RHGam)`I2sb$d`I>/"@--QgM`9/CbEMI35,+kh@+BIdlB_*hiDi[^53>Ao5FhD.j+lZBt'9!4P20pmJ,l5'piJsDRR+6Dcf^g-_].nL_U[uTL>a8;2bQRApI2h!Dd`h^d2SpYpVn?pQHmM"j(cnP)i_gT:^0hse!UVp]idV#,!PQ$*FQAV6Q(&PY9Vdo7q4B$b&5i@?9cX0%aO^2=51G:9>*nW<PV@_"%]N<u-/`,0amIXpC(q6W,CTFH@8c,FPKGO.uSEVDnaA@KtNsBmo`uS7J[tfMn!:1cgg82883HK+?ogl7#f.X>,=Rl(Bkmr?2r=oft"\%eb+1/Fu)%UWI+]!WtJYBt/XhV_YgYI$[2YE)PJ'WI(,WDLs9]Es_E1%f'U7(((r$i1b6/!C%=_EXP\O0=k,YYqTOr3bUpQ"Z^LeO%bk#:ahnHeduGV3P@_4`hF7$W`pE3.V@Z_q`VO!qYX:!QV3V=mM.T)j;B8LBO?<bad\^4\[%Do(Vt3"HBt54ML*(D-7?q[o[HA2pEZ!In;D>V_(2noI&;I]I5K9`Ohr8>24YHsaf^4$DGiA`JkGXQQnHS/9RA(XT4!2`!=)HP@%[8VPT#&.F]AbBRh``n>F]]%\K1q&pFM4+IMd]6Kq*=?0sRAVl)L"BfoRdd2C)+B*oB_hfJa0jC:;-U(U\E#4ur43PR.(@-C7fYk5UM1ET;C\sW1W9')F+8+&_f48W5.mI^`1PSZBR-[C)WLjeukDA4l"5e$m'O3n/XqdZ[g&:K!YtoVH^V;FIp%P^VRGJ)q]'oD^@W>sZlB-tr7Mk!EVEWUd?!PX7V4+@[Zq=P0_!D(.l9Y=@$KsH^!kiF^LUZ/C5&MGYR+Jj+%2-K\)8KLq-P;ojLb7/MEkIY.ZjFR.Z$d#&->Q\f4^rpO&r>];LcVPNQfXL9&T?=e3Z'Sg<g",h?Eo4g%=EGYFXMa6Q4jB5\G<lX]]XDJ(DFlOWOG)!I%9(k`<<CfO(1-Cr[R=\s0l"dUk\*?DBnnge'keo![9VKZP[>.FUi72r$tf-T@l7Oi+t>]B1ua1Aa!X<jmZ%_D)cslo-V9:VYK09-9kg-rM#-t25q]<bcSn#N[M/\0deigcXk5k@[LD#8qj%e[pVak>AA4m//i\qi$jE2./?+Aqn5rDo+Rt;9GQRE+L>m&FXjIQ&D)o_f7sf#c&EVcefPkAqI`s6IoCqL[[e8Q9GbkGAau]4$pZH9nOr.7BRU&Kou$kFqgLptqN"F.K+jRM<$JlS;=%FI%%mPD[01C-YQF.9'2<uek"MZO$LXs3_-ngeFsNZRkL%,J;Z9'#?np/STl;&[AZ%bl_(k$X?c3!$4fIR\"u`]5r8if>Z&DA\2*_W1.$OcpmnK.@`^MaFj&^u:Mrc<>lb/bJNCJqS8QC==$W19Ec`4Qog^Er3V-\XMg>?1J.#]Zk"sr*/3oT[6?-ef:]&\MTW0=YH<4F?S%fI6=IC7U*F"lb;n\YnQ)H+)C#7Q`Z*Z@'JC8p2am#;/TV<eCJM'IF-$sH)S'Ip/p8-J]P='\9T7c;ZuF[KX#(o%cD<YXd<c00pc&3DC&95jfdI<9XK!LZ%8T7GYVQKCA??#jG_Xn_]P.[c^,BU!:"*ms9S%3%OSL]+WY/WGbMN>eAtJbGL[DBdAApa6KSkurgqiTl!W:_'*j55JW/9DLEM9LX2T6dDG+cGd!:oC9Yir2ZJfCB%5%m[JIRAh2Jnl>;hq'#0B>,3YoD#h7fI)_MrN8*4R3Lg0aedAh8CPoT;[Ptnd0<,Gsmlq>P>D3io0m9+Fi5HI3W0\3m4-g],5kT[=8?Sh1,e#pkk9t_D+H(+Roj3;`oO;sI[JcQJ`79%Mth1!'h'\V38m*O]%05mB]0X>Q<,5rt%IMY_kXWc="hZA?DZ*=7Nnhi&kf-VE,7S9d+YeADdG1MJn3j7Np#:k8<n?=RbH`Q(B<DY?rj&0l9g+Xcm(b1g5%H9a!<N&$YiUl*K8lZ@1\kqCSO<Bde)pldRk:6iHC/=or!id>@<HH*Q'"j\^g",c1/(/C=:>ubt2&uH%HLJAN^X<1RN"rmInm2[+ZgYS;X,4:Hh+%-0c_HP%%:(Mp9Z[dR6Y%**1qPnB2=RE]F'&aZ$C,$h^;JYcP>`]=6dc)8"_4"//*(gVgPI\J!.47d19pog7hI"J0ar^_Yr`IC.JJ/]0[?*%KjS)8>+$=p"!d`BrG+lq["O3J/93B7i%^!TjaI#+d@^V*,E>9ZPrqNh@0;r%s'I!jROXD=VOaYKL?Ca#IV\P`i]O-0UMO9[CW#!?pE#lX,Lr%].@E"T6H"m_mH?8#-h:V:d^*4V'8\Op,Ws@;UCF^T)`Th&,1RSEfs,'[a:_7S\a(Fj]MNQW'=u`A6=90]ig_#/)G3Mnj]UT9(egRRZ@`l%&PHgq<O.na>usdOn-n]jnD#cBD2S9pl8!J(aigP+/21CE5X*uR6S9;j;spdle"C&5'-9dD_3;:knBPn6.OWmO^F,JF1P&7>?T1[8Y+DnL#QUYF':u*WL8T-4r!_J&H&P]6=HnsBi/'`)Kn_Qc,23W*Sr=L@#BYRXV5o7\NAPk;%MjX5_>%ALr368Q5UDZNZ5T$]1p8:^%qh39gM!*3h0>kX63-&!]GE5^)$;XBY_4)`jjuf&*HX*1MqC1=XI:>h:rZd2's=]'1GK2uS<#brH6S)Dga;`&8@fXMai8IH@La-$P+XZ1RuWg\7G\BX0pd4I=Xn\HO]G`""iO;J2lZ3mM=;B.$XW>NB_WK<HY9>bc)<X1rgOn&)'![Y$VLK>/l1`C!J+btSlqe+!=eO75:iFjR]U3j`=!2:3-E@`cP)[6Y21+l_30Og5th[/FAU)H#$DK-bO"e.'2k5(4BuO41_1+i&+gT!/$NW=Jb;AD:<PB3j43,/Dn%VP#+I(0r%b&;TY3-dQ.WCZ0o(=%Uh/XL:d,esW6UApRcn"HL,%3F@RulP?HjWtoMb'N"9n`';0lC;=:c_*q$scRb2ipRY_FG,H5DDm=M5@GOuH+'1X-\AHRE3)WQ,>c]-BOkW4ENWA<hdUj[Bd7^Cq<+GW9e2bJ6_K^aO,1G/beSoiW`*2W[TONfikh=i&\*._-)_+m([D46L-m[cF=L?hKqEkqOYcc+2Gr],keCX)H9f@gP)iA,Xi"&QA=uFXBV)5bme(2J1O\^674k=DkQ77+V!VH`$=eLZ>LMhJJ#;mlN*k>Au(;Snc`s?_k!4e0?R+iYCtp8@N^CWH6V>=Y$aYRjCj<jDg6H_UOdgq@ejSJ]GRI:;DqJB$0eaRoXHm<ns4COM#O_far8:2q&<Cek:5N"iYTDjS>hlXg&qm#Jutb<.quh"GR#Ms7_`c#%kX_IAr?R`F$f,r4a&?Oumr?GiY:lM!41EG_?uDK:`uS:Ul%BL6M:a$brhVLfA+F6n@7jE??P\a.XrbF:BE=dR73cG1IV1hI+lO'pN*Y(??j`mh(n-M9l'm&Re*F8ReHO^.Z+dri\cJ),og@Sf'-j'%!OZ)5f`'H'7\^#B@Q\?pab?#$%+,+(3IHiG(34no&0[*a^Tm*7JGDkI<`%8qhn\91KsKF7ig&HGrQN"BliF3=dOja9Bf5!pB;<L_e2#Qfq?7V@oMO]p=`^&2CI;IG/<$0aQl*`oV5-n/>1VUD7Jt7Q>d]%W:(u(KcjObGsn(K$Ei9HX]IOTG5OO0a^eY&S)NZOJ4]R<t-[UF4!uV:VPJi4@*Q^nA$TBOEG&Nf`2K(FnWKY#[X$_C;<OP6=*4-TL*9)oJ$9H5XBct2&,m9g?2dMNO0-$17V["(,Gp-j*k!\qL[d-hmfr+&&N=a13G1IPLQLfI]&hm<Du#pHbok&B#\]@87J-i4,<9)6"iTD!.b![TlVk$m&VcDaso`3Kj$6FI3GPSc/1r`>Qb9Po7bO&"FR9*4B"!demJ_ZIOk-Ul@UZ)=^$Ub'4=_g&0L:p2((7=,OT5Y]TTY?"<CQm5+dsgJQt1lFYB7/d&O'uIsi0s4]n\"m(ucZn\ja8s,l1oE(P1mVZY@n8Y&#??P4[85^Q[WJs(MjqQ)"8gH(Q.dtAjAS,>.k>pDZ4_A`&T%*\o*WFM1%npO0!JiVPZ&CYfRibN#YG=%O+T%X/To;(tB](06/3cu_NW8nFr95rb>I"O)G'@-6)lM=EeVE`,XA4PQ\,Go3qZ5Eq+P.5pFIH!'+Di$^hf!hY.3_!4gfhjl?1,q@*j3t(.'dHV;"U:nW*0-I)JIoBLdHI%['0ei2mI8jt`6==T/BNS;7OmrT4Naod%.)*geD@O6F),$H5HZ;hqg%IXon%TbmX"5Y1qus;gM@<>_S*`T$&$!G@bC5J73MiZ+#A?9_L=9)XD'P=kB\^T#W-B>3-_M;a[Dq,(M?ee3<ap^g6DMgV'?"Zmoj1r*(,AeO-rC2\a/^[I>cq#g)&8&2'!3<l7^%(7pCGmQudUd^F+H_Er7G5mOWOQ?nVK%mAg$G($=+)KQhC"f@8W"^>UR@1Ri&Dk0/k245f'o`gO(I*M>RFF,<HX=<RI8Ji^-J!V^hY#mKG.$=/eQ88BO;\V_>hG=2d2%\Bsf]Vd;4C\2S'F+<NVAm&6:*^%<81H7P'/%m(op<tp#T4f+]<XG&s4[9!pO=q51FlC1"MjsgV?>VMO7>.UY76cGT(/EMHlh%;Kh\CnP@AK8<i-4hnBN^5],8TP@\$><G4"at>,nknBdZMp/&4a!h]D9,="YD,e?_#@t)b:tOa2U=3q61boI+)D-ZGZ@4r745bRt-3BW\/CCe4Yrm.[3sUYdl1"L7n@!P\B\;/n4)hpude9SZ8Nf4FkDg*BH#,s'=K;M^VIQhTV;p@b>sNcEM-ofE4bt?[h=aa6cQo`R7a5!o(R1V63!YLH3W(^/;3)L'f\Z)_D8j:4`nmIW*a$liJ=E73BX@.FFP$N`pq*[4bZ"U@)8eJi9O8V$$ia4Pd$qF*6-a1u;ef/PEeHVTSC'-;ss,o?95B^K<5Y?_!;(E;\0&,pL7+b4b&m)6"q6H7<pBRt]&JJj>ZYOuLCN1RSW6YKjc%2Ce\ZTh5D.>&p>?>YgnR_:Y071+imqh\1sOm`-5,Tq'TrbnW@"Uh[Jh[4Ocm`$"%p8Lk#edja7'6QdUkJc^sN#qeoQ3%?^9+UkUF"OU<WT!.tI$m.cPHc6n3H!DH\:h@\C#qd:OoI%'i6m_7GTM55Je\1#t?kMT7qo1ml)R(9.GXAJZRIiV1I":EMT5BF-1mrFb_q$a&YA+#L-Y0@S8IU25[H(QG/0c'rBS9='3'(.qGjkLR?l+Bb,$h__7Nei>=-B?$+;*ksdf@uRj-HIg[-=uIp[\U,C8sbQL"Zd'^qRC[1R']0`1j(p3/lqEBn<iahaC-gA+h;_I;/iU>A\p(O&+XICp'o)5"'ig@Vqt27jg92P=0PcS(Lg4i.6S9)h"=>6DJ_T8:'Df40Tm1%n#543o4K5/RN<d-&<`B$he'c&'b'g&la2CGV>N:$/dT6p4])KRse9lb>3%!Wi-s0Ap0Lp,:u`&Y5h.q(kcGI"Yd,>;^TdWnI7R;GBfUM"@n`IPfg#WHST]%^dqUonWKI`g*)tKieZ6?PfqPAC<.I:Hg6T4S%dI^Zb7Fpk1:0q7j3S^\@?%DYNc*5Z=;PEe5-1BHh4E\\5bfqg1@uq%_L:t!8-W$`K>-hN).5#3*f4l8BnTZdILL_!(RU5lWYMr_.ooWO$G%O[54#\3RDTV%nr3b22bKRDLM]F'ST8Q"CH5V`=ccuZRgm+9ILZ=dN]fk5&8*Q8VL-dKu*r2XJ=/-/0#j:KnW71=1h+(1PV_7Ycm8bU"2&j&N^"n)>,-_WZr7Ia=qCn>BQ1h_5%5V*"jHTK66W8r5Cq%/=fFNHU_!J:7s&b.J4%t+7n3YIh?V=0\IkQRZf'5\olVF1^bTNU"M<;8X:PV6T]&]]AgqD"N\:@L?)tRVF3na1uXrO\j+!"1?ocQaKQD3@Nj/;6AO13GEGdM#G@C-+c?SDQ:4o%5<;2)l?B5BNSrmQ4"&"MMBh`RS!c+b7fAZ>?h^9?/iIN\NR:mgEXZ+g0/aPX?L]@d?)l9f>5<:cP\'oJcq=8F0I%<fI2X(#J&\7]KPC=^iiKe"i)'n!M>bliEDnOjFqhq+fFKmH,ZB&a.Bu;lYX4FML.;=(d_TVMl+^HsFshZLo6LkA*2'Z%+Bl,U?T-emGsM3>r'+kIqi@Y]VX!huHRUo=pmf)`.D-!hQ@pb>qnM9dP@I0PKtG82A9Btu.Qp#PF[\rrLt%/#<>NLq9"kq/;poe\.W\FGm?NhZ1WC?Gl]u^Q=D.kiGDbIsDJQ,rJ`]bUdZ]rbNK!k2"WWdcHFH'J0C_$mT&Kh-$F,FWY5+HUa2WU6>%jR,dsc4qVkuQs@=7ni,g<M6+!ZX6XS=jfq>D>#Whok[Lp:`WdLlb&F2X/8LPH\f5bujc;\[r<GqU3+Cr]cum\4BCkPU-Zku\]q=Ou@WeXujIUKe_hgS=omO^O9Yd/N,.6X0Be.g2B,+SBM@qo'&Ee$LA`^T7jgJBlP%8SNeg>!jHQ.FaYD,`lWA]DgqM#&*"g&MuN=TTcW#p%(B?Xc7^0M]tK!X?j6p;WpF2f1F=imm^YmGO,tos+_?I2V'Ii8L!X8BL`-3<%qisNld?m/iuD"0>26JG`jm(C:Ba%j>(p?Jd6`h*9$sA^7jQZBHI:4![a=W5VY=Wh9'eLD5R;%d$<f`&5-5_Sdu^1?n/M>me,TmMCgG9m?8PFSK[!;^OV3*Gu($4\tI]QP3MZWZ%3Qr2Lp^c:1gU+GRAW.Z"Lj%%Csr6(6Q\tBYOUDa2._mg(h$G.)Vi7gK!sf:u2)74p/?E<:=`0"6t_sB#E,.p4Z4ekd$5Xk(r%$LU2bYFh%HS'W0LhN3ktmXFeJ5Pc.s.AT!iCjOD60"N1.k4^iTThA?4KC$;Ns25XU4'""=-ZW48XUB&?l.$($F-,Ss,_J1EMkjt8*G=i^[ki\lTdeL$'ECO#J[[FPlbopT7?V>QClV*_*JTD>GI=^sbkZQ9B7s;ZT_!Q9HK3/H.ioS@3<[:J77KW,K7cAlk%W-pG1`Zs2VcI<%[U6R8\9(#'OrY`=[n$A\^Pb2Y>Vm-apo+39,5e_ZqYI7]*Dk^*\,]erbC[Tf\O;uC08'X!S7fC"jZpi2]54;Z&DMgcXnGs;3R=)I+G3+&^Tcpf>tR?(j.#]@df45iHJDM`.mju)dZjgj:\+gDqDF@^1jnC1,Stci@1;f-m5lWPQ5FANC/NNj?qMA[j$GAGrK;e-=EK/g$kQ_/Wj>32P&K;_hFaIlGL$2G^"1,mrC1$eAp@)e=+c2Y;tPoBB1ln6$q.fV(B,bp-WJk-,B)U1WbC^XAU8jXndWZ-:?jCsYp&%aror)Y$Z+cijoK1DjU8Wm6s7E)8YVu&aR^ioO<:,UHfQp^YGcCtHh?CJS=9RJZ\K2FR^4h"$pAW&WK!ASrgliDUhiR)8!TL^S-ur:EtAFeRX?i,6O&n4]bs6EUlNifbN@*B(&#e2P3Aj0A^SG6]97^Wq)F)/?7j(Z"$)E*Qcqd+CdKRB?Ujla.=H<W:!!$jlNou=-eUe;`MHW^cm2jf*citFL+=*^0kucfGJ`Fh4(Hb'C[[>Z$gIqa__T(i'3+-?X[UU"S&;=l>)pXoYlll=]ClN=bR5^fIdi%+;[PHS\QS-9"/42cYA=539j<N\m^=gXh"h=Z8\O9Ld%_\%l#34]J;%8%@ZPgpk'cnZfROhJ5eM18e;Z59pf+\b4h?G`l^/#t@bs;MQ:-N<bH0p*#50mm&,=_t4f?Jtbm=Kcie3%pdh%8#'uppCC@bk)JbDT7fRj]c,;AbNm*s#daYGLiE?=)o9>K%BE5S/+O\@GNIO7;KX<G:1DZVZ5cZ&R[0M?HIK'BrkljQi<j0@8lFO[+b[5i;-XQ$_a?2)c0b=T^]1;-g-@=)trT?PX$O6gXjHH=tNG1Hbtn9A(uJ:eNuS/"j"eM_ZC[N1?RO!oYfoNpt5]6OP#6(=$5audJ;\iqq-?Gb@"GJ8T9O'mFJOI_;o3Rm*MiU(kFEsN3<h8D8E?.*J2J-UmO<=[5/<jN$fA!YTlK77#ch+(H]mT5rtnhim1YG4N"&<G^)kX+HP@1Eu%+T`-2<KN/8CR.a$VqKVVrge)9R=qQ[pB3'Ip^=L3BV+?D-"%Eob9O)@geq+k;.j]Z!8i+QEe#/q`)ls2FF&>:fms2V<C<9G.(+<6#9F37b:H<4oZUqd'1]*$8=Le1-U2Q8'tB4>TDC\AZpT!MV%I1uAmU`K+;9cjlGPr-lNb7pQS`Vk8o(8V@N9@XQ@T_-3aU/D!s3V%""&g*aSZ<#7`GaU6#@:GHT^NJ,ei(7-/glqS!8*UKmHm[?=i@N952_g2"t9K^l:l=:e%,M3HKh>jE1re5:*/hB[b!4R1B6iLH(m'rgO!2B#E\DKZR^&meaph!5V1B/<@#V8ErF<-BKP2'LJEf4RCDVid6[gOur<H/qSQ&#]CJJ.sS/<6CBjX32EZj:WYU0UfcRO)DjHm511+18H%$me2Rb$p1ATraamb"eVQp2le)Xc-Krpbj9rm8.6+Hs6t_K.VR*5%X.:2gD*Ig<e#T0Ci6Ud_?N).PA>sj"8.`f:_%tUL_Akp01XBu`.rb,a3a>pMo=$IqNR#g.F`Nmr#TT0V<:iL'1.=*/rT@#-K+?SIo^EI;OUbp2M\P@n3:A!*QbRO7ZR&/<o2&!i#@,<k&6(jW1p'D;VfQKXct^(9`])2@:*G"4geKGi?gE93d`dMtnpIQ^q]LV=Y%ChABt!Ut`BF3A.j72u.^$3Up6@n"*R,/^E!tio.0/[M9kd!:AA^U-(W*feK\ub:A0"<"2aSE4%8BZCeMaE"%G`O!6o[g2=4]Yp'Ckt./gS4I\jL)BRlsJI:p5(9(g(;Y51f2rTimTgQ$Z?Q<Z_*Qb6Ekikfn]Hb)QB>Wdl&GfJ69DM5g=&1hgSbID9%"GH,V,ms!N!kBDXOR>US)8('2S"]9LnYAI".lW?=E]q:D-$VC*spqZL(@\DWEJJBV#Q7,GR3Ni4i>c:D?qRQe`\+^(T6Har/UdO-@A5a_al'c:7;t(^G:jG5%2X5gU4SD0]@nr]5.]tN5/cZ%=O@]GgD`d-b=b37NQcTD1,Z*QSVA8615YpZeX<.'51Jb-Pam:5[8>c8'?.oolb1LX+c*u<W61`dXCuGlF$J`KA/de*uT;IFTi#r;i@"EJrB;8a-.-L?t('5";KZ_E&+JaRRT#!i(LLK[&_QZE=XF$,uP)fg1b6)+,_N$b><J8)tB[+>e&$7UcQ:bKZ?N6Xh6>_QW.).Y$%:5"XC(K(PX@k%9)TT7KijtNP'%qGVjdMKq8(\n>/m@']9f!h$YmZ(2T\H&eYJ.*'p2XSYV@?fAI&fG-rUUl1a<1u"XWVakQBl!I?I1E+!Z*Vn)6fr!CS`,X-f?WphN/%Fn52'dg(qeEF?#15`P3'a;R_P3,T8lq.X.o6K#6R*bq2*aP&HcH-kT:88o)EZ5G[X;<1bOe?+mo](1@.EL'ic'i>.`(0lh<sWc1SoFK<I$q*oq-kL`B*$8*C*[P1T/D&T-*4=ao</PM39PYV<iOX,i"JQU(S\o:#LPO#1;UW+;rh(b*aH+s9J=Xf$7D1uLO$`<>_#;>PeP*t%XfPAd/<_8l6I9mrIC'Y44c($q1W]#%0ouMaNOAs!?<:TClJ*sLSW[1[ePL.;0=J.OhYgC/olo(GTD3N>Q/W'o0P.u3e$&3\@'!1@(]K:Urd[^FrT]NkWfrE^`,`2dV/IM#;e2j%ib,@\o"DN,Baesr+CO6eYiI,l5fb0!3.^F=1Vm':@^IihW<'']tJpJkXGsdK(8b6d]6FaHME_E.81It_O%P^-:'Q?P6.[JK6ADhVc_Xm!YWYa6WoK+q0Q)1VSG>gFO@^7b+P@@Mr7<Uthm_>6+qSht(8,9'$JP21bbs,F#)'&9GOf91!_4$P.q'ti+p]fqh.Mk5(:!5'lDBT`#<FU@?BT"lL!%%ccQ]DJ'pDP&R&9r"S!OpiQ-($9h)3KORg9:Wi6^V*M\S#[HRjhRNjj)hDdM3Dn2-2B3%a:BCIjGPO$_Kc?p8?b1#!M38/*Yr^W>QcGhQ<<dWBf%s/#YT)-ZmLLed!gR5(JQo+S^U4je>HI1,DO!'(+.H5jE)9!+pj\Kk!"VoAS3.65j)bE#WcK,8@\X,>9odLk2qH?nW85"?Fn/l6keec]]U.5;X+V(E@3_qF&Vu7nqC*d?_!oT:Tq@jn2k,!7MfTP'Sg8*i$FAG$H_B!,]7nFgnglm&76i!t*^;$#t"P"23EDGkI]e=t)5../g9k0o"LpP-g-K]kl<47l#5',F-EqoQ:d3_cNm`*<`_;F"O3X6_nF(+9[9lP]*AVMq`Qj*#IE?bB"]mKt-#TNXDiYZQb@hhU!S-_oKl;\_C<\@'YP+Y$N$K2U*>;f3b*T_Oot3*u5_"OWi7Tpm&''iDLn:mWOg8m]oOjHW;pW?1ME$qg7NdH$He+NeOA;\5s5=YC\/5@QGBBB;UQ&^*VWU:k.CbEOA:lVq%EL?a\:qk&_lrh4BdcH^[IN>b`fYRkPtum\f'-mo<5ch4A-"L>?OjYit_a^GhUKZ#^rAD0ojq>)7^X)3#4?rS0*jjA8T'A3Ec:W4"g?oh6U8VX61FdJjB'U2)?cF-i8S.4stQh3NYT9igUuDUn.=nmG9FQWq&Cd2RIqVA0pVM0%"U/74O6'4mgS]FbKVBu4,m&pr00]V3e!B/X@#M@Mg/*0[s"g#p4T4sAgL]@]!7M:Qb!gsot^jsCYiT12:BT2_S?doJ[UGYNtT<K'E'r3he7fmk#agIgF8h$bW9-:kiY=sYKDL5!BhcTpD>aXB["RO0I=05]rkajjhm0S=P:^C,H(U0sdHTobamm@A+Um2'?:ncr<IGCY8<2ETRC6lIaO)lcCF63Forjt7^#)[Aqjn6-%0/#2^m;2J="T]s+4Z\@eT"b*2CUZ:[$'3J%kEoXOf`YIbDY'Xr8nEO3q%pC:;>Ks>YDj&kTo!uIVM^2-M<thre_iDG:U3T*aOW<G?rPYuB;.dmW(\"5*Jk;$6L*T1'Q)!EBSC(6I3Vi2[g7g03BM=5!s-^pM-3WX9?DjPBpAp;-lW"#rh:)VOqMY0<a8018+]0dk4/MtR^3kBIiK(K\f?m&%`B.3Fbjb9+o9=f5lCr;.FqTTS\,(\)INfkD06#P.mXEQS8T7*KJFK&O'^P4npJ4dbW\42L%5SH._apr*!Q9)'lNArt(3_.f)IROmmJ7F8hE>[Eof\HPaflYXde8s9:5[=hJ&W9fM8b_;(";NH>6lg!1QpP)WLUft(JqO\Sk27+r9:&ZMcC.V_?,2[D.13&A?;.?jf_h;6+*S]NBnOKEMi=KS_l5R_6*6^.6qC9,=2Me.VH)J_)0EbL#rLcAR3uMM2KSb&;N^/+1X`s`,&iu3,6a_.^nILe5etF-LJgG/9jEQOLWM")+NT/VlHRKinjV-Qs/<5;&Iiu_j/>l.(WFcX:`E"C"^kgOQD1G5.)^\iN'DQO3I]*A'Aho'<c4j+_lri?1L?7^SEDtJ+.%1Dg;SN>cEa$k1I.Efo\;&e7#uNM&P'>FC;EkO6H)4']VmC_&fd/%n09r)_7i9!j"4]FpdH,Q,eN[,?JLKq-1")KaN?X\j:U!=CW&BK:Cj,/gN/,+(Hm9rI'#@VbtfCKm[(Eft?e9M9^meN0s/\B+PO(X_08VjDSb;#TCG[TY(2>@n_$%5PRBfZb?*7[7q7X:&i=O'i#%dXiZJrcdG.!2O-?Pm#Z/GIDbXna0!9;-/T8phDI?MjJe\\0P7N5AJSejf;S>V_Lra\[jhA?RtnpS]0dD'N80[Q&1^1GUpurQJGlYK.2^\uIS>a9j[B>/;qjLcW\OVK%^W]8*ClVa:ouCWpm$U<dF(eT!)[W@61^UH&+taXN(k^DfO0=QG@fj8jn01)[=0s+?-OsVi#$I7VZmSNYV6M/,GglU0%sGi=0m^b[:/PMGY`c-Tb;#/H%3R>'`6cXd+9*t>_==rqJr`q\>'ZYqunGMs$VM1[>C-]YiATT>>'X;D+cSCed4luNIK6O@_Zu7<%-^a/"ebc:*:23]+51t]2\CJW[=9OceTp2qJip0HQdJQ_?*YdWN2ifOmSZFcL?<'/5h7?4$6:[N!:9gXnTGl4%!R`IfS[d:t]#*%r23U3F\V25G^K,p=GbEVGoON[.7Au@T<5[O6gg?;F%+ZqXe_MOXce%d[]qWHho[/)ScTd#h]+JNFMXG,rn6Ds)D+`:?SC@9LnKGcL9R-YuiB4ECrY[mn0.mM\BDKEu$*U9;[b:,`cd\;P?</>(YE#qqG?rmsZR^'f!&>(h_Y/2p7QhL*DS#P_+.b$!L0s#>;..];@D7*sbRdo*2QM3Y45;Y(^e858E`G6pb&CN8UIreTrMl20HZ]9b;@?.$0''Up?d;<mhRd/C`grN#N[ddlf2Y,PG'^3KjG>"oIhScM#DWU8L$YC+ol.10/1l!6HRh?Dql[4*XhSB9"uBmig.4D]aK"]eB5UL*?_jJ;?aLpS>[4]@l[h<k].jU<2_AZq&sPl_g-,,6[>qTV];6%f;/)=`2g>fD4n\6<3O$1h4=@H(LGcr-Lol"`;*pQ2-))Q27EGPu/A",t7;`WkK#l@1*ri_j7%LL'@f1MciZJni$iXjcGRM=`S\NlCX-P;t,;H6LI;Eqf!uhcF`e.NWp-jHD)RrR`9qtZ=W@>PYS29k;f8^r!7;P*]l;iH;QN\-9k.pO@4%CVPD_eO5OL#Lp1>Lj*+t_.d`@'7A8l0fPB1rO6sg!iQ.;Zls:9sfYV[m,34q5Gb!/!"PATC?[*ElpCV$;Q-2aMqJRt?'!qC,^4t>O.r\kDg.n87*/KHp"ZhK[,dWTq(X+lRS4N-nYN0B.fG`h%A0UG#J@)j9GpJ^d]nu@an'l[#9WMPt[WH-Ogu10G\)n*pZPs;;#!frb*ZY+H[0'QeKPNP%pNCM@h0cC'7Xr:oq$J#YU[nfF*A:9![?WhQ;tWgQTNGR,)M<R1LE;$U(;4Y$`'oG[@jV)Y?h_`fEcsZ1@j$N.,ATeQKg/Q7N:bO1-&F1MFlAq;[1:TYmBX0:@+kZY4N;)P`#%1J'NLNaM$1-H>ceUr!P:/;Tg,cV,bC_P&_5d9So^u#^Nl"aLou;$XUO+'C`"%_7a)PW37o305;Ik#mqp!2b)Vdg!O\\]N4b)G8#2_e:L`1%AQQTB\MOsWR--7gXN`I_JeP[#Y`Va"C362gPN)lTe=jp66#SM`)RAKoI[8"Z\mnK?gkKRif*>2/1Jrr'dmf0-2:6%S=[uX@d%915Gh.mg$B+LPN9.=;9Q-46_^)Ng6i#kcB1k]do/M`l5N&bqIa8N=MMB2QRoSUnLINq20F`A\cD#du,VYkgRQ?str*bB?3G+?[c[Dc826m\ua-[GL@O-B#1&`WCaL2!>AHN3f'^`X%Fq7pOk^;_[O`g--E^]0,\P[MJ99*s]qpG3r^?JtS*b\FD[g"T#MNJ9(gs\%<mZX)`ZY_YNr;3fb4'*43^g7m^f"iP\(([sZMf)6VO!ZgJ\YQC2e;u.o[A[QE)\*\?D$-pTQJ=@rBWHlH?uU<7W=*b%>fV"GgCJh"QOf@AH4#2$5)DLg'6Eh+!6m*bD6P_OC1^aI]*cF:gLLp1&+:T$f>'#i$)%6tQHYCo'qPJG^DbTiJhQZDdU&M[aGS+0RZ@_,a03c]l%,N/;&L7u=@c@D-u.n-pQug6U^g^hO#S'8b![.S8?&W&l3`Ub9bf/f8%Xr?4Gs-3V8FsP]8,X+4S9U]$E,G%\;k)2_5Z$%i'Q9TGUpR,gKqDmB'IBZN')/-@16%>]!.UpM"0CHi=?M2)+NU*"Fh>8>M;iKEhnDe>/jeCVY9CmH&XJ8qG/g(7jYG[=JFlO(]OrbG7N%`q.1PRka4"IHkU$2Qk%dt=/U`A#ekh3DUm6Pr>@fO%Vp`RW"3W2EH@PpZD$N?3Sn3%;`<4,-n44#W+6j2b8YkLMnI*kim'qW^o(0*1?3p3k<20JRQ>u>C`a/j&%D0?!p35fm15<5=lc>lO_l2P6.f2,8?tbJ7\Z!R`&'?CSm&?W5P>nUJT9m0TLU1%o#Z@o7aOOt"&bqsmS9JY??:&i.:H[f'=j&>k"9!Mj1P"l@7T(nj=?O\*hHjqXsh5soNj<M;&gRqCc9<Vq.]K_T1T*W%$SF6i\;`(`Q&.3bY5ofH0kWGh?mG]'/&]kK*ZP^"6LfFSGVVTRT4fIeXk5%DG$%3U[)GcKhMh1DLI"HhSJ17MuEd;/h74-?!9l8mXp`dM^i#T[:`5uqWPBa^?Nju.MTP(*+M6kF+%2fV5B+=!teD.=%CK_D;4=nO4t%?NO=KN-+i#>`<-"8)A.[?5g`hG'3!M.qHHN_MFgei/b>H*Xgpa`P#m@_$I\!hf<RJK<VYK*4lt$=hTMd@R6Y-0:"@Z8U^"7W*@l2`'!0SfD,suY;OTiRl]3lY3C\Ef$(,XR,f9I*pK8gA->RV:=R\uo=X2!^nMRlMWQjhiKVG;\J7@48JD#f]PaBiF&/V:&b;sIIgknmm8cajqK(FL['Yp)e3EbC-1)qGrVm!:"_rcI\%9pt1IKCX6.IeM:1Y2A4XLI#OS`>ao9hR+3QQLIhpHKE;_eY1mPX3[Gg2r'-]$g<RKNE_N;l_0jT";p%"YSU/fmC"b>$8>uK'9&9\<<hLR&C*3W"@#I5&ZG%<d3DQgTmnq6cj7dG6f$CTp`B2O^rR;queFFK-`Y)"YkURI`t<e<!GM%Ot0Y(.r7jg"FRKU])Q7QT:[cB'n8[ME'r$1WJG;@&2Z;n(TF2PM>;NrJLO/q1Z,ZV;ZAW&?$dD#3]@dr[\#nRJ(=8/p)$%G@O^c7o4''c)9G1aSqRe*2B#C+#sSB+l_anq_Dd9h1/d':`6SoVWi=R(O0*<$lu_s`fXU^c*`BM4nCVH1<&O?;+]8G(:-]T"B;X'G84XuE'e^eeg:9r/jh;g9@Q/8a'2O=;=@,VbA`ZIu(Jgn!O_RXV^U(+WLCf8n##j^qr;Q`L!!!MH]=]);local n=e([==[LPH%"r_R`NO4uUN@!c[hQE-JK2bnlD8C%R%,@)q+5C<?&a;)G4PE3fIiArNJ;UMeBR&2a<XoLr0ZsDoq]b.KH@_CK]%gq<)![0>.@I=m4RAHbISrq<iOhuFjC`*0!Vahj0S.Y%1T2V`K7Cl4(@GR[h><bLSZGZo[o_M%csSt>E/)Hs(3>q&s-k?Y[0,-!@P7tr1VH)9',XNHR?OqA<Y*slVHpLIaH.VQY1$K\@9MQBO9@Bk;,?'L;g8^2jr9h&eji;i2or>A,C-!tMWnSoP=7pQ;`eGr&HmTCCG/K=%rkOCYqEKnd'gF,/JrODpXLgrEUpn%PE0ID>rD]ko`4N-G*>1r5JL0Ln0P!SatDlTL&Sh(;lX^eD?XO"8$,[>1"Di)>7P9W8\qFGXJAD%VT(S@+TeUCCa/!;B1^tOdm*K%2bdAY#oC>%D;86#buK:@k?9/BN4g=743U20RR\AGA[FbFWp#b7/2oSV\%\\I6;4Q;@FYWrD5mG&6\aK':GEH\omo3d=qFIc.at,>g[*A,KI6Up)jU8O<Gk7+igpgO3MW];$/rcAAB?rg97/-t7ap(<^=fs)cS-OAaeQ!Xlhki*EIU:U!^F00(+<7dhFu`f0$E@s0h.X[Z'R.E;rkR/c:jD<]_&G@Z\O$t"L[9cNELq(,pkMs*&*rr2.\U<6A"oS5L3dMRbS(60XDJ@`@NG)]`g0N#^>n+?/K,`ESdq(dC5"K7;P;O3pU9kWl\L:WaO%s+=1hV11]/gHP("cf=Z)%CcH!An^V'd'I,R#p#CIE-_&SuiASRj##ks,r6S/dcjW5!Q-h;WaAeP:6/Zc;6nkIBP#u-kK3-A2.lWsj[%tDRK5hub:+A#8rUt__,hPVlJ@AL68C'$sS]L/?%-Hfr/rqAZEL%+4ki#u?N&mg/_[C2j,j:@_._P1gn<W`Y*+4dC>TIo0r&)dP*2513Sg1hdOP!\kDn!at<T23YBeuMh7W\,pcO:0[Vl)6CLKL]KaAkK4B(m*g9U-^Xe,SmQ+O@BK@D#HTj&W\U9Zif(rEMN^\kO0&<HS?r6m621AKg>Eo2%g:p!AO#W]ZT4W)52WBY$E?aYlP?C`-CaJ%p)e''07kM-[3PV1`@fhNA"Wh^P=fWtNFd=54!H=WU"=+cT%J2F,0J+G)c]$[0F+-qm?Gq#\_0+sl9m_PnF)V<VqQ:KlfX@5Eul#A$.3"S,.4AU-+<TSW.e%'ot,-D?ofj=j2fo+X;c_WKG1nV2Ue=aBD)7)O9,GI$49";`]nM@&?XDrMes!k((geO6S&[AU^V*J4N&qs`n"fW9gS[]5His67@;k1TC9/Q4N;;aN:p]C1Q^51pOG?1dB1?N]:1hr2Bs/'%54kiFHpZYIZD\UdX`cd;`9-@l4tPRWrhGn%m6^td+h'7Rd=8$J,;D:]kAZA+-H5n>St-Aaq#mu`g7)hVH&m8/NhM&4_PPd[@fPQ9oUJK]!R+YJ;4gF-1BURWZD6LXrloGNHZA;7'",qb.GH(nr=DED_?5tSP?W0)UtF>H]&g;H(L6O=B&Pl)7m8W<ncd2MrCp7H&8j#)TUq>3C\`BkR*@^ffu[E+J7+gp1L4WY=i%!b0k7cu.VX/)l?q8rOB!QrIUeu7ZCoqNbBGuki&T='1jFphn4.A1TP6p2X5-FFue7;\sVN(IP<k9I85HPF65R2e?)As92^s.!N+5s0Vgr!'5R:Vp+l;*7P6N?%]7(4&``M!gX3#Z]uC1g"]heWiK`-LuT<Fq<0+r-9W@<,.';L+IXY)H?A,)?\GQ@k;)2.@;]t[#Fa'&n/IQ,-D/6]HNk'`hZ+>&/M;/s8$JGHkL$5mMQ-\`7+e(;4IK978(X>K0,,JU1dr-1/FSZo:m9j-Amc(O/qcpmq6Ir>/'Ir,HVn':NlcOCrf^b3/&>pbc!d(57tcM4iWe]>)Ga=i%;%/SpSk[Jg><V=(Ds#VH\[7G?,+8nctn7!^`a<U,Q?-JFUt4r/gLBE'O\*5@sITceZLV4-\-hI020H;ZOl64GK:cCb-aKOF]*$+BmS?!`p)/>UuhGWh/I6XtSkQ2m><A1lH_5,e/AbHEVAe]0iI+Ad*n:?*Vu0RVHmiTBR^^EuA5u118bIb5`]pXZsi[*:/pdGPSG8($'(7WG!Z?Oe+h!ORugH"%O93gFo9E$1O7^gFL)qQ)s-#gT579i\-'-9e_A3Z5AP8Hp#F^T+tkra<i-#oRh1%Q95UQfa<DoK$@_6d/BMe!\rZK(Fo(D)I4WX[rddh?ghTH6f5=hOq3)[/:u-Z5\M>7Pf]`."-1haOc[rYCN#WMgu.W"o#Y%*D>9'e:L?4X16H&;Duc=fXfa[HbA)4+b7SD(gaDbc*/hU"59t&&\qrsIN7!=*b)q&>0RO8uH6Zg1'C;JCTP/-@\SKon6"DM;;Wo8Zq_i=MPY3ApnUJ$5Q?:A0&f!Y=]K*t8b"?mR9;9XZL0I`q^T-Om"R840r;aF97cB`F,Q:!RIR)ZMDQD!4464dgbm5m4X3`@.,9+5iGW9e.]G0s?06'drE?6j*+`&-ePpJi-cR'V71O^15X&(F&;<?"1^JK^Jf^BBRM,]J9la2NRh*XtgfSBJp^t'd2(cUIjTOWg,Zrqc4-EY`TPKgM&N;b]T*<?eXBBV]eQ;1aV45+^tPS422Hpu%\!_h!cLqLO_c^LnH2FgHX,&89:7ET,!*+.b)jf0fjPPY"4\WE\I!D`)K2=TNAMHVq0),T($YCRRO2,_=iR2Y=RR]FnGOStoYD9+/B36J?7fkP_*;(0eT\Pnl?9fD/l@VD</3nbt/kR&8AW\su7U9#=9'0'YTN!D!*ni><rKU(eL&Y*$#@?VN]'RMp96smZ?oUADQ0U9"Y$>pMtCVoD0K%OP*pmgg#WM'UXMFZaW`+>cjY9nqrCQ#\LnIkXq!W8o,](%pFA'9IDoBtJ+G\b0\\:Zik5i/-R'B(5>CUL()f&pb_\](9%0<a#(bFY[/QNnuYUoHrIdb+1`ppE"-)j2_C,hUP0mCqsu$K%G\[$@+tVOb;f6N=n4T^)(0R>X<Kp*RSXGrpBG-^s?ZVX?tCr*j$jkMDQ((A_:.>g>MN8PN9Dqm3sg>q0Z5S.Z&\8d0L^VjLARLtHk#l4Fo7kDnDX)qWlYo$-0=cR"=>H/K(=!>h^=J2r&e,CYWSNW8R=IT"Ku$5^T+hFq7LYaa_GO_WHcCRR%`:K0an%eO-#LMe&:*Kc=@SG>!/llu]>/b[>F_S.L0p2>=63l*CS<Fq2j?-gKKX_H#JG$iZI0($:]bL@QO+J^PfjW4+^S'e(:a4sYRiprpC*_hNg=CE^$3ach:@._?\O3s'//ot*M9hjIq+;B*888_(G`:9&0Dj#@,,P;NCU&g0-)WW\;WINLUkX4&*n7S`W>+qg`\a>E\bOdN^+)*DsY,aa`;%orH=8agL5a[]=C;uQ4\SfO.Q8Zt!;dWiQP&!'Z["Q/.NQ<dD+DE'A!9KuRP-L:e14,\oL*:W5#4n)R3.$Xn=$2ddk'_0$XhOBb*Ki%\Y8gbAgS$l9F.'0a0qt@jO-`de^4:hH#Ng!L0ekmJSXDNW#Zp9MDI7`_.A=eac7hne7`8G6Hl7a4#TiYGW-p4FqiQI8TsTd&&'LOEOR\$^/I#_D6>JC"bWmS[D]=[!=Ac>4^$e]jQ->9-e`!SsB+gCAV373Y$kgHVcj&FrVY8&ZH[L+hhb,($]C*TAQJ_sS-Z"j)"+[9m]%<2s+4Y.g5DP9gmLJ,j80fnY`mir`Lj3\`jKu;@%:`>^i#f5@B>e;dgH+pG!8QAF-3Gsq,J__Rkcr&=73H=N,JK6SB%O8G,sZm?WZnF)oUr%K(MI4-fIcW2dT*JMhU<H!ed/RB=EeV7J!&VG_BI([k$L35<e,elC<bC8b'lj!a#0@gRS<mhP3)J:`;_@,86,.RC-d5N+>#p%^b+u<K8/<p@4*Ioq<j$`II8;9KP+.-<W*&4qsX5]c9\r-Enh>7Y`2(XP?tSiV.#(ms$i?nG`J^P@jA1I?F)'D8PJ6n33)K-enml$<H3^4O(E_O]@=0S5i@?;Rqb_Z[KMF0!mTVfi,TX<Q_9te=9jWa5&kk"l\6b"F2b%_ZoRirVoH<Z%GI:/WpQ:\F\`5He68;;k?"]k6f1`(7cSAaV(`JLl//7&:R$L/j\,D+0,)`.-2Ec,f^hOfd04AI*.1q?;*;^F3:eH$\LkUo8o,T92f!C[ar5+*_Pp+TEiAk5Y[jo>)dh6V*QSV/WP@HZ/rL.R$\rU-WmTt2q+ShjWE_+nkFbfV7k6Lk:+We(<bnG<1JV';L]-cjH75Us!>?\f2_h/-Y[93&$I$i,7C0g?C8_j3_[E,a`+$]>mR\:s:qt,smm,;6aqfj%=eeLsSWEo/JERq\]b[XC,>T2*T5uZ_i4K7Hms+-!^5&fdrRWZ7c!*^2-I\(.UdL^R_?1:<7kn[WLeRK<du(Gq%`&FC<C(&^IF1I$"R5Zk1ENBG!')_c^$P/k!5137U6<]Ke?UA;CRo<EN4kTu2?R#]TLXV;^,m%]\d3];>O7Q]7']JSl;_SM@UAs3Q?#Gt>9-jN1s)@jQq#YU9FO8o&rgC)f#0d5*:qZAPN$V?#,L'ko)al5+6oB"`$u(5fC58LK61RO+%+@*(#MP#@#H3iCp1qq6[)E%AkVa,rd=e$,T=SV:_bNVX>,F1<.W&r>:A"EUJa^N,5\2d/m8$-N4Z`j*>SI-G^#HLa:[eL>s3oil`WT3DrnF3gkC#i2[F1uA5Y9-i7-Hg-GN*^!19I,k.T8N3l@KhCCY$PImImETC[4$[+7)XpaF]@I_]^Egin<+f7ROi2RE1-]$Mq/@-NK*>D]FS:ZPcMce$eD6RKfj,e!3_<K"-?J7HPV'm27[W9J1l2>drLZOMY@eBPNT'`K"s<=7ddR#H2$]YX?e2a&EEFCVgfd@E?6NQ+6T4t592$o6`F(qI/P!.5_.1rC;8q_kuIH$%<;A:F^7S"ZlNs$PU1e-GSLC"?c?_Lo3VJ10Y'n("+O\U+M^Apr)QeZ@Cs+\P6(EikReCR&g>4d4Yt_jR@IllHm$o`N#oi+0N(ZfmoW3c;>gY!=V)`McgSHn0.a(u"/9-&$L]K/561Mn)e1*T2g;k2c;3WW5PYbLRY>;qjo3e/'bui<>U<?=8JQC:N?%=``YH_tDZ$(IRb0SB$gq]ggQ+K5uPZp[GWGpB5c)4&U&tJLONH?:qsYKrplmLg;E5fFMJ_&\/JrGuFZM:g?Ali:!QmI#b-+TO0Dm+LLNV;FOD&AeCP-L]WmF0<9i_-i6Bf)59*E-+_^LA'+PF4b0-1PI%"mfG_QZ]GnUfS6&?(*=Y]33G=/YH,662p4?]Gk8Bg-oGJA#JoGnOQk],hc1Q,.f+"X;$QD]bPb<lfiN=pQ/cb7S>KR3.:*Y_9lH84>cP0f<e%;>d/L+&AY7=?7iR:?<<k5,aKoN^6oLM)BoX-D71qTNK,I/<@X<mlFZ]D2*PM!jKX4F.(]BDb--;YA\!<[?7`,VSpIHlOD)g0u*6XSG^8",dR_j<:iQcGdd2%)T3rXhc%if(5@:\HmeAo$I^^%qm'-d^\qS@RFG&WkT7grhVX?.:3W+]Kq]rtsPFr8NBnV))57+8D]L-R8.g?\F>/m:!Kimf&6hEmqCR@Uo;uQb:2RA=kElRV[N&=QXD:Z8+6EB13F4dJmJ1mg&`'!)-IN]0K;Tar?NgM+8R*mm]$__JXjL")=!4*2"8U8OXUX(I!W*q"T:O=X69X9C^7q#TmCpIu*.)j-C28TmD/8cAQ(]+'&8d<k)$rEn_AIRqh/mZ0>U*lC9^@@Q9K!hr=b#3r)QGK,HW)[`:TX".\i`:M9ZH^CCn?cIt<ls!t5s<qci>M'TN[-/08:<4ZoQQ!tFL6bYSc!*Mt$0'dt^6:i$Mp+F7,^c)\Vo)=0n[(3P'&<:gj\)`n0a"#IC;E-5p<h8a5:n6ZNlekBF2iZk/Ve3p9oB\\:FC`;O/OC3R$+?&qoq2l;@T#Nhh*_]gQ-1R5E8_eWG.kr,?=(0bk,PZO8(kVe2dhd"BDk@nY8Wft\P(<sa!,a-9,ruF*SNSg]?K;`CR3Oo!fl,CG7$RJRhmODKnVg7[>t-t+;KGW0MBZ[^-=e?S;ZH<#0^&9X[q>Ck,qa#]01g!s"h4JnL4hi)o7M?VUs%ClMcU?^9\Dh(3scaU!$M0\FZCN3KT)87c/[M"AD&EI93`W#CZ'2Hk#K=o98h-.B(%5M(Jh.;IoihZ$srZ;F35KVC0H0K^+!o!l.8]gW0p>beGB'RcehXKlEEBTR\A<UHpA+24`U'E)!d$5>3LnG<GZOXOMi%8t,c)#7qjarD1sQR83N'Nbp%W([3*>SNTkUNJ+hTQe>rU%OE\o`ubb2<Uh2\br*9GY]8qtaV4rq<K^;qk(CLAd3pX$CXIVj)<+)/?A?>1n]H)q!Z>uGgEd?e.)`jC:0#K?kn'>ndO`UD))+*7.+"JG(ZWh=gZ4'RATt];o\Ros4p!*?-b#D,c4p&ame'+"l:j0ld't?fk#e6[A)^oNFmEhh`rijkqYALF?Hs7P(gtVnCs=qkpEg,<CQ@:;]StX8l_nH(>K(T!$aB\&Wn2_i&*uR$agSBN#J^u5e'BH39pMNC\E-He&_[=1la?!+X5J;a9-RZ#gBj8I$g9oBM>oR`<j-1P=-)RM6f#sX4^\^7ggq]ROpHIV+%ZHK57]Dhf1L2%G-1RiSTjL\7.rY81r(i_qFQ(Gdpo%)B41-hC!mg8$PIPlm*)0S(N-=BqaXJ*j-HEn09Z0VGa0aUqfK:/kaSqndFkBu&r!'\/44J_/oG(G!6Rp8,_N0a*=s5l1qA#@qE>'S)TKsed(C<c:j'g?ck-M&*1]!F#O_2f-1Gt(3YXW=.R-@Kpdgs:K&L.70)7V*dBd+J.KZafl42lk=34]354mC1!;!BSA1i<`_bcnoN$-@,e%*E>)NIAaQ9bf*RDJeHTdA_53_o@r;%SaHC5A?N`(R?(2t>#!AL`%F/L=T]&"XS;UmeYa,QERG:b@rm)fB+IkPCNTF9ptGZAJrn>q@[LWI\jFQ,#X`?^'s3l4"m),L)'94tQZQhdBgXLR>CE#gh^<#%ME5r+ZjI:e0^LI.K\:R_kXtW/[P?\Ii!rqX?>Gj#sAS<eKrW-e)@=%3tL(AW]Df9:hXmbKcj/a&rTuO6GTk)OWM$L#t'!:Qn7c<h6:YL(>fb/@X[iC%[&H696sd''BhO)oPIEYKT#Z%i:Mp*dbGsq3KK"`l(3EiHLjPKR92&#bI>SFA>_0IF3J8p1IAu)fK:Fp]Q!E'/S#0boD0-[27;f>A,Q<fF'uJ@HfE7:VmY`le"t6"I)PKAAZE=OfrV3LZ456ZJJD5.N/q76S(U&&k-l:/LETV_D5k`NYc*q-*`LPJe&]:[L/]0!=)[[/aop,F0hHs\?-1J0'7U/bh"J1W9)%Pg5Q5o/k)S(T58s>EkW5QR&C$\@qbG3-ejN=^'30s)O(Med\^#Z=&;N<*G2o:FbiI#8tEX)@e72hd(l&f2lU.6STF;K^nrtDj-H7O""OPUK5VXnoo&3DBGAtdAc')p>$E`#V?1eS4r0G5Nn9?oW^q=I`\gmX:^kLl)"]s6@'d,:g?EobG#;'(4,a%t<(06JSX3h98L.-J'dbK@g9F_^EWKsZV6]qogm5I/^^k"Y2p.QFnbkD_B1GOt1$;6j>HqY^Ekpuio.TW>MSr>AZ9q:ps3DJhd((/r_E$pS&c5&b37]?IX'L@L2o^7092IWGEpK5eM[ci[iBgD/g2^Sd_D6%8(B9]Z9s0to6Qjk=("e=N*n<!c,"=E=!TV"h&fc>]S)GMTOs,H+?gZVXm.FKO(+5M(ioQjHjdg:e@8P@R*KOSr!2UnHa6\[nV7nV5UnOjPIK3]+>!nAYm$jS[!pg'@*VGF/:=?_Y6.+nX\5b`:P[`(c^>n[qGi#e(gU+cmIk0!ni,D3AjDUb[3C!!qQC"&qR54AY@h'&jT.cE\SnS7`Nri>PZml48@/RdR#c,2AFB5o:f[3o=(>Z*1%r_=%%b:(4P5c[!BuY')mW:IFF'o/Gfku<[S_hX7qLX!m0a'q(S:W9piW,E<AB(/iKZAPI]2;u.kQTLLPCB(oDOV/gd;:26Fh/E+<[D*R.ernb#r`#)kUS6V<_36ZfkL/(]=EQp]rm"FUkL>_i,l:G(;YLikAjZ[@lLk7M<b9p47Pn(+2t%/FuQm/j$E5ArTs2`d?fAoLHlF7!d_@k+Tfe1EX0S$knXhtX?kP_LI^CcO+ACtopAD!VE^2!S,ULuhSTE["-PNF92,U,+sNa"A$B7VaDttmIAYCQ8`b67(T66A>?$3p2=slH8#C>F=aH;A%/-L`,]eZ2WR#@$5Qc1)/rcj4)C3g?eGKnlBcVC719U&6Vp\HYeU';[M)W/T'g$,O[C5KNU='Ak"e%6aAc8LG>f;K3r3989"BJ<e"R'Y`*?2Raa9$nMBp2<mp9D/s5Cb?p6:h_kJp/e>]2[,.%A:Ip\]W</PPA]NCg/M733@X;+j1BYYR1`\b^;AK\&]YH.*Oj$5;$9pgRG`UHL0T<5TRIG7Xo9beUN:ack/cf18O=.*<0)q?&LMq168%V*P9D,!R["j@>G9U%Zd0Vp;)Q(&8(?WL7e($J;YqC4EUddDZG']J*B`F:DmlkW7Igh:s%)mMN&Ec=-f@EMpc="WJ3g\rhC/VRjOd$GqehKXJ^F5#NFpFoT<A(pn+FB7ejLN)!aNY@hYp1BRtD;EESg!'HB3faW0!`ZF(C]fIoTaZmr%of7Yj_>/?:p:*;.7RRarkK9?)A]@;8"Wr?'*]^t*(5QRb7o<4BB?^`\6YFZKCr9g8<5<`=]%1V"KmUZ%<cZYr\NiTBp'\Q4Jk15N]'o1qsAJb74_j$RB#p:c/L&:+VJJm]nKAgMVIM:cEnfB&\I5^LJ[:,dO.5<+?<0"Gh`@X\KQos:Hp_V35%Cc&];=Re+%>UB`cs:!ih^WuM[X\@t5cMBW"+57E<6H,Z#UXN)5buu(`3*`Y)"LI9V1@::"6IEaK6m=>r/\D%d6pJ5*T-/59I_Xo;`3k0LjdJIPka@$mVB;`P-<%?aGWB5qtj-Vqj6Y_5+IB<n[K,HVc^tn^lV&FSmNd6W%+j#J,T[q\bChJT!dAKU?WIA`'8$Nb&b"a=anVSPs(Xki3Ui7%"Hu:$.:<U,SFoR/)AHp_s9]kM51;R=)\=54<skuM%c#jC;m\Xco.V=[-q-X9k2F#cVpYB)JJA)8?d;[8^%?<&o<d+c!j$\OLn7._W3+Br":+E'/+H1X&Qt6&IO2t%>62abTDQrXH'![LOa*)o3tc=2K(h8SX+UC0FFj+q*'3t$(\r@"P)HrnV^D@^s@>d7UL!UY:&S&97`2,s&Ba/;B@>I:\_<Gf%nVA!CLn2>@.HW*3=kB]mPjLY5J:e)q9>ne9Ouh"MpA8l@"H(p"/8go+]W5OtS`fU81[SauMj'Q&%HL)bEu&+?r"[9Jq,+EPI$$Cq_s@YYpV<oe!,qeXa2D>&@(:n=uDS1euHh4.$T)2/GujE_7s/0B>>HEe'4"8cG()iQZiT7Kmp^,HY2^(6QfeT!;tl+1&e(E?t>iLD/f6k)5to#IT2T=_W/$8*1_ts6I,<rLdtgeg\R1Go$S'Rm65PCDh7N5?'tl=stSH_s-:!+ci.tP(*88r7?[`4/^?#g%D+">fc%@clT,J@6Y.c>0=RW0K;`T*,T='KUGt3Mn,$!XKm2XB1&c"R[%[flU_4t^p`+o1.\$NohEndY@bWE8rK`ln4LZ<-Po$>R2\r8r&NlY<bC';R*tu0h)*rh;6?*TESFC=Ni<r/1Mei!p&m%-Z)G4Ame@W3;.TVU5O>j=S/WD.5dQ]]QB.."D/TOYSFdZ\[\%717r?m7[^ggZ0-U6]pmIbKf<AAjWiI$GdjCn&C@n"f"#@(Ng6W(':!pQ4l43t<8,b/f0-q"H76j&cYIY`2Ee[K/VQK)*Z>Ua*-Y/Mh4&h0[4E>4F,dQK=aOAb/;%4d%iBq"lVb!8dN8YS8TY(GbiJ;rQD,!*?:V_W1%V*A!DeYud6>-W0S?C$=gS-<io$h-XoK!-`Pscg_nDmZbnEVn-(m!ds!"1sa67p454%IGtCRdoVFUF,Vh,oSJma"OIE\"#/mg:dJ_l9FZk(">cHLWQ;$^/oV?p(/U5G3?QbR@PLZK:Vto%!=Pa=tnoEi^?U-AnWe3]+umG^e,pOi4BTEVB*EkCri]-OU[D^OpPd34oL\@qMA<e2i*sJmLmMP$=<qVceX9?QRD:B=i#dn;,+U4*Wr:or5:T;mr$TdOIS=23Uj3XmpSQ79Mc$jN)n]R>F>/%@Sg<c5?kBKnOVJpCo\0&<\1LU7iB'W1R$5Fhnqc:e*Y5,p./nn1O6rfUr[6/XsmX]5iWNA$Z0&?trNH8%dY>N#mM</Q6t%+jVY!NtNa[jXnY>lV9q=\)\gmWam_`HN7*]9p-h!+(Y@Q<:%C?eCm/\$dVb"4*+W1mLq.H:-q[Jk.87\R"c.FUdt#%QdBdp6^(l6gl0j]g6P6&9hBjn\7;t`RK>R;M+U-b/aG\tEb+uGY`W@\,>M);MkeS<T$>LF.!qa"AOlk'[2L]X@_DU\1IR\Md<Z@t,ugUcicah"XRC>.MM#5uC9d>!G"#YIVhpBD-G-%CrbT^VB,$^8e(ZHPF?jNk_/2.?(h.O)ItNm5.^Dls>^r.M=R&\L4Jb($!M70ahK6.gj$mAag[iVN5a6P#s,BtIM,;nCll:7Oc#P+\Z#RW(+-Wa7&M@.(R#MqGK4peN?l,lg*\IEUON_3,Jp/)(l"p@KHM&&gZ\6MO=mOAt#\$)2melPo,gI)_Mqc/@;qcrg()f4,g945q!WZs?l&%U/&aHS>lKLn1r\5KZ,_9o<T$9OqLi2GWP-&JaLNY*1Y"fV<"H%-%9C"#>jZ(+o:ku4X(78rhnn,\G-[a]<]7lBS1H7-Llh<H,SX</uSsFe!_$A>/i7akT2]dXtBTB2BAqYaqPR?]nSq2C[m7`OZ+0-[gWCtNi!V("sH>nC.npG5FK=`P.!,%Zk$*ZqY21+<&1I`VMF?`90mJA8;Y`;6S8aH<mj<"5U/@*?ggSdLE=+niG-:PXPN65NDA*DEV!?FGl;H]@h+5`6lKd;%U'KnEI:@7hG+T>5)9f-:FC.&*Y!iWua1Fg7)O,PF\$GC3F8Q$/c'`0b'?YR$]MLBTbU1$T:c;?A0g"/jUA*mW.3(K\:?TE-#FrPa.#X!`HS9ea(!o[PEMRVouN?YUI_@iD#4FH6&9n5&cFO(`*Mr/$"Ncn%#!MMiXN8Bb=Couf7!CNE[F_;\i^a\e5/:NMBChp!,eS",eP>f#j;RZWQ#XJ[;)qNGT<L]2oNIP!L*A3k!`-Z7u@(7D2Z/H7Y;Z]kKm)`@a&XGG'X#/alW[:ra)KfT=nW4ZVX_r\0s/@,ABZBNm*`0,:F`,&ALI?QRmq2XcG;Bt9-lMP)%*pAWN8RZ-XM%)j\23$O#Gqf4/1ioF>g$aoa`GA"guJ(-9;-6Po>(NnK\(hTGaaA)!@;%D&kn59Yo.2mqME7)O-JT?N?VW8hMjECMVPe?`G0\U_;m6rP.YkGA2RW<o4dc&7p8;nlcU2SY8a.5L;X$":N+6iRqMe%OQn(";;>TgL0KkZqgVp$>O&@Tf;d.3D=XHE!aW6]9*A24NJ%*<S;A(?LqMX<27I'\7&g"d\1iN7?IZrt;mXGuk/e,VLN#Je7aYRZcM[:Cp-,^0*)noY=%j;.`lde[0*CC#8/6aaiNkS"Iqn9"rC6Qj,EA\J:"F_/Z12M(rQ0]F#[&bH1=LNTNFR_P@NIht78VDMp7pPjL4+j/cnL30[,o%Ocp,H0F&PDN%EQDZ]#n'_q/="dpJKioRMlIN%N<]IS[Uac,1sVr]4)QdFHm&X;N:.3D#@">#6qEA"AY<>L#4.#W$!8*-iKiG-Z(dDbuKnrF.K)\_hY[D)mfYb,iGFiL-hm3U-)j&_gkFdEtrkiZnMdfiW-bRI\XKM_tUkJniDIMg9,jd9R9;b%-"\ng-p2;$s'*ih1^*X:m]g)ah!@_pr;$ca$3,Z5m^Z2bPhi*H3s=*_d'(=nUu:^FpJUf-D&E1]?@?#LqsC((T]LsCn[(jdp7B.-YQ?I8^8D3'FH+K36RQMqCEFYF[/O)2Z:u.^][g)&EU%oN.07lJW@eN;dc)qq2H_-_LYu-g+1g+FODe`Vo*(20osBT03RqX//@DLMgF/G0+[%M%'+lRluQZg5$&o]E8DGX'-H!i2$kS-XAm3f%gSU4I!VlHLr(@o]"e(iZcf"/22,b_MLVhb0KF_'r@FHblOuoJ7c9VaNLm$/Ald)/!Wc5=lNcuEp%QANST*4tc`KTq:1#MFPcqmM^\H87@9H@:Y5DcJ6rLn#_^TMJ7/M!DO$S?DMle[6U/rk<WL5=;.PJ`Ss4kpT3m92Hifi#$.:o,c*=TOj5/MUen4Ra]"FAiDqEQflU%Cs>'7s;&YIaHS"ePQua%d35[eKQe!nL)o`%GNGooWkV4l<T3GMQLXiM/OdIb*=dKWa^<@#@@O>CUapjha<CZg$Dfo@X/$2V[tT&XbOMDp[3$KBjY?$#[Q]RkL[o9.-!9+G&?b*1L.V1'l1!kIneO^^=TsYlLpeR@9SB%77)dEMO5NO/Z^"SmRF1W%&uHOrts87r.j]YfJm458bT=KROgRWek7l5Kt4,m6nW=J1^2aE^+fr*,#3ia_sqhF^<-:VY&-%ACh`fT%/$Z\]"no8&o3W,0RM(Q^2+'Dc=>cO1a!BeU)p<<QtFj$c(ZOQ+gJc"gGM/_g?7eo_bPg%h9t>..]s/ZGNC7qsf09hpP,M-Lihnc3e,;-daMY9o05>,36*d2'l;[ORP.2lC;/T"C+a?Z%n:_Ypo;C/?^.X"kK5sOkNa"5Ta_"pOR]"J`jZ2k\1ri%Hobp[Ie4N:OrY',s\fRj2]$cOpY6'hkfS3O:CLZ#34o_i^Vp+&ZkRN]*s;*0_dH(cMFPV7jC_3+=4GW?7$(!iSAB7d]HhT@hT+#fZa?Nl4Rs?Bls^bNOQG@*b4'J7I"8im=-;)=[!4dC@[W87`b;=/@\G4f7JbdcpSj24kno>:RN[9PQ=ZnMWMU\WSdJE3>(%XSqN4R]k/GBn\QF^4loXbX(MMS\PsQ^RGH9(>[pjDDf#p.0ZV306m#H<cJsuCWXd^UL?;7U.&IQPpY!321@20[T%]W-I^!7m-RZ\8M?r%Xc#tQ:?K'u3mMm'rO6OM\#.7Z"o=2it*IEq57G7qddP'VJ69[5r"-Ug@4h@+QOSKXMIXSI);%SR+Rdj>8%oY0;!IF*KeF5Pg<F2>e@K.n1S!SFHr0IZ*Rl4Tt%i0+t:K%_DUgNiEUSU^Wjj$-$[GHRs-rq?&1Ar?^N$-X]?"dnTIp-Nkep<M[9J[T&h0ZmRS.GEY0!o01Ok\7AcJ*KEL-9be;D/LE$`a+f&so'O,]BWCX0-]`6G`Xr3n]Lm)(<HWc>$6$3jC7CVLJ]]1E<_2_gR8R9^=jhDCJ$O=!uE)>):8>:qR3IIHuPlC-a!9&H*mo+2!ksVO?!g^#,D3ZA/)<=2m'+B:22/;<.:$^;kbs+kao3=8U582]kpd@'2]#^44J18V>GII,+k8QL)b*70<!R"3mCm3e\mk($g&'V?/?5OM"%lk$[U;lW&WXqhK:F.6%#q=PqCc$:CBD*8Y"Zf':o&Um7I3h0:aXg<q&8fhPC^`kM?u-uMLeg$SQt)2VbTM#//I\K=QB)os,d6&QF0;e1BWruo+O?n9:&#R`Sg'FVS;CgCb>s'nM<7+pkN:+XN@QI!sU0G6NUpWKi+fe0%+U)F=GG[%3Ld[BM+[l&aS3#])V!0U6HdCB'[-3At5e[)WL;#r%bI27U=R#A(b@Jo5d@HY*3$[&+2;UqS9Lr;mh\6K[Eh-U3ZT;-fk8,Z<`f[=c"nN-N2!SQ\%NdDHn=>37d-e"!lf9p^'0.Okk9BAOUB\3.C2%c,.-9TV,Z+#J'\I>r6hVJ+HqtJ_Oa4!K'!59K!d2k?5"l]Da2I3?2JB#02nj%m7L,$SSVS1->IVaSLGdn'O&=?`!=^u5`^BR[cHTH^q\^QOIs(.>P"V"EZf>nMNB=#3qjB1lOeW!QN-i2]%?D1U&ocSd9Ku5o:ks_[c+G8$s?2oV*&F^@]MOhDPC,K=IN9GiLQ-k0!eUmmkoWeeKb/6:<hT/0WI\l[uWhhRuYWHPJdiG=UZ"WAbOBD9t3:]-cEh\e,Zo`&ird>\.DV4)/lFUK3J4plh+j):.Zq[W-H>P^$k7m`P]WU?OPmg)e.0Q4qEhuE26ebAt@KNJUeY6Q]&42K-XFFK]QEHbJB.riSi!R=ER"NrXaag^,%Ts;lVb%%[AAu>FnY/6>&\5gVs3aK,1V9+ujeu;EAZC:9(q0DL>\FQU9:&!$@VL9V4[^2Zm&ZjEk>35K\4=g897)7)T_^r6LMPu[?+J\&1@"W9Y*('+=ioDV.RP^UgOn;E;2]Q\`,lFb-:)>aQ4f\$i*WleF;(sGD%B;jZh#X)UG7eHijn2/R]1:rVSj>fae&fu1?;fVg5]>J+q&USTfV67q:!f(/>ZT&[IHtGr3?^EaQ.lXEu+kj!,m3,\jbuPs&3^O#1^Uqrdj0RWS`,][af[*s(5.AAbsd`_OYlqPU_tdA)E9Ccb!4(jW_j?cghh/373%be:I]AOC$(^k=UCo%J@tfHGHnc\4o&h&`-(@ZKt:c'bFW5Kt(9:Uem?0[X8Cmm]0-TdIp4U"O`omJcE,?P%C\?ZG`ssbK]dA`o4DIV@?X.i79d@=sh\7b9cjg?onu!P5n]U6F!KOWaBP]@c0p%>D4^*5hAQbO\V+%aWPEu=XOSILk@l*-fYegKAM]2!S'pn+Y#HMGfug%58c@M=@G3R+TY1gEij>HE+spFmSZoUe/YrQB0GJnm;lhm6X,,?iqk-D@ff7_LX;hDVF[l/ICu)X<??,]dG+'dlmK0O(n"!H='MLF6'K"@M5GVSreN!bO$><;p<RE(nBCiFq6Tg@F33FSg+["0nPFJ-\,&A=fB(8n5#4"LNlX#]N]C-3fVI<fj(HtW-6Pbr6O>%$=Y9[2$hF(M`GJPF6K]T%](RqHo9g..44cCYa,:`tV=`T1]]n6q%Hr"SrXm7Um[huhP!KnXS^IUI6+i(niV_1^HGa*"4(09)e6<'EJ%\l<`]"2BjcU[>Utd[/K1aWtJ/hcNT9_iMT?U7p2,$"#YOe"T+psh,8pjSoLLCjIeKkNX*snN1H,r!oWJCk?LstD,U_R<?ERdaf>lu4SGZC0&_`=fb17rPI:k<&<&3&qurufQ>3@Vb?_2W;qRAXrBV&RbtRGu;Am0e(59U)%::A(P:LQ>?/&<Zj6b_[RGGHgZk>IUW;QD<_$1]+lXYIjLt7AS$0Yp$TfIo3EhXGh_s@@On;:tc!3lrG`1Fapd.&"+Tn*Vm@Pp2@#AAP+\U`<u'OhE.nYe7)ha!K?ESp8=7UdptLX>83>#-V/rF/#]"`f1<nT5'$7;A80)f2u<U(d3r,(ciIWe'XmI"KogA/!e\iiDgXd07'2^!`f:sH0nDZcECf!IM+jitY[qsS@.JpZmS0P=j9n(`SBq:13$".Gl[a<G-EkPqq3)$im27p4U#]m++f[CbOUFbZflE:plhrj:@O>7d`W,2d]Gd/MX65+e0sZ3A!53qqOnXbk9$TuaWcWjZ.VbJ%A^$%GBk&Wc4!`b#ClNG]Jsm?0X2<g#^#um[j6k'o4tMMM[plG)a^'eGr4R#7L5f5>AB*9Q+M./0pG%$^a+%Rn[`e]:OWN$:_P(TP7h$`H:cS*q!5UBDjW8(R=XO=s,(\1%Dle^\(#/9$O[dh+,ZiI?m/r21P1A2rNu+G#kEMf2I`nk7YT#)9et'!.5%_;5ai@_@$/6]JqZ.R`8.7kG<G_qh-kpC^0t94hbm"X(iSI/bLa8!X./V;";=>?r?1@^6*A)\1Wj,/m_pF1[<fJMbkg=ab!]ki&2L:sA>&LN-&<Wqn)9/pT!WXr1OGh[=KR_U.+c(r#Ab42iAplA;XK`OHIS89,8.")cSbg^8fK'O/m.1#uWH91m^b\Ps_9GK92fo2ofGFuM.<um*Xj-N)Zg&GE+tIP7[os-?C96L`;,Z_]`655c](5C":0'#D[iC=QF`_-7\TIcE+SW?[^s>d:9.up#M&1<2[Y]^GW:a,!dc#6g1I3+LiDOYYUs6u$^=@[P-0T4SQn):UK(L.R)-S,<jK*@bCC_7'4\q=/=/@u2X]m8/_#]9)`ZH1L.;t`4:p5?f0X=f=]ihu*6Z6RkdP.'<C,NG&Bpg3`W=pI,ZtdI4R.;h(jrDA?/j;DK,e2CWCV[$C_kVOU\l2@R5Np6?f4)m1K;KftR^.L8G_<0aO$4P5E.1s7(B\D%!is@qPbZ&g,0*hq#5c3.QhV5@Y7aA9fJ)UNl!eHU0:P*tOsk;o85j<kFu/,g+=BV.BC,iW-;g\.7D9c[iX205flZ&.cY"([)/Bi7+`?7#@`P%_WXRc$7^1Z%AY9"u7NK&X%_GOdF8hWcn*'[@/La'"S%IgC,[&F6F0/7["jJWf&Y&]rc4@E+L#kq-M-gu[YQC0-Uu:Q&SsZ\CGW?V@o<3`<(25Yt5e'3rq+X'_U+"EFHeu0Rj^1E\b'/Ff*$1W=nfK>]CGF.dHu*]c!71$'1Gbu-m([?$C/[9DBL$+VYgk6ZbcfIAclC!Xj.F(.0qI+KqCL-d^KdG"J=p:bm<Zd^r_86TBEZc*<=5gs&^cT\h#4gTQ*/`3GbLsRc=,E!0<F;$PW3_N2cZPP<3-`W=;]HN1u]5&Q0$I2F4bb`!WHO#R[FPrMQ3^=gO^T+E9RKD1]=&F=.hu%qL?U2%/iW%a3gIPh#lXPZ2I&Gp$V(9(64!%5c)&sNt*SBL>*.aQ"MoSC$39b@;^l83Jse.>B/F/YuM2i332XTZ@OPr[eLX[ngs<TI+4^WpN%e++7ii`WNqtuC\1a9ka@gFX3RaQ:#4)Z1GeJKT)Vd$k\GmsK"%6sl?^g0ho^1nA+ul.%u)__+%iJj2$+"<0!hXme4%b0/0s&SG:1<fn-LbBM#>;/N?[jC#a[5]aWKKNZ-HiU0G\P8+'.\8\(:Ma11cY60NlpR'>?@iKsj$_SA,CQ*&$1@oiDS&Dk4o4fs[DX3J*eI^peT[lr:@(eu:jeF?,lhh8EeeeIYjE5H,<qKPAp);eWM!%rZ#`6J+13!t/oC.=P.d%`7V9)WB.Ar!)Q)XN;/OC2O-e!FGDQ$j#Jg/#[O(YjN'ZI.EtLZ7/Cj9u]iN9=arjF]PhA4&#`tila-4/>8Z3X/IPHqt\a"o,%05g9Yj4d4+?EIW2?;#<aBY0a[h5r<nJL$<X/0pd\Gb4o0Q;>FDSJ#Z.9^Mp8J:+6.kLiqT]prROPQ_ath`>8FC2J/r-A4[Z-F!XSdrXD1'j$NV8CA[m#I]PeWcnnMY!@8GFKOEBS>7mA;q%EVo8>,Xn<oP5X._uc':EG(jG_O@lf,%:>-'j\8S/&[O(":^0?&l@"PGkA`3YHW!5<7+,ee'WNJE8mHhKI?M%Gkb24J[=i$"Oi4Cfd*.LDo@(>GDnP67eG0$69cQ[+%+.A.q<h*mq@oP,;a]J4@<IcT`qp%SGtSVM+l#[4gsi`U9,0n/hbW<=duX"9/jj[W(-b#Jb<:]4?!U#(B0-'O'9U2W:23$Xg*;Pi(/lUp/QBn+,j!V8Q9\#q,(K80BRU^%1C?:ZZ?%?9^ZS7%A0S",.n:+\gF;iIbiV+HM!2tqHk(s)dES5DXJ@+#`:ETPL."=7Q!5[gga)iT/YcR0q_-LYAt>l0J+ab`>4a\iN*C2I/M-`)8HsU"6]3^?<n>8VZ0o'1@qr]XHhthG1hQC^)0kIcd[M$ZT)MJ]MRad-VY@9kcV,5B(NM+2A#c?\sjJ#IV@tcglNP?OG,=Y<R#cec<8En$\J?H/`m+DZULc8;u0.U$q""CjIMmV(67k6P=mG#!gkTDOBNLn-_QA];609kLenVNIg0fpKk!m0a+Z@Q'?9#@'2hoOiDq[!H2TDZHK>!H(r4,K*Q5E*^d*OLs4ORgeeu5#.>M#u4;Piiad#,KgNP#OTojN+_CuqspOrrsa%RkY8m#^Beirb`$A!`%j%'VGVtlSe\.$_0r(8$,%<?e5+FJcH]\X_?TB#]][mj>c?BT;i-p3)kKE"$oV,jtWK*5<ga1Ec,>uG!4%-ul??3jkYP:9j2[3f[U'_kQ\jg]2dXit\V'V)XN.q*1&/=/F&3.eegNptXU0?s2e$+IMKks9pU!)e;:mKth[g]oVsU8@-!e2rF]*C0q$J@07u?+(Xt?A:o@dG8a4--?-DU9jKimnc%/kEuicWNV>@/K_Eq1;e4MUo_W_/G+5I&C"gj[T_$meXb7*2rpU;:"VDTM?'@N]NGGo\,R_ZX-DLG1QT:J1U]_J#dMYTd<oF8hq0$dTHjI\kJd>sP(=.<d)n*IZAt/W_&ePbI)'0+OW--6Qs<G1D;,Bnhd1d[<Ec))SB)Y_9M%k/*Vel\K:2W:'ma92/#___JW<beGa]pWCQGlC2N1f4a=^=BAes)3^B+#g.\]nADTiKC,&R9[/E0V,UI30V=R98[o4U(GRUYa80qhZ@E#_5ZZYXHHnTc:q&/rPHfhio!&+nmCM4f_Wi7g:lh?D6r'`5IcU!-2pk6djC(j%!^q_JF'4Y`7"7)t2er'ljrWeFO:#c08bGFptIE!Zj3oSZE)o,!UWVeYY_9GZAm]&9)SZ1?F`Ze(!<#g.9K-KKttP./2p1>2:U_$eUW!QUK?p1E_(3HiW.XMUYX7nr&8TKNd8aHjJ>?8J@#4Ur4Y2k4(_PTrW[9dL>BhDXATj@gBu^nBrf1MUe?Q3[$X6^L4rEdP6"d]W\V2sVJ_%#e%[$IDkrX^5MUDWZ,=%boD_"p_IE@E3!$l?8GFmrd2KbYkq-)cK0ck![LJD-C'>L"'p</2Y__n?(.0Ih.RSI>!F/Os`Va"*T_6oIrWE/XnolZ!TG9\%qm*4V^Wa.GfRjf,4L(UMkj@\=T2,'HicaD;BMj77*,BA9<A7;@5_X+!nb9rsudLD#GocT8V6CWSF2?qV:[S/b1(Uj!LbWmn+fWfUDTJ?'5R(S#:jF(3*9=L<4h"ZjoMFm$u/U3N(\2/RCM8]ERkC)mkB+Z,6*)01S4V4K2V]fB4D&7j6@X3%]ZQK>Bl'V]o>_i%MBl#AgFHqJdsNM\*Ahj+&S4r"*;X\p4HF>aG(Lg5obmEIoCrdto9&>TL\8B"j/99hu"(1ZZA5ehcl6G$tW3k:q[(N7tf+eHl5GU"U&$.a=Q3TW@8f["aqji8Y,i]uMT=86/d)H0^nVJCG"Q(!))#A?YO7]!6P,A<VR3U<g*r(m,g1(%<"/JuiiOk5)a&]U,g03=d%/ISXDkrHY\'piLgJ5/)KWl3N!W(tF[**2IsYkrb)2=jO+*"OZ!4F)d>JH]/fUXtfZeCE:Hh6&^5ap^EN/Y"Gg9N!!\9X%$FWi'DT42Zg4=NO(iomFu07[g^Ei9`c&?%hh`/a2cj[LT"Ot%#bQp.&s@UX8>e;3oL\ngtXZW8BC4"[ik7;M^FJ\':Q"FrhCEPRVGh"L]ATq2^FYd=#qq?]^/Vu<Zhuh$o@LtQ_dJg=@LQ`on][Kk_/o(35]N@b=5U=6&>_u'$CR#Z(N]B*&?kUFJJplRPOt>=`Xks>;=BU=nWCrF(iFM8Z]`uqh;1Rok/UFWOfGpRP@kT_"Vu9bCMfBc0Af-IAMNNnJTB%IC?.^&CVf6C-``%@dHM=)"!E$\rBTQ,&EFS'g9jr'8GCmF$s[tJg(!.Z@b'_fJLSIjIHY<(&5\G8EkTs3+1>jLjoSa^(sD]n7(+lWA[fR-+A!LKfR#ll\la*lB&6X*5V_0=E4#F<(5u-Zc'E$M(=ckX7#<'I#kodg=1p+nk;9()B"fp])97&5";&MV\5sdXpuTGZ6H!Q=+bQ"qs(lbKDteU*W$95!n\#9j\2h\<'T`m^hL!l<9msfRGKc;1@D5dH$?,"<^m;,K;crt:#(5]=4]j-#dVA34/7p[q2']C>.lE"K2QtuO8;N_kfkCa[6!TlZG=??prIoC^'>o\3+i/:;#U>3Ukq(@(M>9U=?=[LP;"%"<%0!oBd(*0AFH.]e"YqaK+02-W_5p8AR0Y<bV$Al\B?os2(F09,XcuBWQ$U4b#]&`j3Te%YX4J3`]QNMq:um$BChuMLc,iGare-:j;X$BfK%7Z?m!e/f%h!^QAFg&,.bsIo;C_B!`,=2mOlmB*0`$\D-t`.gS[:V>*)_Ffde"gD_0Y4dT"#[GSq<rI!cSaU#CQQ5dmYkUjf6'b9=3eT"[h@$FSLW#FKu8f%-ku:F_dhT;tMM9t67:^:T;t^c][`2G*efK_?q*JVKdFn@2$b;M>9K`T(D@S/P^qM,?GNT,rdLg,;C(roM'-ZS=%<_l.rB%m-fN5/si`^[Kd!:GCTqGG!ZGe.[DOiL'l/J:R=#7KZe6W`Y$GXUt9pZamSk6ll3?%N:jCoT4Y;%!nG6!AQ;X>)MAWL(uE=d:]>'b`8I]<W^AVBE/`kd^^0GPi5p`iXtAe/?1Dbd$UI4l]`HLNT)EYlouX\N3Kj-P9V"BE4L0h!&BXH<t%25IDuc*73PVs>HISCA#I&"]]Tq2V"=&)A30:I2"uXtX<!ug0L,AZ&d2LZhr?_*70(_k9C4VA.U[uW]7]J7VXnGF5&$"3s$_T-Sj]"/C1AY#r?YPC@8PVQY)cN<A19rB@=FY%jE0<^/5OX76%:Jk=*)5S`m?^:[sK,^a(/D`pQ=E&6tRVRM%<92-5AWGDTq@]=9VjsN$1bS5,"gMK@PaFAZSI<l0aZu;'l&lK-kIS8H1jmON1/%RB^5gFAV'$r;W(3*/"BSRriBUo^ucg%jo]sB^"l5FWY/%jmM?*[!a['E=au(AWG$/m7U7`c;U2T97u:IV>.cU5AWe0/Z<3p!=:#*\J@@"6[+Pb3@i&d#)Q?V7M@"0.FX^'AQ^VMf7j4X!UQDRD:U_8"O/ug;%-TFk`)'*Tk%cDAB1']3;a8Y6>Sr:mXi]RcTkR6X5Aj)KBM[Zj=D^uYbL;ujVf.J0*\d[/IuT%WI,K\lg<>;\j\HmOnNJc';e?e,OXukdJCRoO:#Lc-6,$Y'PATt]dt9NJ2c!QrRY"0,cD#>(&GN4Oj`3k)(9;8,&R2I5k36IT$?AJqQk<Ch@btnrB:D9V`X,/)q*_s]X0i=P]G+u?!kd9Tl#=D(?Na_VtCs`g`]gN%cr6mg3VFG.$B6=[XXl`'Fc5&[`ejTb'O>pfil:D<dKn#1&2t3![/UK7`gf!KLca:hdC#%"Le=Pe9e'?=/PHO@@j\@Xo&ko2@&qp`9;iq,]0pj81joupm!WDgL0)".0$=j^=Md!'h!m$LBE1j<`\<\1>=4s*;W-j([4cZ#4rS>^7S$PYt-lG7d4mMc8CCF*-fq`BU),ORf`$lp(!$T5'63@)S&QF<9QFpLE0r>$:L.b9`/u5WnBW\M^<cCN9bIZd4nu'$.uAX*A!eu6>uZE"o-K[_HR[!kD/8!Edln8ik/W;pgJ<i<S=5)G<gmh_Q\'7E"\P]RU%.YFDkPn#8OduOc($3+/5.B]S+BA(C0sqQB-3iM;&6(OmMW'&b#*1aG]2]KKL3o`A[^tR_<OW_Z-6<T&]UNm5F#cj)FA\_ZZPjH%(3W'j;C%Pl\cPOl>iXa*P!DRJibM@@l4`EG3!sBNAF-P)<9:gDK6shEDdM<2+]`<orPeW!l9C)-R9,-t3bs+V&N5@b,NZYiSoC&i.*XT&/-q,$/iRi'9\)&M&P7=lAn34,5ltg&B%Mm"-eJ/drnXXcCeJO%Wgg?@4AQ\ll,'h_P,Lq4`%t`uk92cZ97YVO8haf^:4rN,MHl_M?Q1=6.P/ML#Lb#O9:,P<[W.)fWBWKqiT;EnH5lkF9Q]o.Je6Z,Q&sn![uG1HSItq&<Lp`6e`l0+8P'\I"U6)>E:H8Ys<Lj[l'uC7!:"kjAW'!RR5A!]S2)GA[\c98@10f&9`Q_hrMscf?6o[1K5;`b%$Ok=Y(Bm#Xp%DOX9j^eD%Z1.269+Dgd%7H?J[mJ'X\McnuLPG_;`/'B\;2?BeJ*m>ALR'3dP)@oiQp1`lI_7;rtTT[%Fd/pn`.Rs)D8&\'ZR9TO$A6ig@dR]C)(kL@-s1sD.!bJOIJoleF;gL&SA4jZ-j9k>h.e6JWe3H,I)X,X[MIN_E<:RFT.ao#iHP'C^Via&ZeY=QqejkjOP\>?r/5`0;;p?4*nC<nS*hNQ'TfSLE4iBFH(SMI#-amr>dKG;=7N.Tfs#kosJ'K3UP1%W$^/BZN_.Lpc5;bRJIa@#sQ?3H+(][WL\[if9E8s]hQNB28QqR&K%Z)JIrf&]";sgh*qsbB_E9>!NQdrm\97KnTp![QccD/Y.Z>cFE^^P%3`W$F7#5pa8A7rQsfg0+&#:b]*(UAF"I(KV[SZo-k/0qR9;]C>MRk=\fSQ?ktKhg'u!G`tA9D8b)A_T_;9#glbq.ir9YFYcI.8JC>FK[TqPoN*A2&_^IHZ'jiI?2VTdPI6@+UUn..l9$_QhrR'HF_'#U3>ihbQ$$%!X4.kG0q6?&:Tn]:>)uCXZMM<W<Y(&P)<a]H3#q^m(aRcgC6i(WB-sA'a`=^-c5<?DJ#4j/PX-5jZQEl4iqCj_d]``AP;0e4M.^TeXSs%3CouoA(Cu;4#4.7WP.<2bS<'7fKEhV(L1,o:dJd\!uFsRJj)8>,ta&'Ncq/og)7@HUXACEhU224"P.>mDT,]\cqFT-QZWQuU(:6<3_rq?J=49+[O4U2>@-rUcID%t4cp&k\-LEhoY0,WF5%gga7)PQ7&/6BQ3e8%L[V[JG+c79H2!:]^KDNG]YRos[2$S$c]]^nO[[^^A=,p@Y@ZnrqKcH_7gB(I<%ii9YU>fpbC?c+!OVd.km!mTh@KD4M<bm4U?oOrKL?7!a*prZ5a!'UJ@(s$5\(LeR@l]j[O:OC@gD=$Yk\X$NDT)^LR3Z:c+Y:uXO.ILh68nlTs\5mLu?GBKX/>DLZ!YN<@+E6p!&:5"Zc%3r8gStmg!kL;$6\]DksF=+:h+'XAAWmIZ-Wm?Yt5?BTr^+cHcp+6I*[G7"%0XS;p&)PP=$g.Vpioaqb2B*.h&7^N!Ar@Xg4(&:q@K.)_Z*I2q&^;5ucUn+)*RiNRhrARccrm;o.h%-4DM"MD1?Z"\i4/hBkU0=+3nae-aog^:U]C2kKh6OWtihPho3%1SJ$?LD"fRe%D*1*("jUr,iX`:.).]/Hi-ZHNb([%NIBrhEeiD7"E0TaA[eGMYYV/A1c9D!#0^;)WW21e4,EPa4_rp1S.N=6u(T#su#M(Ajq8aToI!T=F;p>KOXhXTIB'_(u<]g@PI+LZus:9$CDRLYG-V%!1]M1`-1\:egDgSpiWn$j2&Gca2G@o%&;<I$9Z<Btn#^ClFX<[?5>PKc*=5f_/;]KMbeTh+/EY!Z/[`":W,::n+tk*P_1+c']HK:Go_S;\4n(gc6qq_EsX*`S=D!)@m"VDHr4>adNU8g_KV>1+^K9Cl.]2'9D(<jR$?m"nN@,r8,b"!hEB?i'P*_FA!Uo/j%!o(6",`Q]C/aRim?ATn]cOC2t-Z-`#Qk%VU)pps`ZqD`=hnZga'D)'i6`"BP)u"p:lIRQ1>S1#^<N/!TG?O;5cde=_9clUX_4I<I)l$\/..edQDgoB!`,P.rEd1irP@^)qc="d!]E;&ri#_4!VPf-D8TS:Y2?P=#WaW7No'Tm<)a(4SrUc$.RTBk6]Q=15:aSCkGm@Wct,h5)GJ*SEPG\YIDN;D'L)(7[Lpib!>=^)LrXQemX#h),PK#>rDD!!<Ii`h!MMOf'g=HXX9!/:G*A%6Q-)_7uI;%k6LXk:0YQ5p;bpKK$_bG:Sr+'2(ofl_<3>q-SA]r2]ch>'U8a;l&5qDN4(Xo3H79a+d8.@O'Nq6/'o.d!.t7V!&gqcn)+[ET@5D53R4RM;`UAH:QlU__@5.B]9Y_HD<N\[VSZ['TM`of8_TUkD^\j-+5?<q#2M=+PoV>D2r/C$N0L@c`=G2Kb)2`2!`ghLBTo-Fq\rjYW>+C#XGUNmd=QY.5@aWX]!NLj4fsJ>;OV!UQS["3e_e:4Ss'OY#aJQ9ieh"pnY2$4Z)bha7pGK^Du<F?[p)F_*WN)KAX$CCuhZWKW,X3(=78AF6OBsFXjuU'HJ29(kCpC(ibGZcESW&.uRD2?fBfXbiqi7!ME1BmI?/3%7g*[?b5Xk?*3VlL`8Y]R[9'l.5KaX!jb85<n>N[HBWQ3T/KD!F@Yu+\4.^O8kS^8@unA=WD;.j+3Nb6r)&]/[pU)_BR[_'.,f(q$,+_/;)1\B!Cg&un6!fm_(>r/Pp]]39+;O7X@hXrn%]jT72Nr%Oa@52]b.a3F$MNfI-OD\k$X^e5[o\M^nB1R25c#<.V8!rDk#W!UH?HVG&b#a1W^TmQO7Z3O[Pc=d6jRnmD!4XT%E%SX:K&FN&Xddi*#X8lI#$1S>.6`1Okr?Aajj68>ip0_+B@4!+VAG)^F]#4\q`4P[sLHXsF"EF%X<s/CpWMfT>@CX"L1DofEFq6OY.rOKsrOi>m4A4_0q.U;]Z#s""o@-3Ylhd(^uG@<,3_$0N^<9W@7+%?Rs#A6Q,>/s_Q@^3D+-FgR)/#ie`*.!lm*N)9Yn&Nl8rknn#PN?l'r"(oo&@LZtVfp5U/HT:T6bj>G34jOOIh]3&m[G7tErSZEl/r?M!VVo?L7Su!NdB`f?($E!!*f]j-LEqrnR2*s*!0RnDY,.;q3-*Zh#Wd_r3Ggt,@+:c?cd<P`L"F)JlS.DGq5`SOC8WuY8,i(B3%s1AbF2($Z!=;-9dl)fG@c=s5<T)!N?V+9Y!/"+)uSlZ%q#ABI.e(gkH*a.Y>L2*></6OXlp)lNSIqK,E*;1+L&XDLRUqne8CF3T*=slbnl)-fH93Ba"7dRYTdgV"*b'qJn.ud$q(X4Ts_X(:81/CF-T>-gCU0l8<M!&6>8aU2%ZNTh`s\N;'W4[P#J<UKgO#k/$i5lXMU!Jb:#7ja@Cm<Mf2nSE,8/Qq1`ie'N/-6Joe.f?7\cK7`2!R=_Q".$kDJXN3ZYU"?gN+VsBVc['->FGp7B!Zu2tJ^139B3]#Ud[E(o3s0jaj^'rQ'O_G<6\Y37>%[1h0F'!F(9SA%A(13SbCOI94mnENs/,5_bJ/pRE9R&qVN,fP;5bEt=20iOqRBoSpVhHNd2G<q11.]$s[\Ts$[W'HsDU3Op#KOgVX>;)'6X0c4$<`Q=p"BiVOiO!=_2=%'Wpo;hVZ6N5W8pCq:`4#Akl")60td>SbLh0;NA9q6!>Mn1<1O=U)LOX14dekr:-GB0<bEWHcp/:/T1pQ;Z[(gV<cK:dG60`(2mHM%O)di_fj3T9HI.]Ubn=C42NBJh208U+)m_T!"hphih.Qsc(&3f/p$r3L#]/2''=UAh:t]W.MGF/(i1$I*)]^$Hd[eFc%Q_RG[`:Sg:"eIlCUF)KSB_>_0Gq/^Und70s,]*g"f4<X>UD-?qc<#N\(4p;e)^3,8j:@'7Z;OjEb7tdpf\aXA<=MTe=VeLAN]4e:VD)n2MQ+f`GLTN-Mm]i>*a9:KE:p;.1EB"HS_R4JIY+gErX8M-Y8<>9EbHlJR!SU(9r_,Dg!IMq$\t'Am2sq4)hbk7kOhh7^N7P1qeq"SI_WO5*Nd_Qj)(."sPDcpjn*@\O>V>2Y38)<6GpOkdDjuQrt\UR4<g#'N=*8(IY:YS"Q]AD`o^/.l""]W4ilCgnBaVn_sB)eV\Fk9UL^QC81eB.$U_1gF@c;_/eI9\Z5pkOc.g9fqUpI_t<'\<48E<m(HU%Nt3B/TJ\Q:K?>Uo(EW;;DP-gM1C#!)2<1V/8mQsfY<*,Tq[eA@Dk>P;W1ZWg;(_H)H-IeN_k')cLAn.bWlqIB&E:4fMqK`':h#&e7?:emU#Dh1@fr]5I<MO.55.q'mt88!XRlC*_j!_4/s#]=5>ZS3^pGb=/HXebiOUSM=UnoZo*_2k+JXDs-O+]K2i)3d7L(o0J6f3n2SB!#^#V?bASrH$&YH!Lk6'-:Rqtg;Wbb'?)jnJ/6WjqV3e/BqRJS(*!%$6[cSbl`^Q!=[l5oF7]CXDGD`REjqR.ZMPY7LpMKRtbP/f.qA@aY0O+eg<hKQ@L\;a=6jcR`cc-&amT@_6hO9c"LO[aM.ZYn<q@!Ca(1jNa=el!?X5/V:Us&1IJbBb(*IGsMUd9Y$^'%Werf"3MPo+J!2[+MP$2'+\/CU%b>blDu`f''g\j\$:!MIH5\%$K1n!u.sLDJnM/*UC[h);F[r+DZl=1T-"'CTAp;E?!TH$h2*3ig&1P_Vt[[LH[G!FO?B:@SNtOB*3[&VJnf,\E,42`Zj^=a2u-'R:I40@tV7VPrXUsHn6VK]&ODn6qZm!'6e2>Y*BL'7+7*A$J\7"Nl\$3,qZ6S!ZO'2!R@`.0G8oj99uH2Or2G4@E-T,`PVXW)^bY&rEJ7lqpG%_hcBCt8H]-Bs*9`-,hti'inBp^Y$(V]TU/ed-RBGtB9(%lWcL$_b?)j6-`PjhnE&A-CA#Ja7ZJ[M_epdUlgRpg8,e_K354*lnHdV$W%%-P-"gTRAf(p.*m$mXS+=DOhRBZi.nHH"$$^^E5AtHC?ho_pW.Yl(>Q(LL0i%@Y4-;JWMIrf(;6aYiaph=FaiNBMf2I'8eZ5E_fZ#M+?/9<GfVK85.0LiR_=]s)I<T^_,R0)8HK=),m2B8oNe0a\NX#`#b0*M;WJh4?mG>_^_$-(:,<&+N#-T5ZffVkKjmg5+*qD1N#qgX4#fc<k#DVoUSPt8qD9)"gkI,FghN67c?4?^\`G9G<pUic-Whr@f4F`ii_62hbc`j8/:f!?OjOE/464gh9E&l_`Lp(=#NY(gG=d8Q9;uP>Ejqae9cT=u@rX3hcneFX8T2AcqfS''9QO9.:Ll8))?;*@(;N.@7Zp+m:F>,fE%'#Yc[^-rE$Cp7I*.5_H"FarFduG`rFbRC3F]l,rTp8'IAk[X@\1l$?L7Oa=F>F*4R.e3loC^tldc[7EdICG:1TW/QF;m"TmYUBO;+u.57Q[3?+Y5MLlKqsJaZfRNOrF.:9la!<Jf<.*bOuJ`PWfK&;TmJc&J=.H=CR)jNj?!OR:St/^ffP(fHRgt3fQFiP$gG'D+U.'+':nL-=5j@!r0f?;mf!OCYH3U:*YZl>tO1VQQ>`5LjP0WZZFiJktJ[,]0s%I2qTj7Z\i?fZuHVG4GV4<p(qZuF^Ps),:'7r?/'K:k7R"kNa-_UJ\._Krkm@s:amFa%Y]$e>J+YdWc"q6iYk?(rEo.mP8%PUY1AIh2Ng-j)N3#+>j?*V9+6P)2Ki3haVg#a"CA+']pRUq"Q1M#Ba!eJ)<!A#+Lh6<"5UGYH*%*"A#qXEF\cQE$l*JYjFK_K#>T,%GeHm2L.C*"7]2*:AQ!G=(uF(l?cMM%_F+=+;>Xetj,m_r(\M4t!JiCPUS]>/eJ$qUdUH!09E5=#J!$"$`;?:QAj`cX7X13]^(%@X5AZD;F7*r"4%tODo)XB40;A8iI.ON/%1EbA!@4)qa32MG[R`JcHf[Z4;..&D0K@RiNL3X@iMS\$H$k&A_cfK7Di+P#Mc[&>X;4Ce6-7-1Xk9WR3'F%`N*R!6ImCYD[*'m5C+<fmb3/T'dX-fhkihqf"4GrZG3_K]-]=%<1<O+Y&=f8Unu.5I5)$Yna=7?PA:-jP.Z[4FVea&'d7qI"(Z%qtbp'#Z>-8fcFOpE"3j?)"ff$>IIRA/fHdEk&O,js]2ZAA?psn/lj/fEg*#_m,d?l`Ip1NqVoKs;Ds!bT?(mKV[lH^);:J#(6&AD"6g\,W%<47T@5?i:_K6R1WlA,UgX,7)"7l\*8\+1kaUFk^Ph7;K;Zb$0u!C?a_'I4^:gk9S^2t9jlVojXVH)fkks-FI2+9(Jdat;]1XgHhI5"q'D<nG[6Iij5/g5GF0m]#m@pe9C(`hP!THUqRX)>:>5%ToMOnsF"hdEE8t!Q9!6.C;J863?8ehD1\N+D9:.W=5k'o2V:'(jYl)e1F/#:)DdIJLqu3qj#mW/`WRYNPY]1la<[h#i-5eF9[O;jNM7)_;\s>jLLgZH#+%A=Z6qW?UoWi8gVpOY52^q[Ep34ltm'2aMe%":!TF?5QfjGJ<3)1ik`op9fUb:h(+eXbd\21`5XPYH;gND6(C#,D3"m9hXhtOWItN(TV_/$$H6:6#in-Fb9d4E?g"LM:FX(NNkHcG?dUJi6(Od8TpMC)2a.89'mqjR\C7*iD>k3_4<%We)6Gai[Fb#5s$n:f;!"g9%lhdT>;"h/qDdD,Q\H-IT>su!m4YD=qj9CFQWU@j#L0RjJ,?%7.Ct3D6MO&W>\s#YNW<`1L4?)9DLB.&Ss1e*JsXUDgoIaN0EHY:\P8M026_n)Bkl="f)+hW%'>bFdeeVm<jp_?P'2+Ii`3]&%Sj]!-+1o4Bt=opGZP7Wj+K3h`KUdFSe,00e)A2)NjW'"X@P;tU[rboh35.ejj(o[O(<VPk5L;"e:e-RS/Z-`/r='JI,:rAWK1^9X9sYUm/,H&5in`(Q=\O60Wnid42#r>/XWnh\.j7Ae]a(T.ng<o[E''8D=-o*>!*0;A]MAY]>Isq$V8apX`dWNPfXUQ)SgRnT8T:)Bk1_<:kPVHjUEFTUo8Uba27;=L0oVpfTU7R@29GiAhf9T-/^+ZM#WPU]?`j;[#PM`!R8EJ]tpj9V%^=kAr+&H]ScmJ84<SOAfAELO@jhH(YI1+7%&H^'d*.bQBm*:GA]@Mk7u79h7W`j,C@&fCsJ6KhKAccpX4,O)[&!,@u<WLa^]nf.j`[PHQXq>^[fM1@DQW4[<ho,gW1faja/]NF\RN2oHn_?c%YP"-c<nl1H$+V9Ej^HY(!hkigJ+GOZ'@frL#eJ[:\pSVnFMUkRVXNW8.iO>3[N)GB"QU!4BqTC5BCfq-B!/@?'_r+d10,OjKDrROGU.$d5(?1c$:X!!]"79q@T^EgmQA&2Q@t'3ptKA<HgMgfa>4PtuH$5(?<j`_B6c:=()8"eT"1__TMgH<YoA.WmtGZI[gIKL-TEUpXHf9W];BEl2&WA]k>uiDT\kO6&ie\rX@,^CDN`WhatRbB'arVSMnr]l$jU"inS>k'M7md*W?>);uE'cmM\$TRDi90U,X5</V-;]8*mh-f)28I<EBf+DEm*Jd%6T"6bP:V#K"V!ola"F,GungdsOq3%U>X<u4cjn-O22rR:&m$?oSMY:TiMjD@GX;BcY=Qt",_]LQ3`Mgo+fY(>FEd5E&;L$Bu<ebcjA0>-%/Saj+(3(+eLH+LuUaBH$J)V\Bl>C-L^C/[okSAhUn5:[=0K!L;B)JAm94gOOckCL-,Ulji^LO6`:P/:o@cDhelhn:&gjljsu&C(-;*P]KNZR1m,81-7o]X]6D=e@ar`>L&\L(KINfY*pM"/tDmU&*60?\sHT7M.9k`pfg=":6/#RLPEsa9]dps2.PD-k(KfN:AVEi7Q*C1\]t\CZa\(F"AVq.o@"2ps0_(TaRBUVOme@IM>.N"d'bi0Ee0Zmu=&C?:U9]8iW3tqBf$.T`:XN2?cXIEsTOJrX(urW^#j2cRb>adhF]@dP>pMk84*QX4`P:FGt$<;88D"S7BN%p.ONoM"ibaYKJA)!;+ZGV\^%u.hI^ge.-f.9+%m&M>B_3C)/b++I;\V&EP)Ep5/GZD&,]..IQmnPksleiG/@aZg'BjG0C5rmR'1G#4+Lg4pYT^aSPs:)RPpOnY];U!ec9JgAH<i_S\;X5.6B!\S:iY8q$VGKJ%RK9b-*7o&CQN`nDO>s1BUC+QQAl<(i/kLHC]7Z[g66giVas/&Vg4Zs$b3Q(aoZ&ceXS[L0?`dHP'''gnkP5]2'DTjuGTM,]2&KOq@L`G/%ErGPR_oEccm@E.hgG)=$V369p5)>M(rp"FL;ZB?i0/Ig#E?I\t1Bi2).he7='(0H*G8!k:],q&8]]aAWje`!T-+liQH>crnfItKuTatrumKu5"6$iWQ*pm`A"(+<Xi!N\UL-:2)#3^H4H(3,=nf15"[-lCQMbU=:).!q[,=m0]Ea">-C>AL2d:nBc<,Oi+;d,%E26T(<=51ZmO;W7/P_Sb:%fa4qe.Xla-Ka*c06gM'+:_B.XjL9l7F<Y"qB]O].;?:O$C'3_/Aj:+`#:sq?oLI/Ch0Ha1T%`B!Ml2W(Mmr!qTK]==g>VR+:rWp*p<4etr%.Q4&`+]t2,>jhbUrJD#:WpOp]kA:GU.Q=H7V3LC\.6n'2@S7,%#2Sh*#=1+]prP9=9<IU@pNo*J,'d2S$t)ENc[CV2](cDd_*7"`FV?:E'C]SA"Z6+-Wsgke@",7/,\`?Subc0e&G$B([_<D(E[U'chduj70,8T4W-dh=7IsEc75]1)15#,G^ioeeNd]:jS)sP@`=eTQb:;6Rft.1S8*D,fSV<@B6=hGngc+-/nY^`E!4*M9@*4);Z'hR;JH590r7V0=.d"<Z;p/Vg(?n=E"U:6tu,X8-T+5j=T7A[a[Lq>D?P*BcD1Jh%/D%L?[/B.l`F<;;+jGT?H+t"\2c=bn8k$0CK_dY[!LEfogfiE>`"<0j^9o17hQrAfZ6R;ai[1&^]C`T!CNeK\7P>"OEpVR[*eT,Ru5BHpOoX[ID`&b329NdmJHp1PlbU%kTKc4)=9l)QOW!8X]iOf*kKq(U*-P_&=c*pcS&d<8"."17$D3(Z>Vi)5a:GmTAthHlht6o`HhY71qDHce0@(f"m013pG2_knar2M*!h!Ym^jn$CF5Sd!g8!BP%!ml&P2OdO\Q+KVfD]RC#XPkGAF"l307"YoVru/Gc-m4+NmnXEkIA(`L8<QZ9A7c`i]CEYFd_j^[G.\(@b<qP??=g^&6VJbFbeH?irj;[6ItZ28?9j(K[POTBJR,@M9C>j.ee^<sRm-^?Ephi-XYlB_/!7)M,l)T0YE[_CG31(F+Xf[`Ouk&FW?,sZgV:Lk1QEmM'?=6#J0D0M8B=%L$W@ZbM9hFEp^,o>abaH4B9Eois!)k(&%+4M3=J#_-T&Ebtq>5/5Ps8Ae;X.#3Y!91uFN_WNh&-U;j+6M*R<%NS,(^qJ9>U5_k?ZWndiVE\*b&/il88hG$bq[:B_/^EpY;;@T?H9[gTR"ZYCG'FRnUZ:Q$GH2W:P16Pd,$Q]P/3:,mr/\O,=>ZVVXf#43D&U;enEiG.<Z-J"t[3b_%Ao(:,H5SP]FN;Caso#-(iKIAV\B7?$LF6&;nC</<5RA9G2B0G>3(^s52LM<h1cl["o>"LFB0W.YLB[F^GJt>gSkj^W,HJgR*L_A#ou>@/^3]S*&uejJn?jQ77):D/hdFd<g9='57+rJq!2Y4N6)1BTJMdTQfNS$fju%No7!>TL3*@83*Za?tgFtQajlPQ!)lLg[9S80Ai[T$V-J@B2d>AhNX>bf$0<%OOXib^tslROif^iYBYq4pn&27FCE8\:,0NRPVUIi3rXPFdDmZU\AqbOB6r4JoKgL.+_JU5jKK(dbP]\IqFS&aPW8[T4VTq^kh?1+R9Wl4*7+3o)bi:NL`(-I<H(m+Q_sUjd[Eg\agA=kjr_P?O0n9X!(@u<F/Mu-oj)Mr=XhNsk9rb*nOSm'`cZZ\N^0o)H*Rad4_FX/pBDAHokS5,:#(a(q,XB$<#4sa265ZtS-N\0`j\Ml25%,dOlg(li1$[951X%&ZcpMd1_jU6&fE%&EaO9VZAW]?EjeSc&5l]L6_6cM0mE6)grYO!pOaiDept0]I5`d4*cY-BTh-b02WG7:6Ko"7NW?tGKB:OYK%"0Z_/\uMM"SgaN7eKqY+iITR2^T[1,a\JS-/WLq;Fijh-iNY)oiP>@V*YcAi(:lEu#:3dDNKK;2#<oVlSDTb/BV>J?BU`EoXn;dBDP8eQfEfgaFf.N+O&a<LXT7K6,m;^!_si1V5PWALTs&ld^OZhn)`h%#HtI.%dVj#,4U:H;b2)iK^cNgpME,Q;?KC(NT]#(2JtBl+oOWPt:>elXG%rdgEqd6"k^]#8BhH'eQ9h*lp/`AeJ,IHE7i)L"ET46:sZ%Zif6_Fg$J*+^pQ8Do-Z;X6CRdYe-u%\%9MfAdr*oT&Ze_q)2]EI&$?6!2rge7h/-NE_#MjTn+tpXdqIREl#Ya2tMpOSNhV9h5A+Ed8oc^Y9E3f2[l[@B9uNZq6U\!iY&M9oeQWe!D@9aF!W/mZ/h==a,.6uVS-+A'YWI\DND.L"5>]#g&Rk@?;duVkNA37C4.<BE3BEf8nV#W:r1Lf1S)#6/26>9Pe.JrSb8eq0cPWMaiMV="oL3P@[#abWuETkHi;0%-MX)!W4,3;Pu.h9pjM]McHi>O']]Ke;-SfC"ArBqN7/WdS9/fkDbhALU4=A)W;O\M>7pckA7c7[-cr74/H\RI_82G3M6NZu*&Eq@(E<C6`U!TS#3aJj'<]5TG9EkViG!6s2a8KE*68Qc6H\9r=/SA1[?@#s3dd,IVRf=B/D4LL*Aj!k`_+0*dXY<GC/ue&(P%%A7>&QEeJOF7oWuGVp!eiOM*^W\eP3C=S=M)I`c@bplYjN4bU)mifR^dQL;?4mBh3=jbXl(0Nd4k`N+?0oWgs"jmUL^?$_bH.flL04o+EjWjhE6^*ItF1jb6O7ad:/p\O!+6#d`\q?(Lt]]2]oE'_mf>&YJu"K>VVG/OFg`3=)PX?mN7^]D3<U^EE\6\`;sWnMfq5WYtM<,1M9F@^*;lg#APo$E!X&0rVIq'OuV.dllf6J?<UjhrA20O3^PL74eE-"hZ$HqnJ0q=d-0u*C:p;ih&pYUFr;DB4,5"rIkU^)g0tk4XKG(D3[:cA77q?TY2X&)!^Aj.6SW(alX"BFe:HH^6.Vcco>pUm$f2mI2jeS@rncYQ_]0i]0:@KJcblX+GD7@8'Z(JMK_.\rh*[uPdpp8%*\?Y6,-g-<@:/N!B1"9jd=)qYl<0$C9U4=._#g1]u+".#X<iq6(@\OX$j!T:Tu&jU:uU8Tg(c*YNA&a-@X,JT#GmfNMmlJQ`9A.1R26O)=Ga-G1+0>OhoNmZrrpI`lVTO`SS+cT9nSPA)Hq-%Xcu@<qcc!DG48N?E4Hd8UIf"n3M*A5M>sp!hB?hq&]EXUq,Y&9*hF"=(d^??E_:1"hB>f-^mKuI:1_59-=Z3Z6lAB/I-&;?(V^$rU[]7jRf]-]4mHf@GYE0J\:,D:%U`5!;uS;CCGLdo-$d/0=(HW5"u^Q%+4%0,oJqO$I,o<XaTW:kNq=7LtX?UPE\Ua)0@7F5jN&NIV&dM6GKF'MFUmkKB\ILC'9R5$DBV\qe3En_:&u+h,HTY3h%]W_2)@WfcH:ffR[04AXqEo&)I@?'<'hH';p/Lnn&:c)Hrk\nsn2fHZE`^o\J6_,^b,@1(1Ip>W4u9l36A?1aWI.B:`_M(/I\8rq$ptRX![tG%P'%6\sCS&pf<N^'qMb:t(D7][3HtcaB.qOj-2\;6_Uq&O!CiEM>T#$thFP5_\jH8g$^3@tqX5AG#IrZl;=M277AT]^/sL>cm31_L=_gF(/f+Ap@f1/L5-nEJ71nG+^91M7;H?jC`4TC[f/?Ks5n<4X0KdZp=lJ6<qaJ58kIT[GGilo\d:0(mg,[:$AH[j=<$]Y$49.^mM\-dDnD'<Zf2/bs\X"Kb"s8o@6%glm[YObp1ocIJ[n^A@4X'E<8uY69L4KOY1O9>*(do?&n(<[k18Kq(pcp,fFDsP'i+n"`>#Nd1"Wjg=J_F5J/K-Vmr0IahW6jG7iEnTpuC'%.B;gG^\JpmJ6EfnTY,_qA'eEW"MH?0qSdAL3V4$'dHR4Q8!D&Fh],CW<'bB?1#('8kjO4Aso;e,e!Rcm2/?VkR5FcbEgMFTL3@H%URU'oHB'?U>2r9<=-FA'UE4:ZpdWegp&mpVOc]0Vmd)UGb7J\I?)nQGJUT!<2a^E>S._?VBbSaWj`GU,:"bp[g)m!k>!;s!DhD"iYa#+3tQH-:[.=]eZo[R.&,P0[->=Bnq0aV("9XT!*6Sq:CA5.A4#-?%CS#o@:5DMiXXg.:qM%Yj8S7`>^NojqkI[WD<1F1F"l=t\gcot0/s-LY>dijn*f*C=b7KL(;A&o%NW)]KJ/>W#<_?GGF[M0?K:-Y20Y).f_,khr9[jCr5'eJcY)Vk,n<hU^ZuQbMRL_C$CoKI5([u;qg/eDQLU(6A#m$_,<4W(#qFS43>X1`Wp=pIoPN5l:C)jGX=Q&1,$I1(;*q%IRt5c?9&1KRFSWUnmAoa^Qajc.RX2-T(nds&$[jk$FG]##;(XQ1c"g&"e]O'.#8=\4/Zrj#L..oKKmXbA?+2`<b2Bgbf7e?CKs?NR4G?i;s&s/:(PY.COpI<F()aI;*cI>/lM1i.&1o1kDT);@T&Js!)7Jg&riYl?^mO'3nGsNEMDIt3B*A2<S_(No@24Kb)CpY*4$^CH^n.]V(XtYD6t8NF7^F$?a!NUgib'IEhVE\V7TqBEdG>C:ffnQBIRp%ZPGGB2RcLZ@a6:C9=8383h\a2=\?26B!@?m.)k8[pTBENU>ds(o='B#?SD;Gm`Lt3ngs8=6n8W6Jr9dB3=FX+:i]JLsICR?%FO`ftJHeq4[cq3=-='T$hfa$O[$D=3n'(-<#&5e\.Zhc9.$P&JP^%bJT]:$i%L9d3h!de3r,60!P)_c3)%E%3#h$;D1Iuh^79&\P+O`@)QFK?'9q_I8@m%=#J9<#ErchcO`7$6*?[$Nt(\\tZgr@RQ,IY$3$69o6JV<?k3g,mBQ=#,"EDca!h&&)<R%0db@>ARHN]/MC.5`fY`OR4oV7g'ccJ%ULq(#Y6i@+NVmM)Dc@-hKQ,CV?PIV6UpEh/^=HH4%)1Sp4rV+oLr#::(Y!*bq_`jdARL<1;`(A(YrP`C6?W[Tl"22T1?p)5K.X!`1>5$QW>BT-n37@SFESb;b+qsFnR_:fEnF[c?`!NUGYVrkr!9G?#9D^qM5<aPd,;!s?eR3^5WLe/U8CnKgBDS8uR`Y`FB+UV4([a2i,ZX2U5Kdj,G"?POF$FTS1(4^b:].k*riH\@uMa,>&rbAe7DG@12=@?sQG\NN-dS1=`6R!U+^`d-d3u-P\^i+OL<rLVipi>J`r7E7.oV.PnUgU_>:DG0'P=iajR0!S(-37]Kgq$^DA`ldZ<9&OC=KP1<81SSmG-S)4M*X$>9m\,rWZ5i2(,h6B+#[lg\7YLOV?"+7okC@m4R1g9$4L9K?\mAhK<8oZb+#).O,&MamM.+$"(.cQ7D-'GJ\2@@@m9te*%%a7p@=23i(0,uRF)X,J;l.g'o6[WF7[_eCpj>+E=2:ih[FWrO_l[;cC&g-\LI;(_1;1O?e"/?9r!lBLWG+H*uu1o![P()4e+_EU4810)8JN8[+he@5l!+E*8gnY[c%6f0GLj7KqDh/`4rBuJe`6h[6o]JSYq-i(pg+M\n$sMB3"AW029+,SRW91>g3I8'2dFQ\nS'-*7Q%paD\D[Pool9!H?C42]cF[h$l4O.cIjs=@cE3LDe<n^QF\"fk8*5=]f)F3+Z%*,TiT6dT'TnKZ*m"6knbn2otke*C9?UHeX1HC1^Q=q%rk5Q7%R`&!.Hu4%Ug6^[=]6CMQRP-6@l]VQ6#o71Vu%-kHG<G")jDF:pu0[?n:*(Bku6$+qA.('1:>lWh5$,SWJ6'NN;j<]W5OYl](YdMD%"pS*IH0^;1hCfWC.9Jj""^rr^Kp&bS\Z>e,B89CW[StbffjSf]sKnV)P_%hQ]V$RJA7-E3ZJ?f"mB2>:1H_3\Zr>egB1sMgXH$9OQR#gr('l<T#@`)OUIPW/pEF)em&&^!dYf6ff.5Kl+r(_ZGD8rgm,JX`A$=l9*++<[!2IiFt9.;X#Hl185.L:CB-iX@olu$K\]&C[!cMY2?#Pl?SgSL2[i4Fdo<Kj]iLbIo%Iu9YSg2$_hhac":7:*o\F"oPATN)<UoN8Vs*I:t5Aoa'E5saO?52XSH$6mc^AbFjE]6:iJ&Q,/8IOnH3IDrW0N.Hun*VZTU/@T/9mO=Wia491988#g^N8(.CO.65_H@G@\"`D*I=UC#/^a,hWpOl-/ik9=4*957A_&PA4Mp#gR'$1(7V9uue*32jWIaR#FoDaCji(b+nAe]FG&]e=kODR>)e'KpRL@!K7RccC:gDZj"*U'R"oQ&<$iJU"Q#qJQD0dZJL\C9Q6M_qT,OCqn0QG>q[pB);Hn^Z1P25&4fomD,j?uLO8*#9.$n"iK=GYon^CUJ38<'2-6cSJaNqs76'$Bq`KU5D9-o!Ql^]I\ACc)uA,o5)`t>3O\G0*Eqk5toj+[!5#spaljq=bX&<Gd"6saN-J%IjaM2YD]_bn9;r<VI,c9:UtiOEN<;"f[m:h*"7.A4ZR][NF"\^RuI%7n^Fe`3F]:Sn/WI%*imOK.p40.1gQJk7(8Nn:!`hs*t/r[[].l$7bBZlLkZp&pnB.1Y[6g^,?`V&?u!bQl:0@>de]%5%Re6pjukrGXd?Z_C"9^\dL@YS:k7]X2WXMDFPBhe[tV!9FOHek!7V]5"nUT7*-#L.ZKGh--?R-_^?1p!$[!(\ero/;^d9G+:FW(jpG+eU$3?W5QE[I@:n#S0em`9E%f"=&!J>hLa+)ak<,`A[(c\T+?oN#4_9_7/ZKk:gVN;C9S>W[)"/Vju4"&B/(L/+<:pc7iO$R#)q"A!P^th8u#jUsio;(Sed)/=9#u:QY=2ND9BKVnWX8oA+*N>lfg5'U-VTE_B7S\_9(QIb+O<ZW,Mr?f:F$cNE)u%A74s;h<U[^1hVR;(9dpd,f-<R%5iD,K,\-Ir16`km!=K$b1_06T,XUku`fLg_f>/pcGaj?5j&5lE-o>h2N3cV+)R;Kg,TWf)4d.Va"U*:U20hV-E'%`Vm8+c"/Xqpo;R=X<Mq,6UL^`l`V@pE!Gn;Pj8UrR$!D1+LF>Ku;ke'gtq<O6MK'PiAE:.W<jr!S*'Db%<KL^HZL!+)bH2OY\#c%!Ss5dE3\E1#:=_8dag=G9ItX?)gOP!P9Wl"3EVN3XH=i7^,\YS<>+R,VQk5k6VR%YeM)DiCG%kOB]h]Zq.-q!j@s[Za)#dN-]4g2\E0h74CA`L&ipZh+k_Kf`(i$<e5QTiTZ`qQ1Ro!-"rO;8lk;h4*Fcb*tgn,/W)bfAI@>KqhM"/a[[N6KMN=22?hR]snq0?uV.bb`u/WZs\!N8)C9G)9U5CHh4,X\Vdku:S*Q.nk4.T=^Z^LJLJ=Q\!XcNqUp8B]:jTC>^GL*%MC%[*-=s"'EsgjmS%3(4P2+Z5b39IqC;koPCOF6Gq[adP'A5r)"3#/7V2D`pbb/o#Bb1[]CS)]jth$Rq<P*@\Y#kt#C5apl2.bCh^a#T#$V@Rii<ld.L8qXd"4ab3h#`_I(Ck3nLtO[/jOYuU_-\.[@:5RS`r$8nHKO-Z:E%s8'<?BSuo7[?B87`$Tr'd)T`iLrfa+h?tO7h.&(Gu^muW%`ik61LD.[=!/G.<(e[%kJ,.bsc394]O\cq9C9%^7*^hqiBI%lh>`XEa+_dF=f^OPrAP^K,$Z&$C/@&/sI"2Su'`<8ropmt]Oc]Al>gLM?hUErY]eg.Cb7^SPc/!jVSfOt+_,!"eh4eB;hIF^>4@%*/X!F&BrIj4Cpsli`1aW+jdi30DETi8h]WddK-9mnm7o0sTkmiJOd7ce4YcHW?NXPZ`ETX'1kAG&<\9i7E5=0SoAAaL`:`[o8Y60J*hZL3]nn7q=i8r<BG9pa2Y[e_8K2bf6r![I1<RGG.@C=am[NVb'`2tP@'_e.p*j_<2XLoWI/3<O^a:Vn;c=]4eOY#u[\cbt!bq!(mrZW7!i?)+7d<4A$.OZ?h\7*9^;Ka2MA1TCa@*FUFQ<8o0ZcU=Vf4K=BRb997T5;%QGjX;QbmojNk/^WR]DYbcM<M493uQG2i(4k8<Y2%5f6&^;k.&leZGKRcMBG>0VIS!8)*%M2nX]Tln]Ko*GZB"3l%A%k7fp.9*OV+e?BbX8\(DG>a[lOnb8fnESOr=#cA7#0IFjE6fpb%fKnnG/:hEj/5?o<R-5a`_#9;'CboURmhO%*9Wm?KB^t\mh'E&2c2ZFqB:3]]B8I-s`*-forD9?1(C`9!U;d!`21CXc8=^q6]<hQ!T7K7OS5hkZV]Bk_I)!E'qV4=riI<rp4=i^>+bLm?r%E(WdNdu-Un9#/#*TZ7rdj5//:Ur-:JKq/BDMGF/E0VL40&GS>V'hip]VsNNE;_?V<0r;[`?m9.rB.$&b]F:!QsZp'KWpTJ@s]\3#*@'<^ZA-`c1noY2VT3EOCU$C*u)(X"`U)8P&!Z(mda.p^,^DK+P\sg1#OV?YoAiW5X2"8FYV8u581*?[fe1)h0t+YYakBPGSa\=ZSk/4%UJU_cm=D<,\!r&2S"p]04nc;h)>I*\aCc;MrcgNG5Hfk=`in=iV"Uss1A#^+1e%?U62KD^UmJGlT%K>5UX2*h3@pFq^kNidUGKe\)TBWZ"shY%iknkfh;?`2eK_4SRtBqI1%,1]UF.r;su6q.F4k.aop%hLNn;p9>FsejmgIH4ngRiB1Y]e?FA#D(a0CE(24]%_1N=$ZD[d3hAK%h8_F_6E!6+oX[[eljC"Q[SHmJufFS=D2u))`Ka/9*g,"\J#F=tf)2G9%r.fG!oV[!oL\ConB]$a5<<t5?M]4p9Z-9,Q?uL@EP"&\4CcbDemuu\]ZDS@XTh\ZMq$YYn)>_mE\UP)8'/F!G6HaAr_?TT8i0'PLG-FLiR%+qdML*/j3]>oW+2Q,@VM^b<4iTO.4&%KU"Hf9!FB71FD:CA#02[oE9A2ePW%dSLJ.5AL6q!h9*mk$\6Kp@1)WaP/E;/GNi!'(_0[gpU`UA^S?Gek!R.GPVk?O`SH.mjdY2g0!2c&`WKu<YBUoXHs+n_+?FqT(b+m4g"r7$SiL:oWiB,h62&66Kqq3CnD.IXt:7B.;2Y_Fq&-*lWA7?si+4R")GiH@2naK9/@r]8u#N!Z%WgV_q3>IrSVWVoB3=4%7tp/-4G(JB5E\Q<VFk7h?H9)#,&nNL`8r#X$@n5*Pk"GhOCoruIjpEudq5juu.&.?>TU,I-P]hX60?mL9o0p<(A6dD%#F4dTAUd<tg&?^W"p)gpW5KW?UBs"ql`;'`A3:?8GDKpS.LYj+t,3Z"g:ZRcf[B\l4M^apt7@fJUDtRq\!'I/#:Ti]<9)sVf<QT=3E0UaiS'nB.rF7j'TNWMGIkC#5d3952`Z^;+-RoLe1FPqGXSf0!J(O7S3+8[Yd*;)G\X42%b@u!ns2f#0*q?aADEbB,eGPc+%$UpL?sa5HNR&o2_5,*hJj2&rA`G6eTSSd4FSYn6>)Gcc^?7a*,+XdggRX6/]Ahk&Hd.V-`6U)A&*82GoV&l3Q<1/KV6'7lJXP[qI5-dISJ`To=UbX%JekkaO7#2S7,e%0a0Ls]c#e+`\41nuDA8P2BlmcRjVdOT*^DYb(TGT+H)JO)mn2Drl\rjTXMAq/o>mD`1@ZW)M.XtcQ&B,)0-C6j6\Vs*V,4Ft8$R@G6QqKDE%T.->6?2NcF1(..t.([-*?$ZddtsS^m1G.?NlG=-FH^D9hsj_U.<r"F*$.=8D504_qC0''q;9=a/t3:p-`Eg0S80V[\[oi@Rp!;!%*=SUGhH_C=1H+_uEf;O>:KZ@:g*iI0aDV_hS&VPfNFe:aTNW]+3[#qBi?eO0spJ*&/9K0&^b^_O^Uu4A0Zn+,,BEoL=>ClHiL)1M!aP#&HCSTo@uMSS>Q`q4q/Irl.#E*\`Jq0na5P-E4-gD&UHqp@QZ+-:agXr1t$Oo5JG_-6D?smPV4"bt+9:W@Desn&ei%7oI[T-h1fZT)IQ([]d5o1s3$.L)%KX);R-lT0kluU2ih_k[5a2U_T]T'kJkkOnj^DRs._EmF$Tn]W!t5kE%&J/CEe4_7<j+4j\Zb-Xos0]@ZN[R>1&BAe4g9*eMpT]2Oqq$Cng`<\A";k!+9.i2<b9)h[*lB%j9%cOn%k_Bn0<?ZGu[au2g,1ZLR/[VoFaW0**2op^dr*=oA7!nn(#p$)@V3=%8Fq<L%]c*Y3SelHgm):g%O,C+*t1"K@4^.rqbm'!(d_:tNnch/CigCJIqkF;2Zl;`qE6KG!%\jDT(2'.:!Y5/ij<C)BolVp4HoMo/4gm?kk2lZ<9_nb'=[u7LT)h]i[C`)q"Z2gE3cM&RY-3.PM.aZn=9IVHJiWa]C7?5%4U1quZoW7iPeuuDg=rBL29X<g2D,*#D*9(VWm>O,(eH.?V3DpR5*ceZQlk5Fl?u6:7;1>*E?$YnD]e1@7.)Gq>YNR\#jHYp/!-`^[H_T:.nkGV-Yp-O01k"^F`+\qV13$%%\;S-f6[ZQ%0kSiu<O,j)fCpo&lI(g@oBCS&Vjl^!i-_^;h59Lq(pC1:cO3b_AO'tu*Jb-MbmD%(kFYGE*/e&ml#<Ib;sX).$>:1I(\d#+%4UqaX;[K3/usLNhPYn&NIDZ;]6`i2@@UC9%s8X!CPj[bKT9A&/,Xu'nF=k]VHP*D83UNbaDP&ia(<M+VJgN1+3S7]LZ)nn]<;K1\/cp'(SO'Kqj-QN)%rgaA<j^g'`LmSDoPC'8JgsDd09F<?-l'Xg-m,6YiEmiqE<!p[X.!Q4rkud3!j,\DmuQCEpS0d`=37IZFYM\[k*0M9gFMm`0g3>1$s2Z?Nf8>I(&;HJ.0KYTZr_ZL17@7<h%.D3>TJsCSANB]^Vnt)>hQ;K`\Z7M]Ju^WA9,knoSSnA6^D)7L*lWR4Ztp;N6i.dgYAjk62;"q6WD]hS5%tgSk#lVk6C&X9V2@g/7/_O:jAZ\bQe?:L.O9rXZ_L$hnG/B-2e?oK$7+/-k*_A%#tC._N#D6gMo^N8>q*KC&h%)LakMrQmQ-1d[oSc&IOTb>7MCrR=gtJU-dZZ1lJA"'GEr6i9?:`lIST/5AmMV"&^fg$J7:`p:k"r^t-'"rQR0>"rkiP%Yen5e&#jkE/Vdoh-Z#J2A0]o(Qa'b'0?^1B3@D:+ESP14).4C;f<-F+XPu3JhKt;aVo/5kEZ3"0XYFL!i,C(R*EX*.K6:d.mruIi*tsFIDHUeclS*7!d*ckfpmFG+WtTbmA;aZkp?O</IaH]+5jt*OC+"LIT.:CG:mN(B??Go>Pk^gVNMO3#5L,mu6;Z&T@F>p.!5ia?rdJ=Vb7Ule&TW/DFNKk:lOdVP8%dn<<-k\J=l]r!J/9<_UBJ,JYYt(n5^![]oPaIFPX1RT3a@/,H8[;Wf[P1f0^:%@Fq-k&!Rd4rCW[2NIC<h9T2eC<^4*[<2?mCVnpBF)I\"cZQ%VM^C'pcH<);5-hMbB5N`@U[97sJpAAeX8^l.pUTYTQs]0ia*hF!a5mNHRHj73(=__L$sN/a[;b-0AOkJ8aoTHaa>FbTLa<8C8TfC*L@q!IciJM7XgSO9)D$l!j,lja!8'F,p'8#6J)n';f*6[C[2T*%D<2tkpm/#Rp=gER;-K.>+i^2K'_%<s)Kd.T4Xg7g=P[pRAd)3d?5^.J]<-eU0r>[I7g/APKa]m0g1r*5AYP>./Ip?AB9W8d:`VseRAXsFi\3T[PP>hBICi.1*YV23EKBA(,9d@9qq;lX8.,1s;CW>sQ-=p'Sg;#tPgJ)OgXlnurS`&*h^EI-.b$ffG<p$58.3=lAq%%9B:?P\IJWm4\.^V>i)?dk9\@6b2V1^$N:s)51QjC65_<5]k:1cK[`-TcfmY(L\Mor\-P#iEkTu?'n$Rg1g,UY^\)B0r4l_8=_&AL6*+ea)cAsX3q6]8AVq<p'.uAsU(5i1.GKQHN-Q8PC#Eep,>Vi#g*WuBqR9Tf<_B8-`I4I'K44mhp:6T^tVT0dHp76!/:;)_F]X$;`C->S>&QOJ9N7%MKK2XNY9bR.u0A.CD54aN=c*9q>la<tT(G&e+2<n&dVgUBJMW,_5%2Cfh5$6l99eEOGB-+NhL-p'IpF%U@PAdbfPSUEW\Kft9brYu0)UbZkiK\k.bOsERIkZ\n@pA5AU5pN/UD3T%H,7saTALRcS#hLEqi#jW6e(#Y&o).nmM.=D=B7kB[d"Sf0D6+$>nk`2;=s1,kh:!j"<9CLfqi.)Z8&bhQ*Lr+iVQT2-hu0D'5'E\2EGJUL<]:eFeMc36fRZi-,drd;U^Wca+-W!ccE[HM!?AB5Yf'oX1K>XKK7t/c&?jG=P\"Fi4-Q@o2R>'-P*[akjG!,q$d[VhWfmcn#M\3:=V2er@jJ:e!rPIrkku6J4+dgC3)X9nA`qq]sHDGO5qR5-_DS1.QE>p7&&CsCmWstk^h16/751?NI)4T-=0CHW%%]#ZLW<P_R(H&a9.f><4so6P)g'%TV'4?\9pKp&1N2NcN#dieI<M6C5JS'Y90RL?END)Xs[9jha]_oiA*+RrNUMenVO)r$n9q^D.#5%+>Yn(i,#hY=8>.C$OOP=bIF^=.Q\n:S$'bpD[Xn^!uK'-1iJ0n?a9hQJc?S49*J7Ch=Qu79%\PmR_WnVm&6duJR_:d^QrphQrIrhCUF8<=T(OujqmiO9isAJG1IV)`&]/0pdT2.,P#?jPCM$mYgM2f2bRC@;<Tu*:%:BJ4>T+M[+U7Bi85&EQLN0G;7pS6BqY]mLW?j7H?rSXl;ds:o6:9YJfFYIj10`Yl$GdK!RW+&WRt;^0ASn+S+#A!)@+Uh`E@GL.7?/$XAB'6d-d<DcAG`UQQEpC1j:cOnch%aDN-=H.Hj1!.5/c&Ze3dq76SAR71,^Q.n9-),'h`S'GSRKqR#_+H%u[i]KujjOP!qB^"u+(CUdbjn'`Ur2**?p,7cY$Ngn<3KT"G54'5+#c/s4W%n=%TeGI=)=-C-+4'8g$B\[8-05`sVPr!([h68[Z@/AXuH'ggt)jcCps3F@:a';ib>Hc:pnnZ5V$h]%sGm8-F%]1)[''O:ulF=r!OINq(<X,db.BCJ'.Y`=_Ht_3rXd9:u.-mj(SAC6uEUY0=.Q/=-3:,q`X>i/(PoD'tl<ZB9m:s*'_[gkr#nM>ONd,!Z#c:)rf:$e44I[]#kc^gY"_T*h+:c3/F<o5OeD\A:?*E^l[0qoG1Zjt#o'=+uGffh;?dI@om((#HdsF"'1s1Np`Q?$0<nfA&I@k3gLp33S(guF\^)%'#+12Pk4C@/JY-(!t`[p5L,5%H1aiO0_7#81\V(YRDp36p67US$>9"[G>BjHDCi6b"sEAB!o:P9-@_Go$uYFOBn]`a&3^5C[rMW8h$LX"Pa%[R%BqTI6Z-)pd4^Rd2prMQ\DaMGt*HQi`"opuok1ed']5:ND@U3n8N.<tsIL)`>\:*[Ar4CC<6-!&/\)Z$u[q4:-jUgo[7$2?Lt`pM)m'^0)>n'0b8>=Ze=?=bk89cXGErTpcO(+//CfDHG`_*W*p&WFLqZrFTW0)JJ1^=T?o]lG%^[0uL.'j6F5m33onF'R/@"kc>a$nkB_"LsA#E?/qT?%(jN6F4QZ2E#F,4/1P!GAI;_.Fsh^@qf47n/e)r$'XQ$O_o8\d6`CKe%bWq4XA4!m4Yq#UJnp\+n'O=EF(aqS(>$uC=j%iN9#Af[l8H![4).-?L6%U(n9hob,hQB4BtFqmSaJe2.nEg=N_P$&<Kd828Bj&r=*49E6)@Eg6-@,?FM;CO15-o5]rpc6T#!>dITbi$ml8A+(::KNF3'?8Je?f[].:mh?A&6`KQ,`$f7@=W-sNT0J"Yj182Bl)MNjfk0+V;e'+;h%\..la:o4B?)B_R'VhmN];FhJP!),9i'P;cpNTlH1<D3EjpJ&`>[;l$@p$>>WABGck+>m.,-uS/%XDh;'idc,'@MYRZ8_/\g6ac4`CWXUX*3F_e^2/7\/YhJZafEViT4FN"es=[&HTuRH+fP@;l'[C&1R[M5m>/9B*>JMA51fCq5\)A_?KJRbE_BA=Ku(V8_,a<2LHJcb$G,S,T[d`;JQ43$K(Fsbqkrm_-ku,H2Si*e2l=%dIrUJomd$ffj;XTS.U6cK#0r.0`J<j=*H'Wiu(JIPX$UeXs3$;Rj[UKZU]F80O8RjMV?sHQj^jA&,RbtqDZ#D<a3[.G>Gk"9?C'$8nO]4hbQ\-NM0K2K4m#;Xi#f@T_r4.pDg=n9$#cGX;5YqhqU1WVBVn,I5`Z88*Z$'3-?uMGJPp)l:<0*/8%R]QV)iX]]YhhS4>_0ZuJT48D[T"'Tqq'X#6_T'H>^n6R"mSJf6Ih033#QJ6dr]@=I(rP_+#P^U04YQ0O3;SbQ!Q\KlE(=o+R%.1UE/)&H3rak^;*^kqs=V+:!?Hn3O0LGs'^WS_)R%/,pi;Bg'saC;\I';lc5GA,lLI/c0uU?e=8iAmtrJJ43C-AHH=.kVX9/8eVSi">Mg0E.@>Jb?SInZr<c@k$7RT1_L7*_@N3r*#\[`qU0HqbX[C"R?rsW>5RUit]n2BjPf3HEqm4G8OD=iN6L_KDTZre+M\sHZm1n,0[Y[BjYeaFHuF0gugM"O:X;e_<j$u.:La(]Op:*n.T0dH7q1C.cL)3*"I'frs<u`gDB4Y=@M$&Ek:Yhn*RZjD#un+o5;OF=.$q2Q*i%c+b#8=m@Rr_6cmFe<O@>5i[U$d/O7!`88Y)@p3uq:HV^Ce/t413VK1<UW8-/+?o+$,p$be!6RB2.#OS;oFp>+sqZsA28K1%nC_ln,Z?*K+G_29@`p;!/!KHC2DBZWWBUXo3'J7[0&>,"0E'AXh_=%gDXC3Kc+:Fu@<"1J-iS8//U^.?ui+0lhk9574R("mMb7L5/LYph)9,^N(";V^1XhN7q\1':'\+P#W2Yo;I]7pZJ]:%44T]hbD^#.co^5bs9$LM^j`Ugk$3?Ps[U#[DFXk`nZf#L#"oL^>2OddIA7GTSB6/L@[,("7'p\.-:]$lfQ?0nE$_hSd1#Zi_'Q)gl7iosUk-db,L'"Aa&relnn'l^=nm^dbG?D9Abbb%jMU.4C>>e-(c,CLc^iBfYBa+X."m\i\PA%2eo.^5)3EBO`<OnopG.ZHTFku$iBl*s?r[W%N3pH:ZNEd!9._l<*-PD=):.]m/-3X7l1:f?4862<oS<m2\.,JBg7[/D-$5^:X\46K1EKSj'O?o^R:kl\J$c$GTKP(>."8-\YdoEd?nT`CICF'jM=C"1-3c.X.^E<H/kg(JB3`5T`0=ep_i5$32O3.K7mXeJQlQ?f*O?@b1Ufu'bm%g@nr-_XKR"j!L?B8oQOIHYBXHV>4bigQ(4J=n6mVGErC98@lF/[SK8_Ul_A4K>bmU$+rc-^oQkf>+M_^+u^.(NeYgq%R-/nNd1?lObbmOq,crqMBNFQ45$ePVc$)qfX+c%Q@Us5KmQ:rsJ,]mDVk@Qo&ta*T2`IAc)]Xp5sr%%YIRS>-c;#Zp7D_!r!PN^r8ep">_+Q=gP8AKp6D3eSsGrj]8GOlZD[N@o>I3V^=lm+W&YG:`b&ek)Y%9[4Ie[F!%-A8#0`qS*4Z=<D(fZKjV;>9RFS^J!_Y"o;7*>HsJI7AmKhbl:T,),;a+]^[:d7;$*_1q<0CXX3ig96LQjA>eKj82<FAu;ik#(>3"l<NHD?78sY`@TpK?iJlr%Gg9$F\qEGsR@bA"aS><X\Fo'XQYt(2t,--?IdCE`Wo6_DR[i0I,]+-gfiK0XXhLJ5TaQ.SP/^uRj1h#&dQA5OU>e\]^.1lsH)@*9h:YQddMdqh-r([o$cd%UUHS#;!oW[br]4L[>VsSi%>bpi0nmmpe>U#$]+;p%s7[j3]o?kQYJ6X0jl!qW4@3i78&5c9mSZPSYg=5V;NNL$`rS]XI8BA.]FRUeECGuiF=h:1e0,T]:UkDJWV*+V89'(/e[^%`LO/*d*[rd*mV$H19<DtGhB@lHD$Yn0K9P:8$[Bjj%+mGf,Pu2,rNar_2h>b$Hnh&<JjCZNZ"H=%<4?Q>1bBMb/`YdrY,h0\3K*<,pVYRr-(ZEJVQ<q;!iJ\^*M1&@Te7;]h5.cda%2ilPG@LT'h"8<T35&-Y&:n>=`"t%tjbiloZ;$0j<EdA$'Z7T:)!Z_0&ReI.LIgLo[3Q3LQ#*&&>7U%.I0B:p[HFO'[[^5],db]\I(#*D?+86kL=db(*^]TEZ?q$C';p!hDch4)aqI`pEo.H>l_Qj)lD$5[3lQR3?B*Hhp6gu]:1]Cb`k\aqNIfo:Ak2;=(T[AMV/Yfn0k_\MS+*HOR5PAX-)VQ&.KNL&3u*34esGZdp#]Q$F3dg.^P%+NVG_,/"'\`%()`>)9=We6&^_b9"/?9glSBd*4f4W!397P@6(/N9gToVh"9uGo7mh[0C;QU(&LI,0Kqo.oVP:iMS,=F'k.tdf\^'F!c)EZ29]8B\b-5."'pu+=6oJu<8]iT%<dR>T;BXs0G\B80q4?S!i2'LO/SuV?W!Ud*lM4o&_agb5]6OJXJ&Od*Uuoq4^S(J4>s*B=B,b)3')S^T3I"0PWFah9)+9:A`'0`%.+R:X)ETYijQ"cFatEmW,qD617D]X]7CI@2=o?GbE^MGLGaiS!T!,1:JmicjLK#*h4b+D#HJ@I5GAF:%5H;n-U+BNriuY/jQQZNq/m%pM/RdP&-hjj63*D/!MB&CGo@nH3fc[SbW@Of=PG33$?[McM;HD=-eQ)H>b5h@XM@[<Kj`4B]UHik\P%:,SZ[jss@=V4I3UYp'K%=6Q5o=qI]Z=_(C^^i9(`<355)_Q9cROocH=gWm1NUBfG+$fYO[$SkdtC9JWh3mjEME`]"7Ym"5?cd5SlJR/i[7(S*t3h,8d50D>d6f<aFnb>eDtLa?KW=M`.fhmGoDS84!=PI(<dm1a]lgVh(p`*3)%Rg65@E&6DeGGZe.4/-6V+.3JD'3O8lr[FFil#^Ca[iJB7<n5"uDb\."s?cfaEmkDjm4^)lGVk='1AfS"H-,)g,#F;(OA:]bh`=.l0"D2#*b#2aRdJosn`#/Xt%r:*efm\jB4FtTNQ0b.4cgUs\%-(&U3ai7VM2a#9NLXN0,91tVTeF[he'G&A5L=Qeq.ImsORb3Pe'^p%K^&G6m7j:7%6=HK(,-pJD=2La1"XMCm`H6'grp7RYU0%E`=B9<Dm8n/+KU(&Q2GbCUZB%/qhR4^JPlA'01cFX!DP)A7rG*b&MdM0!Qh8WhKL`Au4?3T5+7cji\!ubh(oXS`8hrX5;8Na@r=iN>s3`R9WCq6$\289U>g[hmig#B[qrEN5'-uV2=?!-D$H6@m]uGZD$MRPuL,SeFjP0<?N"ZL_m2$0T2!"')2ktXP1'Xp.)b?5;:NN-H2Qo$@)9:WcFRdMN9ulM)BJ>?fC_@^`1^010K#nHW,9s02\Ub(u;ZN3#HYAe8ML'[_b?'TH)0lJ]0r'j/F'X#9T5C3cC1p>A?tl93I6Ma$W*FuE(fc/E#E-:fn;"-^X\6<6att4JYSlDR:CLV5*@uPs"rZ9VL+1#86\4UFO,B_EYL0=o`/\C:$U/!\;su^r]-#b`..D6CK^rgPAGo_TY13cOpiWatnI,e.[NgR47h_eaq3G/;'d4lk].D<L#B]iI?prb@SBd9maf-YdTEfOnkC++P%.-)k4.69X+Q8#bC?+SGX=@1$BS08EQ@k?`P8J34]Ge2fTu?&mUdep(m(DPi;)gN<AbX#mRTr8gUJ;O1@Uar=SUTV6BkR]/]Y,..2tjb6=MBH7%#AB'=s"<nR^o^\QbfFajUE_5,;,uOP'Pmun[>D`!=/5+5?D5B@]cFPM'bj]>Gq@^]<e_\.C^Q@d_f[aVH)qY*@MXPpWF3(^bPr.^X38aZLh]]qEM@c2$=qV`_m4nrU;;e\\NM=kVc#6!gCS4GnG7/hN*^C)^&/f?0h_&NrsLAU#f$gKp:u*G]gV:GK>ESIlZNr!XL,SBIFkOC/p[j&HG]nl/!kE[mX#:==r;c5\_C&/0QYPI4MK=6SQ\0qcpb&ZE<\@R=<d&ctf[TF=UQ!cP'9)->qNph^qlPpCg"QJ)sH<4AIrm!m7R;B_T%&"B[SpVX"2u/U)&E+ubYg^P[EKJ6<b:BX[f`HV$l#\T@BQcq,/0!q;<,ka-[V@ndj"i&#,Yg$^q0p94+gYXr,l;pAQCN?XQER+J"u2W\3A$1XK?n<8FC&V^OCX,cAjpF2O=eUtFPea$<(b\*o>.d;/V1aTP0kE+hqQsaI4Q!gtsfJ&L,QQ"t_YT1[D);*&P;u[R,<Z'VWp6j*P`jVJpdT^B]<D"T%,'euV1&c@b/'9HZM"ggk8p<@&A?U7HH?@O6`T_R^`f;m#$qeOoV#l)0;mZ%cJ1Xk:hsATGB?"c9Y<5@="6Kt+>ZU0KNuU%kJ,B^=3ZN`XIqh!t[S.Fu-o(6]!"gc1)LOAg@gt:>hBm4=nZ0<-4uBID!-s(hVlcg]TViHk7WOAjXHg^uU@1bSIcY)L=iaBoRh@#^JmVP(_0L,gBFd>\Eiq*tn<CEC/L%BB._,qCha2W]=W+4:eQhH\*PS&J2B7*mY;WeXW]_;rErI2QRHsaL'S]!:.s#\43JacM"5f88RN:;EMUIqc`V&-`JKIt>InD[[EAklfR%70k]!kq(f*idc'Yr`n$Q?H,S0s!+[bt9clbNPD]S$EW$2_!LlN'Y38Q[eRdo^YHY&KKr63P8aF%+C$\G9:FN;?m0D'hd_8I+/HRE%^5i9)8lXO/#lDpn,H#A*OF;Tar)o"?!j9;lTj/s,S.%;#a`G?^,0>MY$,&4/HJ^4,pGch4H`rcSY8QTjjO<.ITc7mpPYX]o;pYRqK8r<BoSS!b#f6.,q]h@*H(CQYW8?YK^/Ke?Mkl/Y].g%a^GoW)2kdtWqX]=:>UbtmUP9AA/EPnfDI(t?OhnZJ+(G&,ZUC.,$4F&-?d>$b))K@&j@q,CTOSg[pk5Xq;J]c[F"NoPKS'c#QCka1D,%&\,\\=;1j+FU^+&c%7n\*0r9NYZr$Q2`-M9`?-"Y8&DZ\%?f5p)2VoGNNs<mS,=-+N1APNWe8aO+d^))bsaHSD[i+j@O.YTC-qPS-I\fl69Gm>A^O@R@$3e+,Xfu2479*p\<ZNVML57Y(]@[`/R'2+2#ZR?9K5Rgrof*&[j[D*Oku[[FFj1Fae4!jEgX_&5q.U0Ab<jDj>>(H/`>B\kAM3WL.FIkjg(M+4!_*Sq]jN#Y-R>LcFYB"Cd9"[%M*iCBM*"D'I,+g6Os_9*3dXA".JY/7l":q>FpbL@ipnN?dBN"!5H9!hctUP*Cfo8?\2pnQXqe/[N;i@CPY3-4rujbItuMMjMW*_t.m;LM%Th'2HtNKqBT$?[Rc,S1@[#d4'XVZk5PuC)rnM!gc7]CL\N5^:9,0@4"Q9o)E*]i3`2AnG\_aL#l[7TdE9/gs*>Pe[ruo#7TV/K=9j1,V5ae_6J-%Cu856c39phniLYi),+TneVF,jg4mO%p#V)^`(0F![rAuMOa/:u4,EX,!q;lA>6^L4Sc5q.VWk:d5m8i`,cA`dU`,<dQ)s@_Gs-[R)f\SES`g(:DNOsL6gn^-AINiXm\@OG8%N0Xbl3eWe&^)j>]HMQBp[KQE=4k=GF_R=G&X,TbB+(`W*H?:<pI4SDtYK&(!%JdI*sTa0L#$t`A?,%IjI:6Q''O%L:*^]EbIRXk]'m,DI+G#I%JCS&^31X(3sgBnGZ;.^YZI;OXOO]Vdg,^l*_k/c]:*ka3$)FjWN;>'H'P%N'=3CH[2s1V9[Qe-3X>+e;+T5#g3iFg+U+<MOiIF$""p_mM+V3?+oP"`uVK/5ARP/9TQ7/!ZPeDY9rI`#IR3-T;)f7c`o;d:iX.)@jVb!NA+kaC!<u1f9PupMX\o[ebaImJZXMHS5/>g1QBE1PW+Xi)a3;\m<@$`'1+</PZDe7'b<p;C9'>:(cc#I)VY7>6,G,VRplRIp<fF3.A]F(h`?ieCu,_&=lF<),,*P'g7S5;SJC2_-9VZ!;>Vt;f5CDHj3R1s6T0,cVY:42JUngBIrm'83q]LD9#JtDEk?ePpts\Ln6e&G'NQHl>g?7-M?@$Y/$I>N$)17iTbpJm3(O'\CA't>?&],,mtH2tBrP>L-rO:>`poUmoYc+Q,s37VloK1PE:0o1#S3ku`Q!?LC4ieRQKb+UP=WO9j:d"5&ICp^`nf<s0S@SKWMI4)MgUnndep?[*8P20Y!gXSe)+dN$oF#M(R"k&Gc@r1OCD$B`Li0uJ>GLZe?^P7X4pg'SE]XK>8XEEMtV;hRe([M`W=+drKNgGGPHF94>,Ic]LqY*W'(H9Jkd-ZUSoP`Zj/aMI;c4HZ4d8cQ;+NRh)-fSAgttZQZ$Q>pgQXLWgi`@@eHb,EKSC42bG,>'*,cI`8KJmKKW0O&"n_35;]jPjQk^>R?jOQSrQ;=T^`$LJ^:c7S)u@&dd?!(E,.RC6@:dMHdDKS:EE&8[008NXpSg)[o,Wo&Rc)eqPKH>Ca7o/jO'sR7PiA+o^T:uhUNq3qTXC,#hQfd-*,klS?&eRS#jPN]FEA#Z<+o`8-9uKEA3,+5,;J:4LE-(W8Bli#6aR))(\gNERQA/qAnXDW($WpW-nI8a5ig$ro;6F?,<*GlUE=_j64FuRD-YL)c\GKbb9;rp4aphNgqUSe3^-`\V)N$#[;<.I(HcG+*olIGRL&tUB[C@del/cqF[PA5p;YrC"XC(FUILF0>0V2O2f$t)@\*p@WQsS_>8A#.>0a[1Z'uuem,/b^;0k"NE*PG*kn[(i3/6F13AW+U@i*NjoB1Y^`<b;mMs;oka[#WEQWNd;=.oj0OVlTU9NKEg::472"J_`P/9>L.3Qch_YlGJ+H]YlhM_Yb[MW39+/qY#ZeM_kOT/6qlTT##9[<gcN)1Fkh0i7A4s7,OicIhjqRFLWl20gRc1f!(@HR7gg*V$bPsNe2>ocR;=8,Q)d,D"Ll7R#V,j4tIS'/.K[FCO1N?5ENj-"mrl/MVRGIi)-7<7E0mOL;%+>.]j&-1Z6:-5_T+?Nh+6%(2i%u%ZZL<tIY]5m@JDl\IIK0er0ZM\aeqd^ba:[.]/jAbKUK#BO7LRqNCNj.rFGmJc\#!j*E*s&Hjn@1+*8G'4+1eQ%\Co)mK&ctgTI^KT?O<(QQE+jaU?)o>t]/GL3cmOD0UDujAbsTqnM*X3(*MUEuaICj:b'"sdqk`Y5hJVs6dND*!I=4Ii#`,NW:gXs!I8(O.X]t4Po6%:.B0&j"/E(rokqu4m-@=q8iSs,&.Mch8;GNiql+Kb\CFK*53-7I33,:,7Zd70?lj6I0*\m*E&YgloXD^\-XL&4hIA)E'$g"2-088RB[\-N!Nn!D1.XV+_8CN=LI5mqHL.LGo:@Q()Nb_rOI!U')JR`7kiCCtX>gdOa\6O1:UtP3lgei%KKD.pZm%=G;^^fS`ml+h(ReZo?#u:>8B_X9neV;GjQ'6smQeB]`KmDct.W+Xg"k6AE"dBFnYs44M$23]2Abn(lAsYoGH#ZB]q8&p'S*#O"Q/3a:k4XLNN]$S+1:e+%=q\Y%!:oa=,#L<SZ2:1>PFsa61LDgjKqCNKiT.e\qACP9Lbj=%7qE[i3]:!A;58Y_:imQ`0W00IRI/HZ,(7`P?cnuW#'#h;&VB<@%YABUo?N9+_5,Jo:DS@7^A06)l6qY%qT[#MOn5]B8gR/oXDi%lq5m#DE.f8>bduY-gtA'l'NJ/@Ykf@hC@+FZl+c$_&\\WJ@YX"5[ug$&_eAY/rfF@%OZJBm!"^sQJ4XDYR*eAF*/YbJN/l#N=>'L2%eVg,dD=CP!RG++>o[@P+X!:"fMMe.hgab?44'@L_6l9o6?(d>U)DP')2G[T9GMmM9pC)<%`Z!!\1YPCs,Z3$WQiMOBmb+"jiVNJ3J;u)KGh&/+JXHXh>s,.&-`'OMC<[@!Cdn,9e*_M&h^\'o0Rs5)s8Ya7A*KfPE(K:D*IJ42D.o8,0cY'CG"B]0U9=[2qI7WbD3.hTPjNoY^(Mh2lHYRiQXB2XKpU=]Z_W[W<YPZKSAiFIq=h[Z2GD"L_C#G/#MXmS-U'kDt@Y<U46-9gqoar+qnMsI(3PBf5Y&6at%6N.BUMp:Fo<R=)R_kp[gh'2\>KDO24og:[&-'\YP1\?uV^$d]to+63tlBhVdXfCSnRr>HPaoAV(9m.kXDT&9Y`AKea>R5jihQB\AkZ*?6+<"7VG@K;si^WLt::Gi)kg%@jLT\GPIWLK29:R3=EX`1VLj.ZIk4l!fnM[nHr;#:0,M=Bu8#?S`-`q72sbo>OJnYl)m)+fs;6((mn+N,-lFG7ke,86!]f"H'98/>%o`Odn5,.Qb%P.)(BrO<BE9V)1/.l5lN;+6rRPm)WZr<A,0lLm^YG=aR(Rn.HlmJ:1lJ]%,4CX91q4o[BI*\:D4TTIKfXYmLamec4aXna6Y[e\"g#:b]ssZW4qI^_Jk_5]lDI?**)$W1rJ#7T,6DI&S<NbFL3!6&=rJR_#RiX%_!T_ag<"11lZa.cllg>96.G(g<"]ILj[lW.?O>9\(.BU!DI+eSZj`V#9^I'ehi1EMf*al63fkV^r?c.KR.iFUsP.rZVU-G:X_C@a(YbH&N*WfP6iq\l<Zgjm&blfRkub.(4c7>/Cc8L,,f1A@(%QJ(6@7_OWga&YbsEGk;ZCW[8Uu\WT,gb/jt/;=tX?+B/2RPj&;u(=Xi*hV_GM3dW]*b,PPhW!fL*)]Y$[6Oi,c@PUM!j6="EcN1L0i3lgXjO_V)klk>h09@+EQ&*->3O3'OC)".d(i:9*Re_1f2*LMCc<dO8-MOh+Y-YqF+feXh^5#YeO<&:F-][+kSb,)ueHCEiSdH\uiMg%,+j6WTISpG7-tj)%EA*lG=,#C>S0FhMo=8fL#\rYK.:;5>N<j@(cHr]I_i4dmW,5I7E_#IMp<M1]A>OF;CgpIU\u@GmgM/epnSPfo*P;<p!k)B5kVfT$X9+\A!qb_#,j-92;CR;-Ciu9Rm,7^JgRgb(Kmp$4GqSf./7BnPZs5UR#Eir"@nZPJ2i;H@dh7O]a7L7?&1SDND\Uj+@3teJ*^q(c,cM"H@-j"%9R?Qc0D%1MO!h-C5E@)M8iL6B[qI5dEPak9Ko(9Z]WpPl0'<1"p]1mDJ?B/6Gg\Foj=pSE8GGM<3clN?pusfVR'87A7B`r8IC'!697UES@2DtuO-L,,U0,&J*"NFt@TV')0VGdH6J&qSgKB8?n_.06QK2?#24jte2F]:"QK[9fXcZ?;(k[cqc#4=7ae;7&Q6&/<0CT`c2?)"cB5OR-<qum6s.!'>HQ8E%Z,o$)E"YCm^<Y=WIMmo<#Ch>J'HU8.ZkJT0T"#YkW1^b8A8sn-5=h"jTgSCqJaPocEWeZ5IIcU8'7G.\+8U7HF<I'G=uMAfbKVhb0TXbS$u-fChd2T]a3nF+Z,1hVhPSgSN!\7mfF['ngbdaqs-aL!(Eq/&TAl-=D%%#\[e,$O1WkjD9a#AQ:Pl9Ybjo.>R[uB<KC3k]#$j]+=ighF2,[LSKpeBO71H3E)<,'Ffd^AqU^>quPW4Z]D.bFtf$(q>]B9\u+KLZ[Y;%fJ,kFh)4%mD6(:m*g39LQdX,EM;Bh%uDfWsrp(j5F.T?%PoJcjr#p"K't3Q$NiMYoRI@(W9eJi.?ZT9qM*qp`>U,bBcN`X7m)4-ltnNa)*86Z+XDI$KfiiTj/WI4`@oLuWCOold0f`>Pn%P-e=_E^4U3h]@dmG6bSFj*D8_VN-/p28:O]$ZUbYou&OGjT#&>!5@M8ktWa:m[n.K"jP6`2h;.Gk[;"LJrPD"PQChK7onl?=4MdpI3IAbFUgQ=Suc*NqFKK/fg\$^/rpdPWfX;_pT18);@s:[T`A6fcdH7sB<'t:a07\/+)M@N0npB6<nPjZ]^eb]?/omfit,Ef`c[S6g,(VaN'DYpo7A*eOtiZjde)L7,-8ThpJ1[*;ipW1B6Vok=?th?Oip,)EO/Vo01p/a7cA>$\V(']G2KU[+8i-]n_3`oO]Z'p/kE@^TQca[F&ofM/"P+hR&[);-Ft$Z5"e]TIp4?p(=T6,,$dMuGe+R.T'hN']T(ABR^D8_2()2G0N.W63!5ddHV0u1MV/.25r<`W>rCQK3t?m`jNQ!g.ma,=*Pn8.$G_7P0M?A.F^1'GRLSi/3<%oN)0;pJ-#kDI&A%4!=_!h79NMOpJ;5I'B*46J&#lc*gu`9L)kq*&#L/3J'$$XDje=+D"Q^rS/anGMKe9It))K6H+)[GUI&j6CPWodA@XD]]EGEp_O4Wu!?N2V5p;D_3Yq?;_"6dfc'hVKXOV^biKpFu&YJPr+,eeObaqEaKYB$k`A82@&F<4Z^jKjOL9T6*KVsrnXTsu.]BcGJZHFQ<t@UG$IE?6]-BC(/:%,9KjMWL&D`IT$q5<1lLN!(&W,#)2?*.iVJbljTl+OUJt2[F`D/UpEmFa3+e9,-4,\RqlbM^jpR966:ia?6WkY9_$$%]&SYQp:hK8]2[j-Cf#@NZO][P_MZM::'L!)"oT.Of(<6lm%L1(B0,ZSsB)hrhi0W>3EEiN@*tW[kdp$\o[bZJ1l*3AVc=R&oH_JZ*KBnGbtsTA@qf.B#l8eCuHH\T3913,G.S!7Vcm_\@TXrb.="u:b\+1)LsT0:Ilpeg514tE4%+chj(.!bX#T?=W>/WpJ28F&8(fQ=g?BO;S.Arp7=ri[s2C7UHTcBKpSd).X4l?<-[m-,5>c[-:D-j$29$0/"er0pj\+\Ste5[Ereu^.D1V_7sqH&5Q/kpB['&6F^>XC]GF)>6oUZ9XR:l\&:d]%=l[XOHlbPt)Co+,g9ju8hq&s5d%=:>j@i04p_g*4rUH)dV[qu\M&J)pM7t>TojQ)QXHUp8mH,-T2QtHt/tpUL8?.a$V*+r'WbNHM-BJ(]<CgFOQpO&ZLCAg!F4q^1hflrJ-Ns!@._P-Bf<%QGI1+J"O02SrcdoN(r5spVnF%n#Vk8mq9`%buA%)jb>HZ$flLJJkWRlMT&Dcd+?@C[g#2;u:p("?-9c&r8EOG4rPp=54K=I*Jk9<pfaNAb?5XF*G@[rg!"N[='mEI#;R^,CM?+8W8HXmh-b$_!^%&J7t9iEnHf,s1:Er3TEgp[>_/PM:P;p9`OXL5Z*;>T^gr$X#G6-&"#=oj]-4+W"pg>SL=$h^]1NKCYr6K;8RqYpieleRTp3;B5BEr\JqI_1IJc?X<?IA!mA&<`DJ,bELAKibsXS>m6Re6]:YD0fkJ<GpQf#X&N!?8XqY&:=%YD:=Xe9@i?:cJsUQ)>Sgmjh-\P,_[t*80U[lISDZR0rr]4EAG_23RCQtT-RgN>bI_nILRua&gu%k$rCeW_/=(`9&SBX*5D)^+QGur-D.[NeQ\i1p.]W#mcq[-L*Pa;QKH_6lZ@MO/i,KJ94qO+.CgpmfF@E99aEiI'nK1*Uh=V<6s5A2;k<krWm0bK3hoV.I':V=&TmnCb#;,HhrJ+2HJ+hBY]H=,'dEC7h-#sreo7(a]JV2C(X;XuSJalVpd]*/,33F+3VHdCX1nZ2ESCgR^Dp:D#AFNN)BK+sH<dW<H5PL;UQCr@50e21CCM#TX"D)lY!pTE:.X*X5lmKiDF=Xf"#R*4#pk#$E</1WOm^B*\3`DH7YKW=oo``(3Y=JN&dA#7>m;m4ni(l#;<&(gfu\1CMI*r[JK(?apR.'oVOZ-TI:YDPKiU\.-FQ:cT[i6bLA21WcM[%4<>ad<,[C^tA:%k.pel?Q&OI\aRT:,h%Pn?$2@@DGosnN;;q+h#DJ/?^0f`+XG.HLV)>:ugllQ6nA%]!Fr(_[R!QbG6GUKoNFd[fAC(RmM@nD%fI0huY+3?Z'3`=PS>*db$q/<Mne)HZ09t]km,oi;-2K`kiibCcE7oDfmK<jDe0]5?U$8qKn'uhD.C+CsGH;e-#B?+(HJgrG(j@6%Y&`4RqO[fZPT1+1,,:9(U@'Bt?^Kf$Uab4+Yl#9$4W3LTB@/Fpb4F(i"RI+-?npOL5,*]]GRuki2%l(lhfAR>qQGk1$F#uq)!QaY$ho*hPK0m[9.i4\8IjlMJ@>g6;R=Rio[-@GG_Q4Sb/1]_F"4gUn8G3GH\qrc*jN:%$H9K$COD(te+8%.14pW,6#iOJW"n5$C%3iKEcT8]2@%6Cu0i53f/t2^VK#N@!5.Z&HE@GW+7Ho,No7k<&hRL0!EV)/F)Md?fVf2Erkd<\TQp#muDBm.?/7.?F5Zg:X4a8ct/6!TE(/kHhS9+$T5>j[;i->#.LY\$>8k`cU?,AlhlR0@rEYSWmAm!>6*qlml3M<sj1X`;Pac]Ud6ha0OD;?e4P/ZGe)-^:,_+?:2*Q-+5IZBd]qeG:;-GTBM!SXfio+r>S./(82#2B/LlA(-]f#EKA\o+5Uj%*.%j%3kh@T)Jk*'"A[__B)ld>\$<]+)9)j_n<;W%&')K!3S@W'&$p6cah1dKT(rQ>kKmAmADC"`Q[O#_27dV@PcO&[%J`A_>Rig0DM!"#UIH0X4PLDIACC=T!/Y^=^<9O#L`\JVSI;eHm=ba80D)^=Hp7_WTJDhbaA4Ie:,+":b("eHmQ>^eU&j5(QDr.f%l!.5g>#q0,epV1+H1XorD6$V5pHU8A2IgJM<^T,1F#$<ce(c;NPHBX9&j*8rR)@=&.NN/ad5j4=7jTVS[fMW@CPH0t<+&U<Ln:mI5D+g!%i*`R:+K:T(P=%q)T2.`Y'WNbs-8nIf]X5n6<H+._"V+)Hm:9NkABR6,IH#.MQ7V?-7#K,p4="a6p=O".MbPEZllqhY]piM8bgem7K-niNfk^U)8G;Si@bL**7]!0Bn/N&!WS_V\#W".Ii:]T;(TX;6'dmqZ@%->@5=2N3Ua!^bQH1*:PA&!B9D0k^/G5[aO(?QI^R\ZU9Sq0Hiat5DAWanN>N+#)\%ANVoQ\]eQ#=_RX=lNeG3*pD"Q"<r3/<GOo38k\tF(Ju;2-;/n/Hs1m]8R;pPo91./_R.3mk(%'lhJQU.8%JcVklXe1c6>LoRs/,Y81E6WW>NNH[m'hQT2F92,j`opggP--naZ1!k>>_'&2*TZU+[F*:q"LX*68S=pc^nY"UhW(W(</Z1.A'4;.+$5t;DK(e-33gVTNA&-9$B7OX+HFL$oNSE<3"=S#-4@_s1Xa.d?(WbOX12h8A]nm7W[Ck40H1H1=M)Q,V?+)2f_d5sReI&>/uPk-&?g9'hMNs\J4c6;WWoTa%kSg,$)d(2JG0:d)h+lCj@OStso.DY9ZX`!hF8RZ^gNgLutTus?Oa!+Ng;1EuQOp*7[obNq-gdBKl[+C;QcWqV`^;?6&E)^%e1kq5jh'IR2CtAf"Uhgsd52Da1cQphpg?DmT>fYi15JdKq;3OGc[Z<a0hns:##Ju;6OF$Nbf+r;KD59sV@ZM+=2H@3HS_KJ-1$,-NX'W6BmqUiSm'SQ>R1[O*(8kOY\0fPtcPbtJ%h[!<ms\=IBHW7OW4'0.FRHZLC-YFg1E_9EJ*&G/jQ$Hfp=s\2c+3o$-Pf&eXFeuQbJBfA$YfFDo^ro(=='Anp@hUg4A!E/rLXt4MSA*l:=bOM^Z*#siN0P1BVfuA-Bp9CEq5.D3!_3A]qLulSaP@<GR<BKE4P([QH+M`lX*WD00ZhuP6O7U@?fllY`OG3rF7E\"rMcg^:]+^%_3.sgHXF(?XMRN\ZVO.4oFkN<>:;`"&EPsMR-D[\r_A^o:e=rR-m'`gq1s>JICjV$\W(h4Nc8U`@$n+?8YcMj@ebZ>MKeEa2@Y7<C,R*&9iA-/]GHP2\ssf^(q/Yh.._>;E":SEF=cPgS!lhYnof&aW<k4`'Rgn$-1V5S9(2#78akAQZ_d-3."9VVA9%DfM)`&J/gRIIs@*G.q8g3ViOE=YNN=#fXd\>MS11&p:KOYh9;u);'e"aCEhMFm)#i4)%^-%UHU?^@*p2g2B=RYZ9mR*WoQ0b:5PgMco&1uS2n)AcFYW(dVFm9U`&\MP$)Z>M(2_\NV=9c2A9YiSe8g:N%EWP3t,J5G[c^q&p#'TAIsGA3iRQ@I:1[E<@0pK4*7(l][g'<]%<BJN!e(?L)-O&g/\*6C?:W=W/uiH(pG+_-dU1S$k:W/48$R>PN,2c;0`8&OWNVK-ko[PVRjs`G@1;8\T#NJ'6F[,rgPHUL8/?Nmp>&TYnrQcRd*L/^%"+pSg[q%4/5,qjE7s0s5,,qqa!Fte1<1PgsD<)rJ(ORfHeJlaMu;O-UR]Ar"iIRhGN@WO^R:B.SnIYROp[&S@dK!,@k4pZ%;.42=d5TFQJStRDZWe,V''5$OJ9VJ3:q+M]+iQ&#p<8<+=7o15%gY9?*:lSqS+_4/K]]Bu&JFVXtEj2HB+Q0`l-<0\7"->oH[APQ`[k$`o70f9XVGK8dm^;Q8MT><X%4cdig99JF?4Wh0VR?&:-Ydrh@J%>[jIPYsc!eOCU%p]jR!?^gjHH(O_eNV<uNkcOL6NRp0*FdiV.JEI&`aV2j$GBB/j:uR!Xp-2'pQYhCgV.9B:ErDnRN/C:Rg]Ffk_bBk9PF$=qnWk=eaV`b<&q%#pcbO/[;g57=n4U[b"I%,(h>B@Lc#sTN,A!3ESfCa^cKnN3i0%gfr;p6ZL?[Tq%k-2ZE,U@L>Ko[Nl5YXlVJn#*.bN$`40Vp+g%\HGH/49J6eeb^I?!p>C%po=q'G,-;IpoGkg>;"#EO)1X(?,`5Q+)F2V9]p#[lF)7$(Cun>-GH,09Z\7H"l+b?0R4T)bU>dL;+"Ti_'AJt(pan.+E0PN$5f%A@qbVVAsd3[#1t:*P`M]f,1#2VQSTA7f-9V(ED$U<PU_%Nj6QS^m2u7pfFfg_l2^koZJg))=qXYc__gr&8K0&Z>$b[C%%i]2'nNUF64$k*r907&jWrZR`LhPnLJt1O%VXk':+O"+sUKr1<HS>SGHYF-V<M3-37]djO42i@RUI3s++$D\oDO0Ml1BP)Y80(3j:`Ie.CFY?mNZD+2QNQ#C$H@$aj+UMA6hK-O][qUp!)qIQjMi*iB=kcZ11@=c:b@&P<tUh?d=it>"r:E`::CnZVtQ^n@f*PEjN?gA)=PdfV7^(?#SrV,q+D-"JO5^]d.JR2@e:9ASr`WaKM79O^^J@R<#f$HKSrEl&ANP!Te<J&ClZW:&eLtq/bk?2i<?&DV`Y;&fYZD!C*EtdofAlPi=_ocSGn4e4_qc2',_bMnUAoi#)^88HKmAlM)dnN)^c(HQDFPG>!)BLfJ-6?&#MB;A]UMHHD*3]0Cm.(Zg75WjpDD3lsjf@umi0*t.\?]N`l)/!pa14I4BdfU3BOZ]$TVs?I\CA-99!;KNn!79'*%@:FN@mgR)#!o:;U3ig,OcAi8^u"L];"khH6g%f8*r;Si@[/'VY\a'f_&BEiPQeiS-Q7=dKNq8V3Z%i$(7d_dR&BHX#S&571ml"(E9K5Y/uPM\:7nq6WX/\H*bd<NF]6PWk4RrIcO0Ri?sUP^NHir<hj&:;\pss6J'4h&)b]$qM5K7Q$<MZ'5:pa=oRG6Dd'=UOq(L4bX_s5&SPmQ=\qX=B[?6m0Z_=TJ]tDoK'Y:%#J%T81IN:!,4"EX-"i/_iP<t3q8I$pkUe-#=NXgSqtr'Y0X0enCabInNR5I5)F=C#]@AGE)YGed)+jrmK^0i_'/t[LI;r?%iNFTFUm)1r!_b-075^paGW9bG7B1:!N$RUiaDq\^3\D_t8)ZA]9>D5nU>51`P@-J7c%#%"?;ug^UZSPbhTXg04MM0?MD\K0lL/qhZ$4JZm54K4j,o@arb85qQ8Vr_<)@UKkYh^$&`3L`r]Q2)gDa38VKET.f<nW#J7Q]`OcM`'[>'RU?Sc676*s(\/jU:,,kN,qWV$Gr.&j>r=]%=s]Z(K,==%KN@cSE!8`c@41qNIo%PsB"$&[]tA]*$AWO+]94Mb@uOrP9uC3$+4>3?ZLI!YOY)'WM'7orGW[j%*i7DrN%i23J0?r:CL%$Hsr42<*B\r->p9T]FemOPmn6GRIC5pB6q%<n?bQ?u9G<I!*/57L5OpAL3YGOfGR-RC!63QBT4%\GTQ97j$8e;@EGM5;G<QJ_^Jo"4oY^Q3uH'WP?K6EWsR)HX_Ag&HN>pD^([jklTQ.56&E)'1H%XXD$r3*a2aQ\FCr2*UYt'e3Q1q7Tk3j`l@V3MqaRC)JpEo?+3B#1R#o6DW[91:@Ke9/>Wc6[tjMTQI7PG8@)h6)D-.g+g8uO<:8P<qF2]`qfDb7ic?]#l(L:U`_TU0\S?sSMeDkn`r1^><!@=0GPuN-CAT&BGk^P@G)pA'Bi2MUhYp)S$[`.i(>dJn\WZfXU-HRHkg.@UAs'("c\Ps'Pc/$B-!Vm&r21GGUeYA'U?QrXg)G;*uC&V36dK+eXpZY[uKnMUd\Eb'01)FM)$[41(Ne4Gk<K@)lN]hI]3^WT5n\(o]7RMYG!teN1i`?F:K/I<+QK9Kus9k9M^Wc4Wi68q@%i6IuQ']*Z0G"$SPp:__#/E+Lb`Rq7i`"g$-2B_:0E<[a_Xq>b;Ck^K]snZ<d;pRh7k;&B&)[5uTI]nS*b>+n<EO*8@`X\]IY88Tg.ZGg:H^gr"cO/dfJbYP6&3VB#JPQ7ToNYM/b9-P>&3Yf\`a%tV/!$S_T$][/0\K)-r__rjJAWR\].Frj?+Q9M(u=M1Jhi/d<or,RYS!%r+b@uiP:d<'>mXdL<[]-&K1,&:S]Nm)aAiAk-9"P$]P*rW\B()%LSlZ!\F-'&T*0"E4B8A!AkF1aG#_jEIGPT,iS<#10nL=tmu2[+t++k1dQC"LDo1JH*N(ABCF^!S8o"?0imB.'-%dPb.1;(C](3S<LGX^2e3BX]>tjABX85jAWeEg9_eI\S"uB,m!dU;&]M=2KR=KEI"M,nok`9UtH4$QjREpbtCeQAGRYTJM1#,p5upm`#cH(R'%=f.S_I^`jP;BW7dC4hb_aMQ+g92I\U"qDc[?e5CZkP!ca9ikO94!D?\oO+],sA:K\SiLXgIOUKZTnW%oSD].@]Lmn473$[,>_+FpS%h-!Cm-\BBKYTl;p'`)JddHG.0."QT-$k.6F3G[,]2#Fk<tC61f:PA(-E(-k=C[d,i,uV;/A96s.Y'H;*h,4";D1/n)PL["i_d6H'p2'!o2Xd`TAl&5'\OV)9,+<.Ea5-XXN\,"L%"Kh^J5']'RqMI>2hS)asUk2q_nfcL[V0iA/i0`AY6\Y(C]H[Tt;f1R`#TId?q.9Da>&+[arB3f_L^/GI&sM8dYD%2$e'Dn&ZraIZ(E6PHtL)*ca;tH2t@K<9aClSsK5)SiH?4@WS"EaSf'--!Q)V'$9@mUU2m9HX6e!AMbbHh\B!gc*tbboP8iU,ThPgbuLiUYmtH:L%c"e].#If\mONgC3PT:T\qgTY7!/>`H4uGPW)5S.n(6dn_LQTaW\:<f;ZgA0dn9$3Ie,E(bdm^[(VCuJu;Yp5J4?PZSDO$SDf?7;RCd"7J^0Y$bb!*<@i!P76.6+]X(2^k+G^?2/X><f%&&[+n3S`Gcltu,E6S5.D/Kc\&toV(E4/%i[feel&(JTI]]H>;rul9AYYV0RleCS*XCm"ik[jDHu#0pX3=KnAJi_l@7I,>=<*WB$P0/K^!d!Dke^9?d!a37GeLU.:pW'Y!,LkMI"Yr0jU7C;??!P8];0M:E@3VQ&$$#50#el(05jmVTo.oW,aZF8Ku;]2MqurpG,H&dE,*?TL/,%m+]k9]hXMnC!#lo`V*GKUYi)>R$sG2>'[j#:>SdpJ(P4mej1Bq'OCK,ICUUX&q=O[W^Mn&Ej6^b8-.rXi@8>(/"(JfVeMb*7C,l]d1lnq^ICMO(%RS!/h,2*j>YGVV-qib$'lk7Lc,'RoMUV;eMNdoUf7(Lh7-m3gPA*P4$c#el+4S!8m8M$i$GaM"qftoK1I3<Pf1;*,G$bc49K^lkSUK1bg,(JUOa6eMB6o=G18:N2MP(D.E?)J!D-%IZ4s])tcoOXlgP?Cuf@QgZ?iip/b>u``2nOO-EWeh^(RYl)BF[nc/Xg%d`[_8$e;3Rjpn`5Geg4?VnB;l!mL=rpY2@G?4fl\NoCMAqK@mqdVZ56uNg:HQB/`l,F>L-4db=Bj4pj&=Zi_bmP>?nW74R^iinDOMdu=;5*^9-V;?>1Yj;i!2mBNX8j*jt*5upj(6"X/W2hOPlg/R1$ZH$Ei9Y/M0MS7V3AMR^h2Dsr#5Ohsl5E&h/3.#n_>\LERHFQJgPEcF!R"85tf==^MS#?D]di:ojCMu/fNi[J$]jV5'[(.e_2)d54&t51n&6T2;NR8N<`sIjA3bj>kb9]156>"DP?ApIWFP:Z7ENVT,W8lM$>!kgjDuClF2l,)\+Vf3Nl&$W\'9T+'9\6C10Z$nF^$@CCDE67Z'r^=kSIc&?ehX,</MI&;>4ATrMCm-2@"R*3E;)uqZJ5\DQd#@;1rt,>:.j>oTM31A<DL,?([CG5&LSF:1smea]'NSq(i@ofD!D(ok<*q53Nks>0'?P*r\+shd32@ZF<'q_2UnO=>($Nt#J^++ctZ+MJSm;]"'K:j`T9N!.;<t)@rRBk`t9+WEYD]W'&R.%X:+@?_;b]J<N[>]/O59CRPXt<;LU10g)\S,3%s@A4B7mcU#^r\Z_:N!VFs6"ZNBIIZ`nreG\G)-'GW*22e;<+[Q^cEMfuK8?9aX^i)VSD2/Q@sjY#JHcnUjKHaUT#9b;(LK<3n"nK#*(h9(&cm3.HV'&WmfJAWE"HkAqoj-7^BF&\8'>Z`P_W=)^"TqmMEA]qQ=,NN\DguS+5mshs^es>=C`Y0[Z^"<.b'Q[;8D['Zm((\bOAOtZ.lA9Fp7EJ4!>(HJ?&%8r"4,C&CnKgi5h+RV]/!R-LHCF`g!pVBgC7UWoY\3D%g"ec+f"LB.\%D\2H/6[*&WT0r2Yc3%[7sYK]-<7I6cKf;RL[^?JSO(-Tg8*P"@2?BbcMh)&@VER@n&7;1_>10B;k.1NJ0C0L*[*9CLq:q);:Cog!CWU6&9:n.sL&BpB>NDQatO?Xc<J'8^'@<]Q<1#B--Mkft`]>)UR?uXY+(JpuVr.Zk7H*Tj"_Jh:[Q6*,5Pm\CL$TS(mE0O#GR5arU;:N!I@5?!0^?a'o]&3C/oO9j@TJ*mPK,#3J+P-76NJ49sLHSK1DF8&.:PGXt#?T"u1ueAe%Z-Co7rJS!,=f2EKH@0J#i[DN*umTFp]H>:d5#@*VinKMM+&pmF\dAC6PSRZ\'G*j/QjRYm_[r9pgi3.E8MgcKpr97t1N"Pt1[d[,(Uq2D"YJWk$OseBU`,5R6\:+H2iLWO2)[j[H(HOCl<UbXEAp<D#F`PhVAo)3$?q10I(Bl5R1/i`WmV""eOnYt1(9tPJ@g0"b6egeX(!]!o]o2j<^"o''iCm(p7!,8<"u#:M-nJ+j2H,U(R,_"%A>kdQ$`fA[qMh9m,7bAOccPq5no&VtN_ks7B=*_@]X8JjQ\(WqgC(T?[.N/=1T<2W4'*7;.pgB9-dNjVdpb;mFE1_jHH`72[!\Gbn,Jq(E<B:F4']-ca.2D[g6)2ubsb)&rJ.[(T-:hQ*7*f*VYK1`kNdJK)ZSA_)1"%GNU43^Xdn>WR^L<pd2g@.`"2)mq?E<6?'=.h"u=.QDj5:(^1Ma\G%I[IkM)Oq1i9Yc2=-#GVf>fZL:WiN'L<#.6'%U-^DuKG,Y&;SBpHp5][4(lq.M8='iJm%nCmi6H[beq7X(9Bgt)lFE+rQ1h#"LQ(>35EB@%'<#?b:;h,Lm5iU^dU;:cdt[<q$7mQ`S6.f@*gB',h)T[T6di\BRN?OUg)3Bp8RS@Pn(3Y;:sn^^p(f,T$+0]g[JDYHD^\u3MDGJ9+UkMK+W1FX)k,.]#U'f;X_@9FGa$!d/<I@:<l\qHOW$R#<tjgAMS\r>ARQgJ#'_"th'Y'Gr(cmj,=YubX#?0k?,iHVB1_E`]`ZJ[0\*Y.d%#mjLa^op/tl2\4NZp&;ls-WDsFulu6(JggP_HPB0c-K#6K:*fl%i1YQ!G-%3f$jgO4AKH%?HV-]f72_-r`Im[jP)%@o7#?YpON2'o#iJsRRA4BR6k&2V)?XgBeC"&?h+lJ\K1J0o@qJ!K>b?rJaF9FNflXKm\<a?r&eClRg!O)^PB!BS./#P41\n%2^5fTd/RE6e7mLWC\u50<SqT_KI#BZho7<$T:M[lIe+[OS0Wb9GspC/;l)\?/)<t^F^7BNkbY`Cf(j5T#5&Kj2]0FII)TLTOp3,alDisPGu7@a2U1s9Y0,OUX$<'NRBQ"nnQ5A9G_jklHlu:gZch`XVJfFT,[cSlmn0&r_@aou8W!k4ES)e[mN>HqLB_dr-O=(M3E>MDc!e<`&iXmEFE"93eRO.?s,T.MgbAq.&mYPq&)L#Y^:1;0HC*(PM7EBqB5;);[L`5@n!O5YYAL+oejAL!Q@\.o[0%=-JsM6=CL6G7J\Nf3-.?__QNI[XD9"<8B&&Cnge6foN=*GFFs<Z(Qncs&LU@++OYF+`G,HQ/)^A?B808>V+te)A*0F;/_K0*-*][!Ei8M)B'Y4bFLF^=$b0kDM[hF*Xk:U+tiQFF"8RV>4P6B^SkIN+5LlN1ZrBJT\f<1@C(9"t*=SfG(*Lio1(rt\,CkuC3jZl4'5g6Mpj8+6c=HErl6;>D^`;K8tEY$]"J1LE:>t#tLk]clCalS4a3Sl`><121cbAic[<HV\Sc.\+Z5eYL83<RN'%Vo$)!'gs([mgn0%m.Pa'+*SO][#s"*,+h%#*QWs#t%_08)Z9*q.b$k!uRJP.-qC0SP"HV>RVhDV$.#=h^ZWMUQh/GZLsYAFIf7>,C70ZV!F5<B"Z/J7\-si>75Pf+G9"a!B30mrOG9kBDl81Ab@r)7OO>c'.!N(p^<n?.8nYVb[_)qU1aVQF]JNup_Ff+hG6EmQHZ%MrZVT^T&j5@g^j114L?J07);A2*SbA.OjjoABK%k;]ZA0E8B:bH3<ZgeA^u,c.`9,AHZ]QR5H0Oh>SiA!qbl:&iheq>/bOZX'ZDmVpq3ZCBh[.#aX*fjnO18.^>p8RV=:coqW`10[7q%0h[i,Un8Hq1C!u)J"W$*`Aj8B%<*,,.@T8hBl+H3]q&N?KklTIF6)&B"o3XrB[@gJ9kl]p7mX?SDE!um8fi*:K-Pm4qCKOC*lQs\Eq+cLFDZ<'B7>alNM[u0WV8-#82Qpbk"NA]u^(gCFm\PMM;e^6UhG-%6b8Her46'4K$C&Xik=k&a(3QXs^69M44\]SbfB*O^(#^7(XAaB'1m=-nmO::Ccj_B1E#>6HJr`<o_0j3&A):E,h8)OmAm,R[HKKFY-fWo<E?#WQ]%3Bl3Sc[kN8"Tm%3Dh-8Qo1L\pq!oQeM93$Fho[87D-LgBqOsam26/gFr/!QW;,%G&]CH15Sq_'RG@+p4=7;la1X+rJ:N^XK$Akh?r$J)9Xk0()AFijDHnN\W8>0X5P<#[]`$VqP/+!1)Zd@X)fisBIUYs2LeERFsKh$T^JhY.=3fDlP3!MUR@#.k:86mE+s<fR!nt/c)jL6<M])AQDaB)J9F*8]<^I0UWibZ<J`fMI[q,G)bnm>do<WhL0W*\R[Eike1^_(RiVT+/Z`gD#>Ed(U>-Fnb17?)bTu<1Ng+;HVMUl6ZK!^hDCi$;6;s)reRslWDj@*QdOE"gKUAcjEWp\)1ge4GQlS':SaQ]bW'peM`3YqG+nIK\?)e,T=YA);3*;_[29)G\QARisdl#?_[cR18]#,j(O!ma+,YV^6_rRdF9If>]k>F?uPMc3td.6_Qn1ldqWYU[PIo_IVZQ!aI0L9G9]Gf^-B&$7FoYZV!p(PquM`&Af9-sME`XO7g6lOeC=cR.%0XVU%>s$*D2TB.O%iK/?;EH2?&t7iX<t>)V%D/ISom)dj[8%^T9eVE@]:@(TMt-8&8A4Pn@,^M4FIN%GD>9XQOWGZuF&_D>0iK,t[PIQTRXM,/4i`HpP?"(e(qtTs*Ad+dGkJSq#3gg_-C+8J<jBN6E1c$8jlT2>QT]utb--!6q).C;+7\b_/hQJ[e$&WmQUt"h+HTEG$m)0b@sP*(iR\uRSiqr]q7(Uo&qm;pLbRK-BV)_PD$*m&EA(0f`!/(.+-p,P/jo:j,I6.`\cS*@]"Ih_mQ4sm.9obEFKAMufQ(GT)3['gMGlVmlg_TgNM*E<UeWeJ?"[i.eA\5^1<aIh(jE+d,p\hk$YSUj/F.AVE]HPqOG'>.++%K4(T1o+^N@/`e1tR1L/Ik57:_Q\EPq3o"Gq\*%O>Yi'u^o.T"m%jm;#85HcKKFl;_Dg5nHodjkYP7l\j9N0c^9M+XdS.dJ/4J%R4W!3'g[dWG)Cs"bF;C;fZ8I1>(#cXC!ttH+K0^g4cYC"iD%.@i=Ep6r`I'LTHrg0K#?H@ZiTYG%P>%^@K8H#".^@83`d;k5mRl/.#5d^%VL=IH![_Wck3ig9mu7V`4M>Eo5Zk;DY%0i=t``7+r-Gr:kqfXW8^06CZE^\Rm7(C39PNX.()$8e2iIifeSsRW.,e4CVql2Wl3dgA,s4S?O"OlI2`,Bk[+0[CAJrcho@A!6:_Nlm'tsetE;oOP*pM[393`gt5b3oNg[/ODUt;D(;=5_*KX]X.r4k,VGl/iu?nY-G4N7Mr7)aQdEU)CZeS4qNfah?W"FTcGKZ*4@BJF,@O$Z/f?=0m_Qj0-E5";G]4$/+I,IO?thJQ?'[`X2d(0h7M_JXa=FY58jj1bG+]9A2159EF#V&MmbUFs@e7Kq:YgUMd!=:2Em"OUg^qX=bM32]M#]JPr&6TV*L;L%XU.fOVYL.F3nYY)Ufs)pM9Dg7&\0EWK6ehMj0$!4fTnXLl=khPC+IV"hgs5M3,1IA$p/315HXa.D+N#$"RPlQJWGR^k)Z4U=>9ZJIZQ4I=$u[K$]<^ljYA-%nnHf@Ii6G=oRJihl0SEG@AP)^.S:Vc5!r"Tp/Foa%TRoe$IVf"`I`&]dO"H=i]u/E-8fXP.H"cGkt*-5M7=%DB/bL'_06"!W@3JD^g6EqD3NRQ^L*=_[jq8#*^:kP@J%EN&^r?!l-hFE$37Z?BTVu2LTaf@E!PEC:`]UM(cH%]a074;$L[lHlW2u)(aogGB_=]L#C?R":^gm+@"'j\8EY$hmIn01dpY7%q1PK!Y%(3SM\$RM$Vocu>'T&NWn`0rTknG>s$Phc;h!e/n7CsSV'lYnK?a4ORUZtH;u1p/:r<TaP-^75a5RHlJJloP21;kS[f9HW)n3#%YcqtPY>HNeQfB-%\\fu\p1kG1B?^r>HC[aP,=13CKq\u=]^K95O\o6!#-edR5uN-A,S=7U;BGbt42O3f_[Y+W21ppLd`9R@fA'$N.r>2hL#NR3IXl;#\uja&Q3GNaHteU%amY0/Y#G^h"_LP)I]>Sd8*5J!8mKMDDDI$&K&D0M+2F'5/sT\;pDQ`d&8Io^4XOe1"kd3Sm8&>k2Y=1[BH1bZUe[pgXO%G@g`G!l]co3OLor7n(tOZ9pl7IQrIuY5F!&:o2Si.=dF0KZY93Vb4o3;Gq\j4q'RPS%.!_8M[INb+@ZJD$DWY)pi4%7&>tli&o_7WFR"ED&LH8S3j5>Ahe[$fcnC"<]!57lo68s72p:uQLWORdiaZ5RXa.AH1?K1ZTfpW1b'@B4PFo7t,5VM_W2-='u;($C@*1s1n8lN;Ul/AdMqIr*[$eZa[e"Jcq:g'F(^g$gPkrq%l8`(qI+IDn^LD.s>C[`PC)i%p*ke$/1(:TJ_GLd7h0:!1!dXEU?3BeJZBs+TMob>N@4(8^Ulcejo,O@Im8>+<FPHa20Uc$)/-Hg?tPYc)tL,_];>6h3TEE8I(+U[3q>+ogr-)B$NW;dRfM`)P/!#(&2^POrq79JQ\4[Lo>]2Y$P[g)oVl-l?AgnD0g&TO\?)&%8VgNWo(RO20i-H+)XNG@%LBpE"5b)O:\d!n$us5;P]bWh1WS[m0*Pfm04TS)l=.FsADPRh\\b=-dgMB6Y[3hA[gE(40-SP]h6or)$M)ZC%*94.#ciP#\Z)fA-9nVX&t.4>kcSHUJ8IQstK7J855pT2CH9_K7>s*3?Z[0$OabUa;W@BFs_#"/;dFjL/[/-bSDl0;l)Zi[e@+=u_4%88mb!Tt@n^cYL,6Gd<SQ]Na1aUo#knTX/G)pD^EF,IF;\_.*@0`nBHXJ([?La>Q:\pT<:(I<]K<dN^N5`<FXm/s'7(G>.7<PfVD/l-Jr*Cis((Ghg`$e:td<R:n8OV6<WRc1YYkj)n,_Z^pop+ZJRp3DbYpT[tT-aHWJWKgn!On=)`k"G<jY5<LqZb)eoP.mg@7k-6V1iEo,1&)"cF$!:4G14dU;&fo4_`]>ZMDoK"<5SOuiZ"e+'?!!r_b@7rC95fG4m$Y$KY/i*LkcD[HoeAMjHP&_kgG9jC9<*X2[RpD/mbc0bP#2.\EjrsY.Q3qZ^5G_c8][*0r^p"\edId`9eN:f)Nr^.hks:C8Q4p3@]>E\gkcW!c>(-OU>\ek)d[Q"d5_a[&Tm@:MnI2r7Vp.\`ocF(.\OL-hY7D,l";`H@B@ti<Q)nPhj0Sfeh>'($3'c`sLo-2%\*qLKoS(7--K!73\+`2,KLs!*_@/;B.U.k$cs]-9l*2po.!9icV^W-!S[q3F?td8lPn4]9/(c$W#nU?IIn2H@>8E@579,6r:K>a_E^anQd<H?$?I7&bQ22&QB<t06Uh^#e+P_Q:1sWepntYNkXB;mll2Tl3n>#_p"@*[UHH?Ur@?C&:`Rq_5#<oM:laP1NH&P2_s-Ed8phd29KHMkk#8LX2!ak?1YSng$&F]YL^",9;/](0YrY8kVqPG!HkM5J>FS&.arQ,<$t<><NT]J\M$S%&#RI^qG_3?`=83?Ok'#7FKpVeO@6I+gmPLBd)So@XN]Vr"%>!jZ=)*5oA\V"Tj`2M7Nn0Z^><7\H$Sb;$>DBCJH/"I_`\Gp!V*pugb3W*D;g+7%U/g]8P:6nj5>e*HSh,$KE,c/ok-KI>&"=CO<3M=R0<tP[.#7p4@V!CRc1M1\TKH1Le<bpPJ`a!5^!i#S7&`Bll+#2TE\%0m+(>me]MK5bnceDeN,XrSUXu^["@rX$5K0l.79L'DZL>Zr%Q6*('mj`W+,h`iUZpj.XReh0;P?XP,7epWEpB6aeea^PM@W9KRi2B.bX4k-<80A3p_JslA74C"#*QG%Gm;^(mTY]/`FdG3l?SY6R))UbtTcDDOh6NkT]3M(WYEQf>5/-$>Lk3^O!1lMiOh^X,<JG6?I,(odaE*c:/<o"@P>-B+`(N=N1C4>ikCaIdC7pBZ1(PU];fN))jC!IhJu%^P+-Nl0Q,@B<(EDpO%Q$I0I2ZRC)^OL.aIoGW1djj_eo[Uhn9;eAVJKKGG8;PbNJK`:YWQ]*`/bU)OY=7BI_$P,eg*I$/C3A9eWH&hF_51nE@!eemq9!]Ds3['hF6eFqZ#fX5%7\&=8uHf*I[k+jJe][U)MCCIe'+QM`Cm'P_+[IWN`7W_YV?YY'`BIEp@)h*Fs:8jB=MRE?Y5dh-h"+Ib:Z#CX#?7lOXJ>\s>B*UeuhlV+9"t`5N]a`8eM_;R%GcO!@'q@d.gkO1(Wl!=A8l'<DDJa>0/;0Kb*\kV8Je]*3JSH14FIe62Wb?7D<W4KP<hst<n+\#s7>-]c1%jBV<Bh=!bE3QT-h.Tjdid3,ldCOB6L?J)ZJu]O\2-si4,u(1n#(m3O@W=WkI;_$;P"\h"&%%A8Kq$-_0<cO0(cFL-%[_A2*V>peYrZI?2%4F[(-)82Q".c-N'(ZY$P>j@NWlS3^Pf&s#C@ri].?#X(PP=*sX&ca!<d6%T(mm9")$U>na`]'W2#=>g40H8nbj6ob',9f%^iUP%JF\LrVJQ_e,@<I1?`-l%I]4>oHie_"68edi5K#/8`?<MQR/e-)Nk)9t$`1#(UJ[;jE@508abUiG91Tc,>GIgn2Z^#t4;d?N05YZq[gS'g/7l,gur8duFnl'i%/&M]SYKOYS=+M-+JWW;WK.*@6q%bD%X5jbHO$pr!sq?SU)pri_FSaD.+)*1%:5a(o)5E/,"b?tWZN"sn!a'0N3A]`I&D)Xr9,`F/bT58dUh!`UJBDuJVba0"DdhgK/!P1]D/kAndo)IT>nL)D@&@e^10`)]MPm5l5b7+:Ho=]X.f+q#Ffh=t^BZ@t#(3+>rh:5XLCW\i^c,5(YAI+RV*T(^^P(s'pZee.ebX=!37S]aiXR[WRkU8S;]7j?trlR4@QH[LF)?Fi(#'eUL!)*&nUiF&FQmWgcflSha,RtY%M!?(AR>l>p10oEb[CH-E&^RCao!asJ.,ZqHI0?d&npH4%YXiC)1a5=.));r?C:M:>5YT[K',EK%i2&PT=5``jto\+=rNu*kWNYC^_=a%n!5*D`;8Ancu81_gFeF>fU)LN2XB$B'r()rPCHR#rIc;8bZ7!eCk02:ZhVNeeQ,D!Q]ONno3_rX:,8!+XHJck"rNt'>!Yd50F>AZOaAfTeJB73H@kEpu8LGj2WE,o5Hffu=eV00-9TD]*P0=([E2;$-oI-?CHp'be2DDGe\DUM'V`Io>&@sFoc8BetD0?([>\2K`Rk4?%k)C$f:L`@M.rEM<R6k](ep!r>%*G!KWHoeL[rZEp/(6`3$cWWKENe&nfICd%cMm^GJ^Qo><(G%n@ApQt^*b4%?H60SE>#eQ.).-$)&2aPtD&,(TS)r1n7:f*s[dBGOU&O,^Ng[`+U#F*rSY$c=r[,?;`5JZVO885`X=&:+^AQ2$3FZ=VQEaU<3u+*2s4TjXc@N`u%PuPdiY+:=0,YlVMH/=ZQ4/=JRCZI?5"'p$6-EooPe]ninIV_=SqW#_G*IZ$q9hLc^Q4Vt$m+)6]WQ5FW1sr[kR>kEAr`d4L*)6^J4Y*:b1[M)[9&bF5MTV88M*dX@Np'o?%sZ1,3,Nf1]'Y\%ZhWfP82W95o\=Tg(''\d#=tse]UkNq4d*"\;:Ro6t3NhT\7soF2^%Z6KaX=q1GXAEIN83d#6-96KXK]d]IJ-)mNY*LZ48C0LID)/n9FRUo::GIV79I<cB%][ld)5FMCe-L%[&N:is-e-MX.Pc6!#9eA\IBEm:c^4/7uS4Psh,mR@PEf<4#[G(lP<$=rQl,"/'l@8*s[eM-R#*P`&UU_VBK2QfbB4u*FS*keh>45%VZK#AP%KeMrq>q2p#eQq(M9q8La_@S8F^EFDfY>-]3H,)3@3m,bE1K(d$q-a\goN0@_m;'EC>\'A`]?go^jn/Z'jp:`E].?*T*;I(&Y"$W8SOBjMg%!aHYRjG77D.F^8<?L\.H-\LC,YnEr/\o[0o>&"`+OT;:$>Q7&]?(3_B<E,1eq1plOpYK#)+:4DL$V-;Y*kqFBO05h;0?+2_0Pgj(*,R<5QYO6G8F#a5OHlOI&K]eibW.l-4@'+"U_cAM2bD6oHj41$pajX,E&V*Y8tQ6mYe_9^p]a_R7a90^H4'^#t>H<JcLY1f*M4$_GA199ZkU.;(*-ODtloD`<;I/@hWDT%;;;EUnRP3>u*:o\41fNIrr'm-NZTjknYuKINbqchi[1K;>a2nW8h2g$jLf9*59Yi].)'VaOJIZ"nF?*5hMTj<(YaJqP[4`j<@R8i)?'bJO^]%:b$XFR+*bnrIgtrj#O1MB.eWD<lih<X`*KifXqGcs];A=2*`E4CS?K)3YJ>Y;1FEGq!f[2_7,hY,-c)k4_ue_mS(=?p#tCAk=J!,W7+<I#rd&`Ap$<Wo<MfP[p`b9ACpJJr2X3T%Z)!A6ZLR&A#o'_9K#\]j[0&KcO`g&s/NTp$q<P5OApFUQ^+*CM&OXh?k9ngM.kLq*ogM@2^D_<Z1-^QK?"*TF`2n=L]feQRDZi#=ps1mth'$0[-M6HD]Ko.FV3B[o/!4gq!AP+Wjdk/s^eb:,JTs*9C^WOO>_.h`cKBo?ZZ1L!]tQ`2Scb>m3+AmJ,5@@>!?[@f%is0V+e2i.4qQ=Mp/0Mp>"Hf6p<-+p1DM<tMqneQsc9@`)=WeZ@ZD?UFVOJT6e&.[1a.!.MGu,/'X-eGe"])Z3)5p.e7M4E_XfqbZKNcr'1E4#>cV+ZHp#mGkJC9uZJ=&Tu.:+:g?KEXSinIU)u$.&4$l1)3"eB6[28_T1.ID5[-0ohJI/7"4,kS*nP?Al*Mre>7d9r'cmZ;31$3KmaU('D@Q]7)5-Jo<Gl8^L:uICR[VgIeHng)79t`9B)"q(dh*oK*9(U=48_BiK5$(XDOYID/g+M-MdjVRhDHN#:**/Y:_\HV&9`VAOIP1hQ,ZaST]BkLTfBC6c!cY\Z^SpAt:OJ&H^;$@[&Pk[EBL-Vn<"\i[^>].V*gTF;YLGZh)D]k4+i:Hkgf1!a3d_<+oZ(*i'@Lg8:Gs*tW`PCIH&\W:5`6U0qTc_?5fSfAh$A-Us^sTr`A4+h@C_F,!il2S?%T^;\eq0M8*VD1Ur6:3^ZJXi;u4%&$oJ$SaTdbpd1U9c:b%-Y(f3\BR(/;fV3"K6QD=(4YA4mP,.KYqktK?dkt&32MNl-9OU2i)hK>?d>.3+gW?'hk%R@=aLGo^$f]%,;K/+Cda-)=,E!a+hHLaB^-U$WRp5k2+rG(_U.e[)sk<I.%*Z=gM=dJ0(4.j6\(0K_I63n7B6oo2QTHi\G,Ol5i?:)eL"c$:pbC-QVq'6MMhog@AcI**:4k$#Nt0j=RkIb:In+!,$]j0XWPsX,-^'%-44ebC]`Qh`V-4$L>i[aX'W_)q%j\K0r.s1kBhf1mDn4oEaN5!ZE*V>(Bp70Caj'*a7h!%DM.om>I>5VC/e'90@h9.h"">]"^1j=lfXT-DK-:J/RPu?jE(XJXS5C;*g"5M$rK6W1puS%5g`=P*TE"J4W1!_!"+8srmSmD:8[hk"ER:E9t'fM<LnYi15[HE$;A>iWuib%Gs=,S>V5e:CagWp13%BCQa2U)<A]nBjVj0@eo-LU+st/&4cm*("gNbk8l)FlnoHgB5\#uH+hcPGg[eDGF3%t[Q/S69ruJ,j:(:q=Xs%VIY0'XAHgrO;KR=lN`bJ)/FdW]oR:ODMAb&H'`QQlXj>]rG-*Ut6)N]R!r/=nV)^rS'@tVddTQt42Bf*n7TR@u=%O%WrB4@_l=j+2V*"OVIp"8\oMiWI(aI@G6rDB[n>Wp#?8_FRXJ'eLAa+Wr3AV,b<0\C4!$5"/g+IqS%=]&q+6eJM<25RAcJa)4>.V,A=)?5dE@'7I4]X5Z@ksT_p4iV\\IVCWYLLtCE=jG$B@a/HSbo#W)DPcAXZQl<Da,]R&2l]'I/N[Sb7Dna;Q;qY?TXVchiEIlO1!*Gq7[UTr]:*BS<c1Crc4Z>u_&\c`XrDFu'&,^8,m@>r>X*JZAt^(dnO0kgb\Z4#JBIr#^oFDZF5EamQ^^^mTO"1f#sCghh2_pL8@0"JIo<H1)F+rQAde-C$_T%a>2GW_HUFksUX`tE3Kke;qh--0^I,3B(7J.08qS1trQt_dI4;F2J?ANNYP_*[gg02;4_VJaN)]3iIi@Ne&u]VuH>GIV1BoB6i]]0Ug8,5A+8jZ);"&uJ<_Eg\g;rZB_iPG0)]JGU-dZM^i&hEG(tQI[GA.P0K=G%4Etft=s30lrs/=G&;a"?_YQ.<1L,]LI_a@'V)UYFJ\BdGS:7cqIdTd=NQI-BuIF"a^:!?(;'Ql>b5)C#i6]o\n5+(M2T1)ng)l?<:pmFP2qIaHAa*`W1%B+b]S-K6('3e6X'3a_$+*kn&<B=_=:Z'1t3qNc/`XS)sLd7Oq$n;_nd_sWRm/qN)dIfFfHT6IH1MsnH,,$OKhFElI+[GK$Bb"+IeZ^aB9-R%QZ;.BETY,8:<ltkFmfnbDTu#i#;c6uR]'qTT!?-<JNG3ZKK,E1m<gVP3fsblb928WI<TNG9GBU\_KhB$fZfZH+o._keq"j<3*]kchr1(5kfd7q!>GTR\5$B`[K"jdPI?n;0b$l>W^*oD$P_JppGF:O!Ck4UB.mC`@k.M"H)D+g'9&X*^d\f^c]@F9LK4fC_(f[6aQL]a!6*3AGY;PH+(\=MZ#i]-@BL^qRHd<+;iY.\Sgoq!MRLF7;RA)]hC\&PSW5@Zr/86G^@qcsnDVf)B:GBh"d\Gp0[(IlFD@,fYV(UKf2h\[pJ.^"NKR7N+"YZg!OMqJ$[hT(X&OjPE8)IoJ*p56,k\I\ae?[EcBQ+N!M-P//`b<Qs97a7`7L[dD3HU+AbsQ9h$DaGLhX4tHZsl]P(Suu]OK_=rTgWA?NZPAa)32i`dF(H2$n:+q+[t0oc7rg2n"0BX^frOVJ4H.7oJX75a:_])Qeh:\<],%>Nta<\e1GW*;SFpQg=:-d@.[*eePjMsY,Wl3-5C:Ck"=&uEOhVcQ6Zc7aoO2,#\0K!3j>QQgq='<QFj]H.t*)C*/kS3ja]JF5X'<e+Rd&sITNd+XSMQIbOnM[RfV`g5!YfjN(HLde@o"W[Wb,dFR.UEON>[@'9IWYrK%GTH(0-e/Ke3>%F_XBinu>;r3BL`KtkGHq7g2V$EiP/LcUPoDA4P=YL?EN[\Dck^WZACYh8D0<c]Ra8LiT"c2)EY-NNWG)^"g1hWWom+M6,c[%QAm*UIb7llbPF,[Wc"R*p[MG#KNQ2bDn[T=8S073H@q6c]+g8dY_nRHWpj5JZE%/57YUQ5AhL2`tQB2i\EpMc3gsG#4CQ+9O-*\KV/_P&_Aql7GorL4jurUq)`7Wq-k$aDi`-E/ec$l.a?ug(AQ2[$O+S5H.`*m$2a@B._,bRS^`lWej9bOd!>sWh%TtL\cWK:U:Q]Wr=FgQk_(cMn4Zbiq@l\G>t4!>L6PKT=3s!iL!TI^Vt6SY>N'0b9)R5.='A!\<pQ13'0;POH<bHfds1Cj3V\E?Qs)$*(9nbA#7aM0H[UM<bdOKgpi[:'cdT_F\:K'Jr++B7"0h\8+V*moS%shXZNca"2hLml.2@`Yhn5h(b7upZ6\S?`Y,?1F9'r)LESb@SB1\nlEYVX(=;R(dhLmpJjd'\<jZbq8k^Cj%7[NedNn!Rp$Z<s.><.uk0sUUY/,[qgCguH.%%U&gIq^f6dI!f>B+)dQ,YV:5^f^ceU!s<5-7?-DhOiKpMTIs0b3R>E>72nLj(X"!iuIIDUHGcBlKRaI7NUBTK"&h'Q@,2;9`pg?[1'X!5E4c#o.TqI<soFT41@_$T8T8`QM7OA<1M5@8WXGS7BO5->]>Y^G5,Kgj9%<Ub`2g[^7,i*_ne<^Z]E#W05W()XZQ95Vi,"PR2Y2pU/fhP*EeW*bni&LE``9.QXDGL[Q]PL\AZ^SC2&rhAHVojaMnH1R%4%Rt0bBok#FcrN7V:m0sg_5&O:f*+P7P;ZDatcl)A,+9H/+WZ]n@[(MGEO%4!iGq`.G+f,h^I?VJsj^Bc9(\S1Yb":P0%rfo%h0b]i/<o_Hp`0PZmhge@[b%-m_k'n@2R%A]S)dpQr`tf\"ajZ/P)^f9_(3NV9)NjF\]#EBB_j]s9tiGl2qVX<?REYHod<FuX>>FN0Y_XcVIRDc1GG,%147`pQ9@,*Q`kLOYoT'[Lt+E*"TS-Nh/jnEL$7:m)#74#]Gb_6f3P8^1C3s(&P_CJHsF;CkO>i_R"n^b9"%(7E<c@KPOklJM_P+m)mel>BtI>1>]K;1lG)LeE-!>M.Sbj,5SB!P)AeSu':AFg^Y^D$8VG^1+]_CZbQ)L@JEou/2ThQp&h2n`Vi7\(=o?>];0sq<WS7%@`!])`(O_`pe=0!X5IGb_qEn8"BfShsomU.5l?2K]U2S7A<T(DDIoaC1RqO6rFGlL>f/1F!QP<iq)QrTNi.?]Cm;ITh\E5mdC_i-A=)*h)$HBkUV&i1>bh!\RqWTmCeY7dHk%5>>4D238D4!DN&YCY,h;-jfOac=E>,96l(p];dZ3r_"4tfsSc!+K%o!nlW-3V62^jCrS?&APA$KrB0N^P(e\)X3t=Wb,S[-u&OKG3E'1M'P9qCqOkKHi3B`T@ZiB_io-q+m]O)^-f[ldUDV1.MFe$nYlL19M&fN82B@@;@fs[T/)=7Y?1Q3JW6sV`#kHKOR9fT&HYM>b:b.1p>OYHcA,iTJX/&W!`Z)I#96hYEbXX`>H6m35ZNjc3$b8^"Z*bkW'HL$GcE;*,:KJ9GTeQTLmjPR/hHLkNV%8HJN;n/4Klh7Jm?ldqW_2meFXcNS@2H(>))f[$G6N(%FUEOu>J->\%`1SRgr3DlhS'Y/q*5#H;)D_.f"$PLKj"aBA.GjPM#=j>Fb^Fq/bI"a-P,VBjbn6a@8u$Lp]\+-XO8*fb#k_DXSim<=so=V6%^)a6u:c?&\*Zs9j\KqD8f*_JU1VXJco1)>)_?NO7sN_#geoHO\5KF1&H;^"=6)?bRp2LER`2/QB2!,m00>A&&3h=K<hOSI<PQXi&j>@4(cHiE0kVLO:_hH.gLHrb+R+<Po>M)WgY`0.,mHGae\/+ojbe!X1^VL8saL+cVn-JH"$okOgqH#R@4XZG)2U1k8MSEHA8-[>X,HYTh\*k7/s>XYOjKk\-(rV]j)H#K9C5Y3t3ga5D)1r2fcIrtXn3sjNR7MWZSd#+bf7,[%![Zr7PZGn7(K)H\`j4o*GH+b9g5ZZ7IW`<FN6>AGd^tFMTJ0jBCU?&q%7AN@=XE%L)7;jujpAQC(3(DrPK=7^u\-V!6'Von3U"l=F7Q(2jSt#Q/S5cCrEi94l8DB_^LJX@T7$m88s%&nI]&m!]Yg)VblYJqA?Em`2U=Ki<GVlIB$uiL"80>B\IS]]f\k(l;UdZ=)ep&);?DHi:=14QjZ^WY,=G%Vu`0M$;I_LPrOKWJ'[rh5:VdEYslf<6sM"26IJ85o'5Pdn,fY%fQP2lt^&hl4#ZB82tm#&\2p&uZ+;</"MpY&@-%s[=F`Wr:F*8YBf8+#p02JrYO<U)O7D:>`8M,.>qH5.%!GD'(OlVkaOpg+o,cPA^-U@r?V`8p];/;!ZUU73p\G9*ggaOfGe)8_/W_?o8YW@1*`Jair_^,e`ee)NIaY'ALYm8e=[:cU9,-)LO:)1?doQK>n1^@+g>YQ\rX%IpnO+-U7q:q#FU=^]^(FXblu(VbqI^01PBCW=0J"0(q;<:&=%Q^:VmL0i+m+l-M38ZADo1in1khg*)t6Ok3j5SN>P6r/4d(=A,e>1<1Vk5.%+F(rhNS2Q\&&iDhGW;'tBbE=DMc]GL8I3[Pj)Za>,iG8^MM8uDdn`&O9KbaI6@2oWP?$dBI\Zmd7$+:nN?m1I>mK-sN-Le).CZ)i,b0i00qZn_p@bS%LUUdfY4,IOWm;:i9Ltd[WI2!gb@h*!EZCU2/I"!lL==Z0THP\k0O$';L-XT+a*E8l$'Dc0VDUnq]6qT-t;kfgA+AWK.9]OkP8,%)+?aYUp=9=XkjMi]+]lN%68ipP'Ul^hhDs*=06's>?PE`n@/bAE0Qs.S=J81bMA@G#3U9O9dTcjR8QBOWENb].^^[MgAXGfY8c$2/F,Y25Ho9F%h%SY&$J\e3@X==A6$"hqscm2_56)=.!;lBP*a=9JXcTfeP6*7-f1%L\Rh;uF-k?'lK-@E?EfUVM;_<'peS/@n@-UeL+Z\IC)ai$ObfX32'AHo1[Xar$Y7W<1O,3@[+B(BK:$ujgRYsi:2pWeb%*c)3<YM-i4[5ll6%.rpCgJ4[A8`7);k:Zu.R.93:Q52*CAU4(JZ9:^"J&K275iV1/-F)3k.T@5^7VYQD&/Al*%1@.s,0T6+7']mB#umH$"Uu\bT5gRjDrVm#2'H1tQ,579W3`CuKQ[^Ic_VsI2^m+-B;K&`=179Rk\akFLqns^N2ggSTeYQkFDjDA'tg/Z#i"NYNQmPBDq!4ji,!=e+GN5^hEU=S.KAa^.Z8E*A4NpaE.RVZZ'pfJ!4hY.e)j92&P"(c2H,WZKjo_lkr0H>e'VSKWrQ"Xc%4HX.7R:])IIb31n9+&X5MN?^gSg_%p<TL9D2RA=]9un/R=lH$a)_schJn8EGAV:2W[.sQEO)Sd0j3=J(1k7@_`1:V^=Xc%ko4/+"O3?_.805+SInK"Y*Uu"kra`1eeW1UKablN/<9F<s0hTlhgEVG9"0'h3c^'74K!"%sd_D>%1?DUDGJKCK*pc\Y\^cf=OqA98P56jTte!CNFcI)7/kWBGJ,M<Af,>F$H`s8PsoHVG:cEQDYlY\ME],/7aKtG,JIp3g\RUWV)_,'R*mS*0hamDN-ab*L(pRI[bdq>[ttd"_CBG^]R1n1\5MQ?-@YUA^b50_n\3m2fK2*3M;-5Y.pC8R]BqQR^Nc'48(Y+,X7q$>Qr$^2Q>dC=61SX2--ZAUJbCBN/E'Uqt#CeLhsn1-ttk7bd>KL5&f>;LX;PLgnn-.VtAKM64u5N^-`&h5u`qWLL>i6DccZ^'5()M%D-7?Ebs@;<harP6UuNC[k6=u]n]Xm-"r,&PLGZ1p+k@1^."/Q[DMs#mRL#W>Ia5&?RfbqZ^r5DAZj$_i)Q$HgIb)G]YN.O]4MbQ2qpPKO@LsGC]lqJh&#.A\abIb3_XN(-cGMf^Sm!%93h)M)/0bM<DZ8pG3A08?G\Tl;&>02$Np9cn]<#Kq"\]i<?X`.9kMU&7/gWO:<#9GRM2_Bn4Z?99_4No*I/9+14[2Jn0:'r.^JY*)?DFjHB-ou6+gC61-K3)]LOJl)SHlO;Db,=o%*%0a;<=0WE#C`BNX[fCQ'Z4?EL\g@)<.V?l14AaQ0oEc'[&NM=eQupGB/s31R?X`%Q8XIH6Y?F8hAh%"4r\3nAZ2%G[X:*Ob$/cg6(IX>7;`,J"FEk_t/LdR24^A28RqTiP^O5.acsFU.W=D4(UiL'GgS#WQI%a<(E3kS?Kso=t/,,Hgr%_1WVK,l'Q][82MAr@#f0mqs4NXMg*74A4@]PeI[>3Q&][<pt06=^O`M[<puG.obPA<LXFo5GV\834$43pmt_B#U$"Oi*aCjdA9rnN^]!V]RL\J,=W!l[8-!jBU`$$!-*ZfolROf>=^Bs`2\'t3u8fB)nm9<iN5LX:-.jq2^ClaS5c8dl*kBF4`U:V<XJdQLR3s;C6ond]A+OMUS%U-E1"0<Orp7k5J/N%jN&E-m$hu:&,tGtR-":^fJ_jX2.YKp4NXP7g@`2KB4Q',Dn;V`A>L,bR&iALO`05jHh:oHq3I09ff_neiVZ6&</E4pX;//2<*)F&5J^;HIGk,Lauc8U5Lo0jImr@a(a5K')!^.6)AU.*Qa0D"L,I+"hT[-nN\K5B+X754c+q\mVgrA+kJNr>dRi+;Dn(PFi9COB7dt66imU1h82GEUe_AD6hH6AR7SX.G:ng<o;aN^\/K'ZD]`74GNn#h,/j>;5m=^HiakR[0^$CWk_3OEa-^uVf,0/>t2E<l80:llV*?r(E$hVE2L_T[-k@+t:a/8.3.UqIrDL!qDh(C9IqDDH]n<Ccr5Ci#d.[jTfU7M$.>(d"Vgn_^';Q*+F3U(QgGa0Wi;^Cg;@eUpb?j#=4oG\9bVF+QSdM0T<pQ4bZ1t>dhQoHh!JF$7H1&5Jt"b6%qL6t[q=%724NKH[VUm2Z.:ep&8q0ho*Vcj9h*!9&RILPCfk_QS^'[irBZ;hgl;G5sl%7gH-pma1+N&t%4YC#.]B4rQ7hIg9V?m.=-qB"@;o'e.D7W.rH8>e.olok<`+WOEK=@kVZZk5f%qZU9tQI>bAJiCU\qM**B;?sTs[;\.a$V##:l"1i0f#tOA1&s%eflR"TM@usfC(nbr_"Gej'd&MVD$Y"CCe,BE,ZA=VAI%8Kk.[ZK",HMRoDE17_;o8MV%W0]PrW^3"A[cZo@)n?%PlfjQQ0%STQ+[gL:993BmWoi/s_g0qiXo?\j\lE_"!#=-;Qc!"lM<$Iq`0`C\L,u3:8:q[EEa[EWS^OoT0%lDOqGKSO$nJ?1FLmLK%Y4&g$2rk&Bjc49BT^k%ol&*De8IN+")YZ7;pH'$HWodS*Z2+g_DC#CQH2b4.qI=:U*7#P-i>D98!G90:/ZP&6CNo;u2G81Bti):]-,U;L5qb%R/bNH?Th)Q'p;2KJ+l=b;kN8I,QGIb78ec,)RT/>J-6k<fHqh0]#u!,ZOH!_2"5'N!,(b%$_`VaW^?<Gb9fJ(K'3VFQ@ia%hOpY9qfuZVtd;5WCV?J,a;Blcc4r(m3M=*j"QCcrh281miXEEXTW2$F[^=2rCRQ8b7bX38a)!XgFE+&R4jA'4FQPR"JV)Z7jGbhV!89i<:U:j/dnG&25335)'!ebGL\g"KaaZjBcB#[kB,f&mFl;rN[uL<f(h[P4dRMOTtFrfpZ;2)U(B=%^Zq$8RKl3B&.p!H#gV4dR*>u4Hb-(W-0ocR]euoSO*4&ZI2TS`QSA*r:soJ:8Cq9)]SR"#4Et@$OslT7G.d%YiZbNbo^^Os$MP<FS,Gs+tTRrZeZNM>iVEi"#dsmionR,HP?Namqg5rR7uT<i(9p=7VJH8?soZla`F62orV>:fIii9QEVXr!$"P$oFSkhKD5IEL-E<=T&UB6Kl#`7dU@(!6pjl.(V6t]?c!-sKY*HMKGNTfIEJ-[djB,!g#`okJTRU3d8-VC-<V5hR"c`$2HuE1ZYNLk#-IncnnfPtSB@W7H;OBS\6cMR^i%Rp+iK=q+=MK?o87`lX.?$Md>4\IA1tt>VYE_5JZ.03VNp9V%!-)rM=EmkYB;%HLhNYY"!,#_Oii>7)lBQ:oU4\qq\t-H,KfX-!XrWHe/3$$%?Odt!UA+A@fCW!min'_\s:a@b<&Zkj>/#d&YG+U21\i;C^(Jf!]pjhBBArK`b!7_B=9M.p_?WVa5TJDAdQH,$;m?!6;!Z)a#)`&0Hf7&2nuu@/!Xj[B$6J9aR4;(6qHlUWJXq`C.a[Cp+.aAOUeZ(71a2PHW!lejH>34W6?4Lk",;Co6ZggkEH&#SL$oE<KR/+nVfL&PtHs;!n-UW?C&(,R0^2?AA&O:%.,2u3`$PQ`;m[V<Nc(s"68.eVu)pDgbQZ?F@P6rC#lJ18X-^WNp3dQ>(jIi\8&7:NZ"C@V#BmKfs<41MP_$_@;(\dO]MV2+<H^=FACf&Ijdq*%k_H</Q*70B_l^l][D<i"Z)O\YX#]7h,@sH$XVo$fmY\s"!Jnm>/^89hdjpodQS*6rXC;Nb-:f(KU3*,)4g/fD:-6f#?*!s%ZpQQ:Uo%8rO(T2q]+l*^5(Qah1Z@CU<m=NS)H]_FM-TabWDnJF1$.t&RH)DH#a+Z^JHQmU66(r^A@,2dVHPO,#JZ(JJI(I:$4Ya&G!-,Wu<J3Z;hAPRDl(%')ffg4bh9$J0.$qP4=)O.`Jsf1.jk4UPm(lX)Q3'7cuh%r)HCZARmYQ$rn0pdnWfZj-*Nk<uaIh1;_Z.*=)"?#o0kGr(>P/&-t/oa[XrNDor8=L5GX\HgIDrjjpAY2<;BWhP,1_o9=Sf0ut8D,9h0\]oI8+n@U)6<!_;p0stcR/$OuHbb1k*1\seZY10:i"0H&T<2Fpapr_60cL9$$7nkaU];OH("tekelEN'4kJN,_;kf?tgZ(cFqsnUSE7QYfqSAqegLQueGtK5Ag"C#55Dq#M57QW)M)dffMq(HEBO60a0Z*#KkT\KsmMK3b6i1Y*BGS'Q`6bfm?%%ddHWk#tgpnP$&K.)P366-m>QadHiq"o!=ACc9%_Hm<:)S`N4R%fR4G%g)YssD$JugrWRm+uND2Rb<,rQLc>.b[e=U?3N6uGg:U(G*\kl]=>gn_-_.Qi>41M!tp4k>tu-fHehJe8&mlOt>^4_DB'Xt&AY+m^sF[-<Dd8;>bJ[-kQC`RhZo/!;c=)a-lSYdaG,CA3[9ifcCSI@=5IeVBQg+=eNtJBiSdI5-KMFD.9?Ih^1D(=VqpLN_n9]%E0=C]E";<I4fuhf@eqCf3YKkPbk7_^KZ4>'.5Rd$^bX7Ms;%H.NFj6M3(TNPMZ1H>+&)8<Yq&p(MT-E])%Q".5+qNZ$Hp`l[9*H]7[+(^+Mf^et_[gT!X[]P6/,+Y_%(Slu#A9eb_X*g_RM\s!1<Lp\I%`HkjQs5g@:r'/[/"Ne1Y(O%Xs$/8He4=(HUCVUCNkC`m*aN*hHeP0*tHlNDJ2JAoC;\TlqU4XTj]sk?$F:KS-Pqh!>ATLK1$^umYeuFbq>J2/A%^O#g[.Ig)"_a.fMEd"b\[#$tPJu*SPcFmj^`*TND2^2E=SpoHDB_:/S)lo`Yu\9r;`))j;"kFIYV+1*n.]YSGrFAf'@l%2(G-%8b!oqd!11]7^*H6LDX9WB1?YYNcB(nskn,A_j?2>/7d6NP0iIt&Z$h?*Xg_?"QB,>\hKk:hIq$n/BIu@`+O!.O"RtR`Y3CDm%RklLNpF[d[lpS+s*(4:@=/[+X0Ek\-QhNTf0k>OP=O0e7!0nD/!$A?<M!QOn^m[,]=AVXC?h#dAI&Q"'!28#*GEm6jZ,Q0qmk'"Ti\YT<b.Y9r>,4p,E`EFOi?hC$lk-Nc/dMIDLMh(]Z2FMK^_?)GStEl>a9J^>nq']8lT_nfN]$^__^k!"kNlgX#VYrJ\[P<O*85>e'L"DeRT`J")3FmGZgu<=a]RH^`Ya-Ck19gFg#8:g+1V)18,&mV3Gfkd_+eRX7dCN=H*9[K-HcuAutG=`;rbS`\<GFKDC*nB%\dlK3P];a+Ba.@T!,IHuPc;<oMgc-#I?h!e<O4n`(c3qrFRt+-Ys<,1*MC>J7+&pOGcXqn#gBd33G*"L!P:,@7)l^t*T_4]tcN4R.9lm.uO7()TDA-juI,7%*.VA:!gb:,P3'o3qTi?NI#i$XIeUdn;rm1MiHeYgR``&E[`QdE+7_`.FpW%3*BN?(eV1`!N/BYFg!$AL?Ko+J%L!6]\[3e;/VYBh$Wu=Wg1_YE4(X^Rh/=UWuG%UJ!cAYNJnOA\TLHEFhU;V-`=C4iW97+3UnN)OZR;E/5)HR7lNd?l[W/XNL-m@/!J-bGtLi*kj(V#K@o2ST1VEf['?hCr+1m_J!d%"cbE.94s&+.M:Kn,&d7B#Xs;N=(o-sr\3-+dCn4ZS\o^*UkY\$+:<>;</9^7Ht,mnrfW*6b[_:dqX&dG_2h4]g]Oa[/f^:NpnmP>``*Ie;baL:nC$t&PJR%G'!iCh5d1s@5_W1b[)PnZ4Z"$CT"3NIoA=oa:uENY8ShpYo$@>;4Td_0W8'`oaM!!klKfs'Oc44k;>OE`SG;o/W"8Q"IBI)/OpepEgC_M]>5*6e/G(R:QEqJ[CgVuPl]gGWJ\aa3k>PeYf-qV]K%+3t@')o<7JK!3Kt81Cb(9qTBcc03lbAr,]MA?&e,+qc.^^KM;$4cF-Gbqh0;kbkG!g-XIK+[W(dDbLfFH%,#cpW@paVr`R[HBG?=.1%b@m"TCcRRqejaDg+#*8He6JgeGtp)nm)TI#!<&StM4t"%DKpc9lF__n%5mI:A/PK-M,utV*#XAF:-!B,SUk<2i-/%9:AaSW+\P^tnOLBY6Gr83N7rK+9nup;<06E`:\lM36.O?<+B9hE(E'([^s?`Ym:eTWXJ&2M[9jm`6)*aI(t[U09&G&YDHuu"\rZ;Mhq_lU4gj7U+e=k6\-P\I;)29:lS8Nh)3S4:<]a+hNrO_(%&6t-L;G'O'h3*6)Ip+Y]DVYp,roF2kn6lV86c8J0o3#WfO2)<,lf3_?!p)TLP<HC#hgK+?p;j+?@F+/a\\m2rYAa5o$7*uTlnXN004[<[]mdhs4BePIM)@Fk9k%#oS@:-Y6K:^'QZ\@S]Hs9Ia$HsW8?M4+!*Dd+;2Z0DPu>3"i4ojB9S3!S8G)A19In`2P%$Vjl\M_LLe\D)j=qbC_p`s#OAh#jM@3,'So_LG[I;HI/]lagXd*oL_>;S/!S*DfZ;S=Oh<\)a[P?U)YFJr$@hngE,^!I\8fHpP]cCf6cs"-g9(^fHl3!EGa`I1/cIUAfNT.:hfI6TJ%W$+_brd]n4CqeGoJpo44CEo+5?Ct\HlNp9lY#i"!AmVgQ+18_H1@pOtU.!M3#F'\i_+b[ufoW*uD,EhbZBrl[HQ/gmV_YbnJ!D09&biIq:;hm85du6%W8;ZWj/![`A1),YM'Qa\R;Q+ZS)((9hR[P6&B=NfYdd7S(-uVTXo*[qB145['inM0j!,>A]>ql=3MNAMgk/rFBhVf/1cjCaN`#IbRGe/tZe!gZdS/2d-58F$#jh&s7:0hb7N1#E#N4bG$i`m`T;F->Ae#APSuVYji>sn\=q6k+cKn>0k%^1ga?A5<YQDM4M)B=@,uQCBs%X;WhH&A#:g4*;)!'@7Cc)p$*-mi.Pk>YNjF0!DO21YRAEjg=OFUj+fcmY%j!NS1$ErdsMgs6a'^Z@CX"=U$?Bf)0(.(2pkX#__Fg)r+tIDPLL8ZXr`m'(>^tKjE-W.ZDp7*W/tGg*u3r-md\Ti`KS-3VC]%dJBakZpL+jt9Q=#Z^EFdUcN=<BeF@\9PFZ`]i\\8iYNI2R?Fhpc#4^rQHg[O4q?cC%5a%tI(AfEP;*nQa_a'=NFg%TW_,^X?(ibDa3966bVDq&HQRsB2W.\k]*u+Z?Dh15ZW>?C4e0FiVL<00MJiUgrVM#Rg&b[trAG*c5\F,Oa;D':tcB*BY6I#^JN\L\%s#42V9j/DQp`Ye%>YOiX$P1@/'@/*VjC%L10m`/B!_A*2[C79#8E\o;1OErel!jF*"X107%-ai6UT.Xb,:+.$>r^Gp+Y\"[fsJ*BfhY\oG%3A3cmBH,bWG4WNJC619e70[I\=>ZS:sI&S+nDP=HJM[qco9f7A+5p())#@PK[qX/N!#bk9`UUN+>fW'=fC'DQQ$f,u7,Z!F[G31`\9K9J%`J!2c&GP?Z2QLHWCZLn+A)D99pbS)]TW:uT%/otp$D%%%2Qd8K`O'Pd()b]53P#e994@UH>>:f<KN`n8V._?e4q#Z"L[K/9BT\!^ccQS'0Ok5V".@KU"dCXUjE2B'?6Fh6RSo^#[-?qg>p^31u)1p!mNbHEd+A`00,,^L/"(c+22NOm=tnbXARai*?,W`t1pU0p/tEKgH[C(Dj4kGf!;B459@M/"/O.og=^17$0+Sp\<i^C9.X>]*rnfJ+.EA,.%)>BJ+=T$<g[#OSG7bL/HBUK]C!VO?$88#QC5F"]A=#6I)r.JkiAo9*f]5MaQV=7:l!QCTB?An/U,e)T.fLpf!V3HXt$S1j*?Y.+.r.hbGAgSo,n-:r+Z7AE,S"025lY5#+8>"]sKh2SY(h*2ftLY%hqfW,@SQno":@%M4,fgd$?QT4cqSD1c&P]pBpZkp9:a"M`RY+TmJhD;1e\&/FtcA[Ch3""]@IAOI1lW@bm?A4ca10K<?>jI9^R_tHPe[-7L%coL9UALP9mW)mNpeAfk'm_/6l4d-I\[@+`3'U<^MChNrcSd7BjBN9P]K)R2YHWg[cfMA=^lpIq]ZUPEG/8,LQR[CC_f5+J3Vh2<S9!QWCODHN(sMib-DS_1ja]]*Hh</QL''th_&9=+7k@)rp0[CX='c13g]0![]c'VR1k#?#d49n9+JsR_BoB![jNVjS86e3._>t'r+iN-U\-;T^mW>u='/qnuYUoWVRHHTr&.S&E'N,64[3%3?,`Mm]IV_:2E6$X,4\G3"h*;%JE(`)afFVmtaQ]u*GI@Dq@<l$8:23t-1P<;tU"$Eml+gY?7Y8A)&]iPl1cc10bi,H$FXV"LMTCo5@0]PT<J"ZE67+HQ8j57#/8<^f_]fTf38/As#@*1na!k04NPV-%H.?GIG&/6PC;N?_,9l&X.rK?R"u0O.k=S.s[>iWq_l.;B"#L5K"e`7(X/\;8$>RGmfMH7W9sHbAEOJjmDFcpgCrI&VMrQ.1n0u\:UGDi;n/\HUc)b6>\[EY)%D:,gKhK>mlqBXGJ*b77_cfThGu[4YbWqPjgOJ#+<nJtZ'T?'3F;@#g7_6']gF5V7)u3,:E9:Sj9_6_`)Lo?OT2_FSLT:lIQ+,',SJuILbY6[)<I@SRHrN=1>)Qce/>EUAaDaPC?XMCA*BK$H@qb_DK_QL*R(F*3j*(2NG[/L]I#pfg,3B\ph)*"T0C8br%L1r="Z<n)12u-qJWPU^03mHcB@p+Z(=$hk41O='*oSWHD*tQm&9hQg9!&nL"rl?tqmnt\64R';cftg7o-.b2QcR.)j]/0hVQkE+c5iB!@'KHH;cR::[G?"K,DGqN+]4X>4U$T&E[cj7'i*Y6]i%TK)5B^6]gQS3R\:A/M/e=To1gIJl2Z48aA5`o>&U^N9kgEY-Zs)!`9a:\_J>ppB[1^<hD3=1:YiV':h;%33P)BrZ<3I]Pp!CKO"c!%psUkPHb*orolnWi"T(L:8#3Qf0q2JXL2TC,S(6.0ia8CP$)+L`o(3+HXfc"HW$sa=.-j-HiC8&Kl'GGiIt2L#PSFM!G1q,gSYGLn1upd2<PdPd>,oda?aAiNBsSL+cE>jS79-H\]DD:@qET%K=7uV[Te9=(Vic\'\2hQLeTNgOEXK:7>uCTKD1??nB^YAYKL[n!l-T=;Jh5l>j*lcUTX8QWK%(YX+I1I%.m]@Hl\*Y;;uLZfFu,rI@q.EIS7*htGG@"S1l[A3f2+uO@][,'Wqq3OJW/#!W\PQ:Ue(UY)D(!*=D##$pmq]g,l5([p=[_.'&hd\;H$jafSSnO]t`>g!rR^9?S(ckDBFf&,'#^*W<!@d:E*\ik;3QiXu.^+,,bpXr+ec:>?jGU_H$JC1eKN[CIpB17'k_,&-S<XfhMY?k\/C,HcupK^,Bjbr,^HKoY'XIcb4&?2#onbN?Y?a%ojsXs3$h^j;#Z3FjQIgqL3DBD?8)i;@Cm51l\mtel$Nm%s9g(r7u/>2!XcX(Y0bciaes`WR;Z`18eI+1MCGr*XS#<m*-++I#JIUrg[u3S"h%+O=5]'g4b>K9l#f:E-L>,S-A*+GV&[A=e]m$T[N#c7pj@sr@BCt?pBh$Cq6K2oId,pWs)'dPplaMeD1/bGO!ilc.GFT8rYnh-(0@@"oVA_j?Pd,J)4Qid`RkqLUobrB%P45q91:RmS,Wu@S_[3e6qZ8%7kMP6^d\^>k[UkeqSM,6S<]b^huYoli^A'^`:i"cLA1*_b[3#0SOag!q>`"0K_je5JmMYY%JqVY^j1`5gmlcRnZ([pnn_BFg\NJ'"3O=PWHTs7r4$kD*E+kiOhh3N(P#WE,7UBFr-o($S">,k:'5ccjJf66%g-rF"u-0i?%R+\BQb5SD-&R0a]JSPXt'jG^K>A?DmIa!7Up6^CK?-L@0\Za[pSmq2'?Eol6Ff2tI2fTeK\TfYIe[7C9jrJ-Blt/%K?d?'SeS/m3YJm764@k`\aRUj6c,c#?e-/!K;a?oGH2])Rnjk=FLWYPn4lS$jt)6[QiGT-naP#!8@lIO^2%iH[ZMKOK8J!@7RApA)K$0sIar>EMMA&t\h-9+&F;;LE[uIPDZK<U$<3&PeDe4JjkfWo?HH+4BA7eGlaK2BXgBhaT\'o-S4hgR1Ffg-7.E?=?=Q8i(JBH`N$e+e_372a-F-A*m&)X;u'sTF;Ob65>=F*jT4r\romRmIW+"$`)l?(8+$;.7(A@>mY7Mr7(=T)@)IWYt\ftd.c/UjGn8;)`a*4pD1(Z[C.k\VH5:a-1_Ph!;],7WmThX<u[P',YjtkNL?J`9sFCV0.Z#AJ&&piO!cA\"3mIiKLJ?^AU*L#97X7!?+83?T)q&&L<"?k`j\k.p3J>Z2>QfaEEeH7W85ldrM``>P*^Iss&"^Rm,Ul#.q85f:k%kj;'=5/JK"4?MHie:l%JW-\o\55+Y9g+47?P`gr!QVK;In.@cb`<A!&`4O'@PPq/6:CL0T5o&DRSTL\cn/)qL4e0&<T$i.Ztul,sXjTqmi,l(#gk^,S@9jb#0j>d"FPD.K<0fi16R[]FqEV4I:dk?#9kMla=S<#[iZLi*Pu"##]`C8P[RqMQI'T>)W!%n=_&dhQI2>)]*b59f?Z/^Bg..JOs3nWpl!T]_Nrm^k99`&p/M?-"s2ku<E%4Q)X8Wg`<LY.PWILiOTus5tkf_aYo_A<8Cb%YJ1[[lO!d=1;e,Mj@E+!)E`RO)2I<QX4?6,=e[VLPdhpU$ILr0K/0hE[;p87&YAHV0">lao*Pup(=oIormi1(XCE&"s@0^f0!i%k=p,Yr.]I6@&Gb>FL/0KfPbO42Ucq=9$EORX][^>0b<sQY.cQQifg%C>QN<Cfj8B5Q-<ChXLAaY="V#JUBk8GU)/nK2!Y?8OMp*XS6hERnBln(Vll4GUUE5WD?0Bt3B6Xc?>h?DdM*:+$hQtN.(t&s4,BjSbo<VWah1j0c\FH(d$73&o0>/+PqHG?[Mi?X@R##"g3pQe2PqNHHb=jB?laaCW7%ksDp+3*:sNh9J?D871ieO3ba;KT8-km]j;1p<c0\gIartM.[A"&6+Sp_I'bg4"=dn-mO(-f(lr8Bq!l)7[Lq_Wh+Ld<[dTXF5]^.OG*ZYAVZm2NPE(X=ie<L3l%LD[TkTt0*+6IFk-*8=0=d%SNQ"i++eMR^'Zq!^f#@*GK_khgl8n_)^.Hn)58Lm;Z=EWtH?*1.Ph3J7jYh0u.AA?e/%g-^7-]M>ao115fr[)9CA9Sm4M_90Li[oq9>^B;LcaCBVKn+buHhaPOJPDB351GX@%7>ChZ.pf&&`il5`%,pln6\a@dG*)@O=DPZjugIGG,*9dCs[Spf\@T\cMMNh\Eegfit:t&Ihoe^]sJD]$4nNkguSiB?YraC@Dj$s)8\fEe^bmf8/KlSXK54Eo0&T?muU-BP"pmrL(7qN>[*k^Rnm1R"*N$\.:%A(r^@IDk5Ur<bbBql:b_-ZXH!c:[cK2:eY\o6r't8K\mG]T`Ju#mla#*p]G'Wg&&eKn?E*6nnC)?b=:%W#2rY0A@\Tnp>lK,t@e53!/@%sNE/eq:Zfi".d1mb_U[+`'?k#Rb@#`nAm&F[(lGL(Knr^;XFGO$kGeLJCDH*UdJR<9,,%-;?BmdQh@$X_iZ'fqGrLnS)R0h`sXTgi'-.BTY&5%jc5`!=q>/Yn9(q'l/Z]I9eeL?*m-V&.8V=_M]]@ji-\D^CL_9u]hcdKN=Z?ePb@&7r=D9UBhEE#O5aO(3sD-?.XR?D^9EG8n%<Z/SM;E]i[m?OoiCn:%e`8m4m]H`lNdX54*Z2g9,J:+<T?ssqMp9bY]Gjasm3BOM$8=!cFOtdR:-C>Vilqf;=9#[UY2W+s>k7WDSOni&p#0!MDL[d1W?KS0"7cXPOf,Jp?1S[m!&LGF%W8CL_CWKs9kcpT8X02M*>t]WFmBs:J:D]j@qgST/_h75r!qRj&bOkEb^S/YqE?c=?iIKUn@,Q0<gs[QdWp09B_Y,g5Z1`$ql<+?:CorK^kb,3\Gt.!/hUDp6OSt&&F]jpi[:`^M&L56&`cIjPH4"78Y"V3Eadn62c\X\cm/"=Yq,$_A9%([')B.WHBr[,o+EhPJd8us4.4<7pYH"Y=/m2P<BLh&0mPO<dUE3/"5oS.AmVRQODQD#H3I\1<fH"N2Rl@X.!c\qAe+^ne=FqC>Q]C<kI*m3tW2.1AX)l5)l1/?rXsk[t934ArB@[EPOhV<75Bu/_^-]fj2..)[L^MHt"#dDr/J'dT.bd))PK>HI46IrLQ&@tR8T4]eQ:=q3\Ct]d9e_ag;G]nN_7(jU8*+6(>r%q1IY<T#WZ\6koLQ51:j-,H7Kcn/^t9mqm3i2phrN<uYIaHXSeTWlBe/!MI1(up/#,B@n`PR*+8J,DF!Z^.\N@h%SWq8$kH@1[Tf+\A;FN:bGQ-7T!b08M=E/#4m'ePG!?^FarphDmV(!o,>3(9P[W`SgRNDNi0:5::g#e+,StnJVZ_7LC?6ho:#u0*F[fRBLSZMJF1-Jpdh^[X@6)=<pqeY\R:B3Y!iOuR!^[oQT[S]0sBD?!bk)ju\rO,H11"H:dKTWUFE7\qT?t"qQZpWPjJLQ4IYf;HDF?5*Gg%n,8jVk>&dD6skQ3?(4ZqR!?+e9Q]+Lo>..AJSM>^X[/prNosRe1Di?dT!%a7W*ROo)W8jL&&B!e<G56e4`t/3Vm2.B>G6MtIe,l/^E-2mp^?M*6GM9+V6ZGg,,j_>0qPZ,LaC<C=`h\j?"j]HqCA'6r`r&I,Q0&:&b/U43J\dTS[nfXPQe,9T&k!^@--hFU`thrWCGm95GR#*3Lq\u72faQ_IF]maDRiuJ+m2i`43./b:5.kiA4<d-oi-%mcl2!#tRqZq^+/V^K*.eOgLF0E?(XrB5Cgn>:8Cs3`uk,9[amVB\X@kcmJ:)dKKC5+:@/mO6sRusY(('T0c6(>*63H!a+F\HuJ[?(:c[U+br'n?0OpJ:N%h`r#(QahX7RN)U<]DTd?_:%5VB'A9;=;5`&Dcce4"bf14S*kH"Kop'l[E]UE.sZUrgua3ll?ErnX#mI0Z`Bfk[W@l[l-=(7+u.g&c/@i.-#8%,'H)LCgWNH(dd%Klfi?F94sV=_9Q[alq3(f-=LUqK;1Yb+&:cA73p*)*<VQ>gY`H+CnP.YXNCu3p3*cV(Jdh3%F0.C[AR!1`Kmeae!k[Hbd2t#4i5\j_eq.kae+]%p]E-4s4t(+rcIT;mF^h[HWk0U`\cfd)5QM:N2+[u:-'7N,7"!V2WL9?;%,),4W&TukBe^'#s7*nh\O1?sZC?=UoTm(nd/ZQ&U4(?!c:-G$/b6us],C)3ir59u2ok%.Y-u2!CeaQO2bBLK]0<$M!FBP6ADtu9b):eI;IX)fnOV`.KnKg<6I:`@L(Js)n$-ucqE#d(?X$+B/&$rq`_GtC/&-:JGN-JD3dSRU8bC:",h.Qf"S5aH\a'Epq2E@F`N`p/Pic0sXEq2_lq%(5>,f-EYtEYdS=Z6>>:5@V3#o]<Y_XP@qVm"HqD,Y..F6c3Mq3O#QNSrm8tf.91Z3-]LG3c@.N0;='`jFjNnCIi$[]4HJajfj(Q%f.Rp?XXcf;,mU>X(i+hni/Jg)Ve2S9q;6#0&t^-e=XSrZ'^"eZTLlK'dLS%!;8iI'Na`GI%/Pg+1lcRDKd3`?h6]9Wc>8pCnXB9X\@!dIDi?^=8(781Y!=a^u#?g&ADo$X+n5V3?1>(bh+dAUB[ZrU>:`HAg$*bRW9-cN3`H#&`W(Tsc%(pq%p;]mfS>ljsO]XS[l6k6:@CDF=WkL@2mdW^B/1bJu#"f0;5p0!n=_Ko1j:@j_pKF]YBO@[VQnl,B[;;*0k6*:fn-[]42i5d%GA<_SD&n`S?'Fg][nKRq3rW"IdclH--cFF%!QL)AY$(XE;2JgT3O!>fM>B_@P-ds7748dWgE1K^^4Bb#Kk-+=sKf]l"5s*+$J8M3;p9tf'^LOT^'$DWRU-M0]$FJJ(96kJ>2KR4"1U]K]70pVj`]j'L7hZS!?=mZ'=ESK68hbl@KHDQn^Obo+CajEJb%&25PZBdng-Cn$;.])XE&tXn5P$8%M)MH@Tfea^Zn18kE:Z(JBHifc[Vk@c[/:<Pr&5SV7ksrtIYY0E,&lHG\F._NC\:k<5Y$HCXrpXmi>uO>mC`F=ZjgXMj@=ZEdJi*[rsA>JgLKZL:"ur!KqY#n*t\/OUdOssZ2WBl+M.$0Y86R.DX^CG"9Thh*g*;,QItM('@Tg1lnU1`>-?&gr1DZ`4$L@_ij>jkoc.AU`As'\;4&5Ol]6FXp5t0U/h0neki,Hg<k7RQj><<H-i[jUnA(Y.eU;&3@b+3C:$4uGls4U:5p@ir$"fMWZb"!T&apM?`.P#Q]H!02@'+'B=]3t?bps-Fr9O^_QjgfYk:WXOlE]WJ`qm>G'"B3:"*tM<OHGdB_pe6)dt'2+`4BD?M*i/!^#>A;PF!7W=0*JO5QK4e#K>cQhYWD=^iQRKA>bhkhd;mTAmmd/XnB%u^EslJ`esG^(VlG<mS!/iBm23=_u'g"HI%aT3@uSe:erqOYV:dP"rck*8L$^o?8R=f/_bE[,!$Pad$pr14!SJa3K.g4"b75)plO8pC2Gq.c6X5()8r``Oc'MlEG7^d$-Rm@ZmUY@rsd)*FB/O4OG'YA;><PAg'gj1Kn-0ejV8<C8<c;jCh/#`I0*Qbn"Vk);sh`oq%h#Z"]VbdPH8!9qg@nqQaHu:=V+:MPPP?S:T9U\s1q&XiqE!@_nSbtQ$0=Yc-F:o<ZF:N_\BIabUWb-3:^dP'=ZC!*9mfOj7""@.%qTJnTT5FWh04Oo@Tl8r'ZRh"Zijuj/q5EK3.*;=OQaM@V6)?<$e="]lWf%k^fKADsC'#WK\:q2s<O'H+/62Z)<5A,uc]/ERi1OM9rK$;<MijK$m[9Kgd5)#:&@[9uhNT,Nr,848k2E8sjnF%(H88cNn:_./D7e)"iZZhP3ZNin8$jh_<Or"(&<p)$;hd->=F]mK^+<4G_l:?XNQd.<jC[Q_dN%-D[=D7uh*u#Ms_Lh"^)+Jd/m84n?D9]EO8Opu:/c<I!>ANVG*eCK8$TQ#>>[g(Zbo>dT_X5k,h_%]B99Z`X(tS\3de3d=<-mbN?q$>!6c)LtsQ,IZij_)u+a"!%@sl^o?c@h;#qPoenRWDij2X>p>lX(+8%3nK82F^X"cQkMtXr@"n9/7%mPA4IUk"qC?ir^tt>:SG?r/\Eh'"TSNmO]?^uF3RIg/Yp']/;#/Xja=kM#;NAN$)@1-k["GGpZJ-Cd-JK$=u+aU">a?gTm'0c#qj-ElCMWIrXQa!J=[EA^T)2=Gsb%C1r!^AX4[=(!OXNKUQQ$\LhI0uO;4?cZ2lDPOGX)S]Z:s#M``7AKW7Pp#f)c_8kXNe"kaFLh4&\A$V5(II!!VIC%VdF7aK(F]_ENK2h4&Z_%:/)G:1TV"lL*WVIjQ:UVFe_]qSPf[N/DHJ&kUJ1D6MWn*+u9EB@A[bgd8s?k+W:_);-BUj0n7B<:HM4XZsZc6NLI]KF(#X9-51VekIuVtMG]p,GnHV-$+]%8]8+9>:`b9n^_lL)ZFr"5P&UC9`l9e(@6&qMZ\K>57B_%W.;-&EEC*af1>@:<g[*D-<;^a>8DUce2-t*U3VO@<'Q$lT&/E`r$\q\A[V6a?.uP\DBTf<dW9aCDiU-bilO0b0,i6]^@o"eD@VZoPtG7]^a=_/?F+:17@2kn3NRi)7^/J=MtAKD#+K,IC<e\NAF<[N_G;lr#L<Y\7n`DmH(s>S4dp"#=2n=WagJI!j-c<pM*u`kmOA"94Q=(E_m(f79,!kGP9O;m_J!>"Qa&ohiOBhYVq1;!9uN]g+$$cF?-TBJ*bHoS_a]4+)_8uh?59\%#eGNKHhLhBZQ^-BJOuV(!ElKi=Vhc[aNF+]B/.jJR\bla!I\km`CF).O;$j<Dr8&)7R/*Ht;c+FS\"E'KA\jbFG/KTa#&6XeCtPeda.V!c1j^=0X:f!pq;S+6X>fW;X%!Q1!R?0UPOQ>l8b'Z)sD5.f5!Rj$c:*H_YE004c`"H]:Y"Ai]:%q#Ob.)IEZ6Gfiocf^Qu$\Nq2DHI2&:nlsGW1qBb-O)[jMp.Eb.9L+Y[,R;5.jD*Q!>?`*&flF83`.]U`kAkRg`nC[bS`R_8T+-]CQ,jK2-^pe,?C/&U<#F@:=e4KErkih^).*;4^sM,+P?^.MAsFA&4,5!^)S`UK5Q7s)YiBrC]917l8^+mC<>3bOTY?UrHM?!"id))(bZ$+oh'6&e>bnPu?MAcBEdUa$it,:'<%t&5G%@muUarPEk_5E/hTD0H&*#o%a?ie[XBe<F+EKAWA+p$qfN#395<2M":[:+oZd&kmp`8O6#pEDq_6T<(au&0<j_K]icGE!rV\-gS)&Rs6J39As_i#hM4ijcVReF%I*as9\1H&"oq8:)M9'!6G,?ej!JAg64Q!$D2RI_%;L\Us&16U[S+,)ZW_d9?*h:UE_!_Y-GX"OI^:83imk\Bt2(\^ijrK)N]D]Vp.$m"TXe`9r9ZmBRoP""XmA5ODZBsB!(H,IY`)>un[iT&c)3R5!!47WFAih:RVUCSiKFWY5ujf:?ro\6K,>/WXK/k8EC-s*$\f@K-@((",m:O;Xg,`(%'@3mOK^\4eiEkf(UA$kf!26fN]Ws"F["D3O[b9Y"^J,r,"aN36J-#,\`M6P[K&:i3Hg?e,J\QE!<3;Vtq@Y3^628[;PMnA)LhQS.P;g,Ff#r6*!>B_A7ndX#p4;pIrl=^n&2&??Pgho,kX1^9)`%r9H#<-j(s(KnVCr/6iEtO@rjUA\\cp9g`iY&VC,P6+a1qZU,i'tNi_:?-3itdgjO#4ic9iI+*4HmNgZ$X.5@rupF,PCp+[0ms<9<+@Tj/b(,iB6\F]Qp+Xp$@X@V'7:R!)I>%HJRpDOkP'=1l+o&KBs(gYJU%>W?D',WGj_U77c0&e$(<;?[1u*XI:dgo>_cO,m,V_.?d.&kSQCc'jf0r\HN$X?hl6DRW]Q^:$E([h74n#o"$u?kfu*1iF]"AR3n\e`+i[P\#O.U^et?1/S?Mt>T(8D!7h$IS\E.'>6_S8C.=0\Xr"T$Z7/@.<-@k39]00p:>nQj?0rWtcIApRJ2672/IIW47,BXDQ#a[8pau7EGA+1EnMW1U7iEe-/s@[)`CJ*h5Do?Y'9cW4`'6mZVIIMZd\^`ao*+@[S&X:"%&ti<j)L%s^U8A(oP8:NYV(%In]/brWL>b5N?HfIfi^@H.:D)'N2nda@J1/lEfO6$G4s*bK[#P;Fj<uX8F8^'H+<Y2-B]&YFeBN4l!qhQCIDF5(2;phKX-r9$9#@jr[mUQQ`acn!gDO.$VGf>Y'S`)pQO$Y,E;5i?0C8-%0F0dQAikW6U9T9#<fFZ0#gBGLS(F'.$dp8$>bsJnNt\GGd;$A.pDd[;8$Gra4\ng6(pbVRZ*9W2KHa@+`^p!4"061luX$>?3JU]Xf%"X:FZT(D__o!%)7Ae_<*Sd)%k?u"`_C^[;8"he'!<V+k7(fi&n-Q"AXDod&+/tmr4)Z@!^ftigGKM_+um[Gg`^3WRjnC1a#@>#8JUbpT5FiB)LhKNC.nrQ2o/C\[r[5E_SH2Q0TLkjJ1?YTV^7%ZU9pRi#DYIiWg4e2m%V6(:&#M1u=Nj[Eo5H^kZV8MP,:N^kX$96e,!;7#@F;8h[.AF8KN"JE0dM\m-;Wq>Ttjj;MY'p+<<n@]aT@+QYHTnI8+nQo&YUi!<1s3WA=PM#`ZD@>"Ha2h#;LcD3U*r,N/F,#k.$n9Qe6nal?dL"s;mV+)9'G-S$@b`ES6b?pVP(%aZig+&u?f0j`_*[^:0%g8`o!.n!h^KFc89VYM9\uGb253.<7`OSm15IM72R0\;\HG\"/;IYlMF?cK$8ASJb8C6l7YPmFmiLksVMP[(u0Gj<\CKHMbTiCYFZ[_RXj9sspb"5-^UYIcTTf-D8bhZ^P37t/%&Gf&&2hegL0pclMJC6[Y%7`2>N&lrrAi3S2D%.NnnFLej3qu_`\bY5Mqh]CCfO1\N$<:Cno>sV<b=$r89>s8Q,SOqf"[<H9'S'@[NFU_C'-JZsLfEMQUaR(GA^<r(k_C3`1qn*\%,u)`7&KJ><jJX^d5)2\SVVu"C<UZ=*+c%-1DTA%?"<CNTrnuOdDOkYRhR1tT/hS9'SXRLb<kuV:>g,Ik%eF#FA+5BrYsEs'cWM7ShuNqJh70UOsKup)qlV!K6QT[h^("81:$-"n9=a6)d1=>P*/SC/-YT7=X4aB6odN3<H9]-WE)]t4<ohVYe9aP'jJ2t5?V*7"A-N4!5VD1PnJeQ0L?e-iJ;-+-9@;lp2;ih]hHGB,7@,q`8O)Z(r"e3=9%hPp!-Pof4@MUJ$((:24TMtg1m[;AC9%lfX([tU0H4Ys0VY8rFCj%PglmjmLOXYKK`2R.ICmd<lZdcVgApE)uS&+ho)O%eC]tMjt2V^0e=gV%>Z3$`KS,U(T3;_=$6#4?JUZuML+V(7W8*\N1+h=Wr;liA*3*[=O?eXQ;:\;(c<%]$SReNWZS9\7,us,!lW<N9VLqh5"hYg+>TuNEm)ogUYu8bnum#?6EA(4YX9s(5,$Mr=:#be;Si6-cE?-h7,_*JGeU/+`P9$7Mj[]t]nh@M2[nKof^Vh"WK`@!]Vl"I*mhNbUge1Xk///aDE-M/#Rks_J+0hM*nJ]TC5'Q0cbAW1>2g+,!s-.9jN_^0FeuaQD\"BBZnbfOCjYV!=#m$]<@ZGD]_/Hib"Blp9JhDd=>2i9-<>&P.VYtl*Ib/C3%!?Pk41:)%3BFNM2pl5V*2Fa)odAtVQ]9C'5`?,kt%DNI2@D)E-D3LicI0]d_#C?iH3*QF>k<__!dhC1'%N=,8Q%l5rXkIHRXR(K7>h0j"/Ze0S^:UA<WLDSX#Qd'bEAeCTsc#a2Ur#po(fr+XHkfj#F`Ensa`44,amDT8YX7XiCg(LlG@>)m%6TMV*f>_F=7IHI5uIr9k$?LF,@Q[1g\Z6=HM-HMHr:H,mLX4#M]98,V36cN>W,.)=mY!fgD?qGQ#e75Y]:K)/pY#-2IeLTlq%d<4ucRJ&^!1^GXkpAs`Jef`ikjlEhT'W3K<BjGAg!<q!O*+)ni(Q7QAHgM]@"+(;5ZaU)6S#k&;bK[(=s)HWjGl<mbojbYK08a>=196i_WW",@i$MO=Ii!N+!Bd3T_VX(YpCap584@;7:Ecl:f>,;We#RVR&U2F\-jTS*MERXCN+i<K$R!ls?-);WBW4K@1h-r5h>[YIi(!VdP*!-0^(P^j3;qJ_lbH5BLB2d*[<I.14_GphR\/:`IQSNP`s+edGu,H9)H/I5:#K%-!?B<bq9X.Jr46\rXX%34>r5!Z1'0[X>''^#J_UT*e_flG-uEcT1%>91/f$\1V[ZdMkXeO^"F28XchK[D-7iG67,*V+?p:I_FMDo^A,'J64U0rV")#dYl!)L(0dUo3+8"KC=2O0)lTVWLR1+;t/TNIel*f'Vl^$s12:.:8l;_mB*Wh0*8`_LWdR*6T"WpLHkVIb;"5Rdj7i19YdY$@nhn$L:TbRY$7)(Jag\OKlj-1fV)&l*ZWOO#@%9H)1X'\qFLH=!M"#rK.Qpa5QOh#g&>kV*+b8uo/Z;fMb@<fH[/01EC12WcRNP03OE/AZ7GBhobfg)nRSB;$9Y%1qGR@2-6P-Eb,HDhZ9n!*)pT3;]NRto>qRqJ]'\)7U:%D3`FQOO^oTU]W<_;JAr.X=P:M]*U`$L%b3'[S_[7(c\A.+WA=;20I[<Tl5f!'D0;N%1A9gn8-&GicCXQdq'PnL03X7('T'GOZ_!37<6.hH$E"V1BZUqRaq&5"hAf\ScLK4eqFbX4ZTCI?`O."F*AWs#$8:i54`S2Qh[FMTRQLqoai>h/%0)agr:Wfr#"k>u<3t"2P'4FiEo)V[ao7Cjg$jNGj[h[rTOs4#?Rd-;fQD=2!3%3kl+#F^QPk+s$79$_U&2UMq-mE_tB;,AVTpH*LDb>Vr7=_32"l!]8[#94Iuqc%0A,j'r#b0]Rj.>+\Da%Yl=68Kqm*aoXD=X'YG,.:@:.l=1r7lIc&X03[kI#Ts+?#@iR0`.F6aU;9FcWZ2Dr<=k%g.BpJd;]6gUKOAZm5P6gk,CTf.T30SHBT$J$'`G(m0-HN(^Q>oUeaq\)D[5<C;h^#0'Z.d5BhJelgq*nlBVKKb]nIb9Tg7Q:;'QKLijhX%.PBd&DsZp$DaC]_A'W:)dScM@nq.s1&T$$!U1(]Wl;\.F*oX>k7=u^"`s[gKm"8MO7[[Y8"Ubk*GY@^CV)4N]*Vr"-;an^^4#k^RQ;b-R^5<"\SM!IqU*EM(P8();h,XV&#Y=%iHdFF5_N+mU:saYP>H_?,=[3G`Z/3?^VEV::]TYmGo>NmrNg'B)cSiWgBF36Gb74o:W*[ht'KJdN$h_B:NU4Ds_Mq].i!Q@-Q,+Sk-Y&>LrDSoHfkpk@dm;aIgfYlObQIP%]q)p-6Na,Q75:6erRC"N7YjktclIJ<=1+R&G_KTo?a?fgL?J07p$K%i$-/YtaF.,gCebcW9J%:m[&HPFa*S!l21mjg\-CTc9>"eA#_$6R(-*^mg#L78)]*VK)nQq-%+V-+lQ/@nBVfpJ.D"q/FZbdO+f1gIX"+<m'hX,rHWSNA'!<^X1isflpI3YYH#^.p+Isc2:<h"q#FNq+=]in#T@Z$F+B'0/3C-l)T=XV\P7ISBO4te]Y6OqRc^;35ZOodBe!KY:*$XJ#!/Sed5bu8)r`#1<]mKl\Q?MTrPd"]Inmk*g:-RB;!46Hh+39D?TCjS/;;[:@aW#Vb?;d#c2f3,,J5'^=l#9U.2ka+0Fp88>/g6cMk0Fi)g%AEoNK+P^2p6*MicU%4Nf@[i8U)S@ZGe6FWFNm/*pfH2@SA&?[o>05RSQ5*45b;fmFA(:D)?"lAZ6:D3>cLCr0\QVr.k\p[p)`K.P?E[[8u/-Pm"t2>d9Wup7=(%m?tcVLf\NYWiCjdRM.hcfin:N_^&@`.P98KoJ<+2GO#=PP8Ze@Q,)l7poq;A`GZok9LOLt<1A#??phUT*<@IoD"MG!anLW=R$j7=BCR8U$L]eRCGZ!-Ghu#Sg5r27L31&7h6poSm+\$io4>dO3hk-fbCn=a>HHD^g[Ku`)o]#-5#bua@Cg-5qt;gq%Om8]5]+;*TE.S'kQ."X'ApVqbbaIq]q'=Jakk_!^\,RM;9t2k>5b5E7_R=H^hR'>$o021<6p9e?cFh/)ZpbNnfqaJhZ7mROOk2\d7R"LE0'<B#)'3#L6-:T/%1C0=JP5nXY&Z#lo.Af9/)!D#`-9<W/2j-B$S)&AO"!aS21,]odJXoariT@8[ceCl,.O-"&Ie9&XX4&0YfMijCAFQhVFNo!'Y?73Y)<X\;.C&,h%IakDMT]f6!a\,<nlp/@p.l[38>[O&FiO8&(hQ8p[\pWaOFWo>FkXnMAbE-W((F$26k&H"qu2-JZOVEj6PKjV'4$m7>6C2emhLXc[M?[G_gFE$&)H>:/Eg#I!i<bba[.ejaE3b:<TkP51F5W^P,#_$d$eatOuga3(C(:(lbl/!o24kKl6r)6PhDV?CYm.+!CX!ggLY#e2oS;,$fl^%'PIV-*MKd&]7eQc'9^EHB[0W]8l,ZR\O?#n.]@_kr&WQm8u!gZA`<&Ki>SB(3"1Y(lADfni7qikIqm4E<D/fI0?&!e*itm5Oir*29[lW@T[9N;7#Hhq%GlOU3E%L4FPI-5Q#*hQ,bFaKqF;`LGj749X'n0'2#*Viuqg9X`fkeSRO1!RB.c3lXM!*n?E>o/p!HF!>UM0ddW<E:YF#PTQnY8+7b0q2u1sSb<(n\3'[e=:AB="OD+dqbm2$,WRY4,.&gh79h"!CEeC2(*bL'g3Y7'I,<911Yb1OkBGs#)^::PFp<-,bE+ePJNpa2jmorg!uE_oHX$*##@G&P1\\eTF2CoJ'r!SRd/+>]bV"/oG@jH2:M^-]@SU=@9o6&%-rMGNAtF'F"t^_6%M2c<KghlSZ<Oa4PAQ";M6)gpV`?WKUe^me&=`\K"8N[W=K[\QRQVK#UTl%KlN*cARre"?A<4U6IN0Y7i&q>b?:.BOaLFqQGm"Cu6YiRK;A+%XS6sHl09F&o!==060(>eS%sX:!n&:o94F%FI[0*5SRigf"7gV@=e<I&n^M$p?"eAF0?QALFB.//,:Ha#NK?pMO,YoJ-)RE>\d%M)<nJdb7SDa+o'9@ihN$aeJYu7PGHkF&rPo6g1&+\(E[(]Hk'bLlWeds\6EZ:GNLXAnO/iiK;g91)t+ML\oqI5[+#AbK;OX^Hg`U664dtgbL#Jk;&kjj"5+7-+$=bQ?FN#r,n1J]!aXlh0p3WAMhXYqLWbeJ:4ZmFU0->Wu"XC&5bAi,*<,/>MA'"D$dOqUUMre54^*58C[g3\`V7:Z6I6kXYWI";fX1Oprr8Z3n8ZZ;+-S&V;t76I,L=LmEh<1K.#`R/+LCI;W%=2*nul<sRV?@pm@ZiY=I"7U%gnWfqYC#.Q2nfgm86],<r_*nFT$)m14\H1oTcY0Q5djP_$`6JDb'EA-g1o<d/glX'ZWE,W:XXQ`ZdYkRua?G^P@^JnE+t.umB&qE&%(4B?pn4@`.JXf$n9"=16,R4o_jbBN2L13C>',MMIg&,+&2DR(8Jls:-3_#[.]A99GU;o-jChK64AlH'\14HjFS[LaC:N.B`tZu#N]5n%B2&JgY'kZGK^3FQkPE[sc^k)a<[@<ZQX6Cg!f8>\$WKgI/fl8N#$2>nm2N;.BAdaH"tL27l&+;e!7+5Y@?UgR6d>DCgtf!7k@!8JRtY2Jfr*VD(;G_.&#_?mWcXf2`p,g^<*qJ5J-S%G0Xkig\oJD$"Mpa]es8Yh)GRmqGr3hLT*PLf=jqms4LeO;8P.?b('=;;/nFR^RRSc.&G(fEn+-66-]_"lLWd2<U6958gm*IWbZ5:TE/qtl'!R;IELHa'0f\t(/)a#j#kHRC`9G1r:[\i$C#\5.#g%lMO]lXLR\;VZ.?NEK)FWp-%>\%M'73ck1C9nDRaK9"_#BEIJ7J:$A6No)7BEhC.doIX/cOhP!U$n#H`TKfSZG%4`#EFOenZos<ake0daZIZ0=S/AQHM$iKV5B6$J6\Y(#aO0emcS$3WGG>mO2a/b+$%Jo'@*Xle;R7m(mVA9GOop=>!5)\rCj89T(!2J4r>7R(N9pn>V3KjC+DNAoN-g:5Gt@lCt:ih#TXs(N#X9RUTLQNB5eO=dX]P]BH+kJ^mXt7O]FRr!W_^SB;bLL`\Hn78+M3-!Mkd;uR"t)0]q,`k&`XbU*D-I8FFjiM&qOqCi'?U!J\6-UrRqh,tppNqP[M@2S#jc'kc2dtl6dP-Q#neERQl%(;@?gIiH0Qu@!=Eh:[jbPnRt;Mf(f;oeI"*K\",8o4lfYV[1VKG20\o<M?r:T:XZQdS!rh<t.ejDCD^s,o/kr@m[*_2dr8I\%m;m+kf>na@K<fQ`*Vc-:,.#es_8Q4GF0U?g5f&E&5-`LCN#Kl&;4o>O$*0PH+[&h5E!s$K?;PEl`/i5Ia"AAQ7@+fG8pJ2[&dO[_')e%B1K,Vcu$N0[sNQ;q^nnRj*TDn$W6gM=L`$Q.2H[V)"_T\43hjpFN:@!We'ncaGRhRY'eoIJX<ON7,YZFPPW/Q23b2!$D:Cg`I<RS6Z@S;:ruS1csrH%N`[?\8nB9Jfho4;X%3)%:;R<#L>RJR@luCS%''o=fG4=A*GFA-S7_k)&.4p#[a>S4dB0otZFC6.,B-?K*bT":'nG1,$H>k-\eiSZ.f(.ZN*02KU2e"[([(k.=)_lTRAH'TgT,AomD_@o)ujO;6b1TodM/=C5RIYB=DM7^lZ@[a]Gtnit#t->hjl@Du<3:bnh#<at08T)SlpI8Ft21hOnFX-c'Cc55*[*&f7GV4_1r3UF*FD?$j-YI[[VkBC8ROH*[>V'Hmh\7=*i_H'd;V5;q_VSI`;il=6[!CTGSFB:H<?-7",V@gdNG;V$T/B*4^=JO5^qO\n,0f]k=83APrdp3jq!:SG,cqaBb_#Ah*8hk0'$t!USl5/SRdH*R<BkEPu/F'f/'7f[*FLV,[*g[;gnVm)W-eF]KC;N$Vnbpf@AS[d2"A=D[3Bs\m@OF_bZ4J7tl/s%)>W?lp&.":N-ArBX,J$*L9MhSuSglfsNLSF?&Z2%OT-1t$ouof+kNor2OB?VS#;-Rks)Ngok7'V$92V:B0\,ll(cXQ`V)EEkS"RAXHdnhYR$ZldJ1Zl6M3AsQR5WD:)rBspa*YF?Fbm12P]obo!2rI\,Epi^ni;e>,+nQ>3MVQ_i.IB"$mf>cVu_CF,/dc"4dMipH]'(<kkk_>;b3P7=ok2$2[T[hY"<tq*=/kmMuZC(o*4(5$04*MZFjFQ`aG2aBt,WBkQp9i(n,]t.Db._[TcK(pg@EjZN1k$!0@>Po$(,L'ebRDe4iD8Ei:@b:[NLhUUt0eXZg%?cE>HuTLdm>X!>/eEniiN>76OB,1`m1-2D^U0pEhIVTrh&kk^Ol;.@KuNFs8sI<\1;1ZtTrqm*`6@F]NPl?AtJ\:oXJ4V2mJ!e?%)m#N/.;V*">q#hbR[_<R>eVe<Q\KB"hC(0c5e0SMs)j^P3/)@rXY*C1^m_H^CIT4>fdbM$'mq0_ImmL\63:pZ;$F*Q`J[qX)FnK>Skc-3"ft-O.p5/9O8RZVb3m_$^V73%e+WMq&%2l3Bb3d,2I8\Yh#G.km5!L0q?3-QXWmnSB*38/iV-U:njG8P1lHO^aPH^22#U*p:WM<Xb-i)\`\2@;^cIO=a/t_Pu%dDqT,!%atdH.m-"_4T$^?05]rc4SkBRpe5<q-/3C%jZqpCHG(P5nt\#Ia*`?eJZU"U.\.AV#=GAH&q3hM!<a`e5h70D:ll*"$A\H%+4k[(EQ:?<]Q@Cd-\m4iI1/DT0V"SVs!2G+9j7@,q[cf6--:DcfF6g@9AM+NaU5;-C;1%jO#3_CmS@+E'8f<XXr\-.R#DMru\3S!lIh0kZgVJ]`Em@Z(nF[(j<dIc-0GcN?PT=\.(sF_PS>Wi<+_Q9g%BmMTd?G#Oq36pYMhs(On/r_\,m/R4H0Ua!XVOg(X5^!X,r*BtmIdasP_R;^t,,6!c/N.kK=)<m;2J/Wqc\:lDWi7]mI8r]O4e7k/Y?FITO-N3p$.5Mo<.Lmc7j$1bLg9Qb%9$+!k'cJ<?=[H*/8>=WA(_B54knM?9W/gJW(M?qk\T3]!7RDXBpA)aT;Mu?Rk@A@Y8]Se='=&O#7;4PA>ccn=XtV.(DU8-SG^02"V%'U;rl7rHW5aR`l>82q':0nhL/16SoUkc$/u^[^XBj<+jj3EPEW63jP(SfP*H[nIK/hRZbnu+7HBGZ*o7%3pedPlQbh@mF#B_C/g7HgUC(=ABmdb=Gc4`^7/,Dco<h>7V<Lik(`OWm-QQ8uAJb2j=qAKhGoYcTdh"UGYCm<-J#GB_F1N]u6A]+.=:),_geG@Vh[+p%u>@X\u])=3#>Qm3dfl1]pQ"F-8BbcWdR.-c'h==G>-dO,DAm`d"!j=#DJaR'1ZnaFs,#[kk9`Je:hQ`HkV3R;gE[L1h[X`<]fX`$KIO-H/<4N+/_E.m`.aqSjWt,>h"#c4G\(9(6`AV>CJOJE;/8!>nH43tL]"<S=k's_Fd5o\lQJAZcb8D.$Z_6aKF&:EMm!-GqU%,27L6J$EIIa+JGS0C49CEn8E4iX,$EaLBHOAo0dV%_L++D@bKm__dag/Kgb#Ud:AZ7[N!(mAfASFMap-QrH?NM+D&.#RBo57Gf(HFfdbk[H%7Ge1h\&*>,6K^Z\3;r_9jBi^ZQVp=6W[tiTNG#K$+e*(7m])r/e.s:Vi'n^33Ko5>e;'LZ^:m7)B'^_&Z*dVf4d"FOnH=uhZm0f_h&D]=e)KV-jTIRq.&L5.L/D7@MWB_d]/m<`oc]U[ZENArd2%4riI'9^%"*f9=5<r4F!GhQ\u/>GN[DJ?Y?40E9AQJ+P2fG+Y<5)^i--AaD#O+'5K^lb3OuAB@UY.o#,c&S^bW5k1BmO=%+*MFC?Q/kfDRbD;Fh4q6#Z'^nM2Kom^_Zk!Xi_$VA(:G,%W5Ob%Y4Q>(8^!3+XcIS>ahDe`<^Y_mZbJGL=n1mE6RRnH)!D0GWb.OP$.=PS%>!/2_<R?cg?pV85$]_W19'['^"=;YLc3Z?M?W*Qk\a!oLf8*jZSEDGZ9$PYVs(O^Fee;iu@b6+Y80Ej=cV4uJf?Vb,CH2ZfPF8rg=t&XK>cLWmE<qT>fWW)m@p65gO'Y!b>Z'EHGUVYg.-aHQjedjG3_`kY.7)X_1qYh_G!E>j&)j&=f3/9L3JM6#r34F(FfD:S;W>:#>;lIDh=UX(T^SW0M&C&<!!S)sR#c22A.Ef8Mh*DM--+XpMseq=6Pr,8CCX[Y%o'+`gk49W[SIgP>q]EDL^Z<FeQl*L7AYP%;OQA\W'?$*j%CnA"j>O&fj7cR+81Sb#2\/O-uf-nDb\"A$>V$"k'>nO&=)"9^eTs`tgY[4=;n-`U`UY("-$7<)<:kn.;I^5.Q2-e&;BnRsAm$0R[4!&CK#.HTJV=i+*=A&\(5'.W,5s3WC_J&H1')*ECIJsg1/JL;!#V85-]aOd'lP5J.K0Ps7Ji9ic@5a4nnIVB4aQOAS1:0E,.P_GmQhNP?o'Y6Yb/Z>NB);#:J11A^-S..JFgMr[>:l4h&Bt];D]5\cj/Z7.kkW/Km-NJ!Yi?[@H,MX8"-\[Wcqdridn?4k6^<>n1.NmDom*SXUDZup^to19L%=7#EjLgK@V8?G]W8)TrOl+:GQYH^PBCLhPk7sVO0$;\3qp2l=N%!oDiX:])3ZCqC=j#_e5n`\lK^&$g5q(Qa+We`U):WA)G=95X217uBqT/5W1#576t8OP^9eEN_$IgRRte)`T#kJNeX%$]5YqZN4^Ddg(c/FKXE2cXa?VN_K."5s8r/"s=`[,l2^7[XrM@/'."hYt:-7Ct3-1K4SU&1kLOY%dI:1Jq1t.>^@](9Ieci0G+MiCaE,6A7:,4_f=3Su]0HWOuQ5kfe:@ToVU6T'iJhj6"Z]qmE2+WFW7jY8)]3a>^U7PqFk_:<r&u:X'!7]CFM1;jkqiD2S5o'=L&hli(^[V8(N5se#`5QNc(!GFTg8cBhcoQ37K%pmFr(*(:]Eh;Q8<\GLjJ)9#[+%7(ZlUpd_%cC7E,a%cfOY5\%H@DT/<_!$`Zr-'!u*44)`e[VjV7a"B*%Dm=V82*Eqa=gH%R<)U?O<Elb<\NpI[R^m"+[p[ZPRrjC:?n8ZPu_jo?9of816*@oB44fP,'e%2'q<NV','p7U\HGfqlN9PsqT;^+t@7\R7ph^^-Wm8o._mEYDmoA*::PCFui2OcqCC93/Kd6kGa8LRL6;M<1Y'B#i^nM7!:O'S2@$KoOt(F-9-L\0jM#-IQ=gDi=T<eac$'3SPoPF-=c9R@u`CmMZ\'b<dqcE/[o]];]1iqrb-j-4P@OTg):elg$Z$UXMS#%b4NkFXu<AHV8'ContB&>&U9-]dmnlR-9%\*s5s>ga(4>DgS$<NA6q#LQhYl$O]mJeB&s[p?JFXEhM;fgl=J?6IU"i3icjj,_TWLj/?f.NO]'r&ZJ>5D=*;Mn;%Sn*FF4WPIB:>/S><fS$OI%puJc(4u&.;qI_TaBj/(.H]qlnTjQQ9Jc"1/b]#D)_jL<ZAIL!/b/"2WW*mYW%j*VlZ#YaX)?N=8#-4.;AG8hYrMe\;hK</G\,g?8?s['9HATuPD;#t%gqM#^q>q&DT5Qhh#4+j850r$5YkJ?>"B[C`>4X7WOge*b9rH7&:<Y$W>5#6Ra0QGk%iuqNJG,t0uPtl,I\QT2SPV0?-Y;'UafC7pCm+`M.-7hK'OG-,RBiU!\RR4d/\#(I7Om%26)3N;*(MlgXX]hr6sk_f`"Kt<#l'<h;,<5G/-pWW%4NoT(<1%^`LBp[Nofs>uhrfi1[+[7PK/7`)!qN!07FlHJEe%hTe^p_P42=3m3:FdcHV]npg_G@RIoC:HTg(X3n9$bk@];U;3N/_jRNfSU]"NL\3Vq(Xc^4Bm2?2K:k=WoEJ1S2o-"8d9^ce%mj1,?+h>](@=$NEZd2mO@ji(nag];o,N;fecpuH/D\=hg#Fck,'\heqX%.:0W#:tCrY)L!=b\8qU[+:`;$+>"*N>50mF&3f2Q9!$\$RGo))?gI@WBVZ_Ai-;CH84\@[1\)gWb,m7>E`[8kd0fODLTX7g4mP*cdQH`EO,,&"S-OE-ZgMLV+<o^7@)#2G-ImBuNba;<Nd/bj2$.['71s04j(S4Cb>4lmT?fX>*bWi?mi&+`01Z%ncKpscD3feWFu6m++U5JWLNqVghnHoF^'Y1s@rRsib\I\UiGYY@1CVBYJE=u4\Ns#/ZW0[`8/@HWqP2]HfUrfSA&R$ao&$mg,2oX5n_$#ei0Y-!=a1fnZ72bY5!m&G1L%ElG)/aDAWVFe-Rd8"pMh=W3-QopNZUcgUu%OOcon!r304EBP@dY571dn9Peg#jV7Mf#VCYJ:X.;bMkrm$$=,oIf``QAqm,0#&%`HV*S(-;5\"[`b$04(FSC\\2u.H9!F%M7hP=p8`M"pc8X[/"F[l6/'nir@$f/@4$nXDu[-rk*+*Q+<8F'`P7goRdeC:/HfACTbHZHm\*00ra\HaPHffTgArSo4O=DSp%aW-=,3qsN!\s+6WJU)U*p8<#uOM:`#74R+-n.QA9[.LVuTB;jAC>*V;5+dW=1?)rGkRl]q.^?L>qi5?J_gc`ta1BoJuUZ.?to6s,1^e"OF:Qi8I%,lj-d$a^HAG!VNP:,-qQl8UUJEAkbHKI8*N`Ns/m@"&lYuQA"ct`0/Z48M(maCLn+G1cB@+1:4e-3)B)Q>RWJ==1uruGik4Z^NS.8^5mM9c)C(U>$Xmog)7EEcB,],N4@H<&Fk&A<F6kAl<6d'X2j"leO*lo,Lb;k&k;gfMbs7dZ0b-`2TD;q/FZ@i:._:BQcc#DB8kiorFuh@^,imF2ag@fgbo$,:LP4+C@uet+`c2U]fFhf]H-B9c<;BcaQ1-jl=U.kDT44i>);n`i_L&nO^iWLMBh;-4XR=7=$l-^`k!"-hH@+);..QF-6d<-Ak1Lm,ibiOM\H?7M@nO.Z.\J6>/r5QQnjm8mg]W[=;L2Y`pQc!="oA&43g,3ofp;/-:]7`P8Nud:;)cd\ciNE1n\"uO`D2nY;#F\.'KcqT39iO)9$9R'$qfV3$0P^LIQE>,)#(Bn:RpsG1l'29CaYLppR`-T8:3\*e]>@fku*XIL+dQ=>bYX/,b`oVZ^rsJuLSA:Q'o'P:d@?aC+FV&n7PlUo1Zs0q9fj;L,EMGTT=iQB$0d?$TJ8P2:?c2ZZUk%5KJ%=Jp(DmWQFuC#fUih_sMQdt)*3:p^uMfD=,R=gH8?n"3(m<uRHCdK)tAK_nq]&gUrXo*XV7Gfj'3""jXDpp`]:YX&G9+%*'r[GSQ=7d_?u"=>5LDdur.NiL)pAK-M;_L%N`KC\B6?a][<N-Elf@Zf>o7[\WcYF6]/LmM_Nfk#i2rB=^pQSSS&L,.#4:<4opV=;?%[fdT>6/X&A-`p,i[bB`,h"fG#LC*22"3WX//H^=IGV9IaM)G8lDF(/bBlTH:j227e,99;?E2G17;736k(4M;H;7kat)4CO$S^@]bL3%J5ckf4lrJL&)P'/pVhYf0#QnkusYgCgA)88eVFUSa(1S[a4\Y'l>UiU%-l4TId>&iKqQhM9=/XlKPe!#GOr[IET"VcR=[LD6]6,er+L+fqCDs.0e(!+X@itE6,YQPrtU1jhIEh&d)6,HrekMU=kX=+[T!)l*lF39LU,G]iJ]'j:U'q[AhfkD:7oJ/f%!@%<ZY'k#d)ER[4O?9+C@K>C*E01JLUY\BVX%;b,HPO7H;O*gZ<V]D2](rqWRSfAMV8lUHcq1)&'\D?[ft=PS)j/[>SVE1u`"8Rcku4+NjlgRlfDb8Z%L.i/du=trOeuWu)9k.'<qWG\,kUJ>A4g#MHH8OHR6su$a%!8&@<1p3Q-Vj2N[<,iP%K*,LT8%LOH^4a!N?=iOWu^c(iGksC85_n#>p6uC48:^=\\RFRd`(A0MaA;4_."hG%<QEPee+i+!V$VXdG2&**)AG4"^-D;5b2[I]sqJj\E?W3C9K"TnKNpbr&W/en4Il1IcJ_SOg\/K[UP.>a1e*koRIiWhGm%f4W6QQ,;DPF'*pHG:sWI9b$(dQntUH3"]1s4=<tgpF)ENa-n);AdrWu]QUpiQUfn7WcP\Ggin-jTO8K8YcN8(oiT<<F!)b-s!rk,`fprS`c5UDq9&#mrjKZ">IU[39=p8t&Xk-pd?X.ZZs258`>86s/?`JuNfE[l@"8sJQQ^o8_4j;<.KK<O?@a^$Xr?Og#k]B#S$$Vi_XVq%%5d5A+,'u?$Q+9/?4a`<Rs4:7Y=fB85M!/_-*8soIAHE92\o/r/hrnDZaWV$(aaL'N'Ih)Y3V]&WLnjB:1'i"N<$7dM=[=s./7)3GP&!]F[^e)qV05tM[]*MRbRhWI<<JI4WDc%U02:OMMU/)od_8O!_*TX?,TEtP\:(t_1kAKSgeesnaQN0#CITk)Z!r.Aa+rgPCob!)1*W[-;LF%0S5nhjWQ!eP@67iqrN[Q?k+MsGk6/a$PtA)eg2?6rtBL+!=:Old^4@C[@C0=AgUPr//8-^mIhLAHmCghOG?%$%VDK<@GUuMl2b^KeWH[o'Zd2paF1KjPQ[M/:<.04@eV3=J3=A<rrL\_f&36!YJp=A+6U]dR:S)f(#$Bu6^@@>I?-j'!j>mY(?a8cS4PI<5QXndM!0]Z,b@!uO(DC+81]W*&E4L[PWFf1Mf;6-D9@uffoJJfTolH_B?d>thbdLt>72fZ6fWc]HuC*Gb6tF>p3_TC059:d/R7=WPGTILOWr0_PT*:oqFtM3JY`QUlog1q6"u"e#u:s1)=_gW<h/6-'p19<qH>#N"6K1j@fb=];gjm(5`aLn`jY+Q@Y*3.q_m]FBhC'hY?&i*@nSL.q^tBVbdPPP6uWT=p:<:q)]u:LPYrrlo(o^Vpus\LS%?D=bq")#h]e2:)]ZO@qd^ZEL-]]74O2o4YmA+u+fd[0\R;?R&t>BM3.,N>s,i`CPt0;]k6>VfX+T]tgFZ=l6%Q#5At$"RNgD`Z.B_YY>e4;1^8Is-J]*0XaA6QqX8fl0ViMe673mgLmG\hH1"#K*j%'rf8ru=n3G#$aInGC;i/DD"b%@shR67`i[U<='6+nECSI7sGKejg&_2S"@F)@QL927&MT?p*VjBS$Ia**REs)/NkYD?iEiDC2,^3u&^i*?Jsr?`.a>O0Atg@Qqm/`B=]i^a[i906h.^t,GJ1*?VjR?H9a7G_p\%jQ_`o3'BC$(2W,]6^Z^l,+rGI&&?0mo0%oCeG[\k90$b(e*YK1u):2dVh-+dZME/8[\YJZI+deT,X2qf?7h#4#ruXK^\,s.&of=q."s)VjOor_H._C.nrBh1F2=RmV(I'/TN)19R6_5G;Q;,8bRW6DZS$VO<eb!K;UO1S*q8YA_H>f='!7nTXs5]7&lC%3+2@1Xb/oEJ?t:H<(kK7DZ&50OasA?2jFsWP@dSEEDlpp)ZV;Y'.cMsjj6&*9Eq<I`0^^D<3L7WmbT>;FP:0IPFRK@(_XI[/L'-7*UuAA--aRF'>K.<d[6?eO.,M\;k\0WkkAhd7JbQm7;T%mX$pfp*QBX%kfm'Qh@do#;j>_U[^cZl=!pF=,oD%rdK/?/%VYZf@4gt.aIP7Hata-PaUu2CMsFm#VUL"D?Cb.Pi);4H/\FB"*Z;AH#t&fN"PFAl5;!pjAN^6;gDNllFo)'E3qJet:<Q498uf_jj%h8GVeA;4p;Tj;0#5jLX*g%kd($j1'Z6Ig:.K[gqp::(B\VRA.`Kh>-;aB#?1V:L[miGZ]%0t="/o0?I$cLNF^+dogl$gg+VU.4dj=U.^4A+HG6!.%`kt-T8tQ@j/u1lJg;T(-#P?!BH2h?CXN7slJ6/$]X.o+Z=]uA7E8Z+-ms/XX3AG\T\DK%/&(+L2gB1I.%*0OOeWP7\@"'+88Q@+?cgKpd%%K,%[?pT`8^9YMN(B.cHtHjrCP5rY.9/ecgSVe^-8>mS*U77;4"9+]*b8CYcbQq"W/6Ytmsu7`,V,f:2EWT89pT/G$h0_YqaL7Vp2EgT`m]p-1BJJjaIg=Xd"G)bAmYkrdNe9W3d$,b:8!3Q/dI"o^Zb*NJKIob23Y"$(Ncb.PQID$>9;B_I/O7e8`Z'RH+Sa`(K'Kg@Q^aoJJFO6(Nor$>ul;r;Ze?pg9M@+XmLQlakc<nKCB,O;eHm$+^(h5C+3c+_"=R:KF+B9V9hBo3Ku4SJO=d9Tg^P:$*]+)Y^R>"jjLKZ-W%4m_N,,@Z.Q#7IJCnuPU`o4-M6m(%;`\I;:GC25k"s`bhs_S3E%ENie9#;NG1e1;1IY0N\ngD(op(2VB+@=(WM4!Q,M!P!a\C^.!'/bnH]%2^^Rg/KAX)q"\+AY:Y[t'Yi_f_JjUYIo%;V-<REsZAA'M`bI^X0*qs-^>j=bc#T3$I#>'b-^e+*Jhs`Mn@<TZeTj7L>9a_FNJkf$$`PC!E>nXWAIu!Ns?\p$UeX=pbo;;,Q1Zq+KLs>Z!SQG.U%l4L.0Khe\g%hUD*9O&tH`%SSV-)%g`;S9QH*?dqZ@:fV=E!02@^u>K?:mHSqE7<9HsMqPCG),&@fdnI:C^HsT?D_r81P`-^^slHQ345&QR46>^ZWiEi!(aV$@>aAN[\F?]N\V7o%t4M(.3L"$U_o&60C/-X0S',_N,3^Y@d,tMf[1.E*^LIErc]-eW&2'SngYDY*]MO'REFt<ku<%Jm5`F'Q@R=rlWd:LMXA,[(GeD3qYL>9eI%g3;KV*`bAm:b<k#tpO&W7!O"-He1dt]\7)9_^kb3);]I7T@?:+,0;M@U-<a#4A#IgC"Q[[a2o[6=N1]0?SYt\tA9E/qW4#T:'3lRqReiTlZd1UAcc^Yk9=0^rW"UsPpafAs-Q2+N&\(d+<(bG%5>hQ;3HgIS_I.//hA]k.ZqA-2qG11Z8bfiCm-cj_9;590AG!!4h.5SZS>uR8ntrX:A#HC_[.'<uimK@k^m`%JGf!`1rFG;u@$Vb2BAVN%%m+?]\h6o0*rH=&i*<]L[k9IHlOpIDA]tGq,5WYkleM'ZS>G+;_rhI8"fk,Hbksc88?8g5_]Qe21-46,e*&r-kq.\Smd3<WY&^9(k!1.SUKIN:K06ITbQ%H9=".nkLh)8njn&2W;\DnrN;1kJFnc1XI:B"1ZVYPf:GCQB73pu?=aj[Y"ZB.U*ogB[o/PQhG&H]<7qc8iY[kf_SD;>"-f<_J*-EPb8Vsf,aD=u^)SHF6GOsofRB?.PO'QWU.p>Ed7Q-d>M)"Z.1&%oa]h4uWm5%!Ef:d;;G5e^nYJR?064/Fa<qc:;gIUJM4KuM<9%UHR6;E#Lj,#)SfXYg0-[[J<9_)r=M&``^9SN3E=EDr8G_?W>.U@&FC/EQ?lR4SH-4J%Hckl1N.Nr-4LcI7fl9N0WBGcfsFA[I[&5B;Gm)>VTp68G(Cb?),-'&^\p.+C+ol\5(gaWp+XE;?@V<^b[Ucc@QA"<J0F-COR=ro<<8fsE([uG02oC%d<8OPBr5l^nrKOC.W_2`E_8"rV)>AQ]m:$F3<N)IfohKc\Fp99`=kD;Wh/lZ7AV\^gkFUY"s!sV2&Z\]4&!'qaB\PsA.k,uj8^WA__K".XHi+jQ;g7n8MAIAUc+U,#P@tje:SbgdN?9RZgc-X<SYZ9A!Mp5!NS?=Ph\&'4S)F?RS`W/QtK!MN)`1/R$DPsL\aA]FO#khuna1gEJ"s-_2iHi'=oZ)0NO8LtPFW-!X%:L<uCEMq@As-d,k&3hlqodYHK:&uc$%)8tT^J$77>Y`?4#3SoTdl17Pq!;k4(Gb+hNV')CFGjZ-RN5?Kg]R#UG8cMZ)@7qCbXT4Ue>pXkjBqP6"8+*_@R9q/erMLocIj#/\$8$5,5n(dC91\^V'3\#ru@/5)aY^4M"Gmh&3c>IbrLAR7,>G'7po#8`>5`RamJGE:Ym!&7=:LAjtXVhDO"36*/*ib`7C.O+G,:Qn>_>nHt8bM(J99:QLG($%mm&J8hO.ft#R_YW.1P\lf$0(sW<Uo+T^U=0!h#JI!bPs/9)Fg)t@/gND)DBj":(JEMTKV9JP(bThI;%eNsRlLHt9-SBJ%dl\S1"!.lU#ouQ>I3Ci,q#nO]jU4)d9b7f7>_unPLCV"KGEA)eo3$UA:="`eCb#tR[T15T#$`9#E\&`\MUK1b"FG`2Ub3?B42'R1cKp$#UT%TNReOSV(^88r&#%.Hj#a7f]gFU<)8KeRT3]cAgbrJR^:(7IP'K30/RS`@s0mBUNnTsM=4Nam2&Kn/hkcCoI;5/M3h=-P+u&sJ(aR&eU,X_e,p;+qEDO@S1knh$S'Hd7^a2'?;LD$D';C*Plcb#>#sfC:+t@Z+QUl<mTD>/.2:HWBJ,LRP@i==4mAnA:(*b/#'ut946sVO.La4s;qaegZ?R9_TiL]9hl`W06N2!MnrI@rO'gCHNBQt/H,'#ltkpp_%OcW]9JP(&Aq)\)n&D1`5%Rd!RVcB17@[k^YiH#*j<h)Tdad^lB8gRSW%*-Vp<N-:pfVR?/l5Y=Jm195^Lg4*k+?f+\)r]4OZ=@<k37)gOR'Ms5N_+M]m.snh8[u#.$g'SY)]-!WhVtVtn^nc;^C0tidm<r^ZEdta9!%.24+DQ6U2a=#Y-T7T>b'hs@#/D$fHjSP3A&RDYF%.bV&)+gc[/e'$^o:1#B>\;/YRYC1t<?Znn0ZB7+I@t5q#6`\`_a!05DB;[UKT=eL(r@=TBB!Qq?"-cRI;KV,NdhqRCUn2,J:,*-#hmFKb1_L"LRnkj`f>0UPjm2j7/;gV!:L`,E$I)DsF^cfJ%Wm=\lQYuPV4Ia&nfL'UuI(W",L43gGN%lL-ER:]$[/oXVHbeA"7P)jG(ZF^tHaM!!mU,g0uX)OE=U$PHP!Gu;4*j\b$"$7qS]_/f^OqQeY9`jsMc^P9+hLJ$tQje$\J@JdlUCR*V1Etu*_cAhDJmu0L_R@il=Kp980Hb)=<6>.&Oj(ZCB>EhCo.JcT\B=4q)tW>d*DKUTZ`n;`>>AMM5r-sHTgP]\JZB?6^Ps>Q&9o?!Y!(5#-(*I\+@66_'j\Z!VRm*a-*+B>5[i+E&Ussi?4*'0fg"%dN%GCebm/m[gmj2^M$?W-M7kiRi"fNm-h'hMNPh56oDIqH5<^<t#2812n+.T5M3[*ELHBSoNr0'cmYdR/Q;a-+481cfE!34)I_FCm=fA``//WZ@W&DD?h73J?ZDfY-GS:AU[3u@LG=c!hq"V:ileAQ*)ar9Wd?MF@r?)?85#fjNE],g'5Rttg_H]ku+W!Es)Fh6Uj=gb1K53bI'bH4b#j/`"(YFD=]dQusJ^'JOdM'Y1bGEU1V-:L4D+n.Hhh8jBfdu&)b;7-m\*<WqTOF;=PC^?^K"E21`pl[[5p#W=!*nJYn$0$?^L.X%cQ#?b/]D@0@l?9U-uu;%TB!dD_q`]AGYp'2N!>=<l`D1t;Ib1AUphA]"7Aee(o/n_q3.g*b'i^".)Y<5DI"dsfA#e1f*X\>,nYh#"kD=gbiG.&mDp(^b9Xti/Z?jkk=MK^<uBI&,'a;9cj#23$E>;8P%PMJpZ^Eq0D\us(.USE^0r,$5eW$i\j.FBVXXTbM(k/:M*&WV##+dDOP"MkO,WM!DP\$\WC^bMhQ'TA-gZ\56Zr(.!4j@PjUT5-0-I0g2Aa0;OmqlArf)3"Es6*9[d^c@Ldmn2>6I7Y@Z6YI'h)#3IVq&o\N/&f\--"aU9[d,/9t(+-5(h!N^dMW2dj=A?6sj^iuSVpUG@CTYg-??GR^k>'ZU)%@]e[m[tM^lDu$MtcJ!P8f#M`I/atFSO25m\CiOEpZmmFNd?tR0'b.C,$UW+jqQP=Z\1U1e7'cF)nlVOc?5d7Ws&qn.eFrS"VP0+WMfJfO7iYYM1AcLrMq$rug<Hd#]'H(@W!ZI]k!&Y>/V6L.nodA>7>'^9+8FpocG#mdI+";#Br[r:\kpc#[O,MtC^1f0ldc-go>B8Dct'u49hQO0"I<]nh'Z55\%4[%oRj_<JBX?;'f[E)1eh+VDhJ&"`5rgn?s<1aTgK3%R_nWs5XSD8h-O91(t.punNQRL_n5=/!6*IRokk"DC4J>f]&&L.<oXsRTXHH=p//2Jb::-*kMZ\JjLs.:4]iR_;0n#&f[a>rA4i*cHk]'XqMTV>Z!Ff-5&5t-PIK@tbCa1SYY7]Xc0XU._AI';B2hO]jfqe(ff*Gl27PFjruuKmCU`q%^-Hq6M>!7XJ!pj3O)CpMeJU^'F,qZ=o'krh;gfGtC"BK5Q;d!?*7o@8"aBgWIX'aWpuDOp0@Zi(h0"5qCd!%A;tVSi6Q"5P!`W)sqiHZI\R:8aHK:2JA*sSVQccI#XKET-<'RTKbOF/=D177_0f)ZO!f%.Elp;])&LCnmgAfA*A%1o]cDkL56`,_(\@7CXRR-]Y'>(FS()MG.TM1G)%>e(W_2h[-FFq9lc"pf.4*PL@XAou(TL%M08lT'Z*[MbU6@=936BhFkQ8h0t?%DSj\&6FnQlNo8Lnc0EgK[(c3NLD!h''5)Z+Mc.=,;I_j4t,l/GAI$A3aIeT/_\l=0O-hrJj`5.2H$s*8l0l'/!Ns']p;>AZkMSCt\)l^N2leQUuSPHbOCb]ptgt=2Sju\1AFPA):c?/iO>J4F(mN4&k-lF+I3r=.@<O#\dOE\f^6]kUF/`/D:&JJHRk2prkSV1gA)@\qtsjcR@%KoT`RqMd%Kt"[)Y0[jUu$:0CsO4R^1%^u_.00R9naO(ErKDi6a:Ah2JRRoL6>h96$CBSP8YcX$MNmf6#00h!o?d&6Z+$'-2[6jgf(<42o7Ybo<@G4]2d"[k3^9$sEoR,m_TJ-,W#+\'tK2akTA2.SB,M>rpcIDpe$YpoXJ4q?'25+ka6YftIAosoDR+q,@eoi[AD@H2oucdA/s`XRj=^uol%X+noTTabp.A0,d:HFffBKtnS;I%$]a<:N=kdSr-gYDkWO!]=_G.GXS$h97BoYuiDdAHE,.;6Z187A6N7=1rba**<I0.[5K.5jTnNcibK^/dK5_&aEV3([8g)E"1TPK+7'KN,3a<?BhKFRn26i7KgCAdu*P/6s:Jc?-/r0,hk*is(m>*:(PuQc*>)JR'pfF@W(fH8P'f%oC=F'(egdp+CSOL=)IqBFtGO1$%U/e*"j(ZP*Vs[F:/e!)3^RUgI-Jk38C=7;cOPp1l8Tk24`eSjYC+o<>"Z^JPW3TlV&a/c6<5Md)>+[phe'T99lks3^C75<suu_;UM6PZ'e!UB@.ZJLn>qEC8i$6pR$anS]NTd\I.n*^[;2X45D*\n!a2Mb#";!r(PqYH(Pfbi68&dRsC"c&6-Z@j%=/DQq'U!q7a06aHsMrFgh-)jJ)DJ]+Hko4fTDLaG+L%@hEO/-*fKY`INd&#mU*-hG7]\2bI.(66:CNI-3'bg,]_i,63JA`6c&$rE=R7[fI'KA<]]E^naU'7O`!DO(SRb^a2TZjoa9g5"ZM+[2)@fU%n3dCi,fEH[h5MK1#qHPtX,AE]tlkaM-1bg5sW$eYau<rER#X[JKUlf));AfiUAqB@M5f-ht)AOLuVNTk*h8iK#V?XkH&YE$E2Jm#DS4*j7Y>h;@0nH#.Fig2d=JRs2'.k'Ye?K5+9Q,BLs\6Gr@h&C=qg<3(*t$K@lo]c7XAl<@g>#Lt?*fZ&sRG&"M:<g2[8ba=^t2NptdW&"Ms_VCAkd'MoPp\TDD[1L5qJ=#i]"otWFan22;<1T!XV+/"AJb58oC7O4XLf%uF2[])]5/fgFPd9'%M[1@ek.<_JVmI+R8[47LjH`h'NRSurb@u>WcqJ!$34`l<JM/`>F\"M0<`]&4W7fV9=.b]V<m)g-FhYML+l@eKb,X%uBK`9T];socm>iu+4uXNkh`#q:/+'`?HG=)A`KZBpJO:)_-,C\iodt?r[V0'HcV"j_EJ"eu";3Amc1,g-^L#B+X:k)[,I<X"T$jM[9ea4g!V!+`otmWl5:BL/7b;J$'j_TiK2Fj5%0,<C+_7L;Zt7^l'6^q-ETf@s/-VGD2Qf>^9H,qJ+oKr9Fg%H"8e?BqMrh*/Po6atcr2lnVA\&,AWND1!*j/gI%9pLFBLWhpM9;H8$]$#ciC6#>A=QN`@P(HJkiaO+[f--ptc42ID_ghG>CQ;n'k#AP"8'sF8?Ueb\4>"9/H\-0s)<eSO@L4SM-=HI-^;3OYgN6q?l8u`*m)Zg1O!KjsHD=VV*\:=;=j/_:8B,TS$OZU;bd_UcrXnU(2:@JlYEjYOim%o*l`W628-3RW9g53B4)=7B0.>>&37?`"&1\d=C[QS"OPMDsR]4RhKHI8C&+)fu:V,GR#DhE=1Pb7t-c*IpgW)^nhml7<pXsEgPdj4X<[C)fb46#7!+LFFF@H[@bjf[g!+EcgslbY$m_f^YWDaWN;jd2F%p%E&K0K0RpQpPG\6un$Xm(7Al1K2MOX9Z/H<<-?dIQ[g#nU"hLSp5Ndc/E^GN]$2_CJB\J#biVU/^7qYBoi6Uu/#4;\Lq-`Y"fKd+nCm4Q?Nm8+djR1$CamgENT[j\>f;GD#5&A[,"EK$5.&4ijk&.*p'n,[f3AZ@1LK9,`dLG:62KPJRq^!iB5gsaX9)p8bs780tg0B$`dUqt)WFSTj/Bh@'5R-hPA#CSj##61si@!S[8)r:e<39jXE-5lQf6O"&H#g.^IN?`'l7Ki`WXi%R6<]-U](\)bADic/Q.&>l!je'0,=:W;J(Yur%$bW^nPC$LC+.'9_`,AR/Qb4eDX!b;)J8D$b&@[!cjc44;<O#n,fO1!cXVQX@%#Y]&:l?I3a6<JBdJ8-Vd4J7pJ8J`DA2&l"abi!j,2h(F(tAlb^st3Ib9n1Sc\rV)43hbHJIWf),&&;8R7r^Jj3%U>AF&i3OHLhCVA2ic;1NTZsu#U8b/pTp_!3/nTQ`?O(-NR").Od72aS)BF#Nk="PN.\s4UoFR0h*A"hLtl5DIYYrN@1^#"js7o@C_]"tZ-n!)6CB^L;L,!<Ntfn!9Ub0VSd#ks]\-D(O]TTN5qcgNCV.7neGCm62s0DZ?rr;7E8p/BeBOCE<e_AL63>WtgKY]goNd$e,0KZ<?:,F=ItkaQ5d47<>7Ef5F6$M2[!qdn>UqNBMGCr3Qr)KSC)e''pN9('-lk_d,&Y\_cc5B62]9bWi72hG$n7g+"[akITbGig=)!5r65Nt.qWI^[8e&+`iLM+4E8+G5;FI(#CWk@^-8r2SWiWQ/Pp'mF)RIempW;s,u-mfbMNGb-drj_B2$(kMQad:#&j@:0kWSq8YeT<Ro8`:L!G;G;$Er&u#&d>)['Q87W](3/94'@Mq$M-m&Ch+$;@!pBO9aiuG"BHZeYJ.W#m,H8$B;fgQ%b)DSHG@pQrd($T5J>oJp@M9MT3Q18N^0?11S^IA>(*2CRL$aaopal!T(<7hL_=[X7`DL!CI-6k>ZAHL0]E1.Pe`^`O?V^\@?<7`<rfEGbC9k(XqY*Y5G$<+c=L:!]8^3uP'pqI+@/7PD=rUk4JE1g`';=5LCcaYV2XQ;mj#*.<dH=Ze(u)4e!(e"PR.2QY[OX1pC)ppAj,T-m/$/n3OQ?uaC1[bY,n<ubKST'k!b<0K<M99#;pbJl;N+'"M^08+LE<8?Fa6crHa$OS,SZI76l1/,cbJAFIXIfHD.Kk\B*eDE6Rk/",(qog&5U6r:p8i<L@UAh60FeA8I+g.Ho4kYN[X;JacjRr*f*o3Lm"%>dee%NE+Z)g'V*(EZn(u</:;P8!,*=;=PFg[4&0X_A,eK&,@3_a6[#6&CdG`2BeU4dZ9Bo!Z?<c<)S<:"6$)Mc'N[mdor-16YOae[P+VD)^gj<scJpZnm<&l.(PSD]D1dD$][W0!,;r<e1u[Q7?9JGQh%A[SMopA=VQkSnLoqPO-)sN1VZ$IjP%d_jmC7u<:?==uE+lUH+<!.`Pr"_le!.Rn"jPEWa\0$dCk#Tm!B=s??@rlP$DlA>OFM*mEtPru9FE"oI`'kj6dNQ;b*l'/)COQeYK(Jd>k"b^:OuW-'^A%EP40$#Dg5@uM)nd14ZPmY3UjlAgO>9=ghqY(UJmFpb.qLfX(5m'FI`_qHV[OOc'q,44X\NcT400b8QQ0^F:,L#+aVM<752p_HKVKJXF+B.WFam5aeK%bl0o3f,tuG)]"b*@.?g&f_/$gaGGTa+$h1FsYPMs.l7:2]XD0aLj9<HU'ZR@-@6i>mE'gVIM(ARLkFhF:2+n$O1(kH6rJ-W,Sd=a!;+'6=j'IC2G"1"*'"H"3[W@fX/XG,]XPQdF5is]/NL7Q)i_:<HLnUXaojAE`Doh4RW=69ILp9)qL0u+B2"lPiR&CZ8U1C%FnSEXe8<q#4-9j!4#U6NAE_n@Emb1l<ad4Su=aqG1LcERa]\*G]IC7c!DOb+8BO^i-$Yc8&=ihG3[.6bAQmi3m)Km!a2^Wt_j?S7sG9rXh[&YO737LDk"(XVKVaXPk&"+1YamHreiN)DS(UfjJW6Le`guc^Hgh%SJb*=W5&nZL,6Gh3^SX>_<I^&Onj^lOQG6#I!hRss`J'Y!2Q/=!,fb73.hZ:gOC*i?;J@/;c`fT77id;J!.R$#",fAk4O/111FHgXe`LtX]0&HCY`=),KjTTd-0GY0#(iA_pO(Tg8W<AdK+AX[;'4_+k9P-6D=DdBoa%8Yd-WgmR+.bp&I`M$98V.],<WKk?r`^jeYm%(-&_4*GZ*Bo];O5i[@1`U+3\RA>XLH3S,Sk&d#fMg1r"Mb33tfkCZQP@erEE-C!UH;@C(@X/CJitZQ1R[=)@#GOpK.BFBA:LP'P@[4@cB$e)0oj3rXsRE;:a(<jTEURSo:^g58R`D+7B\S(GCPpogYPuFiZ6A<VU.[<$&L/EHtoXlTJ_61Up`q6Rlj\afbmG!G3^EY7O=beCoE6BGF3$EI)M1A>\5Jj-K(DKa0[`U_R5g?O+m?8@86D4jQu2n:kh$RMqKKFe%kQK6c9>RS[Y59&q?-qGYT0emk\3EphP`;^,$ol@5:FSe]uf%#h<4WmfA\=9LHi(_QO=l.fC4'@K85ZPOrMf"lG$$5@H.EVhqj[!I.!#t:<OAN#m@BKe3WB^nB?G(/e^DrBg-rmM$-?4T3-Nn`,jCiNW(r3K-Z@(\@,IU9ms2U(;tJ>-"%oAr?"/o2+Y&\Ki12;Nqd3PQ8*CD;qUKm7`;PW:8g%@qNG*$TX535[&@gB%CBS=@D$V*X3jj%Bb>$@:m`0sOaGHGJ3X!iKTGQG^DqFMdL6CU>3TdH@/b)0.raQW2@6<<hR$XWC;[@F0G[\=Nr9DOpO_+4A1BpqZ`@n0r!PXhM&MCB6V>F&JH56n-oT1'!ZfSUb;XcZGFt-Bahq*-d$r96/ZsrMs!c=]ol="1,:4O;ERlXO2=kL>)MZaSu,ZkiO#b\7WCE/\>//A=$`Vo>6qOX9Dden\k0)F'RWV-ioH=W?^GSRdVTocN^>.$&m(;D/="p">:/mg:`=":=N"!d_9l<U;oeolt2O#+X+Bf_nrn%i;N*h?o,JV'U[DZ"ZH9CT'@=YYH0[p*+k".UR^d_\f>3p"q.Y:iYOZTZr'd0Z94H&IcsU[/r?.H/A]BHbPHo]iULf,WJK"Pg.h1t>kSoHZ)lO"%`!M0Jdm5G6SoLBed,?A3okeo4kR3I22i14353XfKQP^"_?$%DK[\1(8\A:$\5nA^l&f]#1RTF'<e`Ku?H-a!*tk*-KFT5E?"o2<jt@&78sCSBa%M[XRsF#2b5<f35"%8=2lPQs;I.NY]T&@^8<a5B24@#)(.0]t6#%G-'eQf]8s&B_hJgW\h6TOKk-:ObQn],iHLnHQLUc&aq?V1'jU`DZ-'cP#]lkiufMp'FMJl;:!KK8IL-60r<H`f]Fj^MbOe@_!_f-^V:s^G,4qY_)gP&:`$Xq#URD/J^1g;uC#*+,\&p/B'T-)0-B:>9q;^%0rrSUU%_/-4%*l\9'SW;cd?!)!2J3PC5X#I$/5BYYAC1o[G."&dKTNm>9l-(sF^`X[hocP7]?SFBj()IdG:4F"YEuU0n.5T5h/b1#7R3-R&WiujqC$2$DGaUuhP*q-T1n:)mP\p#N9h/d8#:7a[99gSZ<BWGs,JuK)]G"i!pRn"95Sso>MiLQ9CGq[c%*glSSWq%YT<*bl>6V5IhBW:RX,j^kUJp8]Oe@9+8!53(IWQ%ApCp>$$Wi*j%q&c\,/Y3)CD`u".Bb,H:$c"Z+Tgsp0*[o`9"iHK@G5VB1O#ic(/?&FOQ^(N`g<fV.i81-D)$UU!6-F,^C'#$QE)ou)h.6N07nc!DmpE$/=NgR<B&"LeP6+"ZMT"0%[d23NGpIkG-;tHpmtHnD:6]E:tU/R$R*He:&u8<O4EGLhd-H^!j-0dYt%7abedlgI_@Y*S!bJDB_Bu.QOeWnQ_U>O^f"RJccd8Eb'mCY*]X%Os/0pG.]oGTO,O]J_<"g*DS].U6kT<)*D(@@qD5@C48io'-"7A<P4-JHN;*a@m=))Kh+[bmR6heuRO;0FEl`*lCk`jA&=OOhMuc%!B+20f*d0K0B(rg+5DEJVM"\Y1V<rUHV(J&oj7j0N`)_l8h\ob!SS*:kqoV]O/86+0PL;n?3FL&t(m9qsL>p=uXYRPT+$;\^&igr[lHe9Wh$]J4]hN,ts)DdMf[XNt]C<@0lcAB(1`#j@Msog\*(!S0,uQ-ig"/hKD3+t.ol'YU6@S%e9%@c=Q?',nfc.Xhn_Zhl7cSm7csB3/[^nD5L!#W$0RDJb3^?2BgV*9NiM!VQs)]M?<AS$-9R"BlrocjfAhR5B5uOA&2@"RB9A^SrDD^o`a)P-E\61O)HpPB&f42-,-l_j*Im"Bu_DeVrA17Q9kFTt7i]'/g^/1cjJ"QSWndJn[W%KXP(U"@7W!)GOT]\hr*_m]JCKcqeBR!$!'.t<Aj;:FC__5GF!7,'J\-U=<C_-L<J<!t+Lo2g"]sulA^5oSI[#PN'9qq55rgc"?lbKKo`H;g`ih8NLCF&T&)bS//B`1tUV=KU5Rl/S76Esu9-_qGUq]p*A%AFO`2!F3L#2j"g;p'%+IU0`ed.q:L]"!'Ob6M!%J2A^/h2V-8NR\GF?@"EDJkWd#PVa9[Rl**BIj&P/HT;4'dHV>5LVfK%iZp@.T*kQPiG:%$Z!R2"dk@fY3=$<n=pZ_"SSL/EIhd@a!c(QA(W4uao4]EkpO5bm<-T:RIRBL&O*-YK@91?WP3.Vdo)jl:^Q%d)>P#Vt_EGp=#Fm6_LX^1pHZ$I.a[cdunA3jaQFBN0V`5`6G1J#&;`n<nY5F%nG+al2"p?XU1l^=$P+qo9:7rR`2)bGp,OJKZ&aWo-,_dd<E:[3M"hl]6A=\OW"?s$J:s+<GG2pc1^_-)IlB@J38f*in\;)^p*iKV;C)(5eHhY&8fS(1OF>VtNR)P>`?Gs1PdeaL)8*F:@nNbc`ADRmhopPl@VBju-7i9GUfTdfCQDa\_DFj$<dR#0sWf^u>k3is\7]e+!D(S6.2U6Bi-UA?!c@:o-5l'!P@(TjL2&CL4M6`7K8405?=!60?7%rN@a0u7iCfW7tW^+9j^+9qMmoMh6l%>mQ=O%ATIVEUKS4goW'<k2](FE.hjksfjoiU5,I7G,Y)^M(Cq>.$1;JLW^T^G>5A".MZ?0[\CTPqt\jN*c8S:J'7AKF,CgJtI\8_a'e'gc&#<@cCg(_Oq&VGo\88ZE."I+7=LQ_S+GBpAO\[b(-A_*fOQ@Y(3OAQX@^+$XTN_"dXBP#bDljSZY"RYMf;A&#"h/c=%81u%e_aOusf!dmce#$_@HArhRsQd*69Wih$KcNh<em.p*6Quae5/;JG[ep-osk<\=''a0bHe$da3o)pabRGgM0TPtfFT>%*X3o<lYr1MSAW"8]WO#'TM1X;;(BTiFJ_BP_^WNF0D&$rgWq])gY=Vbe08i'MY6^l'6L2iHukm`!;5NYR8n!S!Nfjs3[>*+CA/P\Fs@If_34;0'n]_ZC,*XRLCNG#AK)Gaq.`dPfoU)e%]PK6#>Pupm1Zfn?X5&*CQabP,YEaBCch-iPuE`l;l1&plfb(Aa;m#VqC69!^MO::VNUU!Eh;-bhka4iU]HVa\8TL#l"HAlC`j4sEPT`C;Ic4G2:=t=Ca`&$N$CQ@J*2Q&-S+g`1BJHF2NFJi!Ej<UaGmt9K"'Z>q>&NZ>_rrK+]4c'-%S9&\ND`DW2cF(4Sh)*,h*JAp+#a;ESV9jO7Dfm9,2t*%:9at'>n7](fOke7J3RYc.;sj;X%X>Cc59(!U#2DWtb4Hr"%p%I<fP7V,elp;iHnB0Q8mggqkeXZVXjVm$H%<]">;$0Y<";pR/N37*=:>MZ:%Vs`:>qFp?G?;l"\V*PnEh!Yo`CND[<#H=E6-IfbaA\GhhJIR<E4!Wo3]tYmo>[D['_T._edPFpc82<RTsD8-^L1p`c'k>:i`@VbhYK,niH?ZIl+>Ll@1U1f`ac#-?H@`nsoaPiuslE6@GNK=_(/Q##8#X8*7E(^orBo_oeC8P<JW9:/h6(Ba=H^XJ0ac3P.LFpiK?fYf=igFKF]o?<]\V]aZ?+_mqneY9YZK'Ke8sh\s5^"Ap(5I$nEX]?PdV9#D/9geQLC\S_2tc==%pIdot_1tFMP39&fDZ7hV([2<A0-Y3<P+CC*uRm6N8N37r79pqQY4'e#D=\rH!7oE@,bIromBZmuM2,>>tQXUQ\C@08X7d(koSN)QikHuVdZ]<L!:mlI^rJT3_L5M?%!6(W'963[IccC#fH(G]Fh8$\E#Y_a[F2&78H'a-a?iHWs`tI:gNPO,Qjg;![](aYA.mr,kqMV%EmR8kKZ'X/EO@9GcfchkG[Kk7f,m:9;<nW^Gpf8u"YE=2[2Dm(uif/Lb5M""&>c'='oC?AL6K25oI'J5X:IjiJr%gZY33Du50]n_igH*?^o,ud_5lXXji3qfKG'D/\j?aoa=u+2gf`(Q/eN*E8$ijm6EXIaW/>n_8]HuY&nUD=8&:"o8D(neZ*X<;4;EF7WYCC_45U%'FV*tb5>QU?f&;S&ZdoN\A94\gD\277k:OL^R%YTWbitGi0hV>$&6j&i-P=JHZAMdhgK"KqOZ%5Ru__:u4I$LT2O1o)pqV(i`9jSdZD0o:o6U?.t3)[;F(0RTK%Z3Z5^mY043l):'_692iN9nr"H(?5ZN/13S_1ut=6lGdSLf.cfN??F*)M>'%g$eE<9?5Cm]O\,Q(=u,KLr9)p!/Q:S0^B>W"<7(5Nj(7D77C$23_)I=8O=#k9I,ktHb*M\[2P@a]X?MPm`0k9b3>=[`J!S9aJG![]>'g7-\)j[.kO'<Dq#"!:pF%,XMQ_?QlUcZ?<ar9FA(MUmW5cH\MI'A@#-2/Y<1mE]_hcGrK%CX7V,%EHXZ!Y.*P/5,$:%7l7U0V2adXr7ml$u/^r*n&-`4\\O-QD/.WYk.[*D"HS=e[PQ>q9_re,%7_Z-'k>BL&S^*-_G`=O;JO8NM02$D^oh^[`PD>h2C3:XN8lUQDF[%Z9!+EG3/6M<*q$8FgM3(q\$%CMWW?H"(rInR3p\p\Xe`UY&Y0D$(HFW.N)HEosV4lf6l4KrEM5X2R;<!!mp%'%("u-YLS:@es>oW)AEnVg4;#5j9_^A&&B"t1IX,-i-\+u5`PNp'eQ-:-#BmD(&Ati?42;Vf1\fhZo.nDj8`5WfnrqAR_K4A?[ifF8*AIQDsRm@DBQkRp$p##&]LGg=1\r5X;Mh@M/OlCCb;V+ql4QpPGK9IA(1M)gW>gYneH;!@oB'KEjR:YI7\7+uW_/sfO%VDH;mYBaAQiZ/%3qW6,%&BET@J9?d!h[HoU:N_n'OlXA>cFTZ&.B)[K3-n$7^COpG5`CA+ugh.H@+&e3>`s`>4ERsH\sDh5%&^rPBOf_:`0RM"I&qf/kW5Cod[PY/[IQO/]!lI89#W6geSB=DIN'+MY+5YkW[Uno7\-sY6RlHc9l-Lao.JJLYI&J'Mb"n7Mt@48XG*'Bs7F<?^8RWAlY8]4[glNG<6WD8Va^S/o(sVDT$Q7pDI-g3\"W#P+<BaB#<F<XHd!c\<gp%i&RtYrG$Db#m,0KoItu9l@DZ[2^Dt6+):qsqXL:qkla5/<O]#ph8-pI+)h>58kTb$qOVY&h'_Cr1e-X?EoATOT^_]QdMR(NW8#H%?XKi?.?t/DGLQ592V?gPnmLE%[(*U^+-rdM7)DFtU4SDeiSGnsRG.\)j&q$b6U$mrU]4::Mj1GCM3<KAH[PJ*j([8M)=Pim#QV4-gq#M=F<m(5VUKPl,61@_/O?\2fjd!NpA]4];R(*8ZNb;R*b*%3T*BfOMgKbKZ)`Y8Ph&Yp)gA6T7XKjC/?;gcOlW[]S%&,7WPF,Z29'?TX\ei\:R)BVE.l3W5^V]G7MOT/KiH->fr]gFk^nSS_<&#<h!mH).!V!8^'9=EDqW\ZW/'i\bWKpGF5O7##jurVi99,7X:!e<ks7oA/l-S`_\Ka,Hca%R>K_>[Bk[s:!8P7)_snFJ'/)bJ&,k(\%4Q9#B0Nsi.!=a29Gp4:.+2dJlmH?>[UA/!#sa6V.[7jC_Ff)TS'"%l4'CHX?A@`=(_2Bg`'jcFc_*)>FtH_0/%-dZ$)e8<3?8%5DdG=k+rumI>H(KcKsfVUB!?q_*bS2b]>r)oPY?SEKrI`:qc1G8UodF[PqpjZ&fA)MO=R4`mm?cJSCW&?hgO5(M3obn7t0eX4jt@`IY2?c8g1c5o"5LlIZcsC5"O4QOF.T14$V\,3%JiaN`A.qGiBTWL25+F1Y<[((<:U%Lqq%-l5.`X8D-O(11>T"2ekq8J[TPel@A,qK21=[VdEdP<Vokb>nlZ`p>_9l%9da`X*q6Z36HhgcUe"<hW.C$&+fYTs!6_06p/0s=mD%-2`E,96M/0.3"W8*OMH1C&liLnU=V9.KVF++FgrMQ`s_OcAoK-N_m.^:fRUk1#;$OHgXA,0DqNC!Lf<Tf=;mBI3&3r3[TQ.DZuA@Z.,hTZb<nrlrE@H7*E39V=U4E4GJ:[%[Hl"I0u]qN(*!#i&UT/RB@U\\.g12dXe,NaS592"[UR@'<j^X0e[`q.fGN='Ea@%G4A@To7M?/1=GJpQSd*t)3)1NI9C0dVoULBCf5e+?r9VhHlMn(B5q+maFWOB.I1P))`3hrkY/Mr*+j5]dYh<0@2QY8O-oV:VH,afB5:o/@7KO:c:K8Hl@0XC8X^6Wb=4?7N#[F"jI'jRK8:LtBFe/Xl#=eX<7P=kuhWqSPiA3"-[esFKq/8oV)\ggN]aBYa,h+$!;Z(#.MHB5l/VYXIQ*s6ujCN"b@q25]esF]_"3PGn%`l=bqUm"XV704649`\YQn;&\g"ikG]<=V&Jst^S$mbRoQ\VM<`2O$oOaHFZ1@IMZ!*<WpOnp06_N1al%<h<6I.rHAr+jQKc!i="T34)unYL(-;oPolg=<,.RZh[WU:[-H.(VC1TKV+-Jd)1T[%7k'TX`[a7%'Gg76*6]3&<O9nSlp^2HsZo5MIkC:F)Zf)Rq4B_hr[u;)/6aBj(J$%bhcQ)#ic)WMAdb<'CP[NF,^inGq=-*e"uZ0!K<>Wj4O`KYll2.o_/K>OHMX:(IuHLaJdSM-)PH[S+#K(Bi(d0kV/S%B+5iLng@OWd8kt3fL;5LV=AXa0.!7ZU4l&($<1CI"JKi;7G?H&K\bn[%Z8`;[6t:d9/eU\]\QGEE:g`OClk=\,I`18BT9RlLV.42\/F"pgemGoD+dUUt/.K2]O'h-%nP9ktNblOBM4!R-!B(m)'Bk4@./L=SG7'oN]4``:XpOSG'@6M*%oa&Pu/r"7P@D2ZLf7$pDak,aiS;2Q9WG5XO0gK%0OV1]=(%[NG.C2o[to3l(N_$nua@L%gUOCh-J);O!WF8UIQ?-LU@%@O!&%]]YL1F9q[YBBF[:+:+5=]3e@75+QIjj5m[53bekA3]$ut;=1iRW?/3,=#T>Ucs"Yq4'3i*);PPXS)#g&N(j`hPQ-'?DO5E,k+XR]$3!8IL\ImN[j`/_Bj>7V'4$Rk1mI,>\@-p1HK]0_%er8HCGlUl0^*_!]nq%L6HoZ2@OJPa>:;KY(%&ME7o9Hj+h?)B8;u`--DA^l,5QIa2<a7)F4TNTH>Ws7j*QT1kl1l-CN(8=9[P-gD;T^5$N7PF8YWS>k&FE8J6U,-dW?#&)42u&#B62AlO%_5#OI/U.pQY_r3(g@d#8qZI)kF5Pj3ab9GjmgZKBS\Tb8u)Ja90&jUS`3[R@7Q0RUsm,rpYM+kQV@Y#nu)I*NlkoOZJt(Uu[mVMq`-.)>_V!H1#]fk7DV#M,6fVBeTa&M^$TnnG=qr$N5&mFX-MfM3I4DuqGf`2uSNG$Dt,o'S.B;J'2@!spbXIe<V%BI33B:3i3+P?6G1MU4E53tq!=P3Jou^s9S?H>,*g#mn[OU#;EcmcFka<]W5R>@6aU:G9tU"M&^RO,6[[B"h1"%:f50@4=IL<j70s;k^'FM,Ht?2YrTM8,Cg)N.\8R<(LG%V*huli%4(8?a'B%D),tt@)j0IT#Sgnh_VTK]VcGo['Ic#GQ,q>Q\9dtI4gIb$]1qIHd,NL,,,YHpkZ;).5XI[Fr1@9RS<&ZJl1ch]YG/dC-RdnIN?eBSTg(^7Vt?M7gYK#bodijo:hS=WW&"bGXV^/`&A!jC-3OTN%:K#>\V8*qoZi7-i,kFWc(f@+qM$qFI^/T8RB<=EWn*r_9C8'"4.k/CO!si0<,[=?27#*EVOb(R@4XQ.;b8>1nPCXC\*L;hUm*A%m8_H/agN=)#^K[[r#9X.:Wi=T3l'gD*VW,&*>=D9GqA"eGDgTpVQFXjSp"5GS1a#H8f:RUohpbs++o]pBrjUi#ZLC\WibkYmpJRG]gI-AOc6U&pi8Qp<P)Q4k.pc<&JQ:+jb+N3&M%R!JHnkC>UAJNnb"2;R<8QFn"Df]]T[Z4#1`8q0nJ;4u9;ISfA+=D=V1[BWDu@k%3BQKEkC^:3j5;,Uo5$P.82J[re6c9*:8t]Cj&B+kt,nA3t%eh\&decE&C89l_l:"+7`-29HOWbd/Pb!%lj=3%W!sRukF`%hHj(rsl,M@)Gg0FY:Dk#5[S*%;uk4R)1djPuDsZ7<#Pa\"Dj<`Ea7-"BGN$=*"T+`PKF^(@/o@($(SIqF"irXBttn0MIM/jsTfG&/#:`^YA0+9?^@HK6W6eHN"Z&TeAuc#RJ1K5M1@<TC*hV:La^bhl@80DlkZt?T<7Z)8]$A/@E(T<c+IRGT[T;dM,G5hU`?bL[?SW7F!+:I#%P=H3!nnItABRM?PtLJYMEa8=]"ZG%1M5kMo(T_KbJ17oR;^$<nlWG4A=8M`u(-h?aZlc&gV3;Do4!%BCSs@D[_^D!Y.Oc$_15RCg^:?Lkc\@nG'Vmm7I8!a9OTrZqL/<qhQR%"-0j$IN_ENG[P$g=o,0Tq][\Ie2(,J2[Z:^X+-k`N+YjY3lKhg'FI':gYU$IWmP60h+C>O8d8eb2K>C.`%Fc]M'XaP\0js\kU1uqo@!k8;3Zd^480-[D?MKZO7tgfT_H])gCFrNHNW;qY.8CKo$p)q:MV^oL=TQf[&a-_h?D;-?=6]d#ti[\_Cj]&)Xas\baWD2M4:H6.U"Vk#Q[]5MhXLR8pO]h[?4@VA*YirL\N\4..;+($VdM*'W-^PjlgB(#Hu;ch8St*roqDE)oDnk+$%0=mjm@VcGr=Gn/&b8qI+>>hCs0qZ-$TYJX6T[N_-a/=^]Cf*c7cahn:@;"]<30d0n:#iU.?]^ndfn;Qm:e,0@4O+$=?:Cnp-kF@VZ.8Y5qjHleG1->deafG.HX;<M>Q;3CqqA9(`S$U2m@X6J%9`'FE."uj^;/34)7fR#!$DfXgn$d<Kq+MVX0HH[ULpZ&Po$`[0Am8FiQp!ShH,)$$iR>oLY>C6:5oo#9*c7YgBj*V6=Q?g8ZETH[g/YVqVln'p#KNdU;5Ih`3L5<`ZcHU*p6Z[RCcWuBi%#bH`Z&iH1-EhSPSk0.>+$E"gJ!])b@/\nkU:,+.S-36V^ZeY?lu1C\;RemP.+JnHs/N#4B5Br?>!dq2b\)iePTGAQW7[q/4D[3[nPcRM2qjk=rgJ.7Mj:QZm%],]iHCeaq%gc8a:`N%3d"<#S;Kn'11*+1nP#_j#]`l:mg8g;+uHePj^N#(<b5\<^LW'esM-QD+k;V;bW]&idEEr[XMr0-[=mSfR1h+/9qc$A8G.4o2OsoP)`WoWtjEHDi?Yam&bJ<=Zi]7jn'c(%>>#+./qi;-G/tqfTe!ZM>&cSA=,;9cT/gJAFDrl@0c'flS<rM&?R]VkG!74CZ;Ltpcu.hDkSDiJ^%m!T\]$T#XM"sf;q%-bE;G[]:D^$3jf8XX&@(AQ\LP'PQJKh.IPMsYd`M-#ATH'Ar(ijAhRg2+4UH[;^6-+f`VNFV5`@+^?;g_qq0^qs8'd4<_HE[<=&@FF*t7?DW5j_[fQ[ilZ,*m#2s4L`:fVb?UpPJ'm=RWF)?cC>M7=,0"1eSI:ILW[.K)FP"uGCQ6u3(Cs=W4W+ccLbr*'Vob_7CHKmRCm2u3_`Oj1#!0qRtP-erE^qR8cK+Hh.-6!"7$?F:MSb=3Q`R[P-Hjh`F'puJH24iCJ^q&g3S#Fr)kFKWA+>Xk?P0rEXg0IKD8X:/l$&*B%?loa#8L#A!^soFDliLD]`V=>-^n4b?k<#Tdh=oFY\&@>FC072S(QGsuWq+rQGp4%qjtsr)W6EqG,Q.kU<knY,:HJUIV;YeDEr_eB<?B"f/T][MY>&reab;YOdUM]MJlA2//g!Qcb^818BAaO4N6^.1>XGW0?;@H>'7pfq)r;(9:lj37G"h)@lIs@5qb(G=ieLM9QPr+r\V<ruoq#;KKX`@3X-]^L[&@adQ:o`@]]$:#LaDQc'?(ISqVt&L_5FmDT%PC[HQ!=3('Uj(V*GJC?)k1)m$6Qd8YkZBh+k'Njkc&3_4a!A#](_/$3N&&j=OSPXX=me?iu,TS&,PN4>Z6i6eRGm-om(gpk(o6;9_sW(B0'cIS'OBmC4rjX-648,4'V(d4)X3U['D0q?*pM'JZn9*GZ4IN?6%^h%Bd/%KSC>d#dgnN.4Ph;o/,f"F.cgh@mZ[1$S>,DFo[(EgK?Y]!/^S2ARru1M#S<niYHq\bhYqj^ad<`Ib,11.361P)]g<"[RV@$B1C*:LFh>HXXDt=T,q!0WC8Z>:*3RbA?;rE8[n72ER<s!CEKTAe366/@eP2Bm*?C*aW1,odh##DtqqkbV8boj8R,bpQe5-Y,"6V#WLCDA_McUDc/F_qWW>u;fU?MkRXnm$)JF%!g2MV-=dC*_bEB:Hu.`mm+cdPaOE>_V.Rn[<CkM4!\/k=+"r_e?`'Z:=ulSHV46`bc[E3%Hmb#GV/38RXO,42*U:&TK&(7g[5BgLOWPjF*#^J98:f%hG!%G/93p*4c&#=BR><pb\."rbAe'l==T?k/mbeB:>b:j3%+[%n_?b5STu<b]48#cGcp(uDO;I[m77]nSi92XfD^WKfdLik5JDT_N:9tHOL*Zpa(mfMK/itA-`5V_@5Kn+;B9IB@kXuVHqK/RA]-%-5@:ll-K^"]3,0LV=(tdnq$,`\POZHFm=R(EZ?tm&,.Z_ZC-k#N_<L5"e>B<F(-4h\Ql!_7`6L^`A:3]6`dOe.eSp,i8"dU$B)qg<iZ_.;=21&ka@"8t;#mKGuMC%l=>on%/fg3a>N,+fuE%b/ANM"KoYhJ=%IM(r.N+0_8Y4-.uIaai@qISdu8(mBB%J9AXUIH=DL=OTl4]#sV91+^N;(R-."B?oFTHU[rTA>q)CUI?4Lu#R:Y*'fmZ,D/r[&bV8;_`Oh6Gt'O6DbuaP0$UrhF7>j.F?1N@=N)`B=GUTdl&p..rr3c/GdGbM)U:B\-bf.ha1A7f&DWNiil\=j&<b/_E;=bpGfc`'#k$D$)0W%bF[pA(SqXF<\=s+Hcs#ra+0u\jO]3dA'O8)"P:KPKQ*!X!:8>(_Hs!b]>J@fM#$ijo)7aJX1V6@s"r(3eE*-4E)^`;UqARGNDiKR!L_ZZTh\#4_V6YsfaFhXdC@86mZFYD"OYD1_C6H%L62(?Q?;[mY895SC$Ba/fY$G(=9],tOC:fr-j6TE7dMlU1:Oo(k>bD6[g"DI!fherc=1HJAbp>UW%5HBV61*V%X1a,o;T!QC^k_a3,`<2e.1)pYaqJq:`U1SAkQ^AhH<YR.WD*M!eW/J.1`kFd`jE`1g6eElBt4Ods#+@S.ZnF7V$@>F.j9+#[0/8qKp%@#\7H1iZ9krJ!<CDTegS)?S[=@Nb!$7'%bRq:&11'_/:IcCu@s;L7c9FZ<A(3a<%E1Ee,"0`40G\+R.O*Ie+D3i'p(/FDi+JhBN6#,0,M`kGR(pQ;SXY^eNn,)/Z2_:C"a9?:($qYodo(]HQs=L+GgEk9/>lN$.+%O4Fl`N*:VK7"i3m2t'eme<31Z:0_sUGQ7eT\M2=XP&8%HXcI`7q7hhTON:T#U[tGUB#.?9MI[+1cep$:m,`!(BF$>@>F#]V3BX?fGU5lnefKr\"++T'9eEt=#lPPGMLOB&PD)7L$7Q5T2RF`od__?/?M!)\Iona.lBG<DpKO>'hQ(%2\cONJ]j$K?:7+hUYVT8\_8)qSQUh#/+&ls=\O-lfgug[h1R7Ma\i6HI:RN@hVY]M/d0n#OCNqM_KD^HoRb24"5`A7cV2D\QM"+RUF%mg&#1)/GZs+s0c1,?=Q50^Z44oXFSTL<8TcWZ(jEWPP5BpV=Ijc3`bKXZm#Bef2/4-Nj_"e`cZeN:S>uRMGk72gMj*QLCc_st1V8%kB4CXfIh><C7AliIpCko*6R,IP,,Bt`ZJC_q7\ZOH@V[1ph8VW]iqC+SG;C=$ena`'VHhY27pV/2ghZ(h3b_:&hoW8Z@U4Y/rW:;At07`'@1ho/c;;ip;I['i$b?Xa[464Vtap`)]<<%<eo]<11*3M+0JGU!0>]e0@0q-XXqF1/[#C8D).C_N_k"4GtX'\KNjgjoG`q7:IiHgoqL.^&%h"B<RVO5*gh^,d$6Q^1(<M[!LFmiL:h9c6aCB9XC!<e];,[JVq1<h5r5uR*TZR@G1(e-bEs.9YUjj9CC3F[e"4-e7rcOrh.(ur*mpO)V(a:b?he2(n+@3EJjLR.@&KJgCDZ8`S,#KdXO2/4U*WLl^ZUfgc.d,86EG!;Tf@tJe92Q:LN,34NaN9;tM7Cp,VNVd1-U=b4J:^_p`UlosE4`K<*GC?g>8KVe.7gIX+!8(HP]YkHWi^gW)BtR8<=gq]rbMXD_UhV?'IsT8T<rRuq[esEETQNqG$Fp&aM3Ng\4*d;_q]N"k_,`V'AE+&XcN4&^[T6qSg6-E.65KTm\SE!_bF'q_J<,:&:-l/OQV-?H[best*g.Z(62*]kAOt16V:q(^Q6n2p1sbN@Nog!+E_TR`-AW:G]s]4<f8\I,QU]4g=m>%#/6a0PrCPa[@KqV%)5-Ft.aEJHJ3N#u="ESU:bf%O'41'G4GEj-=X@pePI,9.i=_b?\`EVSd;.Z59+b/L&n`W/M(I%`TD1Xu<.!WqTuU?6)\k:s%<Zl,2rFE@(N7Y4(h_XiV8c+q?$(ih!kn+UYrQAlZEi`*(Ul:!4),T#eP<""g0+\I>hTd#8lgipKrh/*?"B"ZG9H%0R[2C@qg8tuQ6b8MY-(@(76I_SASiku\[+sa"LY5j%BZ+5@A;*qM]$Kg`Af81oL\[aj.8lFh?1Io.uY?\)ip^%5K)asE_`:LU6AZM0J&2@ipO!K>r6%C@h(LW5],EkBP\HR_iKk2jU%=r4:#\,[rq+Kn;PNI;MaldVsG*ZFAo4"bZgsmU`HA&07-RY9Jo3nJA+oD?G4=TTQdZ36IZ[VEdjeFHdDX!Qq:)u.^XMlL3[51jltD;]>#7BC*p_Y\ChkAYAi-Ued75A>.=G=0>T]B]%WThPeR1j`8+QYIq9nT&OLlD^:.;HM&L@$G7Ne17ei\o1O^7GcC@E;K=Y8:6uUSOhsa_fIYGbq?W!nCV#jbrDg]M=$9dO8Zadl@^$%mo*ki3G*6pIH"tW5sh&nN!UF<g$ck1HiLOKm0eJ\su6_$H=aA9ucnrr*'^i7rbi3)P0(dUPFo+(t+8,];Qh'&nX($j>bLaa`!-;@jI#K't#Q&k#.e68?j/Ci-N:sc2137F/BB[Hg"(P8?RibNe(XIlajVF;`s08$1f,Q49uHFc:K0;^-AKcRB&Q`20dEDEX^Npg%]gLB"=SWWI7KY$7nnbf.fTfSnuMr\g`!X5YAECqg?0%%f)'#=ErbA;n$M`Oacp:laufWFo`*6c&Ts7qQRdT#2%Qc_JA-l"AA2BJK*(8DjHH$FCbmG'2Wm_Je:mlV]j>6suC5AQ(ABm04]?=m!OdXeFDU898F=P]cE(jW6^h/$\UYH/%aUN_L9o8MW2DHCkCY/j`0Obfao:iW^MD9lDt%/eoego=^c_7)Uq\6a,BIga&0d!Q_a;:t1>$SLcA".dd[Rt;3\;X.Vej5sA4HKBfoWY]W7*LGiP_[U.FY(oOS%1Hcl3<gBpEj$6(`Mi^^X6M;&HT6$25o<>@ogi=!Wr[[T0u:Bq"R-9$+][p@`^jD/FQ=ssC"["UK`6n2BuB7n$VA>4eNhK.4RLdcWC#J,Q!S/:_#Mj@nfli_gQ0=)+4I/2$>k*aMBY3FQToidnAXK\J;=4:Xr$C5lp\t:K*XVO)tQNFP/cTL(qpD1q8"]jR5^iQ&.a8oJYF5VI#.";71tM>>qKU%<\D0Rf#54fNcS+9E>kfa[CTKB\5),AQ*md,(A4G!7?7'UNKkIV;dT'8.YT)]i8Ut#*:2':*e0mm9=t-Xm3J1sXCk:'C+#VfFi%klcf5u,GIl72iN+jL.(\g<er4mh$5p?e&mbB"#RA7sT0oW0Do.\q*i.m.Q$4Y4/iE2!?=377C<%DAV1]Asc-bsj\T;N=?qhMD%oI;dZR4'E\lf1`S?PLSiTs@=eJ%dRKjd=>]"J3p6Y750d;"I]GRRl.nhD[Y&_/,oaHtR.jS#M(K\tE>,ktW80UOO`oEulW9.3cYgtseR2kqOp2+CuU@N0!h,7(`WjSQ*8_l9d"$Lp=HR5ehBY/^;Nhu5q3NYL%%A?n6WTea\#+L:Wlpp`b\7g[?%#ngW:VVkEJ>Z8(\"pk-&5eGl%S5nE&/W$.c?HiD.jH+iD$IQ?YBsF;dpM$8IYZ<V;[;65ANL*c5]+-foJ6P6jTo1Et%6jK.Rd3(jdT_4;e%!7Id1VTDOPeSXP?khaA.EnBEt$HNR4HmEhei7/5sU76!]1!aa/,1C%=+YM7<&\/1pJG;^Uk7/Q$XsS+(7U>EQ5?DMm)^g;]>^(npQ3d?""\(Ero[2s/:DRcNF[RY["6)gGKZALYWi:RWOpto8=G%VIWJl=%0TS$2C.l`>U0/1>s_`-I1D`AbtcKYJd2fXC,`,.sq`M<\1.e`*1K_k.#D%i.Of*+@LNM%mjY,]>/S.OuXlW%^B+1Jlp1YPB:Y_]);i*WA]YhdJKY>O4'"?X\G3_CtMViL@N"g6L5BoIR#\Vn'b[JaJ]NBZ!A<s9?+-@/&dnr5e[>MO*]d]ZhEMN&Yq/t:J&a$-CbQYYFgIdrPDcj!S"J`Ql17p<C><S[67$ZrRAHM,k.t#:G1hIn&otFq/Zna)u]de2m[b`OT0_ACm#i0o@9$:%1R\>/7A35o8_#7hcd^@*p=P!%&c@qLo1QU@`B<VXH/'q/eMM>Q)r?$3t,2/=P]H*319q]rf9DB(st=8SfCJJl!Ts7Ac9G[g]0jnSMp.i0d;$-QV9;bfo98_U$'Uo&]$J8;R'uT*kSBa-Y<L!0S:Dm#H'Bep!o_j<9)t[MrL3U<PC_#eZ;"FK,Fqhc5[8,Hr'[)l@)`X6r=hAmRO]uo'5L7@RT0-M8Q6Co.r2kbjcoO+Vg(?f(bf6>s@fq3RMJ+O:9M=#u$],-EF@pk"D'fbVjSS^c.V1,6:GI>6pY2GZ>-'"[fWn&eKcCP3)%GnAfg3o0G#6C/03B5X#GerV#'f1YUIAr8P?/?EY.3p1no<:`/AFa'!*eb'!+_2_7#^7U$929l(:_me(J3,r-lRTY``r9B=9q\V`Qh1(Kec]e6,L_7%Ci`4S5,^[c;LeYHt<PfN;hSeDubn@@-8BRaFm[MPrV'kU":opP1>,e+Q_0s"FBE^K"BbFP"K<DggQA8`DA*PE?O&X<=MGrjEVbrFT&!W?`t>D(L:3mT@'+juYnpSMs8<UjkAI`bZEp5@:qnC"XQZ:hmJ/PudI"Z]%0:CYa(#Nk,j!B='-M+ak+,ZoH@L3\:/i^rT(+[D;E1>oWrmI%g!"*.ll[$kN0GA)&6RDLj#m@<e%P;u)bj!XgIT-bfGoE/Uj0<mk,e.HJ[7IB(&F;HY.$;>%=+oP"I"lp':,%!8B5\H?mW"(GT7A6%f[&g>X*oK[1-F#jn<k^BWmqN).XKSj1Jm_C0OdX#$I]20K:@%!Wogs9br*'Xmc_g(9_J!'['XqLCR2EoUV=BEZAhDSB)W3/'YO2(-C@j/#"T7gnM<9jEatT]4db`WMeMu2.JIe$a1QT^lOqK(Y&Y5dk[N^TF#%O/'+-QOViBE6UqDPAA*$nj0l/+5D,B%uq,_SKg<_&=fFCjmO6FHiN>?kclYZiGD=^2)52;>ZC:R(82KY=Zq,9h0[YNBI1RgA[7Mea.HV!OBYSLDCi^WWKtN-U>a_gcIAU$.$aKl.$c`ZQ-1;DO=P:0'S0@nYBL,&>kAnO/MQL>\C[:_sU:7`$#6O(Y5"2.\AdfYC/66D/qrkr@]pP!%12B%t1u`Cl3NkpbG=3]XcX]3kRI;q)><i3+IZRWFV]glsGnn#m0J3qD),o#h^3BKL<PNc\tIab%a*8V9G/a9*O?V(EoS_R8JYP/]0Wq38T5*lsP\!ODelm_pS$=;_E9=YAQ5nZL@sI9r;OU##VLT!<h%Jl:jO.QFhb>+jDA8Ln5Ygi65DfSknNSShY&'irZEV2uR<KPAP#$C>1lDoJ(b,lgh[H^U40OS'+s$g/\4>Y)JkG1nHN7'bk<F%Qi/r-2Jc"*YJgXoWcSE=*&:daYOU$"hB>jDTtVS>'P1,!M"a>XoSo12`DPO:;8r%3p6;UAqBYoI3VX!%5jrZ-0gD\`X+VNSO1Raqi!k[bX#])joEU?21'L=;<k+$XWpD^$ig<X2?/`X\Uge9H2c(a1A`tB[sP/8GMZI]uTUfS"u2-+7e@t55NTloT>NEI1hBpV&\T1bg-!=K"=\T0Y-(bFRKCEin-PbC@J!.,fqP1/M_bTb^6NNrH4)>7KALlJ_G5="n80Y>IECO+^7lf_LW+jgKI_<C1`=$h!lR%L@#,ndIH[^R3/F"IX0CXgb"l7V@@7I!p%.Fh-F;k"P1Z=<\7AgrMiNEEML"L`l'MD%<.hQI]Y:e$,5u@<oh0]7S>tXWB*a#h;]R?\[;K81>a+O!jcEds09poMZ[MrK=Kfo6VB#0j:I!fa],%dWM8L#&b5`o\)t2H3(Hu[%(Cc^FfaV[=j>usml,1o,"rJ[!](?em6GY%EfRnMqnWpAruVHI!>dD=+,8TaC+g1WL3V)eb;aY?USs4&<@o29j-?f=/;q;Xiu*oA\$JVbPm+Qt7ZW,4U`@iT@SAfa-N8J.m")(u@Tb81Om&_]Kp\@VqZb9@XAF6SOoUg5YZT2(]0Zc=SNc%3/u/Y`O412ei3_N[@Ild/>;->Uqd#DTkIlu:N/g[P,XSt3ht>"6@'"XK8f_/%LnE&f:SBKcmckK"Y64c6&h;;r'nMMN4n<WphYTtl<+,sG+l;eainFMK1RW([T(@f6So]h-pF-&c.D@\e9AM&ok&^fWg=Vngi<RD<;`.T$9Dkd2<PWT:^eo[C`%_n3S6Z%&1Z&iNYY?;:fUN'((M@9HErD;G*VC3AV43i$9a37&3FFL%EjBJ"p#kXukSFF'24C0^+H)gO,WWo!OMH:O[+0%cKmc2dU'1XJ&0XTfMkU/Z84@'&(.9@DpOVn7/m6U)SsI!`)D]p>eS?iH1c]6p@TODZWPt5L<DY%i-5huYNJpm&/S<Eh3u@eR[?Eb+iEr4M_D:!bPr'`MLeG9',+@T%<JQVV%hds#Iu9FLQt2R$N>Wh?F#loDMe<d_Kn3Cm`^R[SEiTZj3tpeeCQn%P4pXoAm"l;,7pBT:1deKnnZiWaAp[C;#!RuR?ut"h9F'HbiEB`"l1u-:lWi-O*9,Bs[2UiD-/Z1hH.>j=Q;B:ZAS"M8'3XaGJ58GD%l.h3Npune<&cC<#OmGa:gaejcG9)'6LQGbk?k&)X;YqHeY'I]2"?)\P"/$ErZF1WF(pDFCLBSaTtFQiCV)MrM#BG8aSi)gorL^>ath\0/Q+TCpLPBHY(kn0gDf]HU3G,TYD'>3?7@HDh-m`%QIoX,^F38V@^&QL07:4b"IQIGQ(ou%>:Fh@'T`)=;WL0ab?S(dm9kKEd\N*@-OshE7XJe4QXMIT)ca8NSeVb"lSnuJ5b+6HD6ZGG^^0t)G:BFnEhLs9P>$@$G+;k=?tMs\1#WeeO*tle4dEi3dY.*UE)D;e#-Va;U>"$IF(Z=3Va8h7-]aqqf$Ik0PqNOYMg]A`*"\UEY/u+XCJui#\ATRf8^H_R_n]OU@*E't7;XKljXuW&U8Ird8YP\!4u(SD=2L#lM/60S78R^r&X1+73V`tILn!HPF0t4,G8)!hL4uc_a^f"JN.Q/rr=POY>Uci;Z4XlhdB7WB%hip&"MssXeg"Z`]l*M2YHfUEpP&#05:-ikiSW6<<ps.^Mpnu96SK8$3hKMY0u?ooj6?Y]*;Hs'm$n$JUC:%#DG2q\>*Z&T^nOf'VM=(0Z5C#FaQePL<oZ%K#iBj)e4W(;QGZi(gAAc-!7Th1.a,Xh5^4k@lA&6%Ea&EfV0Hsges.'A6PH)S)u4Bj=6S,P?IIit:lY((cmq.:'6DR?fT?0tBTNE3"TJNRQg80q]KJ3a)nZ4-=pq6pbq@;S[Kf/Of.L&6Hn"9ujG[hdKEu?5)IH2Ub26*ka7J=t(E,.@pPtE,4ch?gm/tKCJg1MrUA'g'=L_qrk[)Z+mZ./*Rq4+.2<dK6-YpAW?hCi_N+$F`"t?dsdZDL!"Vcc?)"_,!ZTBM?F@%ha+3D*9F7Y]b&!50\+X98JJ#CbN6To-5NodSIEt#A"E=!c(?FWUoL9>9'2%i$q,EWtuLo'kU_+_gVl<C7$!s4UX>Z_0FSOQb8Q`6s=lS>"RFtu-r;@8;)+upk\B%gaSPL?QH+@;f<q`off2L;&`^M97fD?qS7pBn$`n4d3)J6tNllHI5RS8^],e0@;jMjh0rD1+AS]%:t@:Gq%XAg)ajK>XdKmHr;@q$a">][r3NcAZ9n)hC1tnpUU8YuSCF^&>(od9Nl/d`6['RN.86m;:ODe1sK[e%t0)4k*M^U<.!7Bf1_qN%4?>(WU\eM;8P0UHOdFVDUX>*-PX?d;\/p(prRgW#1dN&$TJI*A"NnK"n&7qUgt'd."Zf4ka"9OEE7ar&EFLOZW?S.\b__S[1/#%h=@JBXP;3,Pdfp1eQ2o@[N$d6!9$dOj[XaG)"7Lh)\cVYSk\EhYu^3Wn^oUdr6$I8`K?b7:Hp7UUX?<\:%Z`8Y4;$L?.Ofe%dYH294S/c,iQ(.L[E#kF&_YkGhX562*6pqDjCS7%^qC\f"gSGiU>_V\lsXi-GVe;Q,fLqXO^gQR!.$mL"cMa]<(g0caQ#a2+<U$=Zsk,=&N4'?SJE0a7Hg:f$D<AQH5[g!^cr"'J;/Jk5mB-`A%g^dk*YbJ6s=N&fBc2Y=/<bYQEkGu]7K1N.k'@e+(_$B@@0`bi(D(`7&T4-1)p[4[#bZ>h!=Wkl8[GMQcd#ITR0iZUp@D^[Y9+]JD_>T:tIK;<K7Z?i:1+4J0i?=!LI0+]-pMYaGQ]h1f3M7npKf(C*oHFbO*R/:rr"VtkFk4g9W%B*`c^_5M_<(USTrr@g:[PY!!je%4=(FjbIcgoVuM31o@*<pP<$8TPZ4^#-LGg=`@.HW9&!(4:BhCg30It2_JF8Yr\Rem*<49_W-MV\6<otChp&nS"T=448uCa>ufd\PDW5"bGBP>9?VaL1]l9L\l#e'h_DH">Ja6H1rL'r]%f?s?.ERO"Ji]JH(-HHP*=0d)K*e4_fgaSV`FN#^Y:A.RIF3=enp)$#5(T"bgSXG6M"N[4$F?;6C/XfW\9fY7iXlN_F#5[6(;oO/][%A.9%OYA4<Zi$9#c;3t?A`3]Tb-M.Y^.=+L3t4aq'0Sq$eC0PO7Wn#^XgT's=1u7n@oq,AM3GUPEEqJ..H(uP'0:PJ?7W.OZKYp;rg[pNZ!KRGP]?9_X6l_#("1JH,uh]k1Tbo2Fr8,K<%?:BX<Gi$;2l)hR<-m@hb,<[9BNWRNXLap+/m%9&=Z08-T*NOK67I*H\QUE$`tCTdX@#TqLIT!_#B?V5dJaH</1hVH5*:85B_+oCn)[/3;V#k)\1TYoC?*BMQ9\-V4f1T+K26Xej`g\UX0e4J+OFE>b;F:+,9"7]\W>F_M0UJH3IIX)sI#4P`j%=@N-TZAmV%Oi*Lg"a"\<JjubZ&*c[C[%br:])NhsT0>jB<,s$M\Mu7:1ls4o6U$nI"alq:VSs6n$'Hi7t75Np#"1"EHh/UMGZoD0CM.0%E/PcAM:qK60:AC9l@9njr/_P4/_r.^sjQ<K;2MM<E:ZtNt<QXrOrP=HSgeXJ!nDfuQdjUFcPc*J(lO4P>VCg,Lmuc';_FY=K*D*e(H$"u+B1Uol5"Mf\_+Z3=EDKSo!6Mm4K3mWunm36@[lrFC5%SQSAkfT/j!8A![b9ol0)IuT^bUnp)[O.W7'EMoA"'O_F^Ju0/u2!ihL\:/+qWh<U;C:,":`q4.P_mqU:D73J'oGR+aNL&G7p+l$m%U-<ML2l^&bWH/LB=2m2:HA2?^fp5s5,`Z'M8&ojrPdJJM8[_l<ZXiMtW&6Be2La:_+TV#T?ObKSR@0);A4F1&hjGm=KB-JG/0aa=%&njBjhPd$r9r-k'H8PC3NSc"H4Z%')dMNdLtCOt^Be)/_`<43_oDEaF/'mjE46!dcsgL"Bgik3CNl$%l?;hbC,:?+5[-&40\OTq^Z\&cl3DErkV=57QTigW?2BW<&kDsVaY6.7(O]F?I^LeaB=d]elc6/Z5./7hAud1Y+5)7h#^qou)..<?gTLdEik"6;!35?XcLd(Y0hAbT22fr_cXL?r<SC-?*K;FqDUY(g->d&t`7WedF:&=-TGVDj21BFbE$l^3\-057O8L!]/IrlsO2)4X@+/)DI1X2%\q5GFmugY>,UH6Lb_Yq`B?&L#t6P^pWmE]tQ1dF]BJs%h*8:3TKFBo)7.j^LiRISpOL$b%e*Ik8+p5(F4],5DPL2ui\f%Dcf<T-_p-njkcbkS%nlM2%pR,d!IUnDIjkmtS<O)t7haD&1CK&JM([Jq;Q:E;L?Hk*'2?6W;YIN>upn)8WF-&cU6<M_dbD3GMr2=-g,!NYiBd^nA6%ZWkX_L6nH$-K7N1]&SA/oHZFJR!VMY(%s!8ZtL?TSE+Oef?DuQSIbYr,`urg9$74L/*YVW=UCG<EC"h`d/2DL->p4s[2'qsYAFE%!`=Q5(Yg06jc_%sE(D$&*Qr!O=j#t4J:d9!B97NmGYbqrBWkEf^N5QK-7ddbodII`]%4#l`V>SZDlT#k";!T/A!E3]i0USJJFaRb!iX]a`%gIL@^!OF4+>(.`*/a&8qoZo2N964NK$S!I0q#[:[S@JX.NV#l+Z#0ON-M'02Wmun4?jd=(t;FcHd)VM')Vh_\S2tfg_3:6<C@.WdQ@I!<Qs7&5_5!Wb)^n(.<4'jgQs-L%0tc$:(#?ABMgb;0<"f0G\,reZFO=%Gb9HpruBbG9[o)nSI#srAY"7<2u/f^qH%B%)N\#cjXQ!$J%cq+%b$B[fJ!\Dla/G;^r]hVsqV+l1]7BZ,sbPGRLb(6?ioKBiAoSpXP`?SY[K`0X&GufLg9gK_jn"6s)i8p13Bg5cB@;dGkU,!&>.<^:#2Xr+Y#=A\XZAZ8$Wj+^3g!CUAH84\j05A*rn9aKo%oASnXdqSD%NPc2*5jZKOuia0TX3BcB-(9Bk6#FL=MpQMS2FMX$o*+t4JYjen[)kXG-IYq*9h6b@-+fY\4+`\X#m-q7e80sdoGf@i&+a3_p$#XHq/]dXpSX'dX8a=n1Kf+STCsdf[p)>:FT*:3].cu;TRk8q+4NY.7fP.O&"[@F/oZin'(s"8bhnTCi\<!7M(FVCb"5-1doR7Cj-8-njiAQQQ5aPD)LTgTDgQHo0,#=ZAXSqr';Hd/<[@fp=Zl7>EqG5aYCdQXg\su<+VEdDmr,H%Wf7<l<qa:!#2r3"9PE#CM[tuPY@o[@Fd<H_TIiZ(VFZ]_BqL]-/W+1mo'HWg@K&s`h$d<3$:H/Mch5o3We,=Tm&^@Ae9920GR"Cp.5U+E55FD'N8slilrWsl/HWNZYW5k9k,]W8Z_(get7^_h'$EHqihiT05/d<]Y\n40]G;\AdkG&u@G]tos"(c=pC8j[X-nJkE67uY:4`_&t)3BOfhFNW%ifsXWH5[RBqPSK(@b5+O!A,]Y+egR;KRr_@q/B/o@\!!SX6h]=n1]G31sR0TWG7":F`D<T@KXUE3N.`T";b8C[Dh3m\T?Ta4-E\o]/e2tC-\3bh_A>>:+Hj+p^01_(n3,K58Ybdr7/^TTV_#&PV=aaU.ll@0GERI).TD8*qCoI%h"lq[mc$(fN30cg#&KuRg5BNB]WD`p6_YpDUlO9B],Q8;.tulVYM[nSe/M4:T^KX9[3"S=oT3?khFmnq%c',SXJKec-T@C>AVu"`SgF=C*FId;^00[`jrT)6-.j&&hNNA*<N]#A=$?Tp4Ef">3%EI/V%q5SJQqZ/m50]2?i>]N"B#IGCQ7t_AI/Jgf2_PhGt0Z6;a#0BOYC!*%sbG09V\:R6>sCfX0J`V:(&Yil)r-@du`h\p`Q]hnl6Y^&$>VGjOdth/rpcs0O9C)mW'Ld<,Mb@6*htHrEer0UC\:]PHLQ.\bD-1Y;Z&rO3p*WmnC>J*osYYX2,Y@]%$_0O:QN-7759(^hL8[-%q^adiYqj1k_Q5U?HSXo`tgT%Z<J"/7><,M)MKX/^goQXS2u-om3WpZD^c<%51h2D]N%j?OD8P\+AZjN8/GJ#b0'm3Wo%@gDtWd7ruuD1T2RoqE8U\t)]nW[2hRbQiKAcq[;uj,i0,Hh($i1X-#k.L>NI&R=Q,SJn])1!+YO&K6UU-0$_)SiUCEdS::,BV0cd;$)+iV`@GSR*'qmi:"9YIC3b'r^Ygigj$-'mGa'4]ZWGM\<DDGoET'#D(,[G"hZ&@<0K?&1K\U"9p)I<gI:$`XCCipm).C]eS#cm\n-h(!`eT6#f?>5?W9HFo@&r]'2Q!_BQr9`@\?e[K>lHIOZ*0mnKeXILm$<b7LC63K+EI%^Q7qbTYsjY\W*-7DmKMeVe\?N.NU8=J8W%+OljanU*@"q6FX!Kp/bjTfh("T*YS/rJi_TQpR33jYBW?qZLW9FoY<RED:(B>moUo4rh)1fJL6OO[i18:S#3>G`5887rl%*"B/-B$/3MH-E-XeR)l=U\o9$++7%(N&\99>H)D*%T6]OThVJEk5`*Fa"1ut4ncYJ`p!p=TA6FYefQ5@a3ku2$f!,a8K6LXLHKgRLs`UDr135"f3M))8<K2Rq'DQlaNKeaTn!cdK^)%S'>)Jgd>_#5.$b=N0cb7G4dX%QT>(d!cY2)$majKgepRK=#VhXQK#gu?Aa.b_V*.g"S_?"WK&\Ecpjb$(M=SW\0Q6S=Pu0:#UK6O"n#]@;:UTRQB.=O`o5g:;JI=%Z"*b7AH2AAn_*k&$r4A2`&^a6q\ONdU=PI;9?mluDEMffdVtcr8C1#N4KHbZ1@b.3*bfgrl'P;-ODc]%gf'<7s)]Q/#mSR@@5aBi+R5<Ur56L2-Pe>+r:MJRX:>g99uJ0m`Oh[&i[qY$+NL_:\dQ[^[PLI1F\'jPXXg#n\Vn;_+'YDN5puFrp,3%LtNVHd'#p<Cj)Y`t$e/'KH!4Y/.=.rqp\*q1n2Je<oL;D])9)2.c%$L@7&f"17lOSpIje?K!+Lat(K`Z#fh^@;WZt,ImpM]"5A2/BGi%,CB3g+Fu`#I>5g8PI'6U9Tc6p@in:B]ssX2C>G;d6aZ(((APXC;u;(688tfCfZR8)6-N.X3dj_m?a:#YRL#/JEcPlBW^1)tc=;Vh%Lr*lG-fhG:oSQCoGAN]AgAPf8f;i#/c7=?l2PpdX7C3JETFt.^Ype"4X$X:3SmXhGZHag7(#B/K9rjRVC!LBWerUTBgH3u7%$6J[BP1+(2>"f4d5k"D)_)10Tg#b.7D)pGKuNA561SoWNlldRkls*e+ds8s28VfX#X2arDd(sdphE'^8&?Z\]m8Xn<EjAc,.0m/DfcXJpno2j5:5^ko(RL>XMn^nbC<&3.D?l!sd/g7goss`?754Sjj$o)mIFE#RRmXX@bG?1(_hlO(a[tXTcV%UAQIa"J>Ojm/op"6FR5G2Wglm\c]BtnlhR<ZFdk>f:IW]bg>=a;ZpZCHc#uKSaGbs<hlGlJaLZsMWUSXkS5_ipO8NLm$-k\'?Y;@WXlgt>jf-4Q^RO\;!93k12q$\io$jd\oX_l<,_*Um<a^d`9@H[Ju%-4):BE,/*c\0bQCK*hDLubC'0ku`M#iK'q1KG+2M;p[I]Gr@>>pCI")g%`E])BBJGIRh(ps9lV4O7DrqR+*_0m#ne\e2`2:ns36'BFT*k6?+uIFa!7fR!RnL7&3_`=PiGHTNf%h$('Lm-eK^T6`iJQ$PFBZD(=qPlUjD\!'Z<Pt(R[C^G,NXh5>o9O&JAkA,@b1U]ANONlJL*nHe.T%<6Gh.5<]8Ss-[j5P5(JYAo6UAPFrN[=39]M`m!YJ-PN>YPZtY>$N1-]clgt"g(j(Z/K8GA%5nMJc:YNF^H\"gZi_C^KN$CnO"-I'Ifn?!Dpug[(D0GCk)<J:?gF;SMn\8><MlmUF5/2PPRf%jhUPu3doc/N2#V"[)Y`AAsMjQn8J*t@6:mVH<#gk9"k0*0aqi6]"II@:!"UfEl=)^t![/q_C6kD7I5fWa=Iud,;J"ntin"lOl88h^fbhNMWDF(kSV11^8SY4Dd!s1=F3FL+K^UlU?Qf)P4bB%!2l`224X>WQiBnt/uK"T,;L;qZZ)_=jo;F4r<`B%F&9'>Y1`GY(E+:m(AHpb;IUuNT^eXkH.^=#`(/)5i(j6:3XI&'Ab;-bfU#4hjbptH*-oIDEf%\nLAW?YIp+ub?al6%/cqZSQ@0?-Lu^C.scZ/;A6MR8C#@N!*BL:hu<h<XY]N@1tm\\:i1c#jP`Wn!FkA@-;f]#CIml,mR<+i>J"EG@&>Uma7ohR8HuISFUj;HDe&\,.Z>jPXD9PbSPC"B1XIJ28p=E4*B*2I!pnHG\h3m3B'g&H!6!pacmJ3<E1BqZ]>#/Je.s9U/:7[MbCg#;U7Va*Q=2>n/.<fYges(or;te(HHhaa;IT)VP2<*aM,%ZFjC>93\J!I0/L'>,MmG+K"A?]_jKLTX*93.(ce<qDKVlCN&=@^[Q7A7m;9!Ld=DDbH>c<LS\hIE&-5M0/e,c0?e5YLu!cFK_c^K=R;kFhPbX9>')Af3VdZaF;HVX8[&8iRAnV'CX*dh'C+htA1sHOV^ZCk?,Ea`_/(09PU<;fd2`#16SP;N(K/#o6:7f.<%%MEF')"CQ$RdFTAbA'd?dAY7AmGg>"Dr`,G+F6NP'&p+([\iITXA;@^9[F6!EZZcO/sGI1;l>?7*aq+qJ`'$'^mNe4.%0gJOkmYd#8Pd,[5Y*>$'E:!4@S/<HSU$'8?j.MK67LK72*gd/X8COk4K5)^\P)/(fNF(lX\$pHM'M0,^('Q_6B&[=2s&&'FEA[^Tf@tquN7=Co)p%bOl?HS#7ebPFoch0'!22e:&DSUnc<^X4Y8fab#h0UiH/jb]U^d6sj%JCA[F[`$ZMPE:sF!fjTC_J8b;E.G>\q<=@8B>THbU&9S0m1Yr!N.Z,\*h1[2-<=/eB(7[\n#W]9m/@.qNkq@PG9m_ZqtU9H@hu.'LS\A9YMt(%@H6XQusd0jQus4<AG8?%.\Rh>Ue1HCBhf6<gqW;U%$T`0)L9L56S%LIE@830$p9.CcT:.a1gET5+M3E&cq`bVrVH0cLI:G+q@oT0T_cgc38ncU[#+UE*T:C+kX\g:R:4tCKr70^TuSV:M:CEP&0[UeS;@d4%j_WWaUcmQ^4:mOQ7G)iT=`_p1dE!77P]D7>ZL`7bIGiGpD+Y!(@V&aq5-scIU8CUDqRp^`k]G?2)XO+0Wf!D7dmWbN'UZ1<k8Dp)?\Xd+3T)>>__U9mS#SoBEDUCKd4jEp!3RL&""!!;atpZ\qr$,?k(N3<1h(mCf9FaNAsL_gu_\,lZ>,>$BT43aZaTa&o87<KP?YlQj]b>3N>PIZg'^Lu&u-dW]IW1^BO#$Ru]?YbZXn!;+)\Eub90bJtYk;X!&K=X,iE*@4T9j-^Qj/98O2pcB8f5VEpW]\//HSiPAJmuJ\*`I.O$*J;-n)r&/b7XHQS3*pPD&^aT<J(S<c*jtQfIrd'gVH49oJ'O9lTrDJ$^Js"#:)JFL8KIcX25SrCiK<=_8+-cQJ5qhr'Vb,'eIG[)KVA3T.6QYZ.epud2&FH%4DS=r-1,5iD3@)Eb_pcbc9HN"W5.M5KfC!)^!$-An(0[a)jpG(L%t^sCY(DuZEYq+jA=T?>Mfq=%@`7XWoLOODZ>)ZWnU/eE/jg)oN2`)>%m"Ui78*4.nS><m^,u#BgLH^`q=eAbj8,:L*8K?:,O[b#/A8QitPOtEo4$9BRoVNDOn*>c%!+Q!C4HKc]/N?F#6YE..QMkp6ZK23/3);XYhGINmcM`674ge3e2X[@LUln%r[?lhW&i#j@uf9GSn;KHKj=qAOo+Xs);?>\*nLWG1U2opKP4]Ybn*HXTqL2lFbk`je;dm+ED8-=mh\9jAqXJ'5iB"UVHqC\-Lko5C*UEOCN,-GJoqs.'5_6F0U&<R:d_STiN;IV*bVe&N-mI5'MXZ?""ca/0R&;@k'U^-SX*5?Gn(S^8O/E$DA&N&!-W=O@(;KNIa[pr([Yi2/UrmO1B04i/G(pT?l7TcX/$ur8&J+m,5ShkP]Od>LsrK$[B.L48NbXPUEf:OiU%Q/fEm-[Y(q^^*iC.->=j[db9TcX;Q8I5A$FO8@]gTRL%j;R_o@/!q,]-TbQV]Ss34qBOcgTSA.:M9kiNY]Sgt/e.+sd)lJ>68i]ek(*Ve5Q/td<.ti6%C"Mp4hsYJ:[1FH&<GTppO+&hgQ9GRL?K9[EMA\Ms&]%n_P0^bdiX2HtM$=e?JXWf#9PHShJQL#%MPU[O&;Efh#,:YPPJ0im0ImVjA<S2Y[!hgAp#)=dBa`dP6NNeugOP\-d(mPc[E2P8`rQF2fDG!\dH_G[:b?E&X'2mMZdT>F@bF[U@j)Co%fbX#;V*fNjNd@^#ul_D._@'Khm:J;%(aDpd_1dO<;Z=JpM;gC'B#^n0%87H*<K?.=49rk(a#<$eS*daKOR@!]g$!d)[E#&B)(aZD9DllVhL6'7_J!ARk9*So&>MhMBstgm/<F/NF>DHcV:P`e9@ZmR7$0?(#\DjBBK>+84]IR_OAFDk-:uVdH(=@FF\eYK1#(-Y[sfQKs;#1a(1b;6]Qg0n[t!6:6@bK^r?u<Isbhu<d[n)=i/:).\JJ:IO$\&s0Unj863m0'luLpr4qo*L^WoC&u#VsT7+C'!b)OZb=T7+pktXEE@CTJ7.lUb+PsPlq=iV[n![hVCj)=#9Re[c&8O/CK$BfX,?j&[e_38(6MIZ\(gt]Lm_kn3p/b6;aU$\'q-4r454/7gN>+c(Qd!q23NP&L_m7XR!LfQC^j9Gm&+=d8JD:LPO1[usjg#RekGf"loe(R`.JUaIp!H4"!W=A2Ie_Z"OC(*:>*u":`-55sk_\I%@5sP4'Tk2\4\I"3^6Z$Y@$cqLbE5g:m5JesNoW+Q.]2O$EOTdqM0+81(&X/O57LTq?H#-c%1un\NpJ?X.Qk%AW#!eL3V:_*q(R>eH8bgL=#SFECc#S64+@Au`ET[1i!PWZWnm"d"!H)Jh]W23+btb[cL-b'V<LN<\$^3W\qYJ-,tWAPiuHF7Pa]p296rVT'3ou'Crc9VG.q(d+SMFcOaV/f@uB_!TBVi&!Vf;3/LC_oQQ^<!4u+u/3SM/rR?DnO/*=9j^ugAu3OpH8q1$\Z2mHl^%mFGHau9Tu:I@'14=Yf$Bh\QGCP.6Yfe]Y)gngL&gpY-(#V"RKC]:s<KlV$N:!VbjmtI'jS.R)oAi_BPoFj!hQB!IU\*fc2@.h`0$;dhI'K;;9:^ZiKJjXGE'6PGH8rSD+!bB"?b%T6TFYkS[/%"VK&a]e-Gp*MedG\"iCA93&ZJN0?D(QnGFsc!t:i6-8-c_Rj^_Bl6l$oq3,Yg*Y>`;R(8Ij;=k?o(c26Ob_Rpsg8e1.05Xtp,3ehMgeiuV`sC_;PNRt/CXN6rSZ]ZM^JnsMbGKM.m$G.PSNhe-A9I/gupm\k)C$VYSt,R/a)kP-Tj^ULs^m[5mcM,?W2Lb/_HgX0$A1Hi:i*8cT9k"@;?M4Y]j]XR0F^LLR[i8^WQe%(FH0ecNib(h%?UHFdZVN'sIGFN1,l6Q'g:[]U!bR17<fUs7G!6Ffq[CZdXSu3mlSVs6=9nWTa>+k5X/K1lE^+(RgXOE>AbdFW"n-fLfm%0Ca>&tV6ZI/^IT4djo<A(]gI^4.^_^sXN_[Pfn%J(b+$srV^@AA&-O:S*k?+ac4DH3Ae2H<'6p??R\8`i<+dem1TX^LafENMRq,fpJpo+HZ\9]!52E`TKrL]()6SD+?XCqNRfOo_'Gj[2LoXd4h+`kKd8\)@.q"[:t,eu>udFACEknt4&1(%`f9.Lh/6F#,cdmkC=M6$L6p<"\Emots@L#3gntEqiJ0l[`;]W6<`dC5M0.,+mb%Pr<,:&-S0r#pJa?dVJ%bT`pU^)amU;6'j=k(=1M.XjHm_S;bVKQMCb;5Jmr<N85oR/_fX&+;pmhh7ZP)AUO7A/\7,HpWVjIY^l)@N'gU-FLbj+5'?QXL5Uqp_%eRK:N]Tm[>@`hbJI&e?klmr5/Rss9/!^<\X#"F)kiqN\Ni?oEKVB0*2]\co7M)gj9_&*PuHKsbkHr!K?"P#U7p!@MJQkOSrO-KJ,`fYr:`aj?-jYENpuaS(GoF=Boi'?R91=X_7M=nY</Cb5H`HG"XWi=n.[Vs>OU^0WW;Wq:JI%hIi(e>L$Q`s&u*o(FMI5[HEr4Ah;AMhWY6(FS9JL!"+jD1lpj]L$O$,o;cE:4jgB>e'VK/X3DM[&c5l]SEn'U2>l@OfCtUP'DRk"lNMG$$G^(et3!fce&^:Y?I=;`6Ebt>s/K+OqfSfoa)!dQmqR='-i?h'rGZ3u=WF/o+i3er(4Y>>D(LNn&gT>$D"1q[;ijINunP1*2`/!FKQc18'ZO_YS7&]s*%&fjeT-),OLFnR?bafth#<jkV`C+N_oW=<lJoPcDF(oTE=U.JF,G5*L_VV98p/UojcO&(-a(UY4]OmVBMpn(6SkQ5#-?9GUA4>d`%]AHQ58j+JDllar?56%JoIpIL8Yp?IX,A[.iqfnLh3IZV7u%b+36^ks5V\-oX3fq54p]C^F>^R\$9Plu]^b8WJh5fPq'%p6%5Hn8m^u%t.hDI9nIq#J"T-'I5pW$,!@V@%ZY?jVV_>cO;=o5s/@_@'l+BeFXcYe&5_DilAmR9/M6A9%.F:hapq8#jr>gdj7DHk_=5Q"O#JXcF\@dTfJj0`o+'JU]BF;#\X;"%6/`5;7Td"6.,AGl*+?K@'MCIWd`MHO:Yp@Pe3B.PfFnXq`U,+F40Nk9X!hKD^5E%_>m0FHFbN%Gd7;@\6A<[)s(ZQ/l=uc"fl:&^8/\-U!#Q'$@KL@]"SbL'k1?Q-I:sd+uW`iCKm.e*W93$Bl1nbh]1Bp4T+]\E/5Yn;D=8Ahh=_)*2ZTM@s.A#bQ*FU^@8TimoF?>%^5tFLZ[&]=sH2h?kX<)Z/:V#:h@O<#O*el9q..7`)4cp!.B;&OC_bR[0fM+MoOd<=J7Oa$FkiaaUJ=dsD;D:5l3;um?_M5Nc*[C%mVN.$B9WfGgHH!*#4u-Aig%3o0)&;*DlK.D&\A+"*Z<7ld0CK89HTUQ-l1#L#iGgDb0k@;=%Z9X;X^@Ue7Sa>OS?Cc_s/s:'F"J^43:]aQjUhrG=)GUn$X:LGLmqIg;E!.@po<fHX?AK&_*'i-qUTk8Q(XTPeA^#t)\6M[R<$!R2eD7*9F(U0AE(mgND#5(4Pddgm5ou!c6%`XelB+@Oa,)PJ<6$uW^N@?r\R^rS<"Qlda[CNFZ$06YPc6fdU6[mR(oSg@pP[JHa+"Z=fC]Y$hsVrL`D,llg7^pcSCL(`CSBbKraFYL>8(`lVSY4n.L6MgjOu"%<42h]C/0H6e9WCK@),;i$?6fC:72$ka\]q0)4J.)1t7D9aN,b%O^C:NO"M5hu_-2g^=L*OpJuYA^&qr]mojCKe[MEXM];7d9&0hEU\k^2+Hj?1:LEQ([RKeU@ln;DaGD3A2f.*0";gO!K4STo?Vu]6T(?8@rt3dl?c,u%K?5R/"b+.S^\JUZSM[FNa#n,k;[>>o<;k8Ct'72:B-+iIb9drV7BCG.i3p^$mC=Np[S1]\.G2:5p9#T>oKNl^Wh2\#GhXfTou`FA(F)1qGdUMiO<>&f):^dT!i/L91SZ?2r/A`jMhX^ULW$l[LAoDCIZ1+/ZJeP#LhpnWmm7'>_j)=7#$6mKP3-TH@hGB@u7XE%4Bg&BJ1jb-i>.3kufqEaM]H#K/io.hK+n>!Tc-(]VA7m-aLR_5o\<7!1\=26s%E[?r*W:rkCSnEQG[oLW)Oc#Q2h=,4Q_+B145R($!L1I6@V*-5gkjNP+%DTQR(@`ls[8"?##)CO7X%GjY[7js]2b1H=>!L:4*BEh/;(IZ5,o__5]E(Ki:-]/7alGmA4Y7hH[%5p!NZRe%;e!^8prpn^\SCP]b\%egO=@^Yc_i@Ls9aJn[b<el/()ls8!R^$h_3>hK1s-bA"8]q^+#Ltq+^O9c'L3q]%Hrp2PR"Ll:'u-+EFGV5Mij?_5?"MQd;kC15BTY$j<ad/tDRA]lO9Aei!9C2%Q:&6d^Nm?#W*mgX9l.G1B^K+u4SoDZnqZ9a-"6G;4utp1:L7t!qmE=Ti%.(=Kg2fn0e+J;@CBHX^mRZ1Uq!Lf^Q'?@!i?J@pG-W2:nMelSU;]hXMo=5#?;`Cmbt"d_K(o*E]5Vta%)TQ7UVXcH0#(@MY)SmRZ?=WCpoC?3$GnB%Bn:[BgqfiW%MY\8UI]LaqYu[9!5mRIO,<=STOp/_o@oTMF0EZj.:BO`p%f&VI%Z@5_Vl6"Jk'@(G5UfO,"/7Q&k5_J_Zf_Ht5cJ9f6"pY=Os1S^EIY]I]"TL`J96?43uF?^25(c?-AScpFDto&]F]c\4B`ATG/q]glsJa?^^5fT(0"6t,hOH1?-i/QC\@ET2!;$Mdree]`n6(U9/e's#^_IQ"D5^DF71'+r3\OS_J1qF*um-u"F_RcP3=4X<;;Q[>`-&!9GWpBQYUn6lqXbU[@eM&bm3WZ>A+Bs;d">kaWhUmVdCfjfMdr>CumWo.P]pTNH*h:*c#3]@?pV=r8.r)A=SBX&NRF#0!ml>/dCZ`9-dq4>D11m&UFqg7GI.GlD^;`9iRc"63HU>$UmRD&6@67gM#APp,":f8g/+Q1I;Qn-n/k;ocIIIq<s&BpUR+hhPkPP21_.H'bSPbHBH1@?^p:+.l:6<"86]WcMc5Z;)8$o%BMZXtFX8X=Ke7r<^&>G2u.&#/0iOb-B*na3>gMXicn%m;eaIC,Cb*^CUJ<rd.<FQNO<pl5O"PF+rG@hLe-Ka/M/SqF3N]d/u!iZYK:AXCe2[,cu:S^?ct6?DMFL!<N+<P;QWF4^`E7gh/gI1+8nfL\,CYj)QrBBtuBj\?Xn?RI2DUf#fTQ5G4CZ?q(kYgcLk=U>bq#]IU8JV1\B._BhubOjCGV8S7?*X^bBn%&Y"PMZCF2.h=Hq]DI6hPE,>F0GHq'CmWd[J6Au!?em=\Wi>EEu-;9n9-RdJ&_"EZ?Zgom`!nPZW.u#mITB:.janf\L5e_;Jg;cn0`IbDMB]WXWu'.cjaHFJE19c2eL)r7tiY55pqA:I<lB?&g&L@#E%UO,q(NXa`7<nUoaNNK'C&&7ZuK<bh+pkUuAf=U]L)_&<lQ270L"0VI"*-D(VJXQ9!d9N%l&o(jpq0im5LTCJHQtZO^30=j!R<!:9(RlM,775*9Mp/a4bGUW.po2>r"f?:naV:@>g<YemnJ\7F01QVM(%4#A3e*i0Wub`LUO>+PHiNo(8!$%-Y-o\=K)hmcB'2gRtG]4a<Ql_+uH5Vr_BK=^HjWanVoV:;:Upsu<-49`E5!R(1DZ:O@\V`=`T=qCDB-8"PTgiGEi\q)o/W*TRk7S??MquC^+s/0@<9p7qffpnrX2togRI0#/+')qtFp/Id+#6GDNVlUubSX#jEBIaEWO=iFm`[Q7$e%W&-rOCb67sP!3#b)+)=R(1Hl/N=dLRha\qIc+qVRKn5'mqIaf/0j"\2;M7VQH$/g+VG-i(=_U=q=].@4Mec^gtTMp<3:jl[1`0g,1jl/OC_DkB"r.?,a(a8m5&fosJipO&NY26OE_dRRdameb6IaX6lE9TfGgbNS]Wp6:;NF'01q\[5H^sf%'mJ:emuM*;2u2NV0ta>nd<\357-Zk1W<(i9tPK%Ig0`!Q?7$HE@J0e6$SBr5Rgpdc'k:gq]7<,:W7!%g54$F05S'&U@0VgLYl30Zuu:V';3?D'N<iV&XS,+F7dn<]8Yacm?t;+VIh3J_a#]:mlUl3Vu`eFu;&]8VN=L(J$h<]%kC#aLGaMST3ER(<V6N7#AFHg\X9@N^RN=YQj0Vr-3X21B'p?hkkiDfF%KR(B;l*c+5:_E$&DX.;NRZ$'![!ScT)\KsN;h?'0<e4<9ItXF1/"e8o<GG\=p,DFp0$7*O$l:!)GnlQfp@;8Yg5?\IDA#"Jb$q2:hEKaX)9oLa*KGG^J5M0O%4Up2g=#NK;H0VP@H=^h(=UR&m[e$bcd3GV+XS69Grk#%:!:)N?I3PeQ60SNC&7kQi:-U((B_Yr2dS?JK,c`n?A;KZTdE*B3Y-DKSamrj4.Els2p"l9YX:Y:=M;Fg1eBdj0e=&0Hf;jHY-Zl0*PM/uWQo!r2o)s(lc)E3QkAks'cMPL&aSNA:ECOhZr#ZN+L%OU8/$h--(C3.FlMIYX`)e;i,3aR.)SPdjUP'/[0mV\E%bn`nA$<@`59BbM@.8@<&#tVS;q.8A7HZO^a(TRXh=lN&5_uFV\)!"??gXNnUhdqsW0P4!B@YNY4BJ`<h]U/0.,8M;K!25]/%lKMNe%\X%A?`^nkbXi&3[&5!OPJ0@8hPr3L*qrA_t<W9?F^khdF1G;^u7]ZWsH`R<0Doid'@j;)'Gl4`pI`ko_PU2%,B3cE_OXN.IMlZ^?53C#+\$))d\pEBN5c&6&-NpLo':.!I?YoSkZ(sUln:(S_#?RZ!NVQbH`s"]d,?^dZEmmVg\dIq/9EUJJ\&DJ,k;Z`.sI+\#Trke*NQ0g:oE=hi:@F$oXDI#Vg)-)OAMP:i"\S5nj;jAqZdA_&E%SV"@T-B8XW94kK/XY@H\kVo^sblC*')s(-1mSVQULRkmA>2YYR6;'dtR![HePJB-GGH*?Y^j0c"E:fX//`5t\\5\@.CC<Qo^gs4SIWSjSC\Duf)*7Ihi%]SBjA#Uqf1.4LG\Db(d?_o&:B'@K]ddC[M94o,NSt*Y2*:M_ls+$/l^-#hj&$?m79*?E$+AJ=9Qi)f*')VjAR*4`5/2RtZWV&fd+U-*l<diMk1)VRf1W`2.Ke8EP:Kb6"6NGb+>XGRSi^6la(-O=8;H:]Nqdt?R2:45+M%oL6NqZ<+pEq<SXET?G1=R-8W_LEc]-UdJdPZUp4F9q.1m1`.)U1F\YtVO]9%9%oFanZ!(h!6nVr5lA>RY_2#Vg9DLg\&)U+''bZW<%q[%rem:^#(S\&.+IAnl9=k7Si7MTaZ<`U=9gWT&>;Hi_=&7_t:XS=l"Zf7kM&'!bbOnSJEHj5G?%?4/>YaNJ/F/S;&/4VFP`hmH>Mb20h.`Qr\]!$h;&P!-Z_RfN;H2dRZ`nLQW?8"CbIKQfT8'BGn*@_i7\bstc]D18#'YIMb;]4hYWgi?[U.u,hW,7D.XGd4s,[u1C`%B$M)#!,pVchR^,(5[,9Q`$W2GDt&'ADdQh[L6CE$>R1[b2N3_9eW$X,,+uhbI[:`Ucc@6_/;>Q\+L'Tl]FN@\NSA3)p<aQ(q1Q$^Wf#on"9At]+QOF;ZHekT1)r<n+'OCid*0N[F0\(LL7EfC2=2%JqiQD-k/QhoXRpKL[pnR4*$$CFacO>JW>MpNab$kon-UpI+#NA7D5pml4COb.YK6j(;E-hNCkB[G6;7M?:Wj*i"4.Kq1E6idle0a/=d>o>-c+<f"\nc/gHcg.6UrhUC$aqNGsX:e:>L$<:%o+g90G42-Vno-V,$Cb2jet\Ribs8JU=HoW)+ZOi<b:pKI<1kuh;$.I9Zma4HOT=NfId;q/s+P<jL3ns[3^J8T7!L2U%g86?\84g$*X^@OXg8IZ+T!aqb@20%U1M<2,Aqod?!C^?qS6l(fk7AhoU:8?.:7j7PM4Lok2?XE*:?I9D_pK!H^BLA<B(e>&8k/;rpVbF8YRR\t!A='KeZR4.OXW]S`oguL^S8.]b/-%7IaKU+I"Gfcl'$SD:ZKRhF[9^KkUt:0\S>.0b0>Ho"7&\*J.nMHslhpH5eD/EEJmRC\o,O\T4/XU8&>7;ta:K%l>B05gmNaK#nPn^ZBFAdRHhG-<9%qef#s4?:U^u'kBPb<o>i!0BT+&Nrk@OK70A.W?8Fbd'.u6NUorY+g'D=/$0";'5+;JVX\(idUS:#e\NLoHnE9OTN!;nk`Y?pu>['_h+(238SR=*Kihi1'&WPf1QSG10R@#6-MW-ijSm2_R+V(0KT0'u%Q;#&3@*2bk0(o1(NU);igh3L6*];ueU4#hA0pEQjbH$C!)N?CgVpi:CAQ5*in3Ia[nd,Q#o3)CEu6Ts>WT.DG_>kV>]F$i3,2*b^hRdLdQV[Ig@'!4:hb4LNhM9cTH0lOYYoY`Us^6?`]R5C+`Y!+02nb*?e'Z1J\nQlhg"R]S\Rd7`>c<GmK:g"NHEK)R,-5-Y(ppb_%?#oHK7=XZmLU8Z6oa4KX68X(UEmlgcc!Wo].pVX>b<]l^G9qi]TQD`2iiAYX:ElmO(duQUGC:u9K@mX>/mH'rR`Jo.Lf;7/6cSLILFdG4&>!sG$CRnYpQIlQb;m]?9Qj$lEt-;#4:9Q4q!aM9'Lqg\2lq8mlBGNX*\MkX&+K1DE[9H8<`@-]WNDj]PMd6^3*W?,`B2mqe"&RndF*XX7@<+C-(e+=D^,Ed>;@g%"?8fk'eHEP#1b34!Pk>XL!WSm&'^QYK:\$B/iFK'&0^.13lg*=l@0jcQkA3+3->F7.QTgH!m=f6hUKaMW"M6EMD_<g'ira:A&JoJXLGA+90.HKJqG*WkB[T"b0p0>1W#-_n8H!lKQS/&0p8XJW0GSF"JXl&_T%g<_BHFVISe7Oe4Tek&L`?`'nqejgcffr2fU+kdqu\0%BY]si1%Tu$m9@P'I<'`-e?(JZO%l12c@WU'DsBd*W>)^#Qc_GfYN)'*]sGe97PXWh3n&X*DJhGb`4^u-;Th"ZP3n)`5AT^F0W.`jrLajNu>VX1q:rZZA_I^:5t/1UJ-X&nBJ]ErR;[eegTu<kE\n-Mn9hYUWo%78W4Ma!Pm1\W>*T8H#=$WF]YEJJ7(3-)jifp3:-[UoUCT<Z_!ahLc\k=[/1BUk%4iG>u5=EDP<<Fr2]^3S_VSN<d]gs(aegFf.<mpg%C,J8]E(^S%nHH.aT_Sa+k5ml*fVCTbVf1d7+99*)$8Fs1Q,QZ[kUPSO<k>60M0ZYK/&M.ji^0)`'FT^Cl,d8!D5eEhUO2ppFf?Vk9Pl[k7R(YRk'C$Q^&YAOImJ@=nVq->alV`L<FO[C_H1YH/q.O6"P%::8G:6M*qSTD7r`C.[H_;2=YFl[="]B<jaid0Tgh!D`6HaGnXQo[iAL39Uq_codY?RK,"p?pcB/J'E#FW44S9j9D:B@1u3UmbV.49j0#1:CqE/b\Z`BE-R3##aKI?;6_\XfE^OIJe/&Ba_\Bor@"ZJQ/In5iLJTQJ<E10B%ENP.jq][0^sl3"hcnP9>f5uqb0R[<]"HA'pMN^Kg?X-5dI^>e*f`J<(m#/YEr=EQssK##fmt!,-A=sKu>.-9ni6Ip=5ZKJ[W)uj^!kJ*Y>4C/13aEI'gio^O*.EP=V+fX,+=4!h6=$HJtPg/8a?)d;RB+%NmgJeutm8\es@[i5pI)1+3nEMeg.!NuCpTd5[F2D?`>PS&VZbaj$Eu4XC&^/"?g,o#mMsnAA'M9XH+R>9OFr-1T]/lUi&kA;YTqL@;_Xn7B&Ic@jtb^%9*U+1Pj^os/Qud:\EjlX9K=rCkCR5@#HRra\%C5Qpk!$HFcl>`=UU2`K1,A)QN=WuIf_[Um[gj5&rhS89hF8IC4dai=stXYU`eIkL<d.r!n7e,sZW-J^I'.gD!W[&0h_i,9Hd##ItU]H.gL5nr!gV;qTMiV>[`O([N'$WNK^Qaj.[btEF+-lu!Hf0:=Qr*3k)+XINqJ-'QU;b,X^K@/47rjJKUa71="Lm8_jDEa(`5#@FA;#`^WFu?VQ-JHj4b_K)]05YF#YTi)</D`cu^>&M4QnYGo7LZ+hX_>.n-i3&o/6fHVB;"U*-iliW@J0,?7A)$jL=9q`O]aY[_"$L:,Dthd./U<E9+[+`.\YMp-jg]pf"=cJ#pb[<\8^EW)WekVbk:3*d2`c9pKpnl=5#^mSQ/\c:+?I\0i"igQ'8OuU/35`-WRX'n^76ZO+`]`B/f;[_nO(_\K\-a9M_#Lp1Z6pBE!!l0S^B#jZ<A-anP$,XgU(QJF@"ApFi!qraj0r^!*Mh;p+3DTYmenA@BtXQZFg\ZE,A1%4gmnj!Kjl9)0eE::\cFYW!)hW(V7rl#aqITtqLuNC:F`4^=n/I%CcD$A1PKpaY/9.a'r4h[P<S5_,JP0"fn*+`I(@,XklKWe$,4cCD8sX%d)b-'[n434gfW9;>>uHQ@;69L,IQ2th"9T^[@SGjO9S`@(t4O^tU4gQ;4!''*GR;_OXM44G#c`PeZ<)Rdk%BPO.lZqf.gouCsO\O_?Yl%6,DY\t>?RA/a`@SIF/!uoTK<1>n7)ofA.VGF7j?p3&+U9!oYhULJ[2h&J"o4EI!>crN/pE;.W/o!U9mt]<i)Y(N&c>c,&lIEsDSFJ)sPgE>>%Sf5=.qn[k6R_-s#;MLf+"oVZdI8Mf,criHFH,Ae4ECKV!2#%drQ`ZY@5VM#qd.7N:k!6SLqKSHaI.&,Zi_s?i0g8IA,6]NHYGc6S^JCCS7>aV(r(P3iscJ'%>dU="QDDn.A(qoKn\kK#stNt)T8FCR3a0#;a:Co"X?oc`aM\[:M+77;@DsXh%C,WQm;Pt/9?s.l6fYFX=jCs58OcGGi6H4)U:bC&SSHK?%DVSMa;pPPe[8TW0HL87ZC&I3s.B*J`&9bj`ZiA0]AkhoHiQ9kTeCt)QMnG&Q4[!_APu$beB8^5Mue\9HXWg?o&gXYipl6*"g,'rsCY`>]oU_;Qc+D=A5=uqdCY1O6l@7aKB#fHl&M9Jpia(D$I&9QCaW#G>H'*<MJ;QOB@A#hZ;XR.$ps8<tk^GK6iW'Oat,EGU^/jZ6-l?pk\Bn,F9t8P0+k=V:M5G]>VY3]Z=gApm'(GYT1hq1Ldc:ZTTl?n#"Kk)4js0G1>qcM9thiW74om7?c>^P3c_`,Q7a(RC%SI1&'aV8edb2h`96h`==*Nn<#L]Tl#Zm#DoHjHbVd/P@'Tp&.YJ<oN&]\%H@(u^7A\ZC6TX++@Il.dULDX=.%i0\F-<)dmM!nXR"$4!a=/Fc_5\?W3kqb;8^U4RkGN>e0\_?Z%-I\$m2fSm=@A4<-_%pP)jcs.\]7YakX')<@A3cG;-&t3S(&u5?86N3m1Q5iq4*D5kAA'7a)mW?ReI102l-M.nV=d.KF@i7:eC16(:)nN)<:"a>!LskY\;9X#7`1_si.OM13gu,EMKgGo?=)o"c+dQg<\Q2)i^*CaDV37X$88OU$/!auG'e.QgI2$Be?1ZQ2d%Nu:cCDC::NX8H`FB[(-.^\@+d`9@6T_@Wn;8Ee^sRs"hKJ6^:@g"VX^!BqC'2,<i]r^Gi=\M#c$i)SPN3?VW2+cWEN%#P'DnlT4a@$1A#2]-JIqcKe&DD83`]Ds%VKfoti*f05aJf?;3(mK&JX;uAZKA>(YNV)mI3.8Hr`RMZP:/XF8TNj%g'!*K=ZQV?)lLkgMnNI$?NNFT8Hr:T3_jY$[<4&$V@PaA_O/J(s':U/p1FRn57!R>@?Zct#4<K]:_VNT<#Q@8NrqMr5b0P=['HW4gj'bY2ek1De12o]"l>HSH3qS8Ye@.OYU=%pA$b7ob0EL^+YCm&Y8(!nm8j@!^U:'7SoaQV2UoG36'5Ku9(Q=Pb;J+dnd)t$$THt7A<-Y@K%mpYK4ub<TYdHhUUe-h4(&O6iTF&a"P`Wr,fkuG<=cqdb*%SZ#.B"CE#(ENG?R#cGm[dc,$./t:4W'n15<JbR._$u'VD'G`oVW#.9gJ&@qZ2jG"#WH\gi<$<I&71Um1?t(-n)A\;L8RA$ti6X5&"LZPqlD<9t-oCR#8A<T[+NODh9-a^Fig2kL#PkH:'MO]pQQOcY1S#Nca3]M_>oQ%!A;rmBK8JkIE9RU0'l1OsWD\&*N,X;\k9q1cK_"E/[jD&CSoZjPn._!!:0SOmmY*)JofZS,+:l&/0TZb^Jg+qKcJRkd;s*>25r$rQ:l2K1^SnaF4t&$=1$`19dm/M;eY,T,<sf!7'+bB`#Iac=,!$j/_GXbX^G\;7p4oaRon%lXbnd^QZ83][9,iC"/ncp8UkpR-bs?caiq,DUJ7q",T>_fo4A^J5ek>M/1e$4;U$?kk!E7-/IH#lK1?k.GQ<4s/Mau]V-tj6bJ(e:CS(jk4cFt8>;DFJ2%3&WO*LJX#DXL%HDeYoci<M;*-UJ>&8AFYb`R*]]nM?'!1!,*uYsJ>)et[CjnmtlnI_fAJ1eFMWEPeGjd&'d?J<.m?sjT_RAs/m`6#Y7YR(#,oI'k?kZ],i9Y/7`"gJGil&hN"-jb9i>#P?OG=7E;qa9q>=Lo%TKSri,GD?cECs5,i);;qQ?papHj,&.\Rpk&$/m.iPD&!4@?b@s$EWoeE\D(Pn<jdJ;Mkk(B\HR)[79XUN;h7bD4=(op1FMPW`@>uX"[fpoasbQ9rEgO4!5Bh>++6D&/NqbBQlf>(\??Fg8kl4g3V!e2i%EI3Q\Qs0O$*"a=NZD8cI:!ji-$p.6TQ&c1`lJE[$#7AFiC,PGPWFPaiVeh;2[4eBi=*&\4G/b%p0Gc5$=%Y8:P^'S,25a6%M/g)Dtm+QGuSR);I$paH=3p,>7s[)!Tca;QU5<fa[;7/mAj_8\Z`ET?'2Y7O[-hYq)4dZLi59CMJ0An-0:UZiW76E0+pmIPIE?hHT'mmc>HdhG?(NY@]u"4(o/`>0P6/M6nW;66ePJn[AdQYZ<Kedp2]HrfXTQ%2'H+EPlZkkunni6+J2ji$dVZ_62lrBMeq.^M9-"-:V&J,XF*o/M_TnI*5H)K-AFs'hqlaKmtD4')R)TMMod4G.+@8TR+<4sEobB^-u/(UWZ^%Yctm`]isL60RKc'"Q+UQ9G$0::S8>eK1Q%VJcr,LuPf;:4\Xi,9YdH;:bZ@+2qWcnCtjWVT8M)A6H,',\PcZe9XXi0rjr"lD"K=c4oVl"i&+/@4uc-*iB5)qsNs=:WB_oA9TA`*_^@s@<tehC23@ZJOSrUrC/fFP<?AkV(cpNJ+4SDn'RN2?KUuU43hW=+ABVpFq-6OO)T)`eT-=[aa1[*d,kfahN$q0g6W2;"c_NAdX"po]M:K2#oPoN,,pTW8+e_lHt.+2PSjOVhkG'8DkT3mpJ9.r,V^!DdXfP<mcA^XcAI+:g0ds`,osR)ldd:<CV/cb5F:/Qb04gdr/Z!e=S4H15b!Rd;!7n4,:&\*++q02OpO`;n;!ft:.0o,o(VmYp:`GkjDP,UXeT#uQL"/U.jmDnRj22;-]G#$0AgmMkbijF:,P7!Q6`g6nf)kI\Y\26QmsFTE!PohYD\2NMu#htL#Xp9mskD_1j[X"1hlGfWMIUN:=.Nk*G6M@OS-\P,i$@J)L-nis74?oh'W*,LDHR\&3c$H6.hCl\&Y:UhH?EoD`]4@H$3KScpoSZR`Q#k]be29D=qsAVE#;mYn@&b+gOcg$el=#:Aohg)!W(R\PV/lT0_)0g!4UaZ4[NkGArUt]31Qpki0u]Iu^;ASK5m@1OQC)`<UM3_,Ge%->WWRM%a2hqiV44*97dFDO^!++k$>_e6tu$,U0M1'l!H_0^KG&5KauW7>g^CXIVto.k+l[PaO76p(g)ZTXQNgJ1!m2"+;c52eT)nL/"?eK*m`9Bbi7>5;k/Pm4c&$NdO*^d,<8F8jb1l4\/*[h^]pe4jIHN"L+"T72Q2k=#'@=X,qsMpP1=%O_DDY?_9H5/d1j6!ucR\@_oRV56$sc3jHrFQM*n'DoFq["uG88#e%%mFLZN>;1@A4W,!JP6EU-uU'\.%qbpuh&3Dt<Vl\ErJ1f7FfmZB+KR3[?#t0:)WPkYIN#&<mk/fTkq#FU(gn]aaqq5t\@p>rM9o$GkOXlq_V':7iK=jC*0>1`LbW1m:Wi`(NGP'V\'?Yuc8sgj(%@]APgu9R8Q=^CWW<Jf"\41lp3X[Adr')5E,0Oj,DF!i2R%.;))!\9=G)L_G)_UMq#NH*H)7!FFjp>Lp\:hu#ThaKAV>H2g_BIpmE(20MnHJY$)@H6c2>+nEpTG"&l1abD=EPM9-40%tJYcKmSeTL;;JWod!Rk!\s63(X@2V)__CS,Pkdp6XP=5#2Cto2O6r;fJDe,EDA@]XB#B2eP9f3;qNrhNgZt0Z5;<:liIgiXPQH^&:T*lU:JS!A=K+B=+.SU@_q:qa)aVk\m.3&\;\ipnS-&\3T)uL0DE=Y//e+jXM"<7d\%>8#Lm_g2dAhL;Y#hu1q%4=FK2mIX!nP[_b3\ul]kfIo'0Y2Y,)u!Fc]Z*+ffO^ppD+dFccG@Lqka-=a820G4OOOmtmRZ&ObiWtD+p=g^'<`ms[a..iSHk?re9i3O@=uA9:83Hf#p%H^`pANkaU_-q'6)p-3&":^AruZGC_XWCc-GfW96;U^VF7F6lmV]2%:%!a,O-/M5[aD2?PG:L#Np=ZKKi5-B'^6T'3eOs.bWBn*N-k(+^o!6f/nDD,nV%H2g<d`g_Rcl/M(kmCfqi93]GV$Jc_i3OVn1,fVB/R"0Ein\TbIQ6poMJ0Ou`;Ahl6Um"eCeQuI8cYM!VA\!GhkOBuGrF$7g()g<me.bn8A;DgX#HRQe.8-E:r@\1k+6Im&8RuqA=ffdt+KR36pC?qqc9(au;?U,):^,Z8s')(o4Y;!;V%EQ<RE+h_q:K<b(7#Ha-7r7F:3O/d2J1Kge7`5)^RMcW<K'f"2Uo^g@Ung=VI4g7!S3V&knGA$Li\"](-&)O,*Tc\D94pXP\=+i]@(11I:*2bI3#,f/O-9lS4s*6d*lf%&at/ALD^ejgr6>mBJ6h_i&siKW<h\;ai^14I??LV^X25n.qstc+rJ3%1U73`Bb:eFp!usDAEVN$Zjb1mWLde"-.IfNtFK1u$Y#11K*%4&WI5\'O.DcT':"\u+ef2\qi250(?So$J4-,+ahuV;\bE,Q.Hj<1mS/mP5VMMJaPDR+M_.`@Ss6KcqC+3;O2e)/k&Uo``j"8[L/0Nmi3"s"1='3"91?T+O?2O*d>@p!67_HC=9a-m=6H<T?-RKsnTOGFu,V(r<,(u]3!M])0<XTT`/bVaN8jh?15?*W\RY9`CHc7B3ZcT8680l<C^$E[?^3#<PjrH9%P':fp/C<kUqr0])SqO@A9jtqcN0V""<Ca^(D8J0nQ;6s2G+q6h]E,dAPf7A#@B\$M:2&`T3GeL*6YoCQI!77]emZ(pb0AO'cGC4Zfo,)r\Pmb:jL309dD5IH;3Z@N@StTs9@u27.b?DI\Sri?*P?C]b@6fVBr[@sHlC:!&j,TS"3dR5!_6l<2TbWp@l4?o;s-a&6f2csTD8:rJ=CiU)O$f+k?$7+LquI-%VeP2Q*2uDf\IUTarnn(3Ed39mGd<eKI7cPMh].Ge5^a[RblG*2D>CRJ8fs@<<\f5L"/STlgNBlB8JkL)4G$hIRg@VZ8Wuog(NH6e%+!R[T;1eV%Te.S/fp?^e.f7SYeu*6tgkq\"'c/@`;UIGBu+c8%>ho8I1(I8.Y`PJS\.FX=dh-j:J__2L[Ei*:n[!DWqaFs.:+$_J2_pEU.rh'BRWGhkWO2Z<jM^E@mp7,!s,6$,ai,dS<@-6l2.T>M+VsFhHBE`+gW,L5-0Z\(98K'N`pRZ_!I>pNu.J3kB$/lB!rs<cBEl0\Q7(WT/.*-:(jGUc'U5U5(sAJ<Fsu$c;i,/qkje&tV*)U]6'SALQ@<T;sX4?9K(Cm9NRQ^>2Ln@n-hm,C5tlY`K'^Kn)Y_GtuA6S!Rj4_:t[.'7q-/hC1cgXJ/@*BB!cRK(dsn3MJ*BMujMA0Pr9c0.tiT!FXMNW/%:WJ"6Wc#!BcFOO=@lGCPs65jEm%ru"IX$p'!'f><tsp_`h,Wkf?N_r4ae0\=:n/^XI.QJT`cU"?>,?.nEt1s8R;-'')[qChOJTC:H%'?+F<_nD6;A"s6OJjH$Z<u!?MbM$4&;g&M6Hc32u>K@rcEOIhFrt!g/fMBFkFe/ejMlO<mqI`q_).q`l8T5IZ&"NLZRHVc4Nf*!<=8nQ9*DZP=b!d(UWK6<1m/?/kO%<6\9J!6IBm+,eT3r&V-\u8?hOd%d_Q<>7E$5_6Li2h4e`DGc5cOAjI`EN+,,*,=:s#UB(M2_pQ\9TD.,Rn#dS3QbDsJhQ'ZJAP.^<$LCRU]%V9e+uamO(iCq`@gOOrKCp`.tb3#R>T%PpfQa[0,X`7q1%200YbM4+^fe4WUOYm<rj;8FRtKnW_'*f^Vtl'\Rq>Mkc]?)lSRl%)KgkakWV.sL&Qd)'et[bi<*'XVWIU7AMc+c"SP)k[l\H_(B)XU!b)>8t@Gje1Y$q@-LlUj4"P]-0Pl\cqfD(!*gWp76jrc^81P1Z]Qj6#[ej3pN-qGi.(^g(BrT&_-Du>HdS>bIa&[LU$l2n$.Nh.MjKVoPd#K;-,)<1DNUu_I(9>485X,Z%S--fo^g/k>qKFZ\RnPi#1.iic`Ro'$[?)Xg$XJ5(3[nAile,^S:+Z@p1AJTg[_e3V*hs"S^t_;(TurH'D;kKdOlqV;aLRjeL^\_?()mQ`S<)&(*Qq3#LD_<i";43bp+h73/]r7:?(p7F=nY=IK^2j1E94,IpaeJ)gFl/XR3Z#fi=UU?jcCf-8iRO`k>U:TDssL/\l/%/Zq\6GB]K3f,f=b/Nl9iQV-L?Y+p*phE2o7u*i`K^4!2&&a%Q2tR)eYTnNYR[t:AEK>3&2JLR11]2eND8DY;?Mc3-OpUb,gjU-"X<T&<a)I!-qMIl]OL!AtC.rZ7%ko>p@qMqiQJ\]c-^<MA?hcB(6eh=/W?!:"4]7Adi99QulsAYZr"O_A2/"ZS%*U9GehV"T4+PSTOp,:R6=q1D89L/*6*#*3k'r21`fSU']K?cVpM0'5FT.J6NrL4-NW?^i;R,eZ<[%-*SSp4P:%Njhp<83I6*El+VQt6<G:q5\b<a`@iit6km8W9r=L^2<K5TVA-?Y9M5XYfU,K\&8rl+d(Z'P>rjjD5AY)hn"L<Vqj6-8;o7O^pMSH`Nt.pLB/5h>j,21L#Lol(\O'&aa/qYWd-DV8uX#L6Y7TVeFFfd';JW?JhsCsP!i6$<9/OYc9L;`*2fleg6g.$sH`ROAJtpreH)H!P1J?^nlu<@cn]K!6<pTsqa`]cZcipK6pq-+@+AnVT/j;DXKMMqUm/a"aPJH<g@pZ\B_j.s_%:#sAC'b!F>p0or1OVdB]/nr?\a(1BcJ>K4r/,ZAoa.9h?+b?^mkqaej/7mGrGftWld=cBQ3[M+R%J\:11)p^#NkeQkg02cXTiId?p^+WR!]!(Zd?ni8BG9J&qAs$3I5S'>^>@F<#*nM0I"35M>kQD<(i3F('3We?o)$0Wq)ka(_\EJ#,5@g;Pm)EPP<"(o9+:fU,B?08ta!OTTVM.FJ<)p:8MLcL-(LXN$Gm+IT4kWdh3'\5:nuU=!J=1KX>?,%TRilScnK/Bpd9@jYT%6X@dN%DTLg\/L,9lC2QrL#h"C&pE:!X\//X_:;%QN>sT3=1@U"#Uc-s@rscr5QfT9A<\RV<iucs^V4Dpt7CWP,$HLg66/CO/A^V\206M.5aJj)mI?3s`3&\R^0/H&_0=,)`\+ad\A@6JO6k5k/b0h`'\cYl<;pC=:o[P^/E0DQ6pl$m28jQ8(&#k;N=S$03_@J#*[Xq8ek6dOBORY'55<fdrf_1XK6[H(ffOWN]q9Ca=[8Q68Eo%D3r<WhYoNZ8+1L?uu0_.PUNn@HS?XG^sp=1'_Y"29=)OFUSRt%?L8;?P->hH[ABJ842h*P/?4(F1H[7CgF28TC-A,Lju63&\/1<bM_!5*\5ojf5OZXDFMt"W5hX!N,Y!&$ZAZmE;fraS:h24#S$-NGo8L[mY5CIO[nouqf%$)850*e1>'NI!c$[5]_4TX+3f%B-T*soh*kghThe8DO<$&,7+502/U(/Hjl0c8KOWC9gg[s_(?tsc*@js2egg]ED/Z4g$K$WGM)1!iQ8Wp>q@@)sQ7:=9ac)%8?LndAXo,BDR:<0R@%%2"+,;JcPb"aL/08'iU-+Krhar@GW@'5@m%V3iU@![#:I2(/B1!dh\'LX,_dB-jP6Z,4qm_Ni6uo`K`YNmcn=kZV)uAZLLZAC*S<SYhqL]-K#L1T$>RJL'bDkZa\fl-)=f9+!>uiu;qk:jJL)ue+%j:\pIfuL\@U6d,1G:LpF\O4oMn`YSV*2T"ih^WMXra$(MC</:OAm5J`VQuZK@HPl'J:9JbET&a>TOuh%mVHN8.KtYc,3Z&`mPkWc$O5.+s"#SP4'RH(/cZ-iA9G9E^YBHh<74M(;l^m,[C@4n;I%8$T$`aiBu;<(:PZhYYXP]J.aFA1b6BE7'Ltd<Uf:Y-uUbX:!97g-u;L?"D@I9Y7N'V`3Q$TYbhM5Y9JeK[t,;`:ZG%4bqkGq(plif3'>/\6VDXR6/,7LS%>lHQI)^*VYLZOn8p[c:Y4"-_<OYNV+T3$*`M?!JOr26bXbY5S*`L?o$lQX[n]n[\jUq%dW\epngnDgH$:Y)TeVE"bM6jXH0A/(QAShSXkmt2Y\JEh)9M;aD#ADe&_:[8O?74JDXedL+;U.]4(ONW)f?lF^Ujkkf;C>c*#?fIY=_nk^\N"\pI;^CNIE]<G,oS77*enEo9J-=2<1R,B98:P7`=`M+'p3=ka4UT3JV\o_g_op_^b?PL4hqgG=G3/8.V:pY&C9I(6M+Q,ckK$VO'k'Ig8*tOY=)4PCMuN%"V<Q!Rt**5dheC2"o-g">'MSfOmZ>3+S%p?pZ`*Ec"\j6;ot5\L_O=2;A%\Or&Y7/;er6IXleP1<?m):kZrT#M`;Qo<u$]\+8d()(`]J%k&Jh"?t-%So";/7MB>";lopraoT0Y-P/Cj!rQu%G##%oVer[j,l<\B-4"dIpPPL?7`6G(^ss90pbmDY_9n1'*o+2PV,d0kB#HK?p]^F3cB,3nfr=k&Dq^pCl\?Eb-&[#aNrWo3)[+HgKFl.^-\I?q.A>>uhPKTuTG%P,8-nN-@9Q:\-\Ud<F]<B!6?BEQgcN?RF\Ym/VpM.FS7P_5J*aF[R'D6$XK*\SIJk`LcZ-Vu#`/C'HDi7N?&MgJCmE/,SpXaQ'bDhJ3Y:G<0Dg66`T7<g2d/n%qH;[^Br=cBY;C:_L<]s<Ff>(Xc4#,/9tr4oQ\`nWL8AdTKq@jen#2E"p(6Kifm4H8Bb=c4p$HF&2uq&]LLgg^/-]7>hJ:%'bQ`U`ZQN4=?*#utnY5L-6<@k#Nri9SM0.d+Ri^1C*sk*7R2n"JBc`X10anhu]!oe5XpL,*kosD33BjtB"1?Ns*[p%@]p-d+mRY8qF;uO)MsPmoB'3?RH,F3)O'^;fk+#Hu2'P()37JRW6shr4'#`GJdjs\md"J=6L)oi6Srp"<j>mD_!b!@g6#_54od`?(Te]3nW8D!+$sP9^kP'2sD$5n>jq-(.];EX_QFjJPpn''?#4oKEHGnJ8%=4&cZb.%+$"\EqP]R:*/l.X:.@c%+s-ia(Xu=-/;$&VYKW#2ASHi$+U[p\l'p*^kebK-S?^n?<K"4+7-Jp"G9;_je(2)mDeP',;@;B<0=gU@iOd"e?nPRTbmY)sKNdkVQ=o\(*B]N#CqMcqBFB6o9Ba8HTW-_KQH'"j1$Cn`#\f0cBEV]bAdc9b`M7V-TiKNOaHrbB8kc_r$e;jtB>.-6scK64/49B1,Lqq^TXmkmslr%*rR9GL5-oG[<bB-gaer"K'f!Sd22o;#Udhl1Y>[8(Vbtr@M\\q*B-D15kN1'ENro\?0=ZfNCHo+W`P7LVVB0)i[3.G(]:p$GHICJQ>[DKo[g5TNApMia,!fDo2/Wo0Oj^UU>pRA^$bfW+,BCb^IgXk/4Nc[4(I72[#pDY6ja#TIc-KOiVCitb*2QK".9Ic2B8e`Hbj$(gl_ZI5\`GrhAH<K7?IA(b8lIl9487UZm_Af63Q#(t\L6L'l>o2eGS8WC2"V[%BGGic\hpUf,=9\\!<qIEsaYJ!b$th8+..Ku8;u'L$PIRGaWU,r=M(3NtcNHa&**<H3);rc@)=ZQoMN<*=[A3o2n1HYA@rL1upY]6Vk#'L0)WX:'`%?%Y\Q(#c8_h]=oG_[hH>H51,N<uQr6r.jAbL(9JC_atn^&mPgOa"la%jo>,Y@jT;gVUi)aq6*P@uda7r8HI`E\EFP46Kn\0NGF0t/]RW[A_?l-O&4+&LXcIJhq"C'_@_qWn]o1EPkFWqm2bbtQ5"'Lqdll8T+?(=$MeaPKD*0K/m0LZ+LX^riLu-P+QE("1"R*k!nZol[R2JsGre789,M@6*f+A8XQ\-99P[^g*#H5Na>k0H'7ZHSt<4g+O1Vj"`skBJd-WA<_^)"4U!pH_R9eEjh_;C]P7nL#<s))3Yc@[<nQu;o$=kE<2Enr$F7C`fFRN<*=k9pa$NPY-P)-8l[^Xh@R]e#cj_"]1kSXIj+?@bJ!LO>m^qsoX_^k`]D2:?.Z$%*o>W[;l:NVhBjUYEIA8LC')JR>qqR-7G2#h-.N8!.;]Zus'6!<ki@uHm<#`j'.AU3GXh84c&V+ZOgneYH*5FAi;hSgC/ZEKAtuO46L>)=7u`iX>>m<q5HL(1*[S1XFgFBeB"BG]TRWqG/V[pfSNJrSYf9-AW=!t`V-(WD%tkeLjbXnjJ7KK;,p4?@MjQ&t\]Ob+hlXgq:U2ZU$(^4"b=Ya##B0G\_8#-,';uXdl,jI3WsK^]om`Ji>&r(ZP>T9RNTi/RL"B&W6,VBY$8%F^Jot$:kq4R^.!EZNVZUpUW&4)oQL`ENe^Y""]W!&$0\5UdV:TuQJ,Ii=M%1la="PNrY\Sa0"_+Oa4M)JP.Wi<;24nGk@P4h9\ucncLKh7'$*]9sG-<5!1]!S%c05Lf#t^?E`bRp'L.XA_dd_E6:^Iu`fMT6W5`+%PZ+chh3jtj;Rq;-RMZ_ha);j";n'c78a]rmB<j/MLjLOBtKiRYF==lgg$(k>L14J.$VDkLAfObk&KH1]UC+2!]cr&/IL!bH)QiSAW-J8G(Qn@,>H:3lZc(22a-[H@6Ckon9QF789G5E?`H++$taDb_kM$U\P^Q^-&I21/Q^a^C"iW:<7Iu6'k/&h<_Lu;Q<QOKWmB;WZLm^J%]K<CAs<-ee;>3bQmGp&I`E7sc)qOfP+'TV]+CM2P7(dF"9($\ed[!ppm:*+J=Xln<\CH-&/dbNZ;MI]nTq,H@Kb%*O+2=">.=dj;$*<`u^rf]uX_Lf.p:KoQg2$WILWj-p#r"d2RC8PPbnh+6;pnQrGE`"JEB2X#:X6p`(3cq0HbhO8-h/IK^F1;3l+Y?_[&FV-50$`,2hP"$Fh_[/B_d[b09%l-;eB!2nonnqhe>gp?Yd'Rqmcc\sW=,_;TKXs*ecRU'Fl]$bdY8b_Jo>R38+HB0be+7rad98YqDBH7^I1>TU4)Kc6nmi%]>ORX'FH%aRB0FdE(F-\^bk:2eo6X0_t9CK0\!Vq%P?3f$2$&ebR(TbhC5WX-/H(+?=c;>/=f$;>r3/"G8),q`OS`93qARc9C>qE^j'k2N0gBK)]@nX4/_qC@O1ro#;bP_Pmc4#6S=26TZ1c'@sNdf85sD]9'I)H2D4%Q1+WOK9<dr@%3C,A2V7S9iQhRNAlto?>B?i.oj%ls@I?^ER*3s0@s0<IDu:g$8q;-#;IEDQ')GpoG\nAjq&)EEl,406fgMYU!5AoeAgY@^U,bqA4<(-1Bca-+a"d+O&"8='?5_L+HNg1WL%9Nfh=d[_[,M-TWmP-O)V?m4:&45o=7#lIS>mOC2WD9eru:_ln$\.A(JiKK-@/h`5oE]`(L@.)p<lFdP=p8=J\*g[n@b^-54C$?II*R5[pEucpY.Va4I5kT17sCd:E6-Bd.'&ef6pD[6'Y2,`i<mpk"n'c*j^#X_CGT$)r@71R+u:"93TTD,qi53ctkhOBfC?dZ^Y_\qaQnj'q5\lQFR9ed1L1.EW:kFNkZp/j\^/(d39EB]\nm7#h^+;!>Y/k\:mC<,Td=l1702,E2J.7$,Fu:4X2;f\fYpQITi;-L70ms$F'?J1/'gUn4.95o4K,jijj!`IKHr&Yp103Ln.J2]Vb*.ER.lm3qW&:h.$]&N===3J?9>]^atL(!8"i"W/W_Y[`j/R:-ohE3Kildl_,dV926klaH#@GEO:XZ?M]Bg%$iA,^%`:f2,%+b55MG=OaB/M'"r--bm<?8RLQZ'&RI!DfRRVPUX;WX2In(Z0'*X=EFePN3+(J%reqNP0GBRHV6tLZebddr,c<Nm.#?5j5r_S/[2fMfI+beg]9abkBU5h.D0,laget<\MM,A&$EPus3C2tf"di*a:1#]7``VfILXY8\dY[ZQ04!CQa[EgHS^7"n)+B+Db;kGaoup:M>&0,Om>%'-C5LD*HMeft`F_toTWn]*";-h2?3ipmFgE!BmkcTfR)lGX\#tWE_Gt"[ZcmC5p.8?g=FK"@IGKLg7cMOEHbljf&(eGDOK]bP-!o9Tp$59-/H4U@JcW0)K>Mfd_2,+:i'U.#KCg)Z.W8K4mbaOb1jaRTal>IK[o7:$g0TgFEPYDLoTdm=rR<SeP&/kcb"1RX'S:e(*HS][c5f.MS\<quQ&Nk<JTOoOrWsZNkl=+UAHB>>/Q0FJ/C4uT>IfSVDI7Z37hfE4MrVehVA(ZraXGMJ@h4FeAM6E]@Q#?EdaKrCeDc'moms3j/s#ob2\-WKeGfoUQ0Mu-atL6VX.6C^Ifu\`[]4>m;2B`*&(dsH>jjgZI=g>9b$!%/GBk$)OLb<n_-J4$$YAj[NIie./tq5kmpYHPGs/L3>C/E>V>*h-i,b4X-=.(sXFd$:TSm'+Z1W&IWMt$GPt6-2ct&MK<LsV';iTEJB$)[V!:T2a?V<GbM@Y!_HmElniP0#m-2=S/E56Y&U"O2\,-g/Q_rBC:j@aeUN+9N,`aqElK@S@;-Y$kAW'_[t8'rq#nDF:Y#!kTQh]E)P8E=1BPLRA,T+MCG8h-0M_J5q<7OnruTrPK`\u1_.5qfU4gZ2-.ROchtO4,)71>-s54Xdsi=TS%3\>Y58R+6D9DD9*ZE*!R?,?ke(E,+q>)=RUt[aoS_3p(T&Y*RGA'V@!V,)0-OG9"YHq5HJd&[LC!n5K!GX@0)0pEitb5Oh*C)\1V>k\ZA62P<LcVUuZRD]9/Mj:9W8bDA!a!S2>[?/=]b3HAkNb+S4W$8%h/qDk*f]sC6'4tnh@.UR':4["\^b6P>)psC6Q4hH;^NT/sF[J]D8p3mp3PgTiHm6ubQf-54&Q3BgUnIn0sZj4DBEd_V4krd`cdS"_W6s@H!E(?B#1&>M/?D\iTJ92CXoL<]bTO.ps#6LHX6hgp?3X1qKeTHSnQ$nNT<s3O%F?*!An>48XH9#"&eV&#EjEHjRM<+XG<%PJm]JQ*#\0<8u@aWG=V]]R[$]_&h<CP3*_q]pj%#h8+Mq@7&"/97^MWk?V?QptL8D4c:H,ukE/$-X41?'?W.gM]Ok-u?^TlYp$TWK5&R5dT;PLQ2V5:[!)nr,483-22)m+GDu@N(Se;FFn#!K&1pEmC6(N7nsVr)?m(JsMcFpK#%-a+d20W$(rOC-)LD87/#]#>plu3ueN"1<iB]i]lkU8GN;mT>3X?,*6+O:TF<s7U(,^VnKO1Wio0d))8J;B[41.iJj!jR"7B:@'&"q%<GRe;kC,;GLMBB_<)G6]%$&D+(:KJhheO%&TCZI_VS:`kP@/M/?sV!oLc)+ZDPB[bp-EkJ.$J9TH,^haUjb2U:#WVl#0ujYe^<g11-o\>hG,]Z=18QNV:"K9&cndV'CqN])XnG\3pmlMS_`V@meK=?McQCdu?<B4I>sdCcsVgIs>XQ_;pJc>W]8:cDV`Tq/t/lAm()VZiss8'mQBtl,nAAZaBaQ>LcPD^=mklH9[4hG<h/ZD6MR/#ocGAcW]JE<uQAm5Aid$\B^Tr5YMR$j\$"^/Z$(W6%6h0!?28Db'MX5KGX6sHV9TJQTBNVJ0<`;*5sfJcQ-Wa&N`O3\#$Da;&"UVmuF:7I(!f.-eoeV]gH2:0`H1:[%Q-*'QP;aE-SXjaE06Pc1f9.YPeTE^<DB(J?,tU?4WOaTM5ZI7>uPL@L%)S*RXVq,.X\K0FqGEgsf'nn[0YnYU0DZp1.:):M7KbTp(O@M1$Ju0iZDQHO/^RlJk4,7:,9JFl]0BVd.c,p,DE(&\#NHMG"_h,7XnQb(1p5(F=b1s*I<"Zi]C!b5&]VOE]Ea<pi5&BY=+uTUjNCThk__.Vt&VDkL!,'n`!/cs)g^;KJ!uW(\k9H1)ieFAKg"6:l?>n9FbScU&.M,YjHnUVrUUccG_CCD8c'?)hM$Pn4NBVp<g/fstOkH<@-KU"N:Zd/?;_n.V/#mk1:6qWV\&:Xulmi'kJfFD4S-HWKoj3-3)t/PSq-9-.)2a+P(,[8`:h(/cZMjsQ(ns(LFZgjEGR`)Y5f-[n50B:SYD7XTlEk#@r33k7A[P*2:B;O\juN5Ju=?<l=HPTPGHlR6s$d/E\gj[qf_+OK:"7jru`h%o1CVtsNTl=Ph@(d][b7@'76D?C!_Ms7p%$3Wj*9_1gEKDi`=#EK$6Htgj&P]oaX%75f!@"+I;\41'5.`P.L>$:.7T.^TC,DHa!MBA@[/(i-\ALT)AZ2+WYQGo'X%8PCH<B@P=PARJigEcU$BIq0c;ktl*@1Dl3nAL&/1'>VC[?mTRb\=\,YK'L&@>BP+aplYPdo!qkO8@>4@r=7k#PSdl:)aPP7GG&<;@$es<-qq+X%BRHa.HI3.lJ"/Q-QjQLu;,Daru4_%"8nEZdIF`/p3X<d:`l;HpdAP!XP*9:7+UrQ'VMsX@mkBD?iEr-oEFC=4ruAXkYrK1b"Pcpf&n/ec5KD!LOG+^Gu`Ka0(/f/X>jTEm0q3)]nK*"ZF6#E62rjDJYlN!*Edp)!1!B-S(0E6mbd_i;r0n:!f_a,&6(=VXmWi(XO=09G]k5pYO>:#F/"^Wi&ELs)l8[<jn33a)GmmLB5!lELE1+bLJ*V9WM7]9A.V]7J-h[.+uNh/9RXH!)BRL!2XBC-t9SsR<^gmS3[>Y=Jar^fi2g=d.!p@;:,Cqp[Ih/oL+MYo7N,+\$sWCdaSN@7AVC52;:UbBj'QY38CC(;1l%jBY(9f`%:KC".U.^4UG+Ec&e<!2uPcWI/2ms4G<EajNOlB4nW19HFPc+WPrX%k%Zsc6CWnf@u,%WYd2:q.:r^l?9`*3?hY75<?f_6W_\qKT3#f(nM[RW=)e!R.hS>b\L$Bams%2T[eTrUHBNi.oRcDj76aDC`/-OHe&*=FUid*W$&Fk"#SM(I/g;o4GMn8EqX/O[jUb)E=EW!ML#s\kC[%Fo>-k]9OP+mA[3lajmEZmW\7i*4;\EN!,sQe5[X^&WNAC:7n?gQADl'^</6^K2iD9LiG9rIfgiUbGs2O&PA'[f9ajOJ%om@=1c3#'/'[V"I8c^e="61km,:flU2/A&G#);K?s5(Tm6b`1F=sZU6;m>5*kE.'2$eHEdrL!b]euV^3Pkh%rFd]3p\f6M"&<g)\(?A'dju)Yt8s)G++a\JG'=HG7HZ"Slo>EK-2t*&VTO:ue\:@dI?<sU7]_=AP\6a##_<_*_=P"_E:KU72b?)r6VZR6C/#VN/?1F?:q"F".GM80o9c*Au=ejBrrOli*%R$Db/p$W%R:m&P0.rFt.1c4q.ZUe@`S_qJ'p&:Al_s_@0Z<F$M-pF"ommKK$R;4b>575i0_ZN<?+&UMVc.Bc]=^"Qh6WN:/Lepe4%[Kpia%p"l':cXhRrg>l#M3*PMN"Op*UA`^Tc&O714`(j1"9Eo2lVoeL7/'ajXMG4aq!eh=u>>ZGbB;iN*&cbG%(Ja(M=`gj-?n):E8Vi(2(G[XsT,%s<9;L]6NQlP[Qp\.YbpVPoY<q5UEEBjur:BciI-Eqf\n[)RYCWriTC^+&Y4neW/9=#0]f_RH?E5CBP(r7ai%3D0jJ$gZ,V7DmW!+cLk(m#U&aGge;1Vr&Ik;Dm#u$XdV4i@kN*%/4fU$>^BXa..46QS(/u%,3+0Zf5KfI!a@F(XS["mi=-m"UlY20=fh<X<_$#r/O3ss2%h@h;-CeHJ,W'$&4r$pOZNfJC@R3^:S*s0r7otZ3JA`!fba<FR,]ET!=f7ZHa2IJ@F[aOcWaTC33[ZrN;9_acl@Z/2Id!f!nq^gdpCDDaX*!0rS:AduToi]<(-Ekc[qXM^YIB@MI$RR@oc5ns#84<(PkBhB+Ke@5-Y2mh@tsR%&d490Z=7Z?"m#NFj!WgS?P,;gX2S.CdmaAM&KacMd\u+o:;hRHt!<n'5[2eOf#?^F+O5LB,s(lI_QoGO6<F%efd5@Hg`:bT`?TZl9J7A7(.Qh(?8BFFd3sm68DR;/qdF)9pcrd&\oe8NgLG$tFi22P79P.f]</7?\O4P)pT<]J<;r9N@V!OJr3Q8bD=`o=1VKFZ;I;LHr#q(aob&"LM#B9_F,!DDTDEC[%^@J?0uU;]2)OF3W^lf-Dc4,2<6d$TD6-A$[,M!Ch<^>BM"o`pB-R>j[:R(XVDa;P>!SSNEaK54Tm,GK?(-?u."D`l.oBEF&!qFa8!d:Ki6MNqku[i+_VKSW7V>c1Z5:Hr4;SP1+8;!VtQf$%`honh1%b^UJhIFFhMr/P.],Sp"I"@u&?TnJs28?X\Xb8d,.M2U,-/9rVpFfY]f@"[:B6ID?H&(GW_U;I4EIEP`)Ai8;if;_f\.S0Y[#dAs6)UDb[,[i6Jul$WFVf2]C@W*tpp#V3/-KQ"`Yc1($t&8>idQ!Y:C<V25f%_K,b7RK?;=."a]5mpYg`9p1MoM!>^4g_aBrX9HHK(8^'Bsl+Pi$YXEKQ/!4>-OOcSQB[2m_LZ)Ln.\[iP-`N\hg`OQ>3P1lZ]J!1Va9a<J3s_nuoKInk#1W%qoA>*ShXknK@>os*mO-3>n+h*T[AaUAZp0lrH?\Sdl2#7:GhN*ec\G_,9ugU.1NY<gd&=<3T]+p5F:X^.uB1eH7aLr4drYao<VLqD#0Zc,RB.-D5g5%WP2_k24HQ@&H,#.je`ce2P"K/hdMNha&.!8^9PBQ8HIJ3r-El<t0;k]W\'AmIW8-rgO6)9=:1LA]c''<U)W0f7qr\Je9Oh2l`J#QCXR1Uoe'r)Ii-4UYo1LSGn-o;LGG8,"=+4GQNU=3$#N$&J'U)l(;("nC684eeiE%WtHglB^oDc*1!F?m,XP.$kok#oS)XVI4u1_Pub-:'#0-NDB462VUOVBRO@#$7-EBU[%_&!f^\3%f\sEtE2VdE<N&%A&Cpp\fCWrha2,:U_3X`2L$+:X`"djr![R+edPRfT:HPC]lo\UIML@Tc-)ScOfFbKf/'&%.8Jl>7*0dd;io"LYm#W?cAggThW7bRG&/>_$ce<^.=NqJFP@As?\hlsUhtSoZg@Q>@4>&\WVKJ/kC&M1%?f[4^Tf#'Dii`0Va(h3cK"i8;5&uX7YGlB`"u4GDNTO%]d`rMJ)[oY@.'@L;iW#AWEGc)V1]qVX[mjSPTEL%sOZO%21a@t*5qTB2#@:kAaEQ(.B1tM?l]e7.+4:Be*$Q1\g:'-4%g>(C?rW]CX9>B>dfjNECEQ@n?,]sWi,'>k!3I+GW@@`#cVstpC$3`l`>0sH*=kZogtVkQg*.!Q"eq@u:!g8.gdbh,[)D]C>Ucb-S%bh;o]n55RQ8gE59[oaP4#&Q`@ZSJrF#R*/S^:4>O*/H4^O(*=i<?2Q!W[,K8#i>BhLLrkp:MOh^Bate<*.AX9K#R.tSbuTKTp-"4j23Jg:4*cf.-`B'd3$+Uf3'6tNQ3GhnEffA,tWs3KFK`?\^HrMZ!-,H[Su2A'U!@28>\XLa%,dmfh45d`hFq/Ct]s*H<O$,1XG+<*hnQ'r(ZK6!c]jbM4L3#1K4B>GY8TIDq4AS`Qp(3(pKX.ijr0;aD,FU:SU"o0no[aN;/$ntF+Rk^+('O)npi6))NXGU6a&![I":<JY-^"2X2,rT:>"D*?Ndr0X"!2/t\K%Dpq3VV'+Dk+(s5Z`FM0S]&qY8:lW2jeUQV]a_EQJJU#Ir[Ef,a3!lE(1OkCtc\b>AX!fNh"'A.`srQFrj":q\ZDo]L><FqY_#NhJ<.Wcu*>)KusII+E`a8(D\pS4E>1d$oHB$T-i`e\=P`jQH,5^-+FBuK'B%aO7X,9^nl/WKR4<^`QUM4/Ss=m[keBMU5Udn$0tOfL,J@>8Mjc3_$3T7.Gc6tQuZaLA^_fhQe;&J9LsG1V1_QugmF7&om8=0G63[,-@T'B-!9F2Ngk@c(6f$SdpZ:hI)<)FU`Y$G!%+f'$L1ob9C`r'1<CM8Fr;%_$[nc1aE/n4`Sl,\POhijYi8DLUcetMM^:k_\92s!"]nG/%h0i^??CP:#@-!@ONsY(H,*-Wn;A@^#ub%Di9Bg=]L`8KE?)-i*@IYp90ltbdDXsB!iK$_ZkUT*2*i$-e(40694ccWC+2.$.(.?jgQY)=>.p8EXo;=-$a,FsBKG\u'#"`Eg`'L[Tg(c+*dYOq9f>;GcMl/%crp.],-1P=']4n-83g!h8p)SIZk"Q+2.)0&):sJ#18(Tj#aV4_'gR./;NclX<=#?,?I,-in2>a.d!lh-g-ai/.u"?F+G"(5*_s6JCj3\=[;^_9K]jf;CYWud=^DO=(q')"&G2-pA9)?b8"Kpm=#uE.*I:'_0J?HSaBM$OMN@>Pe3DQ4!H\X\Z"J?@"d`-*<UmR5hHsAO2Au#lC*3_09<._9UU@&u?!.43c`@-9"2p$<W\Gb=ISUCd\b*H)bAp0/Fl.fuZp8PtK]Ml?g/MXp4f/!a;5!Y4m.poZKuN,CNY(fDg73"6>3eMs!dQtZ+Gk1'UC7W^HYoXO9QFEEKh8O;`o'^+R2)&\0Ga>"j10M-n]&q-(7Gk99[.(.YD2+)9h*['4'Hp"`#G&cZ'osm&sqX*Au(t=f8q&%bFe7Gq;+(oO:ZGQ&csOM+cl+b?.02)AN3\c[Q;A6_EnK"Lf$!rna:DQ)Z89b&i=j`KKYn".Bg1)dntk"+%)R]R,T_\r#bU>US,[,=q79]]__#HQ;5`n!]KN;bd4T7oWX8d-40cbgN;t%$?=3s]S$GNRZm!`l\#pfqq39e!l2DT:H_<oIqeA$g*=0F0aK.C5cd8uk0oT%K-;t`Gp6BuQGiWQ8d/)Q7WT[5"2n*IFtPd)C+s.Ik^RZR$F?mCs(m4pYCW/*%15l58@%Mj]^6IV#l1@n9iJdOm!fiD?;TBlrPAciU=\nAr%(MUQ$>KY.]8N\,b9mu@j$fj@5FmTbU*&+WhBpQibp-h+lb128WIcg]JHZi8DZC(pGjVG*I+Y__Oj2Vi@XRO:R^`sQ6&FsQW:5Qi<-3q7'-q>A!4?SMM"EQ<Cr=X%&"YtrE&'MlA9LCi5@+6+D.fo-bA@O^ZV6(Jdk&b2l3VA:sX0e*dJ`)lHOIT"EmfQ7eEKIA63^!4o*g,OkE4Gb%Vi.8IuPrH`M#/r29O&?"[!(jL.'Hjg_d9X:`k=3+_k8kYZS3&gr6>HjOGg8jbb*EV--F(V6qQYt$LD-NB:.GeoZ*nH;gT"$&_=7mXW'"MOS04?I3/I8mg6r"3_\ON>&^i:i=AUSB2qT,7UE\5C=HRd^"rA/4-@p<i4?ocZ420n@;Kcf/C[$@cT6+jmF/Q$BeQ2uYgNdabYiqOF@+?GJ_/08O%`cBspc:F3!/9"%Z9@NPI#HNA4Mir`+@HD9]<o;L7UOtpR@Xp[W8Ak6Z,7]SHpc>M,&,?=:@R?0O2Z'ddhIG07`VoXiM7\X?Yk$_#0Ck6.n&9(.\WDMddFrZD"f0--UpkH*#3XL6rA5>Xdm4Ds=j>Vfq^(Y93HrQjf[IfS6A?akPj[U3V2eL5;J!i'Oj'4MjN_22+MP]ACIq"S#'YQ=BCZp8ho:5sDE"*XN9H7&Y*HqVn<pd0#kQssCk4;n>3B#J>g@mtcAK"<31ecgJ2jUWD,U9/UVQVYTfh,%^aHr*a%pM(I<JPq?LVQT?Y@=XdVC!M1?GN>#WAF=*MLp;M3:$uic;@b?aINPW#?fg-<cPM8n'f;Hop7),nq8_l'/Ktt4Pos,F@Yc1QRUf+@b$BLYBHRPOjD;!^.=8@_J4auN88-_;Z\c"[3h0]V3QLX)b%391Q7I$[@#_2^(%*.8?tK;*N['r)T'#/T1l=PM]q\"P5Vu&[[:YU:[Fup%M5\+MDfTJJ_6C3k`(crP3D_MAdGUnk7-uDRCmL/+F\9l,^`;]?e&;8_CnuLT'67mNjl;^In9t;d15c]//E@l-s$,G:5F+#)7UhP+O@m.Ac.a?J%R)G?WfI3X6)"dZ3%A-(T#ha:;IO,Q%1UdKh+dE97J[)?Mm7K)VD?1YQ(;P-L>`U/K7$c0iq70NrY3LrlLIPa0]sJUQKfY*i.TS3d7n%=*PS%^r#dJ8&N9VaK!>q`JR.DVi?%5%X]3D[Aa4P+`2p#_HY<PdC$(-1Jck]&U33W>%fS%-kaQP=<S#/4r'ug29I*^:H7qlK<Cn'UM'k7)+N0=n:af?Xs/A3"a7hI3K;#>*n9Q]"mPs>Ce5heo#OAoL!Htg&DM1H.C1$38+$).j3PM[E<!Q3Z;B\7034JH/G>p1*,)18_@<F'&rcS\'%d,6@l[*]I$DjZoR\WW')lp0/j2PDg_X*u1SR;#`%U_3>8%sL:L!CE1.5/M+Z[4Ao"CI6B%ftkmOJ3$0V]G'QmOZ,4r-e?*oYaAV<*rUOU"a;3(5',rb%j8!^*Zr8/pEu7+BFt0:"M'bCHkU"1"9qkMt\%D2%/P!fdktm@HkU<Gp\+)+Q=(PUn6=jAbAl8Z$?Ip1;Nc,(Oo2UX10[?iqeoiO>b@?iHgXC5<5eC(p444GW-$q&OS/HA6+'T$#+n;S/t,IkVOt`]d`p2skOk[UWp^V$B::mCXL.Yd"(J+Pu5J<ZqqQ9$c8'C[j?)<SL__9r^?cdoIki(H)<#(.$EM=Pp1NNjWmUVMMO_Oe`b1,,8IdNq=jmb*OM=9*lF+J0((t'Ip$TT(8Y-;AsN#E6rJk'.pC(L\+!$!^JuFQ(r"5>5;c2*$gL5jRIDc,R*AUTTfY]J`ldcIIRSgV3L`Q=-/Ct;\+p#7i)1ah$@<JFpVN$s043si>gJc,@i]0M6^n3Tps96]QA3I[eWQKZ__mlVjLhf81A#29CET+jN*0AOnda2V&`4LdGuQc)/-3:T2li'WXNQG9/;i+,78=]Kuglf%-IT[JP4e;@s4h@nK!@*BbCr?fdqaV[[X4oU*dJ$j43Xt<!"9e]LoZ'bfM]S:!PXP@c*%;<*p;FlbaBc(/f>rOp@V)$qu1S`7X%E_pRqkf+)WMEbuV4*o#&Re<e.6KiqZ3Z0A>`FGnh`_<M#_ghfr,8#\RRGot*Pk^P6KZPlfR9\oBJ6sGuLM:F]0r2C28\lsAQ8#fWg(+h.o;P>)WhXk28b*gu<*f6U/&`PlV^9_Fn[tL7ls1f[:$Kk(RnBta>h"rf)qb/%>ahm9!>M04APa\b/.gVFnIM#KVgW>X]BT.#a2?)'M0s0L$0j2(,a`QV(;%>]<7"7j]0=^#Gi+R#;`VnA^)g@[Zn]ED4Zp/L<JN=m.33r(HOBWKnfpQ=&q32QRa]7C9R6uLal&O6$17I-N_n-&@GP8:hE]U:i=cg$OXAG_agbDgf3S]^nN2j(_O>1R:LPHFcmeNPI58h1)ed,MZ_[YN@I3eT^I+/1<M(4PrO5N4W_0'^NPc0rM.cnp&FsF</b%+Pt-@oWdL<=^F+k/,m)qaN#aDlTXpoegXU]C[k'R_;Af8Tf[o2u5Z",@W\CP2sN+#Uj)'?]c-0muJVE(800&_(;BS\(UHHP1E%ZD*tP(q;Z-ha5HRI$22[;l!?.!n#k]Ngud/(@ir%\jtCulK=S*;GH5RMJiS0F7MU1=D^2\q_]*:IH:.'-XSVeV&O5R,#9;=D#.Hb%N(Cg`Tu"Y+ubk+^7"KJ4I"Wt+E!gUeemL,e;u.#a)Dq8QE!4EO*u9NJ/R_/]j-'Nd#*Zo4e*_XaWb'c?B?0E"Dr&!<beCOR9idEKb$8;'eZDpq0Bm?@:&eGM`-P.B:2fPp>MZE+!(i"-.VU/jAeXNGub<m5']FkWj2j'1V#N:S'$KM&Jm>h83,A*mMpV5m;s`XChcW!*5"im+MRVC^Hgoj*:&O-bdDol$4]98TWl;[U*3%3s3GJSb6KN2eX<Q1<BOB+o#W-3QSlK/3*a*PcF!#H`KZ$Wk;\gP7Z;:-dKKW6p^McC9(]ZPbB@]^`$_N?^q>3[1<$X;.!W9n?Fg+Ym_*&YHE)e\ilZ:&<p]q(G.3sZk:]:,=^nkNf;C@e8l:?Y@uokRo'"8[-`q`o<JEd6NeYVbgfJ3O/\plK)p!TE4C?bOoa44]5@S\]T;>XI7*)ojlX5ss,Ud'CU,7(HmRVLWUA(7j'@;qD^taYMZ?ViOfg)JI.t[HqaCp._0X*B5XeBK@2!BZ3AtTs?@AFG8[cd"<pDc>C'K_r0OCcNiF8O8amf?4m@9@iHOk0nsnY%4%.>C_ZnO*ZuY+q#9$*`p=H3TGT^Ta]jd_]f-GCAZ8Dne%e:PsotfBPKd8J)gN[>;8;n;bVmLK4>=Y.Z>OBh?FLe;-pA>M&&sMsPJ5g;]KPo15t9=+k3,#>2u8"Dcg$0#ujU)ZDr7h]0.!lPt*m(lK$9dIf9"1T'N0W?5Du]gk\gG0=>;SB,@4$8(L6'@oRH#[Y(ZbJ5Qsh`MS!H&lOt]0:=7b7t9UiCYFMY&6ad$=rC;U^I"WblrT;?Ne*5QUa;`707hT#r6!hgQt&65hoXE%I"DtIhTo9QZA>SQ#\qU\T.7hQ'J,Tn=.l`7k#7P,k]Z*MK;dHE2H;\hq.,PSa[4),bSY9!r0-k!6gM/`Z";RVBL\=!j>=E[ZuG8^h(26i@eiJ7saolTlsF_>mtFoKouc`=FkQ+-O]s?Mn6.7&#Wud`5`YqMCuUDkr\^dE3187MUL2#X;H=aFRfp,Ont=17,"jd&QSH/^D<6uSh&(GK(_]VNa*'d(@"fbWar08g,<=_gcJ,o.W]ijYJNI'gU=>7*[e7t?B6@[SE7i980lBIbkr`Qc8_YuYT)>S?ZEf`aW"NFrF/!O'<l%oSNM[^NtZJ`dHN]@`!Z:Y,Bi8ARcOUWf;/9$Ju(>Of%q3HDn9^4koc_[VdNEGFu0,FG#jgP_2BYed-FZ:`$N[Umk0CIH;(9\A20?$K&uV=kT2h(3=D&'X(uB8YdTtU[KY,d[uRDsNm8_R1q?!qIM?huW2PP";F>2'.8W'GV2Y#"3.25XlrBGMc+@".\UjXi:&a/#QmT2?0A0FL:32n%m6'!(D_ir+5Za(oQY[h5&eo@u^]I%BHO0k&P1B1?ijTkuRZbdI`!MDC9-TGqTmFW['@[D:1)*CpH"RO/b`O,FmG)e3jg3,<EGh3!oWF4V'X5%uJI6bk$dJ'MWt+SeJ1j\jDJ'1lbk]rl94:m.*nC3p@MZs'kfL'AW@A8B4R=.@hnS)5N-HM$#A&05$(j;CkiClSFg@IV5u^\ZGL;)H1[0(9#c!:jD:PYe6D<%s,,djiX8nS,MT%Ouj!8Q)a$L.]q<DqOK[$h-CgogK_==%fj_#.dhg7WDirrl.(r7lcboo<U/N#.l*]22'^`Nf2<;%Mg\A[T".tb4M5FIAP$:4tcoQ_<$MREZ\RTaHW;`4NBJZ]Q46#R5mo+`AeVDdhU^T05HADY:%#%WcF36e*0B:C?F>ICR8h_l@ib0^qo0Z4k?#h`#olI6fmHbN-HXHl:jTI]darU:IoJGr,@^:H-DbmDXk1*8J%nRM"(I;jc6i63=@mi.d/-\Vk$]0qeVf87"/,61;qC97Ld!XBQagl;a+mqT/>ZoP&>1a#MFANMcfpU]3].\`j$*o_\)6!%$$lk8Y+46FeuW1[67kNYn]i;W@)?@f`^>a,1rVAae'R-\#hlHlIU&#blDq7*dK%MQT)>U_S@ah"SHki.USA'N9Z!@_%^gC61UIt8a4a(oZ^.L/g()#Om"FK3Nql)OtLiq7U[WGFMfRub+9H2a31XhjsUMY6,gQMA#fm>3<t@T["Sn)D)L&PONZQJS8VkP;AROT_)b-N]6;XlF6R0-m/\!`/;<N?s&VmJ^QZHfjh^6OP\Zg_;A^_G&))OMQi\l1VqF^lPiW/lf(ebXs]m3R-"!PQE?u,4DDqjaqJH?k\ID;*M4MQJZk/jdT;4du?0dNUFl1/.FG3M!?GFDpdSi;TEg*J:D\E"VUl>ea)hm9u-.K6D>36@Ej>OHSbB*N7&HlP0k<.lmH8@d:)fcY392.aZP!!GNG1tnH"=@_>``a4-VWhY\#gt[YbIXGoj89Y?e'Kf;i6BAZIG70%&,jfJ4]8=DB+0?d"]e^F]nr5:?9'j,j+7[:k;`A15tGAHepeJ[9nINTJc*+\bN!\1`RZ_[8N22mUY_`q"lU5_[6oecu(=L3<41Q9@(54d#&Jk-@o^;`E6@+a_+ii-8$c*-Ss)eQWmiBU;p6pa'?1(8]t;\gRi8A9#R+Y6;LaAV'-97625/1&'Z?0"g@ideRCPP-j(Ep8)Ocl!-Ug[M,6-%7\V>.W<#T@Doq">Sp%0lBg=`H;9[*'DD*lQ'`&FaLb9'QEaD&_%TN9^^/;SIa:g-eOCL?:iEWu>#)me)^/Mao(@d*<PDS<ODQgZSfV8h#5',iRt#W`\!(66&@@lJDq`g)INPPg-uJN3`77`%Fl'$.s1f#VPAc5r238D?0(u8:8FS)/DmNb^SFrOMGmc<W6%e)!$AIJ_A0]p:qo:+['qiI^V8\C(^Rq^t<BQTt6nr06@<4)?(]"0<E)'qn%4dY7,/$Wt`WH%F/2g*l@=(H\r/bMUo\R\dqNf8(i6*(#%SWUd/g00LAa:0:=325MO?kJ?S8K/_]^27#e#Jd1*(:&E4(Bj]&?K6gd;c;<@HP]@]DikaY/Fg[a`V'@RWUtG?4#DO.Xl$&)Q$&"$LlCORVBM5moNS9mC\U6ah!QoB-;9kkU\ebgZ^+"`KD]P5`ikHD,?HYE/Zt0YTr;1R%D#K:sS0Y\0kJthnojhYIh=&:^%]6S5h/r4s1RU/],2e-=#r03#XMnA5gFp&On`S0ABl8`t$Yanf=Q<;#G&&^`Y8NFr=Y7p-JeB^fI8G[#1B*_1qn;R=\SeLGTqQ;/T5?3*#?ER):eo-'5$dF;4PFdWCiS=7b_rP6O;Lk/':SoEP*%lf=Ws@qB^:[=.)uRrWTlbCQZ>9dEPL.heHKpCYP;*]bJ4URsTW<M[)kOjhI%SHc_$-U]M/cYY?s%7pa]S,qjnBk]-\S>LiB9gBMS^m)pr&H/2oF&q`ZWJX*TUAH+lA1PnF$+`*.B0Fh$#JG8[PY_M[=gEFSU2p(:f#?/:h)n+M3t9a@J.4Drg:`R`W9[`2>b3s+d\$'d\M+KsB&M+AetU/\]_!@%@Gq8B`H2Krf@?kFgde:O`fV\UIA<fcA%0I2Q,R0sWU/!>p(:ff\G=$XK7A:RL4)H5fV;.?jk8cC(('@_Q1LdJ*F:eq.tW@h]3Z/0HMoK@K@b7ne-uc0"=__Y/`C)^B@>[6TXG>[S[!Os&HUJBXl?(K7=U6"=9["5%.eHYj!l>OD:S*A!DFm!bF-3tXhJ#p\U0n[CZ.>$#/MAVNPA-R+BY?,1m7^]iRm&tMUqMPlX&5I,n5_7mf*g<bFD';Z.W\IN2%l]QR5Z$`VjT5l4gJZ,l+<-X+CVNGW]HuSRbYMF[(?Wg512-5mKa>YgWm<R?JG_bbupq`0:$s:>_dqqaF[WURd*S2$hH95>iNh)gBCD(+7S$ZJAk`;mk3hr`?HR8o?P3/NBp^l*Vo4W;'t6)!\SQLN3=Zn_?g`r89!LC(kaUJBr[U&ropsn1*8tGu_ISea>r#L/gmLnRD,o]t#1ElrbTFM<1Xu&WqMPb@i)^F:R$%"$Jr@qCo1@[su^5/YisH08Z:dZ@gMTlNDW%PWb]ZE^A?RF=Xcrrt*J)0Ms`/4%0l=kuuR^NHj]G[6HO8Lh+&DNQPQ%,YaNZ8oFDR12;E+rb]!N'/Bg*$cD`P#.R1[Zm$*X?bRl[N4eV3ajWiJ1j-Q;8X+/mDn`GrZVId9*L[I[60kop&jgq$9=QTS00Xl;Ym#Gf@<PoX4qjJ'%I7oV,]l?XQWU<[%eqO&ABdM#38/@o-KW?iAM*,s;JM*,Q3+l1]Vren8fns%`92S^6H]8r@2\aFH]@uqYrYUI>Afl%atJs->fDBDdIVn8]?(XgNg5?\pqE:djWmb`&P:)>>PLP*Tr-ID`NSjO7r.a1q%laJh7,@M8U&]VS6Du6nUVa41tgZQV^b8BNtI:]!aOJDGWM*-\f__8;_DG(_JgDFeQSPBLd,YVG5XT3cKO[s?<hj*ID+'4(t-\i01A9SmR7!iK,#e,N19mY!X!@3Su4<Ma09?(jJt<taaZm9GM9Ng,_?k1r)24$Gi,SDb)bg.7*'6CLqpAXEsd/&qS:-&OOAO]CiJAb5\Q3J@sXq]S?ojb=?.IPIe(3Tk]qtaM:Bgn<R$]NB@LY+5uF#4j80>/9;;m0`)j'3j4s+u"2g4i'>@qiR^CJO,^*]Fs.m.[AFgtH8TM,kf'lpoW<uP#\nac7Bt19Xk4+Vt71??<JSugfIiZkt20=^hecUkfD2UXu=<Z9[4F&CK@99EC=95ls*cZ+aXl,LE7U4;N:TG\1LbQ78gJs-L3A6tq:!TCe"U%P@8#M@l=NPECaprhD]>fd3Yo_;#;`F^*j06KL&Ujq&.HYk.do9T%iP`(.OhQ^6m=NugJ=o=5eTM@#,Y39Q?nOTHID]rAH*-?RQPRe;GpL&@[_auX&NTC8j30MjMInHKdWi01HS>+-KB[4pm`d8,"(XmaKC=DcUB0Wj*kiOd+pi7<<+T/bKQ?e4bklfbi<1.Z^l6;5kG.e]?+K-.2GfX%RFqJQ3%n4)[7KlD$Ccp#ne^8M!=JD2Yo#`!#)#Ou.Q`8Zngk3/!h_qr'lA;I<_MY[mHN'%GQMp]oUlWme'i(SH88=X)5-jbD?&8cK/"o8gq#<P)l.o-(5]8PF.?/Zq?.IKl5pS+Nj9O:aAr,cN>EMCRmB6FGsO0jNclSUW$R0qBE_-Ecu>/9oOh)B/87;rNu<K'`0RbC53a`6SAnnML[IeeReVFtO?tAPV-<`BdTJN_5kCF>Io#[^6$F@hY`hf80kPGK&%+]V6l1\=%1?E.>E^6/c0G<&Q"et+dX3"`&Ue4OM=6S<OEN_VO8TA>b=`T<V7N!+fXgd5=<h;]g^R,a*<KGd8N1%SSTBC-/rgPO<!T?!W]Vn63X<-*W?"G6O(Wb]fqP5Hp6>.77km==Ol>U>hDb,bf.s0HqEumj3NqMtX-Z2cYlMf4@"%p&",Kl,Wf=+/e"f<R?ftL83OfaqR55e9Ugl]$.67&.^H:WX:[TqW0Rm;j\NUYUGct'1#>OMS?&>!$_(Ek-l]6*n2:_Z;b/eW;5KXMmGG*N0mJW&(D3cB&_BO<Qm]:p6VJ.b\^q5]m`Gq)gkj%sV79urRZei%Do1a'6gfB$**K1?IP>>(m_dh=[TknC.mD6;lS_\9Df`P-S\PZY\<&+hCa$Y`PS,o1a8k"T"^LHh-f(#r^jM%p]jYuMVFs4LM<&b1[oL2;5g=e]E#8%;akt38]0`d%7QlDfIAR()d9kTAc3P$Xhq?FFM(4gl.=jT5uZ>Q+8XDhbU$j^FpO;uAS+(?aF"<@]L-r-Tt_[t.@jk\4&.P?q>p+8OXKrV[eCq$T5gg?k5qH1+gMCR1ojje#0n6!fkOe+660/8Lr?C#=4#]PEf(&6I%CE-oPp5EG>T[GJZT>5DZ(J3W(;2lVqKFoY@7bq-!?doMMg.oW^:Jg3),@VoY<A/2B]_R0tdmtm]\S::#HXQ^aC/Jq=(;Tu"f5CJ:V"kt:>!>AL&_V+NV!KW:*PKUGOLIi)i?e9fkZ4bQ;/XCI&Y'H,J*6i5n5,ckejMo7TD7dJk0JC\R%0-Mg=Yh`eQ</\`Nhoc>9kgqhe^)%;L04rA+TbY;6op?Lq1HV3QTB%W2(^]d%$*W<5f>\KQ-L5Y9Z;2]9SeJ]B_r.o]bI/eb&ag+piTUjR^RRP0W6bht-0tK=X<KPG@k<CWijLAU(9McZ[4oR%h-eJ3>@%Co67\O_ohp?6hRN.=?clUr(E6]7,F76Y.h38rqmT,l>GL2O(!)W.!LoJUjA8ns(lZ;HYXW)(G%1GO4@Z`Xu$U//4=GpE4=+:RQ""oSijrbDfXZW/2.KFd`f+puocl?Z[Nb[W]-#U,;.ef6nl8.`?CHD%;u9TQ/_WHmq<TcnFHg5bM:,.^\'*ERb4_?%fb4:tk/&D7j:"BDJ(HIn)`Xi:&GATsr\`6'F#0q-uD1ShFO%4V04)&Q.7)KjAf5YKo)@*Mqe.M_2/_#)Mc0*Oco!qT$DGkuA1n9`&hl4JTYuqO(QG\CmS5$C%:#N(^;!dpj\o@I8'j7LZ7\\#XX2^a'[:gX()W@Mj28S^)_`Zn7BNl-TJ=@u-gR$a=Q)%'-6)[W*%"*:UV<VlD*O#atGd]!fV>XMW"&;U;D-J]nU8YRam,O]9CnGNd0O!VRU9^S;bbKAe\&9dIlm1IGkHf@pf^hZOpXFZ6#1Q3V^g6^O&1hT9M5.g'Agq'8oWq?3.RKW0QVK%35_QiP,-ZLNO1`VLol!.AQR/k$OKD[W+0Z)=kd.m'Dp;5D)ujYafeEBn]@*[/Rt3>[pFZ!(b0R2`AgcP>^ZR@q%bkK?M<_Xj**pF[hMH_XB7*]tK\ZWs?qM<9[p;(N0Q_7kO]]M89VBER7O95j0;=^oTJe)QHdU;>ml'\E-r7$XYf.cnmBiONtB"9TJ0f`B!^06gKSgY`3U8*B0<+7c;iD(r]k4=#4EPZ.VG%Ih.X*jo`b?_Rno?@In]Vq1('H4B.'3G6hg#FLERUu7:B6^b:@8UKkM=GAQ>SG`U2a+1V'.5ohXs6jIeE`$H&"agOLE@kd)e.O'#h3].4\i;!-@ALY<'#hj->sa&LjJtK"T:E7f#9[B(-d/D\1nYhWcNg#jL,9Do`7_5JfNmet8H[Aas1*@=R`1k)qb1/sD`bqi;crFQ8(.-GM2W=`rk9[TS7hJ\F87R4Ghd<u1R%EOL=o_s=eGRnb2VUB0C!4_;jIEYk6D<T]JPFkWe_G(QI=n]AZ3uFO9#mfUl%V4W:91$W5WhtZphI9%)ih"QX*H^SD#J:/3aT"U$Q1h5nYj`#`j*qame\O+C`:a,$rA3$%]9CgJ_OrTT8[%*!ER;2k@Qe_@7k(J=eF),B(,H+i]"1_6#4-ZHe&Ur5QGh]P(Mn-";[i3c`(oSXuT3d:P1_`5Q<dn#<M6$?J2?JEnfXhl>Q#fCJ';Ec/7%14$AG<JZ$>J?3)lJ=IL*Bme1iRY;\bOq&@-3<%RGL&08Dh1o\]G7<.5rIqNl5&>G]n@i')Kp]\@[K`dL?gk2>G5V$6(b2noQL"lL=ekAM)>^L1>8_q)3B+ulmqd]e;_O@[#kX3<bd/=O]Re6t(@5=G$]_+3kLKEK^;%gi+A`J*4,Qd*OEmT2S7mgY*7Imtr<ET?3L(4+_4f(LNX$`]>='cu>VK1=K=e=Nd.O_/E$JI-V[_*r^merkoKXo<;3*TXL##-]m1Q0HX1?Z8%E1OIW8S?aVik'hV6KlK'F8;i:+-<o&"i+,G>am=9n'7C#<P7SVp905GroLd!"fBl!W"f8_[<q#)?9cHN@,KWK,nJZ(KV70"RE:QcsHDaQ;@>YR:gqdVR*[H(##YTgHWo`<]tGf@#!3Sj-q#G!a7U'l<]8'"+4h^a._tq>OQT@k$i,H]>=9$6s*nSL%j*kQ5gP)i)YG'ad>?f,1\O:HD":$R(+jX)Q*7pLg8#Vn)+49@mCs>MA0$d6B/J3A=Sb9BiqfsXr(4B%FNL.CX_:KIr1fFK<0+YK/F:$Rt85)AA/6dWI@CYpN:8=GL&Bl\_gqsWS8;Dj"LXQ;/h+(mps;>!E_=aNE4lt@'h!][0[!\/OYTe8R-f93YEQ'KApNIU<RJF)c6/t;I9+rdK%;dS'[cSJ5P^3S>cQ%E4IhbPngoY->%'Bf`&6&Be)``a^34`S/#r2qZot;?/gBQUXHf"TGhuM0nd$uPp"=I?R?!R,>uFb2jRC?p&-sg4k5a351dRYIT[Pa.pIO2].4UD<X#5bT"VBI9i+8*@)#:Z-]8uf4jn^9jobLOfmH)]VuPLK_/,j#&R2=+Q]^U]dmjS45^gbj&(D.$V:57d)r2j68cMc/=Y2+hd7L"PGCOE2hVe!IHmBK:cQDB_][9ub//7)UC"\Dn@#VVd_5,I*4?E)1fXp2dML%60=Pd(2_YX@3Z0Q!!R2^<1d763U%_e5+ChN]G%8pF/F'g0;F+,dTC&Phl!m1q@D%YlE*=2[=R))#$#P3AlN(.3j8ANUB:UROCA'9g10ennf?K%G8K+k.fhnT3C(_o$ied#\lSA47G3NK=4k<@^B",EB3't3"R02Au]KBh5Y6cJ#IXt):;TQN?Y)5AP^\TbYnE9^qYE"tobk;jYY].O9<&WGUq"<'+l.JioApfQa3H[Y#gnT.F>F!%+'Z"^3_UeOCtCGC.L?<J3p`1A"),T3-a</!\#;DTIk4+qjkdY%C2.g6m/WM#1XNPLS(NqSDdc!-RT/MFY.$Abu360_ju5PboQ;:T"/QkUu^l[gkaU)rlYaBZXP*bs27n<#RtGY>n2&-AZEhR8p`)!IPQ`LQ2D6.;7qZZ;*T,4!#6DOGJ^>,+gD+Z(A67"SR*.,8LUk8L$c:fG<'QbTd@NpH,%25:?4`$hq<1U^(_g.D]1KNB,(&^?VYL"n=oI5BS[OZmE7"A7isN7sQBYYdE-c;X[aDe%XjDA_#PP(]&&kPXT2"g;[agif44"m$bb.,YL[.ek?PN*TTSJ0e<'4GcViMCHCh%>ekW8e9Jn;m3F\NOJiu*46NNJDSr\npbUGHf9FjP3,><j/9rXZ9)kMMD:<%34T8Ujd_8So#2/VXXn9BT06Kdc;_o_`NPYZh?HW]a2ssMZ-];+\ub*70>900)n=o6pLJXMjbf_8I2*R]j2a1uJk6B,UNY(8_2pHpP5K"l0s^.MUgXH"]u=C@rF2br=OD<-!shNNHXR^\Y`.%V*^``8*92a$;[]3pe<burk8a5Q;ft%8D,S\qS%t(W/i`@jg$WB>#.c)s@\9p#&**@cF#LlBE]D$*VJ/f30\Z@0,4/?O:/6BKFXSm5aMB4*bo+[<BQh=LN^ROU,aPTM1K&r_d"(>Wl87L?mBAYMCudU%B@%ofa$oY3:6.O/J0#W4-cl'`A[0V&d-rDQZb\*'3W,**nlEQ:@p'Ih3uShFj,BidkUXN5/RFpo!GDb&Odj3V]Pco#TIM9GiNc!51O.lIAS.YrlkA0lM8$0"J@^k2,%c-VCnTM[.uDiqF-.=QMIQ_J!i`P;D[EYuO6gLHnR8<U\'Z]C*POgMIZOK3[c?ISfrdu.762ZT0&kX(jTMEDa:+:O$4>E)>bmQ6@YL(+(YSd6@@lD7\$s76]"M4%+d'Oq%m_<O#(jPngA-[!lDL+)`eE!MPe&\dZN+l:6S#M1B@]t0`8KI"d.rZ:$bE*h?O%CfX=(fV'@-Xg02O#p8LIna9_ER"JcDbNrc;HWaEd-J9JV3oT"#,"7RQ?kMqZ^>a,sPs4f_&Zi$!agp2,+8"$IoDMiM6eXCG)8b,bsN,)84D82T#]`\"ij:kudA+9'9tA(ebQCj6Z?6)ng?LJ?+n+9X=]chLu$@N,2>1nFUJ9WVt\'c`I]$4XC3o8BT)q=fLLmdq=g\TbmMJ'e0)TSbDE"ETWRXN*`^nnP+kh!P:AJ')8J\@rj?2V2J+:clq+Y'6RBf5jr0/3cDc"'nOokUD$"h\@?uVMq;(#A.:UFo>BYGMuga9#GJ`Z<58T-&l!n)<3R3Wh(so?tP\0[5X>k]>k`iGE(Sjb=!n3+UnH$hY:*!MS)Y?cd&OTDHs4Qid#QgH0VQa8:icXC4O0^!UHqf?!g/G:-+bGi&]PR)/ch)g[g<fX88r'h(/=/0P@IT^/O)Wka"RU9"HTgJXAKZK?4SCVu*@KSSt;(0!a3I1qQA#]4h8pH[*W.%]25\\GXGY)[r-N7W3;&oS:mP&?ObkMX,%Mofe..b!gNY3>:^4;2^aL`AMq!0\R?j^',m=[Pq0%SPmtY<a1m/j@6RjZ7&r(Rt1f\fVQsJAR:WCor1@l&%`.N-GN/9)*:Q&b)]DXdo5n_>1%LJRR"Jci[1T#UZd_G^PTAaUGPo%0n>Nq:2P=_?2Q>rMK&?/^[k2qZ:`jpM5]V,>iL!XRNf,[A?9]fl]k/*;Jg$ERjo#KDo.JEWV\h^BV=L=;6VGoNNg@sl.qs%d2"=s[Dd,Kf+6,lXtHM!*p>H0M5*JU59:S!Fr0db$UI7'Vi!4Z[uWb)a\n&a!W$FG&[RQmQL%_n#'O6A@t+e]`WnN7__go.)M1NKa9)H5/3E!rU:.K4PaD-EUiF(9ejX74^>=W`qQj*VYB*4T-Pk$b'S>"DQWl<s'PD[SAhY%eL+sLfc1bk>[,tq`\X5k,(%a'fUoqKs1L4ej8K,\jQ,:*Jdn!ZB2coVa2ED"N"elZI]^CH-@R7V8]"an.,!(F+Ah:&CX;gD:$j+\?kZdBHX]fH)$YA>5#Ue\JN%oLgoO0m@8I\<_O#@ZLUW)EZT$3S]FJ\oC=;?qA,uo`6,n05-c)+)DD`RSu%3&khdKBWW==>XnKUHd2,!@<BoT:n!4uEHA*_cErEaorba?:Ec(!bNXNf+Ool4iVur0[M9q5e=T(eg:eGE6%p^(Y6kO`r\;g1XIpcgl6108='!#3Ob,q_d"&^m(Qul)f)O@5+=r[^WpQfe"=-kTG80<h?^s\CH?]TSm-%**QOP#sGS\]pcb%R#n,HN-#i/d38!d'<94la89<gA29E^LrK;#BIjlrO!#nT"K'<6XU(!L&Djc+^;`%#2B[8Hf]7:Od\>1A#Rh&K+rc[+hfqR83LY=u,]C;8,uIDhiZ!]0=SDb%`8G3R#!1PKBVJ_OI20"SHT$\lN.H\^dp?Y*BL]K1<"jUS)oXQ)OH*c.lY5QO"5eTKR;eIlY)/h\;<t?+EcZY)-IAPnrJZccZ&-GY\^00b&KqQ"&W?p*Q+TV.XsmOg6Cbp^S"oJ\Z*21_Q_kJ>djA.(]dOiFjCDS*>G3ms:BHU3.1:"R.^gg[o$RMo>NtSVi/RM0YtK_&LWO+>$*<FWq%-=DMuKr,`0g8t3LpQ5?@`5r$G$/"9Lp`1q9NCKHpQlZF[n.b&i^bGfLB0tq-M9"[91Y`%i]qe@m$'Qi)L7ubR,CZ\EaX&T6fG+U,HLDIfq1O=<:A$$Jj.a7:.Z^Gq%mO_2_uUq-.CLBYG4Po*]4F9ejL%])Cn()=TJO+VkL4gEa[pqlnLHU'@Fik:OnfDS!m<G)F$C60fIO;"0m+[$I/+-KX6@-+sU-UF!Ap]8)eHKe7MX6;4^,,0:_lSN\=#91Q*$dFu296n!<-J7f4,YoJ<Kc72mUfr=T?p,bV/2eX'g7\WFta;2V8,G6kZJE!%lj1fa&QU*7PNQ4=cU:U/l+&O&:p:A[8o+hoqnZc5Fa:n;E/B%i'_8+@qVrF>q-=UpoM:Tll^`Ia!*+`%-ml9F6k#R;)0LaDqZ!Z,DSmLf&JQ0nk!oO]jBF,GKN\(<bBgoX`CCeIXUXN5Hkq)V"Vhk,!#b(V>XgfY^&ha2@p5-(P\&br3WIp0tGBM=<4!3W_l'KmYhuCW#emVT#7m+XFSo&5;J9!;3DW1:?\,jh/?0G*[;6F@mcG>uYiFKu2c9kFWXL.87G=/ftXf`/%,!'JGi:.k^<u_MaThjV7=ru)a,VRV:@a6&bpRhqU%J6SFTJ4.68]A0b]G]tV5n$ns;i\%VpC^U;I$s;\E[=j\gTQSKA),k\Ek-&/g:^i*Kckhl"*fEZPB2q/[^ppU*JM9+iNjA*6M*S7+<Y"EUto5)`lcIV\1P[?JS2o3(l5dja06?:V@8.j?dA!SdUtN0[@^!Df1i@jA(EZuej\k:&rY+k?*1W)niQKKJ^2nd<]]sR]kD'A&CE1iUH%uDD7]^Y`@H<A*-1Qa)Qdj0[bSNg+kN=3-r/?m1%.acGj<E`$8jnmk4d-p;f)o[KCU4O,!rT6,&.2:qM=.CZU&*c(@L6+34C;E=Rf4/i/<0"2gV(W.M,nW<&PiS*]P*/n=5Uq[JLC+rH[#VfT8XrCg6F]:,"Q_B!k[tH5j?L8T!-O_iC\e_D;&#j=cNkQ>o-Y?iXa"\PTh*,?o4=`b#J<pUeZ2l%d=.^;oX2HBh*s1\<3g:ZN8o;>BM/Ja!4I,l+5uU5q)dN_'*:]m6Z3ch$><FrfkFI-3Z^WMaQT.n#hG=kgl=i"r0aUba75F8MNSUCJPEnOOQ'%Tq+F#`G<S'Xual-4'mXNCABc.Z7ABa8qgMLFG6VKo$G8.K@UVW2B;"PMBUj:';31H($"l>FFZFs'uXn<,Ik9fj%2Rq]BQPq'Wh>a1_\\d5']$dl6S-dBJJG7XJ^(SI-dQ0!t_N=]:SWD3WZdp%biS^t@Uc.IgbG9#JSZ1BZ:9?PS6Eq<-eX*Ip?MA$QeD*LicL$co2!6Ho,\R.[?bJJ.Xn,XW02";!29;Y9R[WJI*HBFf5ZF\$=)/Vn5>qa#9,'>TPF&T9-Ng#%e#OdngqPk-UG3e"kr&'UTHN[QUBE^*VBbZk#qGMIK3[55k7O.F]OY"?i-38PPF@p::ed)Q;e4`Cp_Wmr+Tp8Ik>Z>cEg<$I^Ym,m+6boBs/cEaaNEg[b&TY>"6UOg].49['tob_]QZ[r/%h!1<Fk4,.f3h<3@kOE(K=mrnffR^.=\\7_MUKdTKHOL$)`AUToW/3a9UbmH$V];<OP9m*[d[g]&fCcQR)GA%83o#_Mp$=mk9Ln&6eV/H"Nj<K1hJ6^t6M6gbrKY]`__Q+S:2UIj<!f6\APh3jHbSo*/7XmG<h%Ulomo"$?n=OOS.3pe]:c9"Q(^<?Q>6?<8Srm,TW9H!X5F%VD`S=qZWu9U%_Ma541X,1BT<:WHq\D'gS/AYdN8-d)OaY^jt-AR/Z2rhCpQI1s#(<HW%hEYrQuU9=/*3)_Ps8%&i-=k1\[M"p)aJ#c3[WM;EVcoK=C@R[U^U04#o>/Js>fZJ^qpRCt5a.@i9H\Q(6n!;O^"0YC!kmh`m@6(D?+CImV<>6GRDqP4h,Y.,\JeRU_<o(55hAE&l912gt%Z]6EtiYhgkoh5OXAGYk-STRO>/'G[-7J,;S'Le0F92h#SVl86fij(:UIDp*CjjOVCo"04oj1h4jg-0"8':u6W2..IYTTEI&;2:V:b8*;,g/T#oPnHReir8^aD^6nm1QV3R#cZ,jF=-*J^5#%*TTsR4_0WTP9WN"d,)2r`#imCrSBd@nibKd[N$[FqY5Z$$8O%B%D;Snd;DPm/^P.VYLfg;GF+ZR8d#Q=7Z0&$Odk->/Af\Kb)c7mW]1GK[54o95o`qs8f<:>_GQQh<A3P:Q<Sdg"Q2`lNa`._(OMW^JRe8-9c*Dp]CW4h@XZ1b3tP(M/+W%EOu%Gi8^X09%g^rSB'WOMft=f5qmZL;oEY];'*#TPQW)XE'G+[<&MGqWq@3ZhX<1V&Fd8;\,?Ng7d]6dFK4A!Y`5G,XE!OC8gOd^ViZGTDi?/Fjs9h\Op>\AjF$<u@-DK&';o+E074?E;LR,^ME,:EAIP-uWR;(uVJ@&5>V<0R5rJgW6jrBTf?UFTp/5Rbgl/8r*$ET7N#i^]SS=iN`?mETn22Q%,&![jUa)U-fVP^KV-?\On]8DD@6)KPrNM^;bP+_]$E(Ls6u67Q%*6ce]`$j.sOs@Mi@^Op)f(>KVZLH"\A#feOAkaV11B`WrhX8D%mDmT3ZR>29uQN)HmhFe_6<5g&FseZK#8VA^]7Nsl@an2GtH?+H";e]<2F6+\4]!u1V?%l/7d-E3=;UmFS2:F8mN=hY@`#qBCEISK[-@WeWgbp?d*eIK8cONpinp^-A>4O?/-!?%HI`X2X0l]3[FJpok%Qq1T$c4q\8Brc#/U!N$9DR5TG0t9"H@*iG3U1DS&=b4N];3OHhNunL%#;]lG7P\6GA&>](:%@!h=@),b6P;#!&d(f(?MDE]s*]f3,prh6)B'rFHe?GZT#B?`k`a?N+=t63VmO$rb8`a9I(ECl?3a'\duTu'6m_$jFA?%M\$@ZV=W10f,Vt\TF0^>2g$5F9JsL!9r*Glu64]1DFj"1!V8YoZ4r"^P/>FS=1\'5$peRri@nRJ%2pfo;XC3[0T'&/YM(q8d#u47E4!U6l']%EcS!>f%\_,Z7[%O&2J=^.RCBF1g7Ce2QJfWpd8_!0]U$\[UTS"=YU`[Z>2!Hm<s4=4MQ'OT*>ie#-`HPi/ET0`Na\NY*5UDfSc+5qN![ZgEq-ZH.)\-BdQFsuug(P]9cK9W:cER+2[Hp$Io^*E*h'd&VU,EiubWs<Ypg:D`$-L,!k?t5$d\V)uT1c3B4pRki#g+NH#c_HMgb='X#(1=S[Cp`WWTBd?7a%DreGpKj@ah+uA.j]U.H!B&h3^'O=hBpU*ia+;[1B=^Cf0"S\)u@tO"7=]@h@Ij<nA6;,&,K&f_1)33D;]V]$[BGl`#ebXomB?\mV$sL'j.b&I"@(X\4*Z:'QGhD.Mr!FMF.bpLpYehK_B)5(bbma20.Wf>+R$bYe&>`A*!3=&1R[:'b/\m0ECUg7Dq9NC;j1P/%PTpK3<OY[quDC0!Z'*c)uY0iQ"%,U9g!J@/%#m`PO5m`4Rkgn<"9FN/q>n1(P6NRof9Q55q`r`b-:DWqj]=!X%I=V/dql2<+2[16=6/LJ5Gpi!RR.>tfimn39t4[ikuC%$b2SS2VY#0;c>0F9'a#!8](f_L`Vn_Aim"DHF$n(.YFqPk=_=.Ig\r=p#C!!!K`_E43W?U#8=_\ar[NFh6Ra/8qdI*et9aPLsM3LN3)eL6sK6MQ]4,!r"PW@NVH#PB,opF03"giMn*%lhC@M4$-e.pa]5R&3__3pI5OGP(688pgdC-/4M0b&:-9*t2Nig;upffd&#@>N?-[8%*6i4n172X$[G>,o4d&a!F"i)dqM#=R7)&JMY"C4/SBk%'*!8?@%!b,['!qSP7GUlGmHDC49&uWB?)(lZ:!7@A!_:\>E2IE`YA[n&0@6U\KEbLu+f:_,9<;8PHo2U.gk@kIQZ(Fd1:*1s=7TJV4N/SCtkoq'@_I!9VhJ#CEZrpOmOir.rg'hWf+d2"8uuZV*0X5E1i/)76<?limgD\/s9BjY[]afsK"=5jS7WW<'Hg3(=B@gU@[Q4QK[F%_tpSo>kA85IM!!Q<"mNT`."XFK?LFB1Kc8LnX?2DL[RmWiLn'$FR!mbS%'_)^$1UlnrH\GgI7JRU_3E]M-!FB7fQDgBG>;:98Eg>=XBq_*u>7J:toLO=#QIl)0R1ZEa;f&ijq6IGfZjTjqG7.O'`b?BSs.AJK+Fi%d9M^Xic;"Y;/8Xk?#$6sYu)<$>\`:(%cd"5*.5()ZOg(2n"a[sqD;acPn71@Al<L&tJm+Q@(84K9Ood,UA#X^/)*?/hAW+=,X5F$0_F2>IPnM-506bQ+Mhmso7hAfcp[[TYa.I6liY?FPnLBpM`P`2pkjlfbtuXdttP97Z6UpK75f@l,MudEd<<4a9t]]`ab0kfgmLC:';@`)i.l>Ll<$EHr2DK#t,JGSaPrNXjjXLe7Sm?\S2SLO[3PHe,6U*u^D/ROtl.4dV$K_88%Jjcd1?WNL,^)k""9_/]?hL.Z7$D9;Q)rnAoDQVtRND8Mk./1<X;D.rhEk9_<O/!NEJ/aAXs20:$sAPN`D=#$0n/6mUPF[h'h23,5q)t\Tt6!qq`3)"*miaYa0%13$/cb=Xp]]2JMpiimF.+X^j"_BZ=kY<3i&UbgB^H`f/b7!88CN)$5M1X9@)/s8*GdP6i^4b$VjaP]`&T/I6hd*uo,8_TKF?*'W9s?e=jRr9,^mWpRF:/\babgBT'`$IJH$Qs8QJCt*?J;Te%11;YJOB%N,iF0?D*"cL_2M!`3sqll&qM!?Z\^OR]dm^>aR35T'bm8ebN*+N3UQ69A`J)A"Y!U1DEa*4`WsV7Wt#(MmP('/-g0JVLDnZ-e[si/"QN4^him9pK!naCGiM@jJHHc[iaC^!\+YOA\U'8]L\B,HI=\:uYa-9k"c9qa,jkp,BUBg<]5KDVgKGiGBNT7'h,0L5rT2A#,7]V33C)k3_*C8d2J.EUoPI=j1@:JYaG!_`ih^E42f4eSG;4QLY;2A>lZT<N)b$B!F5'2WnW[a8;TtCk3t:><;&))>NK5"<Z@W?>amK!M7,#M<TFV+2ZZrhZ[8_$oe'r!7%o0j1Yk5-Nou<3jURg%M1k0Z!/=![r&5M'H5o]KHZPji!=$l>SQSWl+\et_Z26lKQ+2Nd>QM[Bpe4Gu&$R6N-_P)hT1,nCQPOA=9WFEm)R#aMY#<*H;(4MLOapm@"CEF_#MTFNeF23M]OPI$;ebr:L.#.0GX6fZ!U-"lubu/cmo-L_rhfJHc(?1B*fI-kS'ChOm)#glhS5\O0OY(G9Nc0?>ZZs?Zai"@K>I(.dpX6Ne'PW$'PJ18Yk`rqQ-\N9fY[?(a4sR22eDeT6-Nk!$/Lr$Nk:4ncANikno*\eF[I\PLViiH66h;An2L]f\?O9%o%5m%s]V,ijec:2%<#J-8,)FV+,H2i2#\[YF."]K\%;cOSdl8G"F,>MQa5YT(EF7^F&uXX?maj-i8^f'sO2QM=C\2Gn*g4>LL^UQK%fQqBT+*H]pN>k45=RY4YWhbU<3f4nGaB)CWLgViZMng2\Jg*AQ-d)G8(5/%De-9^>$.'ND_?L@>W-Aca+;1;ck41m!5D5_Ze5>\_S(.d,M-[fYig9<[TtdT\KLs"Y,,"@kT\?P#kYp]@8LG2@gA&h"gbPd4;8r;=i3V3]7>jnchha6.DMk8$@MD7U-_==r2Uajr0+)n_&C.*EGLs1:t*;f>>VQh/VPi+AW89aVJH0u+28r;bpl`;78kHnqTcJg'=m,/q2F+'C59O#^1Om8CsVbeoP8Qr!S>s1kr6-e-/^`4B4?\SbH7gLh<3N*9,.r*@X]sZTs=qrP'/802\BfneXWM8'%L)r1pT\K=*Z$9FKt:,9=d4L^EkJ%@+W!m-f(]]3e5V]cM'cR3Pp!m!IR;0,mMRV8j*UYd"s(CoU.k]"nrZ7`:[7X73i:*pKW5ZFZnu6(CMf7/!oE<RtKl-'QfWjSX@7Q%?5KAWMN`W^JdY@XMZQ0=Q?Y:G?s/17Un&YJl4qO`[W]=86j_tAr-X"4>_TDR@6@C7rQh0m@Ud[0!&-`)D.I'K?nIa04rfbA<J(#i*(d.TMggbXDk8L(-70kP"Os8X!Yr-4&hLaF!*@rH]X+18h,mL-]i.(BR>ZBWp[07-m[^]/ebY[nm2Tu2tWP>Y6_Z2cB]hdiCK3e8WfB?5[qOJ?6AMMg7ZWEfql*7liecEh,%VajM_5)M(sZnRq<gfCOp^>s35e:]HWHeTV\?IG^fH!L>!^sF!oL!G[pKrB_#tj%8r7NV&%k[hIq%uAjq=8p<"42,G^U]BWlaK%WTe`Upp)r*5s^7dg0<.[)V'Z$G:V8$YsU(+nrK"Cb^-+kp,Kq57/*-k(M1'&oq>qZ5RgQ7@l?+c4cC([1)X5b.k[$2&cNGPnt9uK.dpl+BgF?8&:m.d4Q;fb`#=ImFK)9!&CG//h149P\fSu(ejR.+$g$mRr2A>f`p&`dX&RV/bM4r?Z[/48AihTh8<QYWi8C.,#rZPk)>jf%&u#`fHO3Z8.-.fRW[4O(jqhE2="U9i'Bn0$1-K_H.C[7XP%*q\<9t(Qq-d&_@5d`XRVcK:`Q-U6VWAcjMres,Yf=>s7m?a9SrRRbX>sG,m4:7CXI;iC#-\1Knf`"J`.b=qV*FVYpCj'(?YaI*n?!,p9j<q#_'f1N(PUrGP'hE3d&.b=Te,F_>m/_TS$U_k>lF*O]aNm_BFJi2^TM2"iKRn!B5/1/Cu1b[U/kOT2`,PD=,)S\H*Zo62cqfe@4%_Vn4Pi4Y(Z,p90]\`R<9(pp<CSi$*"EkouO[&?5I;C7O"KR\a5]=J5id[ANh5O&rj+Yr\aG/t`<)W;Wc$c1*`?amiG%R1EC"^S$F2ec)gt&`GA4"*V5:"qSB%=:]JHn`4`$9KK$#cib6E:=eHY`%-Jt\K""%>jB0U2e>3GVr!"W?S9GtG!e/W>osd3n1&GX#5t8F1:hPP'X`V'd=SG*=O*1Aji9?rk"&Nu2+dil6!ccXDN,B=j[#IEqT]N`lj=S@Wb$.-XMQ*%_H)1#cJFpL:*mgY9QGJb]KL,GC_E%fW]1h/&t?ao8C2q8jUF9KqD)\YkU,hZIcU(qGgLNOf5F4cO-uff7h-#dBQ[tCoZYGcTf;cg5jTquQj:u\FK"U4o<%4-Pd@#hA**2<)RX*:>FT/R>qC5.RtEF@fH1SEn<=[tiVu)("8h"kl/K`cQ?r>KP/FIL!Z(,@n=5f4'GmDR$!#&X$RqA*:k*jhO4)(,/XU7DSDj:B#MDD^7g<hW6d`+!r/K-fSC'J[N-R[C8J5/J1sM=8[A86^nd6oC6@R(lN^2Ga$<,8+,BsXOg]kje`,+ZV.c50&XiY_YCnC/bF4&BJTA2LUe&G:mq/8*b8Vac8a+ccTnB3?-Y,?N&qEao$i;5hc\0Am9n9C`Ep3$C0[;Y(J,@t7unFjAm(&B(r+^n)F?K6cLJ._?#.W+@GgFF^^YDM4Z/(hZW/2=i.jum0;TGiluNBO7M&QrPMEUJfQCJug[p:#@L(+tTR'T4XAC8s+u-4Q]NoRQHhotek_ZUifceK1%([5P>Tl"-iKb1FjT7X-3?Bjm_fO'=Z^!d;eTB(oU@\1$eFB_#@!p'A%Bp38E-NS8($W+f1/';"uoR@64.%-<Lii701DO?03M4_1#q%nM_a$1PN/'B^Xi!BmYbEjo#gi\Kg3ra"-uj[hT0;XdH5ef<;]#&/fB5@``;REgR(m#b%;QL#4D#E*'\`d1HR,&"a@I;q#.of"Cmg8o$LG*OplpGo@YMo/nS'QlmdqEEc`%J)FE-(]%f@Sg0,3k\J`X]/`JPo"XB;mc^UbPo,FFTSSSmQGCZJo]&\%>'&;Ob$N9A`(bUrQ3[T.TgHee7,1HbQ=1F=;+31^[BjADS/MZi.EL;]@(8jNE:E7?*h"C,s8-kH2Kn[n.oe6"FEb&9j3=-b-At,Hq5:-EGbY[6IJD@2Ua<V$d!=#;D%'DiejgV:W8)]?r_n!7j2c%!9cmP;h<Y17D]J9atl5:4n*M2o:fd5Us4$0Z/fgr?>'p,amQGTfS>2./$mEd5@#*AcZS#b\0!kH;P2_RDT1YuMW"C7_;HA,([u(Cr-l0iag&#1dA30g'1]$H:KlH)*d1`;\-H4gKc]ens$(oF<.gKOT0-u:r=LA9Vs;%V*bC*TI`?s7loi\+AXonLWf'5ZjXih=@]ANsPspkGl"C(SIWl*Ia+CO.g)rqF:*(3&Au<RkD]Ya3n[JW-6l8#Cd[?tO@P_)37;6G65X'VLf@JJp,9f'0qU!Z_V56FH>qX3S!+kpGkV4`P7^jHk#_7t#./JR;USL!7PVo'RE+M0+V=KmiCFh0QD,EN!Qn#XRQlpT(klDrhpi+9-L"<X$q^F'8S$4/9cRI3BX^ahq^G8\t#gMo@_3#mm9"2RUgF+I5eOnKkSi_O(_buYW+;DkakB"L7O<l$1\FOsLqiEL>JB_gHA8KjJp:lp"rAVA]qmeE>4;St;a7^kcF+_<kC#'L`,o]93KEWkH7XI`,4ZKPZL;V>K,%XA2F2pU\52T47U2&8B==QN&?@S;J^)0(llUZ>03C9)=N,_O[ehB9t+34SB(+7k3>oPD>QYreo5+<Ut2([@I/nmlb607&Zdo.BA5q+8TLVA;6VXm=-`?_ZX(R#jc-c[6SV=$f_:07kd-GtW/PL<$NkgLe,gIiEc%>`T_g6A)sSh_.CZ1cPQpH6lXGQ@n@4Yrc8M(jMS6#i)(Ei(!/(f@3?X81B<.\Wb+V]c_ZZRYLaA\QrDB0AdQ;+cYYl@\a7Vs[f=;GKtLJ4d1(`D9e*Kn+i8`LP:Cjuo,O4pqsMda(LA=24CLAUrZjD[<_Mgs`9**+0M#54I]N-SnIN(`bDKAN"e^(Ct1SEr.Bt,5=KXlM(uYUaF)P)Z;eU"CsfkLTb7[dhIi7/RGOl<)WFZ+.`Vm*-uH-I.>>B)?K;dV;'Xfe&,iiYW%%dBQuDjQl@*q4*-Sj^3O+R^89Ar9nKfAhq2t)6k)mPY),td"e^]%5:cK")4Q?LYH'2oo!`16fW%ptgeO)u3%]n"RL0ZXQ<o_6<ii`EZeOW(`UWe1Doq0V#=RMV9?O]+K$H9_s3<H]FRtK<Bfp""]9o]=h+6(s5Y2=$!.OE8%*#^RK@!2fXn02^OF_1)qapGa]LP^XThcC&_]N2^e9;OorbTF24>GD,R\P7Cj#QA,kl4,VKVhQB'QqoKb/qElF`l!fn=Q^K[#$Yi4icrFW%:9%DRo<=W(!Xb`&KK7_l8[oD3c_X[$#WfJT(tuDY=<)nDfIfVC]gu9>OA<I5u`-qfg(J7S>c6;:;pZXu`V,gM?mbg!CT(e:dT3&r53jHPnc'$,5p?&%hT[9Ce.RWZW3%A/"d;@"Z[)_SoL2:OACsk(fi$hgZ;<[QD+0^G#?WA0O9AlL)9c))+gjZr5hfcm?bMI1fg2"<F]6.Q)U=e'4B.Q#]/]h=3Y)ECfrc_-k?I@c.YhWRdKU?fDAMCJW1YS@85kZ01@n"S;?_bGd.7?9:%l$!Js%b>*""!n_tTd.Od=8VgL-"gCUFRqc1/%T;(Bf*^K!pX5uV=Mt`T^!)?BeOX@D2Ulr<;(IC_YE_hQe>IPBFg)f4mR)4I)p;Sa%gNS;om4$Ykr`DrNgX=5o^q#KDj<sCohSXc./eO1UlQ`%@F^H0`A7:`AU1(@'?d3l.7J4&4.TJk:XjiLT1=D8"?\s2d(A:UPc="!c'&hJer">f`/QkpQ9E(Q1!gk+4s@\kO#OBMFJ6EqVXYOEH"pq2e4?fHWsDn>`K@cte?FDX`+1LK/\86us(%8Aj&Z8U-WWL?>%dU`aR`)3;]C36J8T5_Y3]IU%\2"W?SF^nBX+@J=T1\I1rXCiJmCe=U[cSgTSf[udQiSPUgNK@VF>Lk3d0!Z@2VY:Km!E=rP:qSkrc1E&Wq2L#iuACljXBl[$H[C9]mY?d$>k".6^P#Ubq=1XTjAqji!Le6ns"EHRtc31>]nJdH8"IAVMNEcq*<!<HjSpB1)t42b7SD\-WFiLcJR5Uj5QBildo9NK0!._@.&GB.]O/bQP>47#a09Dpq<Q[(rOtqVp#rRrW^f'ggbsNpm.d657=n$f)PHqAk'_2(TeuYTZ&BTUcOm?Mp[HP6=-+Op$qk/[#<-^co%2Vq*DD#'@;5_&/pb$0>^s9KI0ohB,:i@7g^i8#1s`Z4[?_RPkiTc1[]b@h`OMWgX$GKH+p+ijjVfhhk_ZW<&JG=J#MBCR4?1enlA'`TANmXsATiY9c5aK7r#>TC:WGIG!\O=c%;-#hZ5CPB#.50THJ,<MdPs;q?1f=pn-]dj,`Q#nu!`!_;4MJ!cB.E0i-s701!p,[ijj.1[@,'OHJYcV@Q7N&ueo&@hHZDp?jED2=unEK_0k(HV:4O59:nOl]6^h*at?pnAa<C@cF+#!$=:Q$W>^j!Qu>F:HURP>Eb+;e5r)8td#afuQ%3Y(Us2e:mC;/Fo/6pBA+V1+mEZ.AV\+r>V^`m7=PBL\6P7kkDmF86@?5"G!1&4p`enKX],l&H.0_Aj^KC"'T@nM]I`lp>458,JOqJl7A%-oq*1p#9^ikoMFBCa`UmR%ohY8$?54Y]+/1TX"@eq5!]'!r+^fLKqG%(RE!,`'QUA?A]6-Js+jL])$s56GoA#:i[X'>'$Z^gV"dZ@]8DOTDD[C1-A#Vr=0-:#iYU`LBPI8hVTF7#StOe3<$\Kb7hC7IdsR`"oNQi`H;+SobmP`*Dh:/,9[sf!IFC1AS/n!)VJF%c.jp?k&WLXP2$0#1:/2P*0229"Li>AN$(c@CUeXUe3TcM5=$Tq:[S=oo)>RIW/`P?>WDd@S3fled_r2@%pnI/@7pAaLg-mBeA60R5LB]0j!!/'O`/p;?0NXpH6F)Yh*5B.m7FF1M`?O=a6VU@NIMnPW?`uQl'=gPh`t;)]k1etYZ06q?eGl'5$aH@70Wo!:l/0gAke9r&).8'!64G9&cLrFed844-b"3!a^KR)C4s<DNF#gM6)a&b=lN29hp;GW%)^6:)`C">jALB*?4ObP$YD_=JTk&V=PVe4MlhaF+$'j9h1</D%b/mW/N%7/_$eGd'd![(9rtg6<s7qRQg^Nk3c&C9j['gbP[9be(-]d07iKngV4\aO*l-'rm">cH$oV&DJUJ3R2@O<8ol@8d[A^$Q\nL3KN>4m3=_^uXs2Q_Ze<$Kf\)_@RufAOBOR"lht<HMnYU4J)-P<V+S5X_m[G3N9EK=0q$B?U-SYIkQMO!LD$YlBR8%8rp9C8'_F9@e!TFX]"S*\I!B?NhCug,gf(nL3JP^+7!L#NQNT>nW(EC(]1BGmbE.NuA*_T$8F5:'?oPV0h*uCS8jQ^@L8![*cLm<%(DUV@X(6Fb*st_KpQ"cSIds93"'*G3qsS8@+c6:WR@$:SWn72mCMo_,43?NU+,[O&cU?H5O]hp@<_OkGOT3htO_rH@Y,-%Dbet]SEFWL/^;'dbLsV*KV.7j*Q:/-rJ>$_FZQn<'u0o=s5&B%3*@.?glBNJB<c)KK%]FGR,]d=<%mi>?lu7AV4,FY/ru%@$jdZVDYFXiP!mA"s%m*$:,/jpkE!_jsEm0XdiR_[KEu6,;og+d?0o6q=iIdRj><=e4o_K0/ZZM<IXN0i%OUW1?G"&jN.p4Dk`t.YdO8H/74+'qfOGNKQphW!U2[qalqj%q]?H@9UVj^,Y!,iQ@<6"%"mtDhi\qbEAgsC\Xu-"(_i.B_Fci=]l%$p1GnPiJWLfc0#MIRQS'6WZ4UMseQ4?-<PtmeY_DliWm:-.4&RFS^i>eM"T53&;kL3p`Q4l&[S*iL[o^ACqAZR(bE)>Tb'a`\7%Dof&A#Qd4LTdhG:BFm-)bgo0pg<qXX=%&@\@Gqm7fu!?rF)k&7jm,@#&Xe/Og7hO50*b&D.ne'3;E_CAB(_j/>MtZ-R9eVp=2'jaof-Mc,HW?,-i8fA,!RNkekOP2Aj2']_9^.W7UYE$HM/4[0hi(dU=J+Y7E'Uk1_X*Vbe^S,#$Vg"or"AaR,f+-@f3Fn&>.Vsj(-Gbs.^NF0Yr]$/j;2S1HJHP_X!3ku0W&8+=6'9HS^1VjmdUkhan0]`3QLZ<+iY'dr+&C.uN.WE_rT#UQWis@0rW#@FW+S.PF1dnTuS8\j>K8R*9o,J=/]?/#.DE*BEObD[)7DJO2lXAieF;hiT=2V`W!>)]g@8c.;@u8ku\C)fB$8nbJ.BPKLH'>c</n3M=*5%qM:gqd:H:@pWkeu2Fc#b%$'^$BTm",XX`7PKT:p&)W5IK,Glh)C1U,e<VJ'l07>.Wi+g8,Rkc>4FBD<9pgI])rb;;rD!c58/?UBpXuc49=&V9f,>04SEua?<T`)XmaUd$T(Xc/K.T2*`4Sqod]%#3fL.]HJV3"QJfa<(nl>+#u<dmuP0,WrI*NlG/?A(VX&L-IZpMGNbgP-=:uqEbgG],(;b#a:OZ'\A+ZX(".:po;=A^VRY?AP>?VbctditgtbtMUZ%mdi7Le5MD@N(p=r@T+ZW<,B9g]gBU)8VCA3d]1D4aNEGKB$0P,SEV+7ir<ODSP`kXjs",:M9l]A4oo9#44/P\LYJE.t;llskBM*4dAFF\*nB;X)FK1Cs]Q6F]tr`CLMWjr0uYoY?][2%^4r-85b$s&(`NJd$@)iT.CWl\^W5OnQ4rtV,QnO:e5AfX8t+ej?W+2J/Kjlgb:irs5X3oi,)6<;.Eg=>-bCWe?VXaG>BH_AWi(d:Ct%[P\^F;(H9"/Gh;7Mri1r*X,JXipa;3^]Wc4RY8fFQK0$nHra)/f-,S[Q#(K!<HkKM;:R\/FW_haH"CZ>n[;?Qr3HkA8]gS>nLW3P6uX1m0VX8BMUfa%)ol6]0WPbOZ9'`P;:L0W;nV`g"+/r-&E^'ise-ehBr_!Q;t3O^#BFjqhV_!-3:RH;s<TET!TKKncCYA#f\4+;s/sH/Zm.,%`JZ%;M2Q$1CQa,WIS+s:Vr]JB$5gdrbs[H'I!g"VHMLT\;foVgtt];O1_nK!'(Q+L9]_5X4K0[a0X3-)Q+]i/o56i5)a-QIKHYGesu(Z[\k?3<P_nVd0IN31_kY`<6%U9*EgC-`;p.K!N"9lV!q8HF5rW$;RF?Jo!u&<etNH08K_!2$JD/2T(1NugKio-#%[P;>Hq5:b[1/Qr;J6%-k1i$l+YV0&(Gb<hQ=G+h@hg>n"m-OOK[mX=%>?J9mZh,LQ$VJ'8R079?I<7:D2:KlpJft4Fp*'d7.m,dJ>6k&p>mTWOD"E4-ijQ1!(AZAZL!D`Vb:sUP=..,Hd$P6?+hC+<3%R+legtZ9cr_oN>BA(268hfo=blfA#WX.!m6\\rX;cjRpk;Qj-:FqSPignJ4nq%Jq1sLD%<UXQ>CF2lB15r`[q2]W^nA#$HG**<72jBfk7CZ&bH?%1M.#,g3SS7t=9LbF'5m_>dE/B[BEo45aVRm4.;\S22T_lSB/Ko.R%A#6h(nkfEJ6i4H!KY.:JF8.QNEgjJ[BMS8&<X#Zl2ktnl]F\Y1^J&>AZf5Q1?0V1r]19tL0F$3LB\.j_9U6u0&)m&t/FoKK::N@F[&&@->05c=h8g0*DG<_.?iJGO5qYN/;)h/qBM>@(sol_B.^Xh$,lulG'?3*7=2`>83/gO!UZ.1H)WAge)DP.LVrCM!2iMVRH3K/88RA(][_.m`(h21h:4?6n&bFt#Mi`$8>meK&M*`0'5\R&[q>-;Ua6>#q_!HUUbZ\!.lXd;fuUn#B+LH$\Ea6g9G_j';e#)0>L-Htl7mR>SJ'bRr:Ld0$FpKHU!l&GjD7t:#^9@,C3TpP+%+5</Z)RT.Qe+<Db$&aeJ`fA&]UCKIuRA\E'T&!p/]AU@h\`ktp/[$-gZRaHj")"!Zjqbo$iJ'(=BnT'/;Gm6/B&I0p/e*,G)clXTf.e<"?54bAG,OlnKK]BYcgN5!4Aq8tE3DRaT!470O7+Ym%(727:tnY@FP2#(%^+Ktl:BXOUIZFFYJ1M+4?SmNR?E5:Y+2d!_?k:?iT<YbP=9b?c.n'q,;o-Vf'cN07%KLHKgD9-P:6+T8OkIT\sWd9moGc%^nBpY#Q1kW$'$GXBJ6W6Eu,)Vi\t5mH=e'pI6Qo8e<BDQ.HQ$R)_MIM8",p0]m0BUq7GW+e`sN^K^<jcep2<P5pHh,=is4^J[GTY`>l9V?P&KI$r/UJ3Zn)u8$9"UPcHI<-+O'RH3..'np*oN#Y*KH*GAf)T&#3&:;IDnh@NK)ed)!PPQ6uef.&!hR36i=dJlb9RDo4cr7)*@JkR6+jhX8XKs2CYT%tPhE?jLG)@u(C+F+%#b!C6h07SU^`GlU?+jPM^0d)Lj_1!HE<iVk<FNi+&$<=nfh+2Dj<Aq1]Ps]RnBB`tJW>Jad<fDR@TXfr`$Q:s!n5b95!mnG*3+C*E0?,'XiP1!=*;e7]RlsMn^q3rN'rkJ:LG+ru;8g^VQoE,RQL[d9SaPRGBj0U*.od(OA&e3<+%]K6D[7UX1QAr&^[0,*l9['uY1"P=6e+NAN1XE\qHs9338d+a_c#dfq?NDbK3b*\kMEs<?OgNRHcZG")A<^b0Or-fDKI)?-U6sCADMpK*P4E20DP6TF1W<@"KA@L%a>rhEle)SA*_X^rO0j$Q,q\"rY3?uIaLo0UU$$s^.rf<&"nDRa;-VG]nKJ[0QZl/(HO8d.I(lH%a0o%c(-96%o,k9f^hp7&^A5ac!ENu+t/.F73H!8G=(c?@!"eT^SBu0KujL`4RJo6nD'pK:(jWo/h^Q7G%;"V0:Hl1V;(KocP?VB3Wa-1"uQt+i+;DP/u]<lNn$o0C+SSUo1Ucc]#,`J7mb4biL;GS03[dA0fT5F4L97dT7V@o60Rs"nO,gh]37i24q"f#D:k!?RbB4/]<:,MA1s!``Y@:)gt3"b'3_srcl_BSaYL/+Qes\q8&HqUHM(36Qu'OAIiUlt`@lV\_'VD4X((BWSs((SaT;](-d&'QjD"gkHVeh^\4t%3X=M\<dPDim5FX7;.G)K24B60$T5A\G*oj(m_Tr'FDsG[nau)T`VXT/nKC_@e(]"_;h1*.+SYuT-0U&>NlC@1Il''s-b'Y2<'Q[E6FH2(G*fiVap21M94+\\PAJ.!3j;qBg*>hN2^RXD+8u59RNq;/iQY7UdIP(kVjF^9-21I21C1qId\QRis`#DNPlQfbqbbS+HFCG<!\bXh0@H%5t:eES)H<H/JAtYij*:\l:_gORT,!@`6[/_04(<`#Q$$mIg:B";Em=9m=O-r(V-euP9EYWXO!V2].*,WuCYB+(KPN>t10>WLS6G!SVG0"1qLJB#s[!r^9^f?$e1K*@i^D*h\.^4(dZHH\<H4S5;s)bVg3ap]Y';"k**QXeqOQX@2*8L2rA:P,^ibopb"G"_!(%[_T!%-O>:pqaQ)HQ1e8Q=9T<a$(mfe6md\CI2.k-$&<YZ5d%P:M`l;F2;5]O1D+WN^ITNJG@:\6g)M]3AcLV/N1V\'8^'VN\T,9"mX]<F[IEpf[G<euIK66P-iCnG==HH$).G`DKR$D6LU4^p"LN#?hPR&pl"`lbWIBg$hss[k!b`3OSp[gI(asboL$QW+?1`h*X-K?X&kqA`,ft#(TZe&-mj0YNaYg+Vg?ZjXpqH#&.#<U,(;A4,oYu,p`dHoTUD(2?a;gi#glXg2J`@.YKEk7/>'l`M9cRH/YhqXhT0r\8BJ`+V0aA1?/PmFXG6uWOZpbQc_2)+/WYa3t/!U'0LJt6,'[gZpnm$F3>R%l+L/C;bTL;P%R6kRX@YRMWDfhg76"#R="f:O6"X`GXO<qC]gEt[p^"6Q&>l].M#LEA<IUQCT+"*MHMM_GT'rqMd)OoDh3AN>BYD)i8NGf4`]:&9L%_0TPI%rT<BQXP%ue:_F;X135Fdh62Kg"h=:o>b^rN.G#M[t;-cjh_(9Q2aie[dE6(m<EQ@C1JkPWi,h7)l%L+FaZDLCKc:CAh9<&i"`<i7n7?GK&.%Xg-X$q,-l9QbI]4[e6'XCFdB?>*"(Dj9DgTC/f!eI%ak:+X*o;IgV)Dh]`35m$KFhOIm:OQ?-TVXGHW]D+%]BB@'b5aNEqTA+ejDBEN*-O-5(;6"!ERd\+IS3J3K<i_:B1XT)HMuf?C.>&hlXjf=UB*@2U&u^tRBjP-g4TLO%2GjJPUPiA"[FH.`m$MO&JF?3l2!L5+FZ_I`'Ds"mA9Y@;/'u_7a_%"*V@8!1f#C?oIORIc)+M5R+fdI$8sDiE:cn:Q:VX(&)4;/g"WPGD)ZMRXUg/6I$":2?CRan_(^$UYG;D(^AJcFVJjBkT)_^"hI"+S0I#Y3HncCho*KtuH5l'.`"n0c$=tS:+"icBqYCeY!$YAYD;pc%?MF6-\g[6s[h/d$PO;n2*V4/@0[agYU$noas!EYF$-.05A\ZWEST3^)bT;fUT8](po:[fV*CA6Z;nG,6Vg#HKs.J1/>KX9j"Vn>GgJN?6q<0:i]`NPn&QH.3/T0Gt_,%n:`hkKslm;9u;7d^cSsZqs90WdV<#*e_oM;L#f22o1A1,3S7?Y*c,XiTgdBo`m[""f%]25X^R@ZV7]:$N(lC9bE/[:1<3__upa1KG6<7+?$GEZ>q5?mF88`$!]8OlUu'9fncqe=N@X@V0C85hjBfJ8.of06?ukIlUpGiXPF"b3#$B$h+SJhmVLgm6Wgi:YH$o,&YM1,Fb&I77ilCj.+nr=7?(_hodaH8oP4NCOl-f)Tf0>JC(qdLl?R2TRmP)fn]iE'92+=BFj6n<qpH<$1a9gae%.;736=Cj6^r(guE8@)etU.H/>.I+e[5QC`/fPQYrH;(ONqO-3"rnS_]m`7E"(.XW8W7g%e#_ts@YdfOG$%SE,l6W4nkl2Y,'N65,*-orGnAT-:b32,.&$/OHe@+Cpr70?1":uK@MZDnV`P[`l"=iBC8H%*P)O=k5CqBqEE`U(9&J5Ql8Li[-)kf+Q[+XI@[4p!(3UN\\!m;r?hAZ[W$<:i.I=J>fSZ"+0Lck,L:p]-,c/4&m<"b\qu(bre53da^#:Od*!4i,eA6_:&iV%U[M,lEcJ#U5kLTr/\H^IeW-I2TOGqKhmV'OkENPa<'o<qYQ?gTUSVri,NO'B315k"oSCEf/G:6%]+$cu``TX/&fmDU(S@ec(cBV1^J"r:so8Juq]TgWCZ&QPZ:$\*Ic_lOlp\$=sUOltB="D3:Lmi*Y7e`:ThARIi3aPp9bEad=@;^j_\4UqFZX'g^*t%W'WkGILo@gos%%!KS$URk#`EO,2'/^MlIpX?]Tu`9uF:l!&7OERIqIDbMGX!Jg/3Ih`:LBUS8OD#F>\BcI"J,;uJI@>8>XG@/N*CuU2+KgW0C%&/W");k1aHd0>XZj%TL<aMI=(kX-"kHCDsdqe\SY_)cZ"B$K@+^Los^Ri=m_:fb,g.FWS9rU(F<Y_n=Pq/A2#_uqY_$&Zil_MUP&bUg%7Z1>bN:W=;)lrM.rM;seT4'-5%gFP6q9TAZmMZ]<Xt%pg6O"SQV&6sXSZl+F<+KdbpXa@%0Q[pMogp9E@u>V(n@0"4S1LO4Glc?`fT2<p#MW+.@BVCfP'NaJB/YfRp8YF2I==-s(?m/@[E-#TS8>rI7oWX_#I[$CcZoQt+g-ktg<TN$k\>P85!e3#;s?:4F[uh,EC]+J3)a(OJ/3&WE]bU0fGWhA,/R6>1/<]^h&Qb_D\p'_.L1h_SJa8(]4Z)tG<&m95e//f!^bJ7N;P6P*1_Y5<$dWQ)lLp8.epUtM].45pWK(?%@t)j>'?PtKYqW!pfhq!gQ]0U/<^>:#"(B5:BE@d`u1#B%=<_7OL[0Gpch*W@FC'KG)5^oeD(fk_:q+mfK`-oJB'&Fd-1P:OmKb5OfOo.*eC(=8%\3UoY:J6XUcV`37B&)6KWELoSn1Im9h-leL*toA9qJ:*T5^Mnp],'1MC$<Re3,FaGd9Q78+@pmC0dmInhK1F/0F:-2of\7[K]9i?Gb&9g3o#k%n/FPk`U^\C6'd#"DL#a)d)E3M0^BE<:k=i_hs&ZYb9\dY:667OBmj3n+pOMXXV)K4bUr@!&OO8,iuS:HXr;5j+,Hm,dKsa'#uAj+<ee(SW3Q&U':d>7m9>2<$2iV7BOHB+DKn>7`L!HpREmNX$T5O8?d+>d>s8"B7=k_ul)aZMD$2(;$fEp!C]Y_Ttb6!(;bHU[5OHN-&D.N@5ehF+Z$fl4=Y[-nH>WB5(OgdH$\^R5A$W9-ou=YKnGBhNBF7p)*,>_FJ#e40Q*9:o#g1lu0m%CoaO4!'8S"Hq]Br)p[h=H6Fq^&JN@$VM?k=c#`k[kPE'5e=&`[g+iKP^S7%=DI'DZ`8W8+_s]p1bp.WIcHs`]X*3p(n<Q3J-os-5)].+X*1t)VYii\'ab*g4kR\HWHg`'8n;Ygkejk2ol#`2J);"3aJ7@Z>>Xe67]-IWcr;pBC<dPDrqC<NuV$@8A'"jjqc8)s.La<^Hq&I'9@M>kX-W!]F>gb<L0h;+`-aW#>N23m6Wo+j;bK'Ha44^`S&q,QdL6+>rKj<>a+Jq>`cKq0taDJ^lgY1+/;c`j7\h4X+S.NUh?RA>%QP<ZYWk+"i$!LTp?dE]dOuRWLX1lo=nu]>I..J^Z.aF,T:]<3ABN)^XO^q0Wb<ok.GaG#Dl$Y,>V7_VW<0^i\F.c33R!mt&h?P&1Hg5A@=Rm)WNkZUt34]`O^hPh@\4lBhPu5p9Zroj)9WJ"g)-2a;i$4,brifB34g8ANCpZ=&P@ZT[g__Xdg7:Rc7S0oSDX2%Fe4c,YUtk`i,B9#FnKuIMf):#(K_TVO_<Jgg]'#KcZ-E-kogG4J2^%Rkf1j$IZSqPTU)!5E$mR0=):RMhGai'%];l1*VbaOCOM@2(HM)Q303DnSVTG)T[n8>QT1bT(-4c!`$(p:pYRr^q`<%<Z1lNTJcG;(q3Du;;4Q.#aUeQn\-6pX#I"YenHU^V8fRsT%Lel?7M]/l:4Dihc\GD!.1CEh-=L-I(c;5Rahrpio5f%B"lOe,YmEW0?&2,kNHlm*>:UESLTlW=LQqd_GaQW'GN;ULar#m&I<dY[15)g,YVWESM`-H#;ME:0C[-VB#\>t&k\^HElcAq@[S:_?gQ?@ut_,U;>Mqp[NDm";6e.@lA:&;:@_hJ8[MKNm(:9Un;D&eAI&FEU6P>H(.PK<`XpVbbuY9cB)!a8$Mn<g[(Y)Sph7j?'JbsMBki^m+J_'49K09l_@FTkR#g\6=TM[?/T>He+NR7?eIUeV2i>l-c*e(JQ%Mic6;PjpTZ>f/Q,-ut^pgdUR:Ph[!/N0kLF)2P3ts$*'l/1Y4Um6`.jf#=h7Yk8*._kE4AQ?\5c9th86B+c:6E9M:J5QLQF7OcsYp1`MU6VC1S@Y?u>Q0LuiGd`r!K(Z<DI.^F8f.0j`4n)]q?S2*WnNsf?YVrG0q[FRcb_XsKqAHd/m/-j:,=>C^URN;=H:mnIiRj$UMe,R5=-1I(PCNKpD)_6nP]#8J&G$g.)c/n:s-D3,CQ_k6\Fs83U6sKI`/XB!334qm\r5Gd4b_'+6Ls-qJf`>OC)N:daON[=fhCHU67dEUqB!E4P2YE)+TTrgBQP$A(bFSBmq9MNJC0&SE4a2*OA6`Jf:\<iUl-AQV'@(a6o7:7)<a6r&:u=JmH!f"*!)uLI28p*hUDNFFp9(!B8tVt1$4F!1t@p_16PnpmkA]ni88uFAlC7>$27$B[AOq6=a!t)G%dYG(dkeP0L])d-l/^eehZj9,/M?.7iGQ4l+tY>?1H'7dE9T;VSsOIrcR&gGhLHT0C]MJr@n<`7AiQ4RA0[:faPR!%'<`a?Ek?mU0AGq@o^3;9WODnkhDC2@c)5p*MTOF6t.PEGhb_W'!=2Mrd^qti[mCuKJ)XAYn>05>_Ca2+@so?8],$&-\^LCht6.NT9u`e##7$H^N"Lk$$\1Hs5Y,"]n!Tq\I,eEcjRdcJ%I&<mA&:=oD9d3`)s7"3cWE:G0'8c@lrGm*[iVr7gJcB!@Fk9.M=Mnk?%2m>8Ub+gO'`Yr3Kp?=Nikr!U+&8]QfL?8au7(JX1I3c9Kidaic;3A!rVks!k3&BZUGs_;>I>qS20LnaS3!9),R[%WX*.A&\uY1hZF0/*jUVM>)@c#_s\t]X_uei<WsK0,RLuU#i7"3m/l'f)'1le/`IPFFTK!p.qs%*3V+A<hQ,mmdOJ^TGXLYIc^JNr&K+Vp6N4>#M.$.J[+hTGM_eHMVj15n&dck^gj\A*1jW8pBQe3?NPh]SlY3PrH$%B!.\C[-`I4?%,Tni'WI>fbm?a.AXh78fBDN2-Q2R?DZE@P"D9-]f8!C.R7%6734N!\lbWk5aI,e%6!)Te6(C/uSWGrgLW&"!/XtO9TR1/GY+FQ\kg4AIUHDqmR4\cMq+_^H2n6F'TMlAQA+JROc3*puf70kXLc$J"-LBft8=kndf_E5a4]Z9@\h-.VX8<aT&#G+^YM2.`P^=6^-QpK:ALBHBLjR^$)_[r$r29!Aa.r+$i1%f[OX?R**(EG^Bl4ZIpJ;+"L@gMp3si9>\?`$l9,5hP[f)S)m`g$Alg4N>K(d`*rS=n$rU$V:*)bShjT]d[rp=P_F*+]L'8@0_qX"h`FU@W4!6a/c9Ps]a6(+S[i_)n*W=QT#p_&@(H1X^RR6;"EG7>@[JhU7VMYKZPDr=@fTRRe\#R9*;Up*?jj&A=+AUTJSZafIal.S@D#VV(I>mhR<"9I)cL:[iDiEK)1`p"M5!+[0gK'5.OPi<SO,9-EGXfNkp<rJn\ZqA#(7tsQ36&7=D>D$iSop9rn-8C],k'D8(oaq:[&u,k?!6[N5Y$=I1R\ZgV5uP-3#[TdOXqorGbAkjT`T>pagT?!1oOATIil0&G6e]V(,1PY+5j':coo,#pG9XQ*<E;XMdS$[aWa@&l/`u\iWdePYOk?1\,NluVR9R13Jr,05RT:@?\G?1]'R<J_dOW1qgtUcilgVV82ZuGJNXCGJq'&\d:*T'p#o8TKk2X)o3eh:r7KLiL'5(pWOhc%;eKL$n4#MafIu5YadTKoQoZS#?<,[;WArL3KFeXG?'CcP(mBXU:.P=W4ID#<pC21Tsjs[NSS+S!a\.3Lrg@,Y[gj4,X!\db\BXsj-4pZBB$=Hee.\R!i>Mqqi'^;H(q7D(`*@NRtW6<J$%3u^f<Tuiu;H\<,'6HSk=8<\?]:QdYJYb7+s,.4r7><%Q78j2n5Gn+8d&*jI$-`shDe>HV/=4\[/g#Vf*(rCdH=mH7Y:"X:3hZL!&E^%c6m2PhBXuj']#$#_-YBb!p"\P30^oAQHWH47@5WH.GbIhsPq(a3Y*B>gO(pKsgf[;ciW?e=L]5-CNZ-EM%Sp&$(n(CSIK.]7[,,BS"0/KEi(ugqQTd!Z&P8"!GGH2L+b2*Wnn"N/l+=*AnU]T&cR-;R]&V5UJ[_Z/+soOI2uY]e6#&5Y5_;8e7iXOX1V-34_b$MV/4oGIH-UNa3d_d@-IDLTkN06V!TS]3$d(.WbUN=fm_2s$.0L"ss-6g<Fc2/.*lPs?9c_:87DfL.L4*f[s$\48FFG:SI<>Qb@=;Wb^+sI2L$14^$ZZMgA[@/LX_"PfP"t4B<>Caagk0tOHJFTpq/9HYZE!'aT%0VPS)]lAgO8c/aiCu#jg*gmnfR,4:q8e7SQheV70]n3;t#'7!heLIdXj;kW$os<Z@sK)dPMQ7:_)NLic](,6f0Um6'H?FQots8%Tk99&HD*(TD(;708^h5f;-]jkagHZ*lNHiAcCJ/MB51!*e:tQH)NoH)K\ZXL#1V!N>a#Xq,u!n0Eui>qq^A)6!&BX(rqt1CKcmf/`4i*k_gM\-8k&t)'RP;-L?[HU%:fKE(adDG(bgsJ2AoCY<tFlh")&dV6963P*ummOXYu2MrpOE(QO`@j=`3+0!l]?iltJm>39h2(p2MfNL:S^2M"oS0L&s1,uS(P`$4FN*';VT-@IlS3VeKSbPk@P$cJQ_ljTQJQ?TO0/3;b-@9/-ZA:,t@@5#n1F$Mn#HUuVUP_1/Cii>#K#%68u[gVjXQ7lj7]GM,0DmCW.6B^G1k^jZM:,$mlPu2(WYH_W.B2@M9D^o1"Z'ooe;(^=T0ni7n;Amol\*n#jY"/N)Z2PKiUWC0-kpBATn:T!=f$D6ToYOBnMam@[`J"5SE;nU,U';Q,H)@mg\0G/`4D4?3H!*\VF@plUZcSr?/#\S:Er6e.*cPSUbI1`K43K`BP@r-hUJ,pkC&QH,(M+IKcb@7I"\a'C@ZU6,f,QR&/DP=]-;qT\Iq/QfN"ZV[isUGSB8A2]&>(r`S[4&RogsHP2g;f`(1LB^>tYKHSWubFJ@K@:\7.IN[c=7hj'g+ia.L4!^7>3T0SM[7M0Fj#eHI&e:t"e;(9<cEiG*"B.`#@<2"O2'"l7/9A&g&oDT2irA'jFr(7@%&EDQm*\8rHbEOX*I'bWX'+1.<Kh+mZY+[HP_2Z'nV!f_H(6>,-#_PH"t56?+KI\6J%Kf]n)4$_r5JQ9Jf"-&_9dZ;sbW,1Vs+[QRt:n&B8Bf7DFMJHC%Xi%A,9l71<-h`o\U>%)JENhm$RYW+KIMeB7Seh6X$X4j>3E&4)6_ime\]+)<52F6tVXNZKlQ!m33aZ5[kjP<8hILQV4@96AVau88621nFjqQ+?I'jm0$ucUjdsDeJ#;,U@ABiFX)Ipqe(6'X7JF_koBfQ[IdJQEFct7cZB((5#aA,3@KCkb;7Mk*jSHOCq\[b\OAXE!>Q3HVK&H&$0Pr'/&s#R<6hAtqd?r_Y3b:!Gq!,mi*f6D0(^7XXE]8'%5a9.*<_aZBf"CHL5C.u$\N0JCtD40CT]8F9eSkLKd>L-:[l&3JYG@+`(,:AYQWW'=+EZ">'23h="H9A4ta=6\m>T2qD-7D9(%*<Y(#o`,@EA3,LQsJ"f1uQ*uIQu*mf,p,d8ObS[3hRS-RXT7YIVmOCO7b`k!ZO1?">P!]pr1AR&EBuQW<V(ZrQd*lF3qN??+3f/>-=<l2Iu3<b-m0s:j9#(Cd'-8Y7@`caLe<bc)g.C`s]LcYh8U8YFD8o4=t&J*Rs.]r`Ttaqfjudos`f=QG/([DH;`.EI^;hoHuXD5>iLZWqQRhpZ,sW"N1_9KV[GOi#9aL<B`N>lK9cAduKqQGn=M*9bHju)"N&,,Wodr;PZs\+,[^Q=C;$-Kc1OibVY_Q5L*ed/fXC&:.70Y[CQ!jeXS7B]X*.!T%F*KgO08/UX;Aehu4T4dNHa:_?.:#D3UtPI@:^jaMU)@Rqeft2#$cL'5%`k[c_S9mC"\8dbHY9FNCsa2L<L&oe`K`".(11_+%of7KWAEhm5NjJhHT>r\<n<GWX,@83s'uDi1`Ed1<)NOYFfOXpgj2^r3qcR56?Za&hiPTPIJ.qQ'q6.@emF7H)^G6GcC%1ZU>6cgM)r_1A[)i%!P^[48_2n)YLk:O(Hm*<8^/S40<UUhL&(1^H]e(9*^2Y()q"!bPbT7"ioKd:i<\`I=Uq9pHQf.,_mI!l31b\Cg!;XIP8HM)M"?a>A4<TgZc0mR[`;"fZEmhpYFmao%U!)K5K5l,(@RdU;]]Jd[;#>cT)WX[g73=7#;@,)5r\;N7jtNP')aQB;,(pBG?Se!TKH51.EE_(`]fXRhg.[DhYR@eJW'j+<qo\<5a.K3Fs1&DLR_OmiZ5d$\lef(9\8gJ-\eoq+lL*FNP$W4m@BP"9#io-=kdSuM1.Lf8O^E-u2Y8_\<q=;mgu%9Qd4,5<bSktf#CA[cus5&Ria<uCO\,2BbQ4*F&c8#,]E2rX!Y%23gTb>jT85D$;ujd+@!,WmrbFU)B@QDUPfime"FIRrI,j!u&LUa>j0%,SP5+*CG`neoT&KsdW8Kb-F2]dbSZD:tYq8X&(dTpiPpZ@7b4pAc8Hpgp/W5IE4O"B)SrRS7M2(P66Cp13#(-cmPqfgeSgK\4TTgP<rhKf\<oSn=qdR6'_$J>FT[a<;,DXo"QTXtR1S1@0;cs%`?U!3=JOdsf0]i.^E8^c%YfHND;%g5Ii8G:-qu73GnPK-jniLIanZ48_0$5/*V!r!l!3o5"e#M""UoQ&T%`/uBcd>5q%*:3U+7[MEX)k*^SV5bH=$mMbQeUr1@EM%+>&JOKLY>.<N."F;gb;O0D<=/p'jG'`UG9,MorOMY`\bCWq4K?g],PTd8GljLPu:.$n;!"g5o7DW(NM.;m2mc?4HfKa<6n\RsV!`p4jD`)g@f9l[F`I6n6$#Aip9[/kPl?\C7qVnaZKoU!jWYd^m]FS,\4p_MGmddte!$:gVZd`6,53"u0WEmop?3p1/8WOjlhm!ca[q?tkHFp!>NGh1a^,>f'=6fuD10FG]-qB4'c7$,JZc*_@aqtO;n<=D^ht;b?$:mdrD/31ePt0J78$p8D"J@$a8.k$p64IFs]:orb)7h<E,&2#57]53PBYP2d:8??<g\QXm2Wt^V"a-j2/mN0P(F9DW>;#uPLX7DTk+5^mVj0#gc.hEs6Ll?BOAB1Ne!bG?Z-,^1d!P]TFQ=R7<d.Vh$T0FT*H+HfKB=qT1(CHM/'d8WZ(("1(Z0[(2'8'<jGpX@J0lnV##R579l7l"-1Qt_0*JR2FMWk?\<lbP1fCP?KmZLh&)"r00s^RB.BScq:Jh8;=(PqA+'^s;Z6nK''\6Dm3Qc!jJC?CIaUDH*[4@t[Y9bg];ABW;FAiHOJl+78qAVFr("(L8Sd<>cK;drK?b4R7YuK2SZ!0['0O!pq6)3B4nU*8HJ)aqB+QW-T\c?8`cr^Be*K,npNY9YgNAddYIglEL%d:KtKB6BS:H@eKln0W+&OqCBk=J$]bX=4U*7Rb0mT/s49d$IJo\lDVJnQAJ08(thnu.Ll$+N)U:R01oSCg;q^L%4b(b;<kM+Kg9,ItJtZ$[G^iC>Y"S+`)ZV$HF,[VbBRj_1AnP#/`ZCkrc<kF]rc,1O;GA[".M:uQBcisNEBUOGj]c#,Rr3:']k1S.:eHZeD7,N+L`K`?PmlOIR"V>+DX`)MF)>r3+MZ?akUp]c^l<ue:q\On7<69P4Mr(k8*gVQ6/p#DZaIH8Vk#*cY02b8=)"(P<f;L6u^._&ZoWRZ?T1_e!-8J5Uh0h!03FYcP76#.=a9c]-WblGXr3$idi54&%8:iha]-863N4%Ee2:"M_KaZ=?nMS%9JItD.(E#Pqf"G]cD_1'kW]3k4D[)Y)VU;GSp,[1TM<KWp*Ncm>nij"<nna$FFlRJm1iA:T5#WD+8OiuC'7Gkre8hR</ZpM8O;A'BOG6`a^6dt3nUT5;+3s5>0"4U0>EE<_5@VT/)?$Y;mf.;pH1,ZB.>;Z77*?k3Q$&b"7A^bB<a_;C@Xuj%]K[1]m6t$4s[Gc+1<MqP8r`8FfoCN3_]DJ6q45dHqT.V!)_X+>)83'U+<#<l7M;2YTUdTX*04a'rWPWetpNi1[36?aJ'@SYtlIi+Q#fK\3Qh#j6h"2n>E*'4l`K;bE)bEVio[D^_0UalHg::>h>E/ig90kVp=0+&GTT`3-%0CP0>^p!@PqlR0\.T6h6]>E!Yr"]*<QTD%&2Zr36,?*U*//lQSWYJ@S,PSD`d.$"MG<p\A(W%4`p`3#:eY4]0XMKU+$8WWE"ogZILA:i!!/%_gWQp^=<jZ,6oB?T)fm&")f:pHa88.up]Qug4&R[b"`e9$dg:)l:l:0fs'r6YVuW,5Pln8P.7Y&I?o"164)hJ.(q,q(R2cpT?7Qke`=L#Gp]ik$AZR.KI/MQJrOh["^M7pGBL_;&\K5rd&h^4slaGC<T[fXl]niU-)_5-h>*Pgo8Be0k=>)ToTlf.>B:S7-,]+J02jtlS%D@#N%LjLQe%_"m'BH7\"Wu6pfZlD0(n=p4$UjCG7"S_kF:,dQ]SIr,Qp3#h<C,:7Fgk8\MAV_E%PUs%+Kqc7XV;PH5Fd*DR=]8q^hb3+R*F$"N+A$r.Di^+&V@pCP$5d4EL8=cHO-Q,p6$$NXeGlnd2)2QbR57ZE_-.(ciPRZ3AXu_,$4h_\iU95!*]M/,1V.$Ll3^h"d;>p=kSmkktr.q?40B,)SQPh*9V#l)5&#%$!noVJAM7E"n`ka5Gg##=/=HZ?9)%m6!9&pU(L]9dVme7=lihNr^jE-+"5?uX+O'Kd,#I8c5nVT-p[dfpS779FlE&#[f\$D4)N]m0;+P"^(W^3.Z8+F4"i4)9_*1slj3_N60S6-:\TL8Va^6uFmdOH#mc`TimrU6HM:QUR0,)T7V)VO43LCI$M_jrNGN!Anl9akd5en]Sejc;WEGg:qumR(b\b[Hs%D:pl8Rlo>8lu;+J(s\MrQ4T>?0AFqN%UXY^BqF@c8b2e;9H@Hqu5.9W/AeGCSRE2IVa'oIbl>qO*c/'0t((?Lbs3bJo'dS&h6YPEE_0R12p].I>q1afDBC!7]!qhRKCp@Do2&:CP#$Q1':]GI_kOKE[k"X\_+<!D>@'_>h?][D*=I)heXm]LQp3l72<(rJ?IV9[OZYGq9-Ml>EuNR(H*e`5*64Ao>=p!]'3j[K!'G+N/f1H#D@gV3"%7s'd,`\kDHN;7"J1g5;im=A&PbDqXToc^FEFH6>OA+0?:/hY*Hdh),"KpX_0DD$P"h9L-#o[MpCM0_+tNr>;<8CW\hYJra4K,U0S0'o,o:Jqp.Q/!]p^dn>*=)Z^#a5^bDLMY0+IojgRr8QiPacp<1=)9@JLoD"F:MXD;q$,/5E&kT@<;&$;G933*K"4t;t#U:6Y)9%5qd"`Zt!<&.pTC.:\o8m:+#6u1-;?7g.IG<jsbT%f>9F:pFF;46a$(!P<08mGdKO.Vsk,89a7;Df9<'Us/*,!^U=pdK\K+U[DUkZZ(Q*ZFD+Sc*3\`/=bW^2K)#Ir`<fG3Wn,IsM+c/cG^,<ec4J(*t]G3s8L@Q'_7JRXo4o(./6fI3Gu38ST_dOM)e/,bIJmWkbC[P9=,F#"B?H44YqK7!bHbVGgrc8sk=cnZ2lb"o*VNE:5_6mBJeS9+:&6l9*/l(`)]Sbj^2mXY<XH/)IUl''`fVrUUAcE6K`L^CbqeMlbOA+FdX))oX1L)]bL";6[k<O9&r+5Z@QZ.aOP(/))@EOF]b\E49+`8CGh$N!OrN;<#Y@N>.=aFJZ+GZKG^#IuRGrrK[0T%Fe/N%d1r2\Y/*rt[f;V(QSS=)GLGpsH[]^GQU.'C2##E7;VO[@^`M3F2G_nrti]ElO^BbG39[a/cY'ASBCo]UG&"$,Tmn*X+_d^=!$"$q=0u,+J.^R#`'$(G(S/57oRbr6<4cA/0gGDP*62();l8_HG_!`XT<;JEf]?N@c3:1\^"oGX1k6l>E_TV_!\<q(qFSA#&1Dpd^?001#<#0tT&D;VOA<*r#g$2\?!=g[9[1%AU%IaKqr5C9j:LnsQ3J1-g*e9d\og1s>;SCWTXLc`T5>naiLp]KMmi%/ResXc'32hBSur_hl")B10->?]@GbGY:,NIb$eLkIN")Yr5Yg$euFfqna69djO-E4\Kr)j)Zk;p+<*2nn6"N'Pb3<`oatUU*@i=?9BDkE&_BrR-,4nWA'nT:9DH][pAR@^&uBjSMsOqeg"M7>^PBIrcJV9oZAc($p==T;7-G9[[>Jl5Wa8o'N'OA2L2ST\T/0]Z?bR8*/_ui8[LX%(N$=lEFDX-j^TVsb1u\K*SKG#G7G].Sl_A<'ftDF-,)7%A5l@6f!B:5?:*BUh!%+--epc2"UqtHKM0fH:KNDEC0#5]anB)DZ%bf";SS`A$M/uRDGIEPm^>&*$MIJj!In0G]ic1iQhegX>ft+ZHj0t0(#:mdgP`>7'ete3d0C<aJEb7$T>ZjhU't;(GD90DS")g#]HGZqgm6&<M`fs*#o68EL*[+#QdapaUNRQV59$bf?u;\hSoG'9p(OniUR!"V8BeCS%)InWIB2UgF^g+]^Nd)E-lZ0nBmVHuCApK;k2^9!9-SP1DFn3Nk.^>5*-R)]2JL),i&$#Ff*#C.>]\\Gbs'?sc@H:+Z$a4Inrro)EPF_RN@Q0)aftb&.gTcf?&ls3<sJcsf/k_%.fpTL4`fmWemk3f9-J">)Ka9j?nO,'T*rH7Yb!1Ic6<mr?t+oF@Odi*P8Ot!]Va8qDrqCQ;0>;t3V,g*rN*\sKfn>8m"F'g5phJj.HGP>+4T4XYMl_:+,4&8R*07V'P90U+CJAE+k`5@dGlP;:QnVF+*ej1ajKU2GJIQQ``.as\E>Op1;H#=/`YsP8gp;E#-H[/L"B.oEAg6Fk3pNtdWtQ^Q0S.OOeKq\)".?AM!6?'dm'ua8goe>W>\6"L2*1Hp-ll;4Cu6L%l.qAHX3?8r<0:D,*i]/P9%H!8mg>[b5/b+!SHsBV/KVRhMF,u*/RcgBGdiA*;Jf2.2*S@EL"G?e1a[b^60E0<RUU=:R/`S8eJ#@HVLN#SQJoeB3A(R*2\NWD+nXu$:Iu/$kHQ:cI?r]":brD@jq3=AV+u,:o75!I3!EtMkAC2n/nA#DSG@OC=:a^o1.[X%re:7oPFJ@;h16A]0MZ9h2_3"SWAtN)E2asY:St^.Ul/(/e6Eod;@"d1&5X>I-.,(07,Lir<#&)C2nm:5]VUP(K/=nCdeC\R34NCmL*AA(UYnc^uX]uZ6tstj>Q8:R=d(g%RP9N*b9B%=g?BYfbmEsQB6lIT0H@I$@Tr<Pa&W2Ioa(9@"8lo`+CP<.d97>KK2@R1PK\P^9IjRb>)8^Z/?i>gCT0([c+NB!I69Eod5#Y@b7o3Ri+-"2ETs@1")K?%AJ2p5EE0ifJuRKR7p?tC@Z+<GS``Uld56jG]t1k9j$nG`I\H6cm3\m;3(HmIk<Ta)_4NEU7N$8^lG"FOt-Z!#H)sF\oj@7MU@BC-AGcq<&-NUl%U\NEe_D#mqb'K)SXlEkmb#5%!`C#S!KelbXVMJQsCVJN(l/EGWY3tA`74qj1g!H#<K\eAn>ca>PWk]bnY20@H=R=%>aHk>*As/"GKCOGm<>p%l`.9T6dTT<6%<@Gn#FmPuC53'8gGfY1/e?r]uS6GJ30K-chcFLVKbu>"D0TLn\0)@P9]0Hf\Y&A$ZNdOuZV-591<$RnD^%k#!&/g&7&W#`564W.0u;?fK0G/!A2#619hkXEgc?X3<2<eKH%7<o);=ls$'*,*>tiU)3Cr]V#l"U*R`W!3J'HnW1\n]=8Es(im*$HWVFHJ2*>,VTm0*1ljec1hL)+5):S"oh"VuqbmoKa;P6Yj!S-HD]/<<eSH8OHHd5dQ+NfYpVPljiLmc>SWQbU[k+'ub^TXs`mH?fnMJM+;Q7.-P)6]fL2u\6hB8NN)N2TG"-1_@/^X?]).?c]<h]CIEH?$'qr[:;;4a9UQ=uH^Mo'\i-hn^RHmY'^%G]\'?<u]:j)\nS&K;1<P.VRMO:(;LU10hp8sEtCJN2R"LBQIm0_`2dmq'!7BT)mDGe]bUJ4AVcp/SVR-/HlH^pIb$dK%.*<S!%YGc`k$7ihX[21iE*IuRV7i;<T`\iXk$S_a>QeH*Gd$Rok`Kd%t/a3^D!FbC5C$fcaZ)"F%>5:hU?)k;L'A;)--rV@@I"j])qmGs:qi?K<[n(4rn;7rj.]F'Yh4gT%u1/(9jcCHc="=WJa<JP#%=h\3lOaIcY@%JrL*QJJ19=@=RS(Er60K"p9hoSR=WPaCG?+1b/WXlu[Yo1d-6g.2[pgZh0[Eg9BU/U%>Np*6V&/H>i6a?`>T/0:k6F;ON55GuXZ!29_R7T%`F&<4dp?8;p'./nYjl)M#n$T#^m6J'-]D0e)cDs2%bK/YuG6'%2n!.RD'U)n'\!p:F/ek+UaptA=?#:H$EJ,Sc#C8.m]#oq3rk[=9+tuAJ^REMechBN',sR=a@:b-7e6<Q4ig^`82!LQt2[)RIO^a_K-ZCCo%WhB_NuQrYoTV1)!>pJ"#24V[!]oq#.d2FNM34Gs-5:tQ:Fr,B<hod$`'#tJ5qj[#ps0Wh3Stdg14>`<fR?*=g])Frg,b4+f(/;`:N#UT\kNhA,m;%UGJj=0-JV%Y(G.g?W02Z4')S9A`/BY&!q8.Y^*c0?&8+QCG2aRRfj-"i;.tUPFYY`'P0+@#9GFKKVT[#p]'q0,5`PkFGGAe@I1hD&fE"t/.V;IZVOe7lI1fnP8t-5D*hZ".&(\k\;'B#3ThRY-`?/k.Hn'X@.:$hbN=#$R^1`:u]8s2T'O/HC:u`rMMm0%j!B'K#f.1`i`'60k4b";>WT3!X7[7(BM<'S^LBGtD@:Mta]Vj)&+5S04lp34!$i5r"!J[dFeb/69bY0;g.XH,ADV(:N@/o.os2)a7f5m;5Wc__+,UH"OWh0"(D:C5aXN#UGAi[pY"gn\3%1P](WckL\_5*2UIJ1C8CGYC@_?'PD*1J_8P=R[P>ksQ*oPhe6=[1=DrW51PB2M.m(t#?n)oc,g]8.,:DcLGU3]6<-d3Ol4rYW6LVf#HCO%\>u@R_`2s2mZW",;0ocW$:+TEk#4.\2*cq"8IfrOg`l<_!aU'<&Q'DT6^rdi,iG&seRcHQ`,W2.I"_NZFkOPa_VXGD]Dq*AGqK$F%@c-h<XmgVh+lB:K2HDt3pt"lb`3pUPgf8ra"TijU#TKJqGnaJ!%hA\Hg#^(-Y&]15A+_3pi6GkJZC;[]O+GA[_T&fs8Jni^Jl)X+u?n;XYh[W@X3F&;XOLiRcmcFp.*_<<8di>g;=5!iaJab/^#c^5#XdpD5U'V\opB"]-*])&]9>W*/#XGrGk3oolgZ<A?]J"7Znl[=t<kFEJ)QHZ846p"F)J%>@DO1$+)`=d"L!uZ84[o`cB8-RHu>siaJbB!cY%)7`Y/4c.AXD("1i5b&h2m:YYoDHa#MfG1`QA1,LGAa$+j9>ZWqU2VM^e`TSi'fTlX9/=6+YX2IEU=V.8j7O5EH`REE>1hoM()#/4:M^^)#G15J'qhsb=",(XqQN1,[fu&q+r-]7RsXj`@ClYU@+VAmsl&!`LWQ=m%rX`\,@qm?l9%SK/,jP'<&O>,nhiId@WVihiWObjMr\n)c:ZGh;_e$s"3lT!O*d/"sdBsjTDZhUd?jPRo;jK]dF6g66sO4JZ>$)<<ZB&WCI*gZu8XBT?!21Yg'TDg)q#nYu!e/k-PV['M2NQKt"eH\rV!WS$`bnSZsOVYB%oXFEe.EBhoCO%ak<=.Dg5/!GKni1*oeR&U6Zr(X*auh<pl2#(ja_gQ^k64GGuFj`;EJ+RdSO3lUcHDDh4J3]VUrWn)Yloe3DdZ.4eqH`m:'rfurU+3PE[6?]UJ7dWC?kSJ]8RI7Ljp$X`Y"Goqjit5#aG\_orN-XlAAWeJV/CRk1!Ot%[Yn,Vl2"3WX5]`'Rd[LH.MXX"qA)-<*b)*W"L3_#Eo@FaWdFn9RIXq6%?j[@e-DU\h"j>)s*c(5Z\@>O0CuA@HGs6H].YlZfU0?UBUu1p&$MPDVq&ZIA7FGQ(8J(i/Y&'J5qDOT[dj`MRRgO4gl(J2s'L6VUSVU,D3_9:5oRiTKM7B_*E-'+'a<8/5DIeYdI'k_'`d$*+i&g%`>?]n-n^A'OG5S6Drg'M8:bp(C@TabBT:=Fr"P>!UK?2,2Q^h-ROeS"b/hrbRd87)2:$;-c/U[[9Fm6aJ[JqF]>m7/np)%&*8qI$Z]H&DPO))[#0X?6EHqCF+I*31-@6sq/pFf\sOE+5sB0+at*B1Ne."YWV-62"(O:5PbSrOXV-Dj%L,Kbpt]&aT7\+ds.EH$\&e)d2%/nNkQQ2Wp+B&cpo90c8,WKA;VTr+t;$WGXoo(U8J;[\1Vai4L"=qG>NZ\q'mF?&^3jH%s2mjM8^9*GfA"h-B-N79XP6\gUc%q!:,n"!.:`<Ls.,D1m74&fn,=%?@=W1,*pJ<cm&ku1,Y3ek12)$5qMY3hF@nVCH$PIgK11I;5Wqsh.C]0hQ<=6rsbBm3V2r9iUF[<E$^1Ip/i:8!?i!k#Zl)""n&0n[a9h.kYl5#2^,lW>"t@<(`GnsO4K^tS@!D(a,fA0(dP'14bnpI8p]/as_=@$->toeGA#l1a/RbdPkn7*Hs"[^V8S!`!eSk3%Vs'`d5Wo]Tgab$qY)3Aq,!X_@VFq=SgEHbL2O\jJtH9V)a%af]`Ph2K`Cs$M]2K#;%](M8RSn%li5(=dse5^i"#`+\;44Yjt[=<T"E$;a"%\1:IP*paSiKi"uC*%`Ic^k00*:>_o7'?s4XgWRU9A5"iG;4>rol+uMHjXTU,U9KL)[gs1J/uq]BOjkFZ]ZqG(XNWBc+:<Sc$e>AtA>NYGI;D<!m"]8#B/6%A\8a1t[d\W,GB4@QD`,U>dk6osJD[H!7E3:R+5b);2n+6>FuCjM:e8?a;8*[1%'`su:oKe(Z@B__?P'Jrr;m))!sb,sH+%[Uih%Ou@(L\]bAM\=E(Wg#e%5gc&\N;jD/-G<.$\hlO'9r0Ns4aaJs6;80<h)9e07f_/gisZ_tCq4[H?'I#e>]W$/6MRQY\sfW,dgLp(U[Kb->6>%(YIV9^QdU;L?UO<N!!g$r_HtlqRoE"/A]7m:02:pg);>V*KNB:X,CY(Sr(hq/+f(,XXl'eAM=n>o`[Mo:KYRC9I?%8pt8T)nCc2b%?4CB;_SCgQ@+hNsN]W#bD!E)F2hq.g`$&_k2)s=T:*r$R!8FA;mN]Q"mn<9-VS,]#p((a=FX_O:(A#;"^#i=lJ`4ETb+0&>UGW?qBNF1>?(t;LoP]?D"5-3j$q"'$(NRk+n=*d\ei9Teg"eLaA%LSL9X8agb@JW@4HFM<6SV=`QhP^8l5lClE'4HOAggC;uodeRf<!h7Eci1s@[`Y^i#FBlu<mX"NKI&+fr%g2bWFaO5FXh9L5P*QqCfm#G0]'I,$'4&hkk#>0o8X!Q,,a^4FA&q5V1XjB/uM!2ZekKhg64`=WV6KW[b,eI`#A'hu""d9:E.0;3P<mEADoql?kRoTI:[YDr[4D/UEJF.QYeY*J4L'AX7f;kJMH>9fr75Op?9-DIBceOI:1N#XnI>GqmjZH%`-GUToQTV0KrHAQ#m"`US?Ac%3A\WN7ZZ<t'&F@1=2A"r;,o7q,5n6"?-Wg?&&.*<cb>1Ng8,-RN78GG;f]bfA>kk9mOcatA?sGnd]JnLH=Opb+0asb#DfjgnKZ(`P'kKFP$9)OeEJONDR%c7-0*Q<^7PZg$6o$(m+nk*_]oDt9m`WA-2#@8*R'XK.ECmA1rSgX[-7N:a[E[`[LIiNF>l18_=N'50dtggHQK&>^Fd]%efLqqFBbmY)`^CV6[Se@62m3GEF-^J_jp7AjmCj;a<&n#D2W"%#fF>0QoM=KaH$j;4_"'KhHg`6gbg"%OnrQA\pB21OOf"4TdUlSak*%K6pSC)%@!E]UQg@+=J%HXgWsX$pjcBXA,'L3?F+Q`!j1r(#o3aNfP3Xod,5kf20`X8)S'2Fs*QM"].j$-bl$F9_NslOj')j4\%:E4l08Rdc*+3&S>@F-2_u:.bV`#kWG&kK>&LBkPD3b<'QfDdj^qG*D#/%\s`Z"3ng,,f_P.1:\JNc7X+q$4E1R8Qd*7)FL*h[ga"8rjD$BD'?W&Vt#V@SatrH]>)F"$^f^X@1R>[3#sAN`\D*n.TLW%+X,W\0c<VK<Q.hGBY[ZrbMG/"Hd_Zu\0gZ!Nb*S1Jf;=snRqgiMDW`3D%-_f,AMg@=6IL4r0rVYT$Ca@:*Q3)Bmtlm=Rbjo)Cs:M5i7qIqIG9AE'RZjKjYH[)SZ1Hn))7_X49*9V$n5f+!q!:%GVpB^;*_jcGQk7\N`H-!!?cp^UPjCim)+HPqo1_\#U>S1$'TCR4t?&<?eN^8dpME6<i(/"u4rQ!LcCiB.,hVpX*PBJrbl3jSq$MI1gO@iqpHHU[c0'eF`Mj+a?<n4"j"/;ZM,cJX>B1h$be(4*nZj<6Ur?_>B^6hU"$q($^+d;l"_,1eBkh<(FHDR#e\%W=aLh;bC`g>7Jfh4YRp]@%L5l*4D`hrLjhSn7L<XNI:8tp+#'F!u[>SbgG5XcRGW"W%*(Po,;PrFESERV7\!"niYMbaWsajcpq8Q'%ur9:]@'&WuV?P;8.kRZ]snf&3d+_m#Rh]rWYUb1g5S.O]dQY,B%csbmXS#4S1:iJ2IMp:0R,<!S%=5#T<Vpa76-pm$a"o3WXs8#Me=[u6WXd!8q`[uHXfW;h:cTZ&C]muEI67>N;[+P%UIUEHD?rf$KA*2FGQS%hEC-:`)@AedQcTqa+aT>7E[S7?$S/U9P;%TH^+U;JqjGA;!IZIR7L&_>>;fbEEhEs.-08VJu0:##)%M%E=."3[Cq<teCdln?_qS/tH;8uGnnZ$>L^f.C9Nhgp2)q*dX/OBpQRZ10aGUbElh>"f4#&8cS6Kgh=A02<(i.&5[!0q?s)ao*$%bdLk(XJ)?2BQF'-O<#Ff'?4f&k"acq6\?J68@)d?M/jVbJp7EYSpgU.IZM<5]0A^'DO>!eVf&eX.ND-,</a.L?qf6cDt,%LN6A(l=-fA.s[Y>#Io-k6bMIkob2YoIjAA\+`^$E[!T[):I7N>9<NT4(24>qVRT\#(qNs//N&u4-[ngZn@iWAd>F)b$JIe?!nl>E:--#/Q40QufEisN;L4O2!OHSDdJ*[NqCe3eGIcJ>\tNX&X#nEH)Jo-cjsETYq(-[[FZ$"P;4C)@&1',o$U`t<#RN9Ts2g17S"?8cC?Q[NGGpTA8/%a2Pg0Vn^tfcCr1<nUAN7tZhL`joL+9lZ^O,G:&pf<=?q#M_il.:ZfDNKU^<Q"4b`sBcp?Z4U'uFaCFd[2NkY@jN<7!r_RCoOU&Z>MO!/2d"r];,2n:+t&r$0BLehY1D87u\d;q7hAWb'\]6H]riLas("h!b0T',$Dr2g-_h8@U]k6,isI(V&&Es7\rb@LK%E0HNH>H^O;0A4h=&h%kc:3cObbnW.0#q:i1@'b,Jul-e2//lG'ti&FhH4RWh&;uY#mE7(PGS0b<6m=(<=E%XpkBc8!\'12UZ&GP8]7Om7OL(Vr4p/s`TI"]]bqIqO;ca9\p!Tl]&fK*nn:9>a'TaMEH6DS-\RQ(\0`]oO7iLctRH6GSZ54R;N%K;mkW]UKL45J.mlc@:nHE:b"lc:(^.nFhm&[-Zlj*,n!chdXDB2NM3r>oc'r(a31eon7ncG4dL+UJ"3/KDTASJM?`d.RCWm]&t\ik.*`k7p.[;N`Q2d%o3(K8;8V:7'c#-LKNP3Z!i.8DTD7,bh\#&Q=:BogTCQ4K`jfTAi0]W:]&WDcJ<ka5a<TS35O#ai2rqQeV4fZMXArHZIJe<2C"p9iH&_+,UC0#-j&N]7_(n:k())Kt\WOeY%_*>p*4;@UahKVV&lE6#Zhu3D[&mg`2[<]=]'R7`"1>o.tr6GJoKfGju,MEG2Kh_U5#(P/)qc`r*K1@f#BGVVW0=OI#LralU3drudQ;Wg%!lKXtS$!Yd^(X`AeL-;>0YTMi%]7=TXM/*26X6TVqP.EJ6>3N]"VP^q69QrL]'eaX_'F,q"Dn\WIS7N[^_Qr)UF`kO:(5BijV;(V<IO=dK@a^#8@9hqq.ZQs'MGqlYGR+<F=PTF)5Ce0?7>M6lt?)F2-B]`9,$?N]]E;Go"U<*"l/],-;[!ki2\-d4',aq8+.uteG[H$5DZArRC'ML,2:Mi.8:-$4Dl(3(M]%T-X8`$pP.@pGb/@7u?Z]4i:H2g6PL[ab!4d&8X4X$mfnW=(&1]#2:a%a_\)!dnf2jHq?"B:tWNYlM(p0Gj_^RHgPHM4&Emc1=!75LLl]s',?0b%Q#a`277E*qIBYV".papdPe;jQ)"cNZG$Ml5oV)IMnI"S>Pm\d2)KP1!IZVKk%Lg&?:)s&r6rU(]>C/E:uNdi1m:hrCi_#$o:uXm>HW6`1Un`d)lc_m+/"jp/t3+,uZa6Pjkj+h9WV]c>0QZlj%;jMOgPh'79/[ebbtFPe%>pL=gWWks1FU7=iGlM2bB\0aRqER*P+q9+q]8=A9'\^SA<Mj^@oET]]fUbPg/FDaBs:=\2IkU\\O[A*bN91ZK#T.N63@@"MY_u>:a6%0AM3.o`.T)O/KZ1qf5V1%cjoH(?J!m/mb*/3=O)%W!>0:cPb=^Q^aU2*LljkX#0]!VWR(h/[@?ZX!2]pdRX!GC7p[;un7O+K&g]!&jf"IS]26>s^hPMp'[=B5%d*Bs$m2N_.FEkAWMs,B"JGK/'(3C@Ne#FkUD",dc83YP)N;\gT,\3J\@I?2%.JS"KLmI?e'U_ro-Ut4h536Lk02U$AhoMjk;(]s[#3;U+6C4lf"M@aW5+bL%+>j61:6$sJ+NiCs;@MDgsQteUZcC?7*?NDuV@2P_S;<)X]%uM0!';JnHiV7FME$HV%*_q$t>L-Dkgu)/k`;-kE1#(DOFE.lZpSWAugpo:cCamZ2U!u$fDkQ=+NHC;f<<Zj@&#(Qr><POpP2$IAXDm":NTh<!Yp.GI!=2"#&&&^Q"n!%h!T/WE)&agk/3[uY&Am$38!gMf'H_Fq>c<?0]iJ2+.5p^3T6N*I#MXqT_R0$;DHr1s_\K&F&"tI^E],gA]V2$GKQ2;b;?X0r^Hid(+/M.H2T#tp)G%_sDBN>fRTQ=RAhis(cHt\4qb1OUbf2qX\s`Up2+.084NJr<#-rj*=tu*B$9<Y.]hK7G.<Z&2G^AKA6"9(E`WhSF/Vre/)se2#$2JRroq_7]TMNWOpG!rQ5WI[1/0XqIK:K6>8Qu,f?0r0F.?4LkXC?n;%@6obW!Wnijo&$YT_ti8f`3s(m*>Is:+KG/N?.?=W=0/S+tH[ZM'Q<H=a'arb=[%IJAQP]M(c55?H@FY'QZ(Eg*bafN-,oPl+G^#j$h<Rlg`Uo!t3bT4[26[-5JO/K'-WF/caFrDS0#F__edI&TknFOpg$HBH7G9hTr60hk4-]^fh2""T-O:fmOkMD4IiR'HEuk@[nTBJ9lb0#U"\Xp+sc_U:S^;qRf/kQnOA2`&U@0,;sq1llljp?g#.u71>)1gIp%'7.?('lX-lB9'fCd:Xs:XbKBN^"os1SmF.srL8`dS\8T%kK?f,21sG^_quO_4V#_J<7m1'p!T#K"!i,&2GTY%+4/86aFDUQ!p0n:jFKr781T;h3WCuFo>il!\`g_Sl*:S)$J4fX;nJFSI"B*kH4"XZ94LM9K9&pqF,*QTO*!WJ%DEE%KQpilp@:F[=H/!s!:FlpK)quagMUXeY)XuZ3)!QtR*KRZS3dX/_FbJ#XCt2_l:57&C[a#=_]^*=Pp;HfO;t*h;BO3^'QP&\WQm$_':-UH]I_2\/8F6-RM=UQlD%"TG\TtlODKo$<"f--`V:T%dVa@[g&8,I)#U!cL]M9A^=(%la]eQ_Y33Wo_"8t^/fUbW"a8]&<%+],]>[WoAgEI\fS("XGf`($'X.HGEkV4k.,#]/$r$!=qhnSIOI^9D`geVLBH6G9?d>33C%?2#WI.3(Za_cSt<_(TKRV]eX2S.^m\CP9("ZtY%Q0%Sk,nE*9/o3L#LsS$h>M"=D*LPi;3A!"2>eM*`<$3Jd7MH=AJtZ*A\qH*@M$4#Vi47bIkgY;m`80?Pao`(J&j^*kph:@A$9p&PX_?fJ-&0#lJX8g!q,d8.H7NlS>Ll-"Rk"ajY.#sI]%=E'K!/2>&%qAVlkkqr*Cs/?`J!MW)_n4*hBk0HJhp.ON4'/89`]e'Mp"Y.rB$C8@mA.=]Ct?+L9k>r;3PA9>2<,kkPZrjI(H[3,j5`Q4<5I\!o-D/JE[uac(Q7pXAP=5F(^k1_^kV<kV[1oT[s20L9N@,-@Y_d3,8cqj4``-7ds%QK<f@9BoBn$HsWnOj,`Pi9A(rWQYM0O<Punj(%ph?6rGL-8sGg=LmL:Jk`#!J[LsX!^<mhQ%?-`k$0_Kb=0\UB91dYbmQe#\@('J@(.Zk-qOii7%CIrbo:q2+4b&c0.[F/J+>&gj.W<GD?,g]`j=On'?i'fH>>ao_FW.'/qV;fr/@+rbfpE\SnUh.)M$]WO^'jQ/(qOQ)U6(&t-&q1&eMOc_P)]uUc%j`B>Y<f=59BUWZG]7TS%h.A5[5,p29-7f@osd%.rP^%/tX4pKWPdSo"gfrn;]t6QI?3H;rc(7-FP_rbOOK,8i=hloNkcGame15r\F0F\0P'?)QU&`F:1pNEudMZc>4?Z5""ZpVC1QA]kLuqdcsBCdIeXaLZSc.R#&ioZ"coJ`GniUq2sp$+Y(mD>6@Zb#kN[W"Qhe8lV7#X&lPP6eIr5(=kn,L4*_`NF]B]VbF^eeIQcah](7RZ/LdiSf*=cIcR)A0H1_[iX_S6TcH5p-ATB$Lqk)&XO9u`%29rID#Qd-TP-(SJs";rf/\+\nfaa*d>2421*tl.X1=.1qnNl<roCiVo"OUSobkBq(EH<@Ebu:'$S4&pVp^3!YO\AfHBpuGte&PcE@,?8[7$4tK#sl8?/I<C*li<81e$&P004t5[>RlW)MaqflUBXM$SeC<&Mlg?)EulU=c`m3WWk,@%]ChHp7ujKuoNA?SN_#O+0cQi$5UjMRZ!M_Q)_R<gAKN8)nKUQqr?H7QWcN`Zj.:W5<Jl[FW!\#N&C<VcW7:[J4?E,@q!Zsu")ecFqsHm*d6.X>p0KP5d#;33g'HjmZS^EgVXb!JEPL!2Mm**J$feV7IFEctL9En:f<a?W,DtI>LIBTL?okQ5,=p9S??\]Z.@k!kX$a<=D5`BROq@6#8.+goa]+e)RrbNSA8s$@mLm]=0\tr31N?bqinL#J)6j9Bl4>g0)U7s`FGGIDJd#p+4sgC1U?5'o!V`8WZn<Zi:S4-qTFVR?pY<!7rjhnEHJKkhQ;?*tT7eGe&5PAC,N2(9&`\IUEXe15AatBDpnhK]nJCInh(eK^Vi]6-m*a`L$=Ul]>iXmp=]N_1FQX/u@W>GUEJ/[(*Mcn4P1C+b-;ReaKo/XCU7FfDO4b7&bQh2F1[pXrZta-GeWS/&9'jfnpB=5@Auf%RB8UA?IF1l(W4VDo5a;k6[RHF-Q`b+]B57C(Ldp`"KVqk!YH@^Sk&o'VHQ(jn7QNe2N9_,gXmC3@nE8a<rR`iT-\V3%J4k)2^?`m]a-"W9=Kg,/9F]bc;ZT'k*2+K(;uh0YDhHempb9@[9t7NO!.dbrO3.^"3XIDEE+a^Nm*X__PuQJ3\\g2`:70aV+M$"93%T2]IiiS>_$Ml>I7U0o.7pANRj3`G?475+%M<hE3H$F+msX_0QHYR&Ma!'`$dr-9J?[h)N!e90;B125':k^Y*89S?G-WJ#.,lle4)gm7Ru.=W'(p99#k>Im]?RB%jrH%c2,_&5UtH?b$*eMXbFT9Q8BcG:=1-li*=d.)Q?(O0(6>!^<UGS!cM+>#_8p+?#qTQ$AH$.-.cUV7/hT<U];U%OrB?As=mTE,BBlFE;7RT,<1_aNn#"<CFq,=6LK8T)djHc)^cQmSB`%;(Nb0+m.'%Dcag*h\(=C[")N"rbDX[u1,&uY6UtE./QI$uUkJR^'L1Cj'W)I,V@tA_-r[OIo9o1$pS((^LWr]#K[5FA\2,f9UoQ-f?&0=[ORs;(S!L`&K=N#^(W'AV,p`&YFlAF\@P?4M(IZANs"D2be/2H0SaT7`p3OBha],Wi\l3R*K7+?h#P7D8p`A#/d8!BU;CLAsb+B6.ql&.!+(!Gd)E7jr@TTG3e[/LBc;CK"#kjgtj66aC'X_X*V][4@WY@JU5]o^P'c0WdK6Qs.X^8mR^(@OmgQS$9+LUkfhqSrtkN=Ri)QErcC9!-fHH,+h<i$YQZ@q`<.:MVIULTAR.'XeCb)uHnt0'9@Qc?&7^\GDW/PX`Y_>aSmiBi15&p<t6AXqrWHNmPE`HeQ7@0qV;EP>Nf$2I1)K3=(/[aZ'gBS-*FGOTGSf+8[5AV65FX%^E,E)icR+SE1LQ`ji:(,_(;;(XT6[:h:7@UONqE8GRLg,71W7_1BP^UYD4bVcX\0W=ShLF(XO]_\f$or0(_;gMaO+OX(^;!`B-FFq$#`Mi*,R7?hNBl89LY.Y.\>I::tD@G$!hn3oS]ANcR]&\8Z7&V-Y=GZD!FhaUNJ:C;]VgsiXJo>IOl9m$=:MWF(77A&1\FnrR9^#j;fRFplY^=G>bcMu8nFW"88V+jfCmBQ]*;E\>I)_W"1ql7sroI%B:D3q?H'"-o632Rd\bQop^`mrQ3[:-+fcBQ@pj`T^U5-0icH2#:K*q*n9nE$LRS3d-U:m+#`9unn"pn<"rbh^4E*'P6q:2a8"_lMIY*hV^8/EL.Klflq5MTI_C'3E+cW1ln#)!l;F1AK8X_bE0fo;tu?eeA\U*(;E]E]*^>%h@.=Csc!J>QLQCPLh4ioY1<.`dsh\`$J%3n[dH"Z&DmQXk%_o#EC-G,onuA+Q0F<L(Q*fobNp'/t(Wre/[eaGb!$<<L*kJL?NjA8Ud,WlsM_92l3cu^cn)!e%JOh!08p>%P`3*:`V/p+[r1QHV$*3-h1+Z?,q%J>XGd.%sVBh:E\D:r[^o=^Q9br+A9[^&O>gPLVT,8RAB(Zl\OiAi\mJt\Vqt\%(f6:*[UL]k7ek47%ZcANMLabmgi7A@Fd@4,<59f)An8Qh]0A]YTdb2Xh$srmhCWTWel>^I(C_$=]\/NUN;AWNe)'7?CP[i.2=&gRUIVbBscb&lJ/N!^U3!YEgWQ%-ZQsBLeOp_a7Z!n0`C(f75)tna+C'pG#.=\/lX!j7S,0#g])RbEZ3Vr=Jp6lKht`3Y-4k&-FJaSAQpF%9V4-@<T@^6;5<YD$'uUK2LZK_k3%`1+5)2OnliFP.GeT!,!38VKO!`Ia*=k4A+SJWHQEP>VfPYAaIAJ;R9eZRj0d9H<q\rW%FHF&QH]-X&htkP57.8\('olpG3M".O`Mb_7MGK_Z)DYT,jN<@%:3APruA-U*H:s&g:bO(X0s[:r(UOW]T4f,?a0O*U1IdH-1"C2-BEi.74@07^US5?/GAQ#5@#/lH?([!EVS%DB&@\*9u=q\\JIl4(d`28&H'FQ8J&N?qha]/:Fet$"\kRp7"uoib#N6f)r/riGGIi(`A$Po7*SJZ*B:*GDO.Q)S/E,TX/b!0if"hN3&_IQD[u5t+l6J9ho;gEOno>N-YLjR1BBr,53,G^??0;3QGqm-28$kNh3q(+hMo>ahoi4&+\#)npp>V8eN_bE^k=VfQ'bHh55:O%E$P/@]l[E+P[Aat6I;Dr[siV;YY&DmZ#Em+L0H5FT5\>/lsAjq<9L^n$RI\mh;dC[IU,II3Pfe:O5X8V?<0ChBM`PH1Ct'q9lL,'`L?>'po]NjFeOIgDdh$M;<>5&!oc9Of=,(Q,e'?18,fnSZ,25Z@l?n_^diYQ1E6`+3'06UMKDgENnC$TpAonDm#8J(Vq!qHU!n8KH<c#o2IS'<U>UWp8cO'g\L)bi8C>3Qe^'\MCcROP_XLB-"tU3Lr)?/ln!1fnU*E'Z*lHTbNc^%>k;q;6K@W'7'4U(*]U<^pSPOL2<id0/oR+u9lnOP`4l0"-]0Rb:eR\[f>]pRX(2V9nh<"bV`klBrhr`[P^n\2g"@f%5`,8h>q;Wf,>""tHaqI]FVWF3/E,kKZ<EfkU"g1_?.IaF;2!=Vrdtrn]6Z#/&]JmJGQFC?Jf?SR%aM@f&g2,Xg?ih(1c9#bdj,24q73,c#N0RC!_TaPM>"%2.#V>1Y1`Dj"V`^/LS0r?&8Iu37%She1GGQ88pc$a0Nec6"*+7p?KK(&BeYul\o5F$<:CtkX(kefQIAO&*aSG8f\Jc'if_'T"S!CSIdI%qg7Qf6o\<*HmgX$01D'+g?<)`WH+t:#.bhQC[NnMljr`DUcs,K'Ql@LVmAci2o(l`@l"!_.Z@ful77b@lFX]*K?XpWp*(@<_"2<?ifcuI#_Zg"bRZ,-2uqg;L:/1hN/:`)<UFas.TY+n=m`O(mN\T_20OXZ8hMOV_baF*&)Gf[Pc&K,iX_^PC^jUQ(c#<"S.`P%fa,@a#VJnk/2*9S=qYW]SZ$L9f\<(Ni[W[3t^eL`6,fC:m\q3V6^Zs6ObU=VH9BGpU^R`rQ"m`VI^g)`*B^2l@LCh=jh_-LdWPMO3OImubLlF8V3B$!hDa+2<FMdSf[6:@?kNLs("I+9dO_c,VX*r=ukmP;i=6R^RMp`CM-5:l1o3R397"VXk!=EG+2_d@#NiuEUuM.urKp='g.k6lOJ9,a2X!GBAnlO%2X,DmkJ-d:@(,HFIboqTr;>J7GVfXr_"X>q\I@@/Pf3Q=!!%SXfhk(-?9f;&h)hpB058d1RiS7SMo<8)((_@!X`COC/c73YYVcuC,k]q8JB\!nf\n!j]5MgM%IoNW+#Lh)MdS3rW+J#1.p$*ePKrgI9i\9AAQHr3e(<,^/YM-9;YaJkr@DtkmV3563F0I22;jlHYMU@`JGDh85YgfY.WDD5C6T#YHZATrL8Vnsaq?^UTPmB<38-Sn*!L-[J`0/)8r<!oXXAEeH7-:B*]s'&k*]$Lm]GiI"+L`]F^,Xu=X)J6J5h-b(,m.Y>e6T,6d]5K.@f,fRg<2VaG((rIHNe9E$]JWpl?/dr=gD6mXjGtT7i+[>Q%Y\gOC-fD$UZ\b([5LcGJfTtj<=Ti)@gW=]Y@TW<04LVa7^aaXk;O&<@n8c.Z3Kp5]ZlT]#Nn/IYnBP9bG1L>RLVp?f?T1o[(`nKp-BnZ<0WBXYoB%36jgiHX#LCLm:M;]I*`!1in/)5Zu[uLG,AnL):cPFOAIOu1:_Q;iW[W)ILZm(]2>5>jF28l$(=C[E2SUK6+bO:!nm82*2'`d1+F0=gD!0h27t'e!2<+/mu6O75#]_FYjUiYfS".mL.:m8_G^47E4!,[Eb4Rp[DX6=mDtJ1&QuQQ+QQ7E`KI'A%Fe0ciS%P!QGh^+,PM3E*75=M^.O%j('jWSVf\Bckn8rd,$,$65D%7'op'CtEOHA6G(Rj8"`!d\9gMaF:.%5Xe4-Rds)ETl;X27;#T.,YZG!83b_\ANe9P<T5,m'm%gAh":T,'9k-UTUWZ-`PWfc(QnG'G'-#0IZQ$StN,=&k#kRc4D[db,:`#6`mHOg`Mr`k]VH&BO<T:X<W@'`7_n92(jcF=tiS\6dpg&`Bu^N?O`plj5d;g$hH6]Xi2\^DL9kH<?f0H<OdS!)-*AZ;$)3^(^JAM@f1b0-nOG<F_eVn%ju0";hR,p<5)0>mXe+Di%=@316>GZWAH*#HminnK^T=p>)dq)VLr?E"Eo8k`?SaM+47,)79X9"lk?<:b]RE:Km+TNf8ejce?IKnZ^Bok"2g"6^]3$Lbnf8+Rll2nWk4.V]KQb%QM?3hYiUENmn'!=/pi89)Mt-^maiBU^#db)o6]A:pF+<\*5>1)5%m-^*8+9O_]L2*W$/A$l=^Va,=D1_61)>^T;Z\J\!mWV96MXl/flXA>iq@j)hKCXShgBV:un1f@brp_D&H?kdd8$C.Cr&%!]B)2H[p946,S(Of1aTm;>'X$$lGPUHLsb$maZ*Sl2clK*OCi.*d_qIs#9NN@RQJTA%Ueb_uBR`%J(F2A$G%dLEW1LIC?9dTEL[HJgto,*_C]jBUWa&Z,+(%\iYATmGBMPQ/&%3kZ[eRXQrjEJ._&TlF_o\S:4`>mIc=XJq;.2s/H3iZgn8Arl1;^hC<"dSKlXl;E//OoUd)6[WQcG&S?ZPn8G+t`LqEW,;?JoBho\i^cFWQTPuF-V%,lYS;B0J*rZGP>C]TCX5A@CJT!.%CGj$\;r=/qoA[a1SiRQLkCD*LDh%S5h(g-2mcD@^7/SS@2@H?Z+-adki*I3(#GQ'5gX2G=0Zr'qjG^e9*U79];De*n/Ws&FFHU1\.:5bJc-oTCn$M3j8=,)Nm\7^3KG%>jF#P[hd%U5Sj$9dbBm5BYu`XF6h<$lUI_J`E-*qQ\o2LMRalISNuC3NS?87SkJ@o@,Z4p^LHtA1"HG2Lf69VFD->Hk'ZM.2NF*,]F5/&$/B]]=^(f,B16Tah"r"&cs50'+)^PJ3UMs?(Qp`/]LcI(n;CIn0jDGRhYNR#-K[(j<L"Yj(MAq4IGMErac4-%P2-_8/"K:_&]5lu"55Q$4#!!_Yuc$3%=GG?LpXLI9L<s*0&E%G=VfSO6iXKm"b,9BWQPUE[MEiGaR-JIgu8A1@5Q7uMt,tFEla1*^(k+q>1s:]X9:@G;#D9_[bS'tHn<i;IAC/8e1nYWT-',*f?de7Ng>a^$90<=2<Hmn<T0A;\ob:pNm\T=f.4/k,8okN[;Q%\F<JOF<W5H!#u??i*nER3hE&p/MQus,D16BP::YOf>cBYe7[k%^Oc;':C=h*I_oKVNJLhm]min=oH\gEhEXa?,pu/^U[*cX$)7%?;HX]Zr5"-UDr6WTNNbUrV"^nU;Y`K+/jTt45^3XGWjmZbe(A%+3e][S^,_hXAK,pN&R]-S`,3q?`=N!-p7@$,Dba+<;#*s/Uc.T(qe>@YqaJ>o,bBCNm313Um0T7m(0tOIJ6I,h7jZMT<<pn#"#ch>GRq*M:hR,4b%4".\rGH!CZ((j7&Fo"^0.E>V@RfWZDHcU4hnM1p$e#fROCU<DkR6lI#[6eqPp8u&Gr`sD4q6O(Z2E8XbC_??iVWkE'l.>'?)\/Ip>7s(_7cj\XQ&,<_bFeY1+DnQp)A0A/E04tH50,W5Aj\:e'/U<9;+qAFnH$8UDnUl-$5Y^MEe"%\X,O9D2$\V#qrMU5tO8DXZ/0SD=m>paFJ+;YZ3^F0X^7.*(6Tpqfk:R%mG0mdW,q5h.7rPSet0fgK?Sh.:`R:=*Pr.7%9\V(E+k2nhs`MODdEVLPMdf>r6N0L^K\X^TPl[R`)'\/mpfQcQgh6TaFm[ZFMus=u";DpV$P)!UbAO14!G)b4O]\lc`u*(R99EL#M@Fl5fLN$4A'=P^&o(8[Q)p#(cKa]j+i0>dbnidLuiULbVdaEMl?!8b"CKqen!2iH6VH^uNZki<-!B/#ST]gro]hUm9&LRHE"Q7M]CYPF);^Ki%!nO-63m$Pubrs8CE(SQ2MuEn02m4m^S*]io-2W".u%f7hDaQ.Xto>GP.,*gmB7kg:XNNqr\jSK\<.f8bmN4*!7;01_AYEKU;IIsG7B9;hoW-W.Ok/>S+#LrZIn_Q[ItbhgBZSXeSWVB?PBB)I#V"qMg1)!!O1hJ<FM&A(4lX370'I/4R`qNVmC/VY-+!iQS*Nflt$"o;lo?a)p0s*mSf5V)p"!9D:B1>WW@8Hiq$8Rn?he\oJ[*W*Hu\n+E>SUg<>@T\<n_5MbR`0+ZS!fJ3'4oJrfc).=NWS42jq<&LRLl8Ll/VE_ZPKi)+9KA3h[B_m$K`0A-aOa/,Tb4padV]8LInVSNGGr[hmhgY6U=J+r1M-*i<;p(W=EMj1K#UeHCU'QC6e2o]hb:?$oOPB?R_MAtf@Hp4Q0(X0MW+t:bjPjs,2k<6f!)ad=W.p2_418/a9dSa08!eb9Nbb`#t301.V:Pn3nO2C^"OMXhqcnL6^f-&?fM5`6Tt1B/0(n=%hTkU,mPR^oPflLGD>Kd&h,IVSFT9GDMlPfj6cYr<s<som8nV,:e/Z2UHqD-a7E<:Cte`3\W4\SjuCbfT;m^IRI.k?V'AT#cTh-#2cC3$(nOo7Q3]8/9T90f/HRE4?!Wf==e0W?KoOmt;un2o@Z@M]=nOT(cI<l0OWI`1fq)"pl)jcC5cQmO*7<ZnZoG@4qh;qaqtC]K!q7pdlSZcM(f&n9TS#B1m_B/%K>!6E2R"2d1*?)&08Vqd/76;P=:g;+Yjkthp`/RA,4B72@l8j]NYem2CcoPF=UdWka<4qjE4i>%R"bHG8GD]fm];Q/+'[)9`O-paf!7l12Vl)BhZiHu@[6]F,.ah[?G\(rahNefiM)2u%_MUPlZG3qWp]:<!Ft0%*llc\"KtJDW^&T4dsh]*Rd>7\Or^fmCjWsdT+0B*_YRC,Yg)R=)_F0]S=t1sIhjE(3h%XT%*AnP6tmr*N3-k0iUsrRH]'f8--RM%=>QlQE[lNd.r9NgHF#N)\A$Oc`m'e)ccW#nq"XefrWmOjX-^]5q]4.]`WO12/c7\*E^T0,#G8m?n`h7la#&c$`/*`t"Q2d`X&4'cVu#XOWK_G$'KM[h&$_cGX=eLDZ%mSVpIS24F.dPYrYE4cY!e/ofm);[`CqB'TQ[].*4>=(pX=tg8f8d`3OGim/HnI+kLrU:)caR!fEe$/o0O,<11$9gN8UJ4XD(01&N3'0KgIIC]&^-<%CiM<"iAdRJ`>FBi[G8g9\Wd2kX?Nac;4UhCrooIPQP9K]G\eV=.^#p,C_@n]!]dh)hRS$\CnKLktkEhUM)U6Lb\/^En;]iW?r36E,&>dcD19`NC3qJHS7X/J(g7\n0sm,8edWABJ)f5WGD=SGW'i<9ZN.u>'GN(VM'R=E-9L)L<3<I)@TqthT9J:G&jM6b%\e[(\Ku?L>s1GArcsM".EoU)LItSe8>NMPRQokD/^:j?&K!\]'BWD#7Qk'8*0"3G5e9I+*T^124"8p[l"#qPSIE^'JqYf.GpiaH_7@'L6G>^_395,&c8;=KP=/0qpXRBgj'E9cSU5PlMaEL26EKi+J<a('q[@.[[^gf^Ip;<66OI&Hm`k;Qc&pp\^f"?ISq+c?%]:dd&J=6n;10Ej2=m_!rI+eRiW6?'8ohn>]c!r,;WKRN+C0D$(H?[Vndqu/d44u>c>!RdB>_4J<plATlVsf-G?e'-Y3Lb")-[pn\VBW[YEg,ROEXu;P&B-YRVdJDOEc\]#u^X6<lm6o@6T=9.l-Ojt%CMQV//P^s1>k9_PEi^A?m@G_iFX=<:dR<Ue:a)ghF1%OI:RhR*G[gP(U''oc""%m3\]j>pM<SRJ?aPR<VE2p/:4Xb;!\biePbob\NQ]E>W@F+:mY+=>7r7353?`6<\]4J23u/b&OG;=ko<Jo]LjDY-oaa*&9HlX1F<GETjSnC(2[:b-bSjTu3I/Z>KuEA9m=<c$5)r'=JNG3J"U$Xiof=/3O.nmsR^d:%Nu6,<[?*3O0XL`s=%R]=LBF+^LdWu\tt9%p^J`+=$tdBq3f.3t2Q$UGnZc$')lQ<X4'.*).461s]dNA^V,ZKUH/C'90'\_eLSaO=2pMs0@.)2E6dWK)k)l4MA)-%XgZ/j6e;j*I7!oN[LoFC7JU>qenaj5-i-9ah.,4/,d7N#rMl2tAGr0X<J6ppNG*g_'lJ=[4OP,UQX"U=R.)fW*D3AOk!2D=$,([K=q*\R\0EXf"`3Mp(>*"k^=ljFimjVn$I69lBPX(O6-QLdWTp[%DBaWh+3.ADpQ5&;m9/A$hF9YBo+/Mo<-qHpSPDJW<[o)!=p2@">'rbGJ=P4=+*1j($\[msa/07Z@m.6*6>0!DnH1ljp/c_Q:F4F8=reraO*:HLGFF8Z-1P.D(.X@@EN16;lE*pBgMhA2ONi[N%_NAO5jaVf/1H`icmkM`r5>p]1fF,e\s3\k(U-8;ZosFpp`@\&Sd@aCR;Gd7`\AZa5(re%_UW2Lm%=s+QRTOSs2p=9!UgkQ&ZKbKYN%m[5aT`3i`N;aT^iQX@AO=asi]WtRsq,o<W41X@/_)I+N_D4K=Lpm4-]dH[VOi:YV^\St.O`K:*+S0$\^^/gPc!"i0rZ"FC'rU*C8C/sn'T96HdWpZ#ol+>YY(!X=XQWf?Ob.3XW62YVX[;daSG?;X'#0ZGndVKi@"rS<6Q<PaAk3:3uQNs-X"ajWoLl@/.`4qBH+J:$21,"bB@h7f"DpJcf]AKq*XQE8G9:<iWFc06M>'7uBJ=OXJ\((ab8OaV&:"Br!lSFkSACO:JPA'q\R(9'7@XLlD0Cq)C\i;\B%ua66<'liH\KN!$]5dchD8FVP2,Q@*Q4Y-<rhdoC#:G%S!g[b071L%H,em0Ec9NIk\0MS;-9<9Snmo^<V&qQk.nD@0AfBqSKatK?f79!S>.4-pg(."T"oQ\BR;iI]c>$Coh_s-l+CFfg"Kj%TeJ`73:EoL[[NHUa.KA*g`*>>[,C?Rc=*J"=&smX(--^<u?SBe*X,lM'R<0:<#p'**ePWCoVr7,oeZILV&.V;\Y4[-cd]ceOUk>HSN@`#i6`Ro_]=,2\"ekoFKbGt$<t)BlJO8J5*\r0_fm/S6<n@PN*2hu*^tf:u,W\_ro>k6K6%e2YQNH.BI5<Zp\;EiBXX!q+pE"GB/N`>M[?8"No9j+o'"EtAM!RfV"Ms'*G4<^'@f5=RCjsdM/+2Lgb5"`?&lj.eQ7G5V"!AL]/80Ol1(0(b-1`'(jn9Uq/hgbO&\ZB0C"Ho<c*EQ2b:\+TA_hrj\2F<EV9ZU9]jd]%oC<)7o\X/H=K_.1kStbFj?pqE1)/lsBc]e&p7JeN!Y@QKnE*[,DPs^@V/2b)DF+_nkKcl3e'(H/"5;N<]$F4ZXZ!h=8U^'tn'?RiW;D;?J`1,BL&?_cbLtKhL-M<=2d^P@c_.Lm++>:.(;^uD54ZE\.B9_c:Ye`@HY6RPYe&d1ZqqO3j8\#,=n!Ad-m(Gi=F-f-Cd`[B[sZe4TC7Wk%/Rf-:k;+iBAoP5A=XDf6t%=T!5s8C@\B"feO5Ba+4.#,6cgm:V\LBO4,>aMJF="4-m3[h4:O$i*2bnpe_=8W2i`W8!P0e4FcNh>n.VVcPAh/!^H>+!qTeu>pE&MA7Mdqmc7?OgPEJld+!QUHp9I]oFuPE:QD;X4R7D"HICS+$Ua91^>f=l&cik#)Dj`?]:`l#2DssV%ZL,0*fDtdsC<Lb\L^?!;%6:EN8Bi7[L8^BS3c(4*]"-6dC`YL(l8TQc.#p6S2<a.\.@%\OH<b(3`?N#^:F1(.[Bd_&bh;P.cZRc<Okh1<Wt1V:@rtcNjt==\&c34c#9<;GMVpEc]YRYEaRG=r]9MrHje\%3#Vt-lQjh7/S7'!_>aZcld,FS1[saS>.':C6YPqZV9[)e4&D$pP/=dJU)&*O91r\%(]oX,-LJMdT6(E?ZNo0]2+%B[!?ok>,XfPL>+r#dd-p+UuRtp:\)j;U@or2*:h:D1`eZ[1iBpmeG3o%4[f`Zo0_X\@4V?\a<V"FC:7(&hh(S#dGgS?$JD@,TW4tTr$f;V5FX=qh/j&Q*BhD`9jE;,`>q'VV0_Ie`pRA\fRb?d19^Rp<Uf&#7AoOn,5B=sZJc"QXoE=Qa^`6*:C&LME=?Lg8:=sRf;PlV+ril#k[[Dn_tp7/]W0aor3Oabsdngp4pq(&2F7Dk4n^e"rir1O='d*m(6(4^"?KLO6^i;VR.UUHQ.+bV]L`6]12r`T1?ofqt.YB\TOCNPg,+2$Q-i^^GskNWi5mrI<N93N7>IeFG1?OaW?k!XVam6!6McbU>X:jh1#k][hl0`lj.D4MX5b5=`(\%B>/TZd<3]]9o[:2+N_W:a'6RG]8*<L4dc;?6YGJ*<."6^38q0@A7eF$aam$Q_,3_i2oA?6aUEhoP_FBia%+$YbOG0c]XRH3!+QAuu:2LcB8Is2a0g'ga!i86lC3&uV.n$)*H^E:g7EP@ug.7Q]gE;X9q&riqQ%+$?%\:WX_H-&-6YEn<$!JOBto=0C_'We(bNQe4$L"h?iB*r'c.Al"QLP\bU@<PEg!JIVj$`]L/C(Xs!@q^k1:guI67!LDKF\(,8?*Bq_s'H2pIG:a83K,].86s\^]Q6bu[Z>nNYm[a@P2.U4E!R=Ei:lC<Nl!N.+:,YgCX"<_'dmk,hE+o:^l<W4$i^jGGe`&Km<s:,1JJEfd+6M=-'#jT9'kZB_7r7>0[d`gU;^:c46T9(IFG=D.Xs?BN,B2W)BksNC6O%i!N)7,DSs\XOfo71GXWEpV1RsP90?sOZ.Fe8X\1dn!0#4m,T\WXN^$p50P$3PD:m"N==DT?ohe-SpLHNYhA_HuSRnm#):'$E+BSq))$Ce)#qo"Ef?Y+klCL-Z)SMes\hO_g.k$A]T,qm2GCaGjU(*I=l:A#aTF;VG&NB?HjANW`bR@![:`gGE3@a*#Z*q[!O4FL$K(Ea1`lpYoi76YR>]PUk%p$[)14ZsUA6<q?l15!%Z.PdSMpj*d[[eltO+dEA>V2f<5cJ\("5!?Z.7P-EnZ'u$%KeXe=4(IZ)P:?gmme(KJ>_@fmGdt+,E946tpmB?';'=iB[T!&i3chT&Z--cXBpe;T&(Wh&Qg_>QKi.0rG)cGNp?ap%6B3,9^TOX<?!n$!-\60Y%dQJi!gLaj.TW\1]Kpkq\`IO\6s'5&=]iu,[VXn>IX%cH`*nbhV4)u\b5Cq'^EG+/Y5MGRdnI[<a5$Z'BnRRl(+FY?M[%SuP4QO)Lo`Um_$e7)hTF`j0F@on^W(Jf*m>Mu^EKs//lN[.UJld1:MdVr_(NH6Z86=^e;l8KC3<%S%t)km'MJ>/aPZZ_gdEl]4F9JPptm@Jq,6S_l)@Me=a#lEOoGE.P-ih-4]a0P,U:$9e*3P`\k6MO<("K,.7`R,aMar;"*a&jd-FX\V(P)%RUtjr"4UI[_B+!Kcl:L\6)lli$e!JCGBE8q%?3#]l586EN+pGJZ`6"PBidhq=W:3\9mX4c_t-]VU_bJ0!BIFopnsmAi7h%d=j<gaGs:T!4>e=.\'>*U63/M2+a?j(EnD0C2cT@:66?%(g&D<p!)d_QW,i^K#+_kZaeEA00`p(W#ICjE=AFRDHUmc='8\8"0@#hfcps"a@1(rk08AM*7#SjlCYJTW3bQ#_^ns+ed#LFXSdu)?ZR_Hf7`J$7=gP^GbKd%X(2R!H9mAu"STb<LFhG]9EjO`2bmRVeSLArJeWle<Q'4rs/taBG7Ber)mjHAbStQfpO]V[uN2UYeD@DTIOP@)\YEZW(Iu8=KcuW>pY$0eJ'GNOi"<R#3_oi;2^ONm1O*;(j9ccGr@^hV6!C'#M/^G6_S?Z8[oD4F?%[e3YH%Da%S%&dE=9NJ`B.nTQ'4We;7-e#q<srb)(2:T<ChZVK7dFdoe@-]erGmpX\i$lh2Hd@d+oaTqZQ*8]/=m<7_ah^oPFXZ>o+jt[Mg,4Rn(f^Y<o[/RnIan?H+K]!qk\iWo%dRm)]tOh97]YV!sktf#58mAP7&SpdUerl,%P3dcUJJDkgBA!4>>lRL=TZ2XT0LUep>!fBYrecK"4emX/014m@A%n'F[\?KV>OkDa5\\SJn=#\JtG%D8/XI]\Nug9o=t%;Ah>eQ9E6m3Fb7+">*%Z2Xhp!'-=B+.W?)pD5CpU&q[Lo`$U4$b%V\\fl+#QUPY.+bJiG&[P,W4/1QjRKF"krfp*qVPQ13?,q'[R$3JO`,i"Rg,Z/ee*81sZVf=`/8ue/3*4-+hl&7XG)!Fl1hQ]>[T4/e4jI(^NiRf8$QF0?JR]nMj++J\;49n^!K`SAn%3N"tBe0#6E>V5M(<P$72k4>71&R>D!Q"8-\5Pe[7H@iGb5bNZQ.S>Urn0VG@)!jF.1`%Y/1_NZX(C/_hF<3=>HtQ;@4rO0BCpgDQ\aRhS(k8_>'L2!"]@5QH,67Opffj-Y&^giBE$Yk00];WiDU@hJ"eB>!o36,2KR&]Fq0:R&eBu^mYq!GWnrQL=k%ti8?!C"dGs^n]-uR0Y2_\\k'@8SaRq)a']:SN!&1q5NC*N_!!kj[<L`@s7QFuo/^7*>XOu\<X)j]G6um7JZFI<<(h&oapUIciJWqKC&Hk`t(VJ9lJtZNe_,i5o&Bchb'>p)J&]EX%`fORe8f^Otr%$PkEE'tm;SYBB!s,uFF;u,:[r2itf4%&JSJC0S(po_?c$-n!as'?3iPALdA4]ZCBnU=@09kID0AX/K6qW0uTsbZQBk*hIiB)(T+Ar.AAUA9;(h:91$o:+tXJ;l7,s[Q=[V-oE<pFQMk2j'lFoKE4muo!N&TgSkng5f>BkIPN(=)BOq4@;>FUSPt7$H=\2FHDp"@<6I#dK,,cF,oLmoKq_+q33#rOof1Sg$k,!Nn+AVe@8^#rPrJrH&BAKP!L`rT'j/AemT,%'.,L'";V9Aia;_^Pgu=!7,^VrV)e/.ZJjA?VsB^&8-oTh9n_)9a*B\JoDmLK!c))4Z.X2WEhT*'6_pVQ]/Xo_h6(ojc^gcY!VYdYetXJ7F-fMJk%5Q]oCAm!GV7`@n(p$i`WNWZTL-J@p0'tC=P(Le1B*4aj;B7BlOuIA>#q]FbgA9h+[bkR$V`N&B.!+mB*uRK9$BTlVF6AiX5iFYm9%0>huK6ri!P@MbR*tm@$JZ[VK[*[sA3`CV,8;h^6&_#AZZKok]frpdmO*)\nb08^Re^Aa6meh9G&?:oFMRp8TBomJE2,gAXpXN,8[>=%0HM'qr/-btTHEA3mCFSRAe%N0;DOg3S5gn.GO#bU,&O7+K*X^Bu@4M7JV.]TmG3$rmNpZtmVL.&@&3+QC6+5fh@G*q=,6I[+r=I:-`5AiK[0Ve*GjgT'"MPBb@l\g$X3OA+^^/=])<X+n8*hej20R(_m@koIa+2b_^Za"k,<"j"a;G@8^b#g8[P4C,%`<c9I+]GRFh!4+!a-u4RQaOR,J'LL\h:t3QIk`dD'*RlJo<*]c$D_**6\it'V-@X]YiPL:[iA5h$I4^%Y%5&a'c]*XtXBp>sjJY<SU<0u4MS<0q>f@?oXqGn2:%+<(TX=kC@sPa>k=,ac-]c!Kp-:%MV5I+a.(ZlA=HoNrkY$<CZ@uIHS_.k];JGB*jE>`0,?m(o]ACM]1J:%\GJ:qY(AeW:jg6SL73\`T];kBf7p7ZB>`@1QA&(7BXe5^dIur6[OCU6(cUZ$!V6ljLAIT:1U!;^[5W[E4jJ24eR\VFfVf0&?1*jcnH[9pj@L(I)hZm0Y^Gr76L`AGcZ(e$Ks,62Z'qtX'^r>ZCoXQOmk0l6IK]o\<itlgW6DOB=:HQ&:djK9FBjhE(fV9Ls];9\53Zlra^3IrWVuG:"Z$9Z(E>IXtAK;Dc\T($7[4#r?s&A_eq6CR\SGs0p5j)F3PbdTtOp/qKaHXobRE$At8e;d&:a%KLBSP);%&IUXpBRYYbJfY0ku0!Z5fdFIZf8;g2^5u_'/bE;E;U$_QgP#)/U+.#S.rPAO.m)nj(&ZkfIWE=M"^@7UM$RXS(,3t&0EpcpcYV$X2(Uqbh6ZLVp.gGf.q(PMkCIC(?AqLG>;t:eiiiZ1`54Y#HoXpEH+pu!9PCn@=.QS:gGY7I'9@,<kEAc:0(8Z8R"0u'SN&JVQV9g2a_Wu5\:!.&5/_FrrWS',s59sH:SZ+7[uG8n?"nBm5`e#Pbj^U'h4q$6R\,FKqjka=0nGQBOlN8#k^c5GaAn()\m%pN/>*SiuTmGOY3X))`>'E9,$'iI-?Y>h7f#nSDng+//A]=X[VSc'rc`IcN^C!0l-u0lM4?7C[cBDRr)X02Gk!gU=M9YA=OeK+kF\mC8J?siCPoIM=/UEZP`aABE;.iMr8C48!9d_>sTf[oFG3rQe""'-`HE6a3O?-kI-o9lP0l,HVe+,`%$`FGtC/3,;YbD?/j<`WfD;Yp!.uqi<M-hPC[K4rWlh/RE\-)IGtu8cjL<3r38Bi'"EdK\2KgV;*n5(f:8<D':)_%_0LsGgPMG3>]3BR%VNUPPurRP&d$fDL/J!i>;(+R=;6ut]!9fgSGp_HKYGR;!p^%,dJjQ&DZiJ6Ebs]7i6/GmT]?#:b(r%,Ys1X1"TPDbLpYQ=>9Qo(d$+QO9bOPg10'[6B%9;Lm-_*O`aPHjX'NWJo!C4qL`>),K2_l=S/FZ'I*Bk&$b+Zs7Th<6BE1"X!b&0l\n4YZak^Q!SVmbXUm+K$/#[F"'mOqEHj0*`X<_U]EsG.e-UiC?ZpTnTZJfBhs8<na*>k`d883qQrH?'J$kU.M^(*9b`DHkb15XPsNeFn_$PWXb@&o,M=k\e8JU(5OHm*>@'EX)C]uE@/.hsFfLrVR8VRlfgloe;(\bG5q`t%6eTmUJ/k;O7qPd6a#)QRK3IV3825Y6"f"?l.pr=950)Xr?SeLW5hGMQp(m[^Ro$:JYc]?0?+5rFl]U?b*Ob)#n<@O&JBrJT]MFm[U<Qh><j[k=2d>6+14LkM=/S>"6rANfj.mbE[\!P*3i`]"iNo(rMDZ"-@6j)%]nlp-fJ`u_NliAJdM%D3>8EUY=`?h_NTnY#\td;lP.0Fl]0?ZS-2aL.lI[dCRCM,VFTSs\K[#>/>$"=V@.dWmBK_;%HrKA\^WLdjaZ"dOt=/5n!u\)OhA?jlLk)J1AIUp)fHhdk_HA^,8c[2Hie`A6["Ja1NXUtV6s9emqiaK/Fk9=:FHNX=<nK+b?p8#N-CQ%bVS?t8?t`FVdcQ6r6o1a2!BiiG4Z.W\gs(*@[+6X1f9N[LNfgF]8'?QKC_f(I9p3@Ckf08iucH2:f_;;_L@$-?VWG!d"VS81e4"SlRV`!1ddF$>a'k8mVW]1^Igo,O=,H]7]VhYnuKK>&`N,9M(P%eD5]>tCaq-QODeE>>3TOS=->0iE"jQ1QrgH@0/d4AiOTa?uA1fLo`Q#8r^VP![VR5I@U_Ih'36d9@n+UoH3+$G+sWa=`"A?tWGH8.F&_FMi`Yo2qI[OjO+>U70rXR=6YW:,68L(&/AYia0E>0DcW"6#/(r[:_e6)ak)q%ttmoUfdBCIeVGqn;'haYf)A<q(#8ek#>U+OQDg`d;7CdX$r*^H1(L6'W$;'A]<dHS(:g24d29%i4&ND`6Wg;/4ZcI'6q1`nV\5?Jh&SE<"cmj9!u"I#>LuKIl`uk60d?r&oL_':d@eT"<C0M)rqh`'"b@&L3D6m?.3j@iFP.53[8-[MZuO%7Op1i,$q:&or=8h*P'WRp,Y%d1l]g'h)[<u'%"aB\$_+,O!uF+;8t2m<JlFEK'?%-3)PSA:I+mIoO'eWT](OaqOuuCrV7n)`8Op;pU)kTl:4uNgrD"Vde?]J4A)ij'6`'2abY&a6,+lIY[l?Yb/h<k9GtoBjQ)foY1gL:3_%eL4F2U%=!C,/]uM>2HYHJ2EG@[!'rf;G8?Iem*uco:8haFm.K/aCf<hRk$9,)j^dgL^-$WZE\'gQ`[e1e$,,U$SU_Q:PN[\Z+VM&HQEi',^bUWS"U9029b)35N,'[176]+BU7n5#+0b2AHQ*5`A*eL!%e//_l^kD^';8Fp2!BCJ&f#PR:'18pafllA<2EAh0#\/.m3i$D[HJc2RrJ9YKM!I*3Vcd")6N79%N&ou.cCnTs-_R\<1HbLE<]t(Lg\qj@NRlK1)dXdR:FC!;T#J];I?^neC]^ir\HT;o,GM\m?,nnDm\jB,":1LrYnW@_`I`G)knN0J+h`+iq%IK)S,6(i!9MO0%-k$M;0%EnY1>qXRYUGEaWoFZJG(]Kf(GF\h<`j#Eh&gNg%;+]PP!o\9h1fk/,c=I4L_+@@5'oZHuo;CkkLM6eh4&G#Jb;Or_(da/02F:m/h2,i%cj4k_/sHMkbOH56'mq.MT-X4@$V`&o)eiH_#*..Y%bJs5+f)'7`<]UiRL@^P?@]9C%-Y0^lXBPo=e,SJ00,]pDP*qhBPsDQpk+eVMP*_:*7P.@VTDRq:gpiW3j@j1.OY8/jSua<qe"@S0MV#k'-*/%;.32iUN?&J3pA0mqe3Q"5Y=dpM=i)u,%iFBD.\/t`j(;eN/'>U,M%W%D:,>'8Lu(+MLJ0$Gp,Z@o7.Ci?l3WoM.INs8k:h`L]UW:V%+ek"Tp5n=%-6h"dbN'qJ/@_6T1>a7uoACp?-Pq*!8QgcL&)LW'i>Tg;MUURi31]G*+<UVD-B'Er1GTmdOZ]:lMUuBk60J9l<7YCYThs5raqB.a"?fa5b5C8`js%4BaLJ-.-"W4)>q;2AF[`u5h7!.DrmN-&4Qbq%pnqX_r.o9,WDHeOA0'r?t161$C\&h802tq<,OfT3k"?+t/jl0q^WjNU*%B:b9&Rr$M`8XTV"C5`@\'HmUnfLQsJ$kn>f4m)j"$%(m;?\OA(>YZ:A4p,lqPo?!<:)/1ePE@2Y^2i)r'Wd?3%>lKjmaG`Ut@(Tq`qGY[jb2E5(_3SA>5lPUAuFoZ*F#GH\eF[C83WaKQF]-O'V7#lta/oF8:;J+SP^f=#dB0Ai>sp`10#Qai#0-"OQ7FjW^3%RRhanD.6`W='c0/Z:_5gOMX_5r=Wg8Sct7^7s^MEUlk@dHoOndnSH`"aDW,/K;CE5'E5U2Ge,u^T_QK7Q/U1Rpu'Y.D;L<)'OZ&QY4)sS6<)"?VE(3=J7%3&eZ]UU^Z.6QOfl;Gj,WGI5WoHf!X#`ok3pQf5n%_$^[4k&ZLWR9gfW%=T.hQI)/>\`h_1gU,tRk_Y]eBHc\i23qV]ES&M6:0Qn_KskTfPMQr`+s-CL.Fb4rQ\l(0OoqWa/i7C"ji3U/uP=Mt"#[@)^S>K)h$>Xm"4Ob\mogY,;XU&.(W,pA)#o-?<m-TJC[UL/D8p'io];A=hu<\S\8OHY`DO_VMK_6[tIOffiDmt\f?MAB<_j[Pcgal(qr+`)i??$6unZ-i`##AooA1Y1t)Saa%(EW;qb^eWt/<^M:N&!lI5HaN-B<nQ=T$Y0cmc]Xj\PJj49p;2DseR5a4RDkR;erbM/5cYZWCY)R09AWFq!,G$YXJ#9Kc0MhRkcIQ"[ie>biE"N>^`@I+>Z9RP-!sJ.h6![]n#)BZBHr.QP;dS"\&kk:%Gu;X3bO_S%GE<=<U\NPH8!m6'8(\W]^10l?*AThKQAGO?M=Z,%*=5DL\-T'cQ"OCOK?BuKGK/^)Kb3Wf"QhuduAnVGa3`>TFkb5Dq@+7o3==7]n"n8?RWY=K3!u^E<XML;=3/u_U.j=^@16g#t=9NbjYqZn0?iS#0N\I&LNKDliGF410pOB.jgZ9l@=ae4$kI/r/WgTs6VR4+i\?tQa<ZlHtmQ'7lg3Q/EJ'#3BN"saPCq."n)3t/Q0BllXs@>)7YUZhM6e^Y1KJ7WUp'R]@3boK;D7sRHDlH=h>s*C-^E4'52b(h[R95G!]'S@0NN&CM<0_Y+\0\,LDWaeLnc8>r)MIIC-X[-.*Rr;GS08k[AArV$BLR#/*^`D(WmM05?1M<P8_6(a;"%XJTP6&]/'SdKZ`G!C8;FK"5kUBW^U<%+qm:@Q7+D+96f/7"ue7,q?sA9X/(I[-iuEaTgWQ!Fo;45S;-k88>C1g1KM0RA\Yu)>t^8>O.hr:ZQ1?('M&C#?T_j#LNcYp'I%ZMm.ecX,OLb*&q@Q]K[Sn<ADts90Ahbn.3_2V%T?V8.Uf9$nuGP`Gq>nXu03+QlE+VfOUVu0^'DI^NWV)ado8fb+-N*(p^OAK7?\fAE-lQ?QYC+Q/cJ\"aQO4j[t5I&=$^&+pctGJ"CYa)LRZsde4of`uT.r>!JPNe>=-B811*B*4>6VBQBZpK-DceMpW16W95',QqJ/5Mq[jO;!nWCFj/#&5EG7"Le$4bRWA)>X=\<E&Hh"j?42:"]Mc2a4o"fi(Vpk".'7g-A;A/APhnJ`Lp"358'dLH-pZe.n)ESEN"IE]r\)tY_LQ2d>,\R.H=]hif[SJ5?YZ@X)"jZ"G+odC\8,^Wk4::p_2Z%S'r</>/NPXd^`HHkF8ITYg;k(H:5,tJ(fPQ@C(PgLST@hsC-cr_V;^OcC`R\jj6=95Y/"%V41-n?.b)qQ4N*XQ?R%65e^],DL8"QpeYK`moV3:>6s@g=_(4kt-q:kB?Oj>7SZh<J)m5Tn%+Yf;o&"6EHL'7mPHd1E7JX#K^k35a=L'l%:#E/nZas;\$d_C:2aDW&,h.MHk%Ith'iMCp'/`o<aL2lJZGm.a%!F]KOEXM8;TNj1R9Ni-q-SFZPLb/#TE3gGP5+t9j82>to@`m\0e@+g;uQ@%\g;9\:cn/r0O7@_oKnjCj.3]`^Y1]W-!)XS+bc/GfT>o(e8+tn]UUZ:kLH-'BI^c6=N.G<#hG;$BAtI&9=$On+QXcEX@T5m`#.9<\&?WMOG8lF1eNGfQD3IcW+j#pnD;l>lbS4TgZq/7kl)7N\HPslokNkBfrk(2@Gr-i`*AT`%8r9.BG!q@!"Sf&qI-sF#fM[3THjXd.CrV+?8^c%6Hq_ENZKRK9)E;6Qd%;W&Ror8Uk\$Dfl:mmd39*jdeN(nMJin2!f9om\USY+(nlf90Fp&8Yc$Gp)P1ml>L`'Pl)?iuP<2CJ&:7ifn+u=C.==Y;.jZlr.V)RZlDOGJcmq(AO#m'l+rfZK\&>glAFE"FEDgE:%pfAI^p#Lp.,PgJ0`H.A!$T(t0gO3c8=W[j_01uu]!NVH^A)p);3_@_A%TfD?LBDgC,Jr^qN$DKKSmRMT5R=n2!5,QmRRrXgN%lnr#SR0FoEH"=Tf*91.n$t]`8QP"lUm,j35"f:G%>`H]-6:9tmdi)V>(<%g.\q[JFDS=s84a-h7pV<n_b`J/Ktc.@MN#iRoCs2XO=]WSo,&pCckm!![u%0!5"?b<f"*4%[/X`dt3PJ8hu!#uI%jnC5F4>1-m_YG1^XN8]0ZiS4O,8m&TkH(RcSW5k?75uJUbn0X>DfR76Q[jK?pLNB8!!JliNAb^U!H:d^mWp/Kq+qUkaH',JrdmJJi.RXVRX)#7Q$QVNWV-kjKgEG+R]9*KPH:&C)I.!)hgdSt!]q1-G(q"]KY$PcoWk(E;JC+buZRusf;M&14Q_Fa#83&+B8X'nHn4EEoQ0sGMlU[+E#F/MB#0:4X)cG05#5i:li/7:t4_F_oh6/6\D(S@,L\soe+o$2kQPg9nC!Z.X>D=IMJ-H7=:\C0CYUOW^CK$*SJk)V%+gGCme8RS-B(ti!rJ!(W1-<6KUOG45AmBYpb*r#8Zs!s97T<BMSE_2,@XJ-aOrEm/?_4<Q39NEZV9drBRXdTTL^P/KM.\Sq2Oql9V_7boe8J`=H="icMh#,tN)WXYaoNI7HEaK?gjDMelR;U8g*f9:a\82SaTI=]?X4^Vb?e0U^#]Nbm*:]anMoCJEf4-`@a$sIJj[&.+[F4>,*t]/9J4@+qd:)9jOZi!X2i-NS_7hdf[+@lL3Fk2<#dUEDT[l>oS*Y@qIEO)eA(YG'Ua8]%d4!iVlX`d`OH3=n`#]S[6f3*Ia$6aK0<80meog>B1!M\fPicm?t.;BZ@`\PAkXB3b$p<"FL+s2E0J0of**9<>$0u!.1J"lV?WCjEJfQAmJe*Y.3><&]@^:n]%PJs$P;)5KL5`elBqTOUesY\74V<])UG`=J$-W&q`mo>U=I,i=I!8uNtoEoX:Q4SFNU1jmqJM[6.m^+g@2I/\ANG`8sOOodhra))cmMShh6!1RS.G5IT%FWSr^UNq`/S)]epiaPB$ELjo[e-4/nAf/X@Kb@o$'R8_(T^NbV6ifk>$r6%h=E^Bt>VeqS074n4Xc<4'UtO(ag$?L4-#f$C?655_4r]itA<D54(mncZQ7]gFUn0T(,hARCf0cV@TT8<oLK9N.ia5")ELeZ"#Im)`buEG07:1G:+SAhBG:DZ%U*YHo5dn(t=N\0fE*>hICo.1r+7@gk]eUILS_fD1Ca/hj])F7!1eqfmG:LHR?\qV[D=K=6UO_F&q!IE?NA0P<!?^%*':BZV\Z@gnJ)ok&LZSaQQ*fO`lAhu(s*UJXt#Bg9HhcA5U0AW!Zl/pkAHW]hYB3lP6SKG14<F-)47%I'CDBR>4M#uSOuMjS+sE`82QF-elt20N0`?]NO#^8Z0P`7&<b>gk:tAMVE`g4mN,^l2ui-Qicl'>Y3%cT<e+@A>=Z+c)8+`I2C1PDefknDWMa2.EKn\VOHP(,1!+cII_KT4c*H=7hNh.\YZ8N3hiEa7<u#^*Fg`/M'r0am@c`"alR]ocU$1bsUjC:R+A\*;*mY@58Wa)<4:RXL-3sLc#.E'hX2IraKduFcTgM]grF6C.Bgf#-co[='eUe.(%r3[$C@UGU-^L92!Z4\:OG]EHNN:#+o4/X`Ko9?L1LWbp*dXA8jTjr!4GkR?Mm>,pt!GFrR%;k'$\9k,BL'Q!TP^qu;?'!9&TA]==]);e=type;local m=assert;local A=function(w)local C,r,B,k,X=0,{[0]=0,0,0,0,1,2,3,4,5,6,4,5},0,0xFFFFFFFF,#w;local R=function()C=C+1;return t(w,C,C);end;local t=0;for w=1,5 do B=B*256+R();end;local function w(o)local Y=0;for h=o,1,-1.0 do k=k/2;k=k-k%1;Y=Y*2;if not(B<k)then B=B-k;Y=Y+1;end;if k<=0x00FFFFFF then k=k*256;B=B*256+R();end;end;return Y;end;local function o(Y,h)local D,d,J=k/2048,Y[h];D=D-D%1;local f=D*d;if B<f then k=f;D=(2048-d)/32;D=D-D%1;d=d+D;J=0;else k=k-f;B=B-f;local D=d/32;D=D-D%1;d=d-D;J=1;end;Y[h]=d;if k<=0x00FFFFFF then k=k*256;B=B*256+R();end;return J;end;local function B(k,R,Y)local h=1;for D=1,R do h=h*2+o(Y,h);end;return(h-k);end;local k={[0]=0};local function R(Y,h,D)local d,J=0,1;for f=0,Y-1 do local Y=o(D,h+J);J=J*2+Y;d=d+Y*I[f];end;return d;end;local Y="";local function h(D,d)local J=1;for f=7,0,-1.0 do local F=(D/I[f])%2;F=F-F%1;f=o(d,J+(F*256)+256);J=J*2+f;if F~=f then while J<0x100 do J=J*2+o(d,J);end;break;end;end;return(J%256);end;local function D(d,J)if o(d,1)==0 then return B(8,3,d[3][J]);elseif o(d,2)==0 then return 8+B(8,3,d[4][J]);end;return B(256,8,d[5])+16.0;end;local function d(J)local f={};for F=0,J-1 do f[F]=1024.0;end;return f;end;local function J(f,F)local c={};for Q=0,f-1 do local f={};c[Q]=f;for Q=0,F-1 do f[Q]=1024.0;end;end;return c;end;local f=0;local function F()return{1024.0,1024.0,J(1,8),J(1,8),d(256)};end;local function c()local Q,V,U,l,O,K,x,P,G,_,Z,H,b,W,i,z=J(8,0x300),J(12,1),d(12),d(12),d(12),0,d(12),0,J(12,1),J(4,64),0,d(115.0),d(16),F(),F(),0;while C<=X do local C=(f%1);if o(V[t],C)==0 then local X=k[f];local d=X/I[5.0];d=d-d%1;X=Q[d];f=f+1;k[f]=t<7 and B(256,8,X)or h(k[f-z-1],X);t=r[t];else local r;if o(U,t)~=0 then if o(l,t)==0 then if o(G[t],C)==0 then t=t<7 and 9 or 11;r=1;end;else local X;if o(O,t)==0 then X=P;else if o(x,t)==0 then X=Z;else X=K;K=Z;end;Z=P;end;P=z;z=X;end;if not r then t=t<7 and 8 or 11;r=2+D(i,C);end;else K=Z;Z=P;P=z;r=2+D(W,C);local C=r-2;if 4<=C then C=3.0;end;z=B(64,6,_[C]);if z>=4 then C=z;local B=C/2-1;B=B-B%1;z=(2+C%2)*I[B];if C<14 then z=z+R(B,z-C,H);else z=z+(w(B-4)*16)+R(4,0,b);if z==0xFFFFFFFF then return r==2;end;end;end;t=t<7 and 7 or 10;if z>=f then return false;end;end;local t=f+r;for I=f+1,t do k[I]=k[I-z-1];end;f=t;end;end;return false;end;c();s(a,u({},{__tostring=function()k=nil;end}),nil,nil);c=#k;for t=1,c,7997 do local I=t+7996.0;if I>c then I=c;end;Y=Y..M(L(k,t,I));end;return Y;end;local t=A(E);E=A(n);E=buffer.fromstring(E);A,n=s(a,t,"Luraph"..N(" ",2),nil);m(A and n and e(n)=='function',"Luraph decompression error: "..g(n).." (does your environment support load/loadstring?)");return n(E);end)()(...);
+-- ================================================================
+-- AUTO TRADE - STANDALONE V31
+-- ================================================================
+-- Current modes:
+--   SENDER: existing V22 queue/stock/offer/finalization flow.
+--   RECEIVER: when this script runs on the configured TargetUsername/UserId,
+--             it waits for incoming trade requests, accepts one sender at a
+--             time, offers 10-20 configured item copies + a deterministic
+--             rounded diamond amount, re-accepts after offer modifications,
+--             and completes the final confirmation.
+--
+-- Sender stages:
+--   0) Read global target/items config, profile preflight, then auto-stock configured items.
+--   1) Queue/retry trade requests without spamming a busy receiver.
+--   2) Open trade and send several randomized chat messages.
+--   3) Read the sender's current diamond balance from TradeGui.
+--   4) Type the full balance into the real DiamondAmount TextBox with VIM.
+--   5) Build a randomized 10-20 item offer plan from the stocked-item pool.
+--   6) Click the real inventory item repeatedly according to the RNG plan.
+--   7) Verify EACH copy appears in TradeGui.TradeGui.MyItems before continuing.
+--   8) AcceptOffer only runs after every required offer stage succeeds.
+--   9) Wait for BOTH parties to reach TradeConfirmation, then SetConfirmState(true).
+--  10) Wait through Royale High's final countdown and VIM-click the real final Accept button.
+--  11) Post-trade verify diamonds/items, write a receipt, and permanently stop this sender.
+--
+-- IMPORTANT:
+-- This deliberately does NOT auto-accept an empty/partial trade.
+-- ================================================================
+
+local Players = game:GetService("Players")
+local ReplicatedStorage = game:GetService("ReplicatedStorage")
+local VirtualInputManager = game:GetService("VirtualInputManager")
+local GuiService = game:GetService("GuiService")
+local HttpService = game:GetService("HttpService")
+
+local LocalPlayer = Players.LocalPlayer
+local PlayerGui = LocalPlayer:WaitForChild("PlayerGui")
+
+-- ================================================================
+-- CONFIG
+-- ================================================================
+
+-- ================================================================
+-- EXTERNAL GLOBAL CONFIG
+-- ================================================================
+-- Set getgenv().AutoTradeConfig (and preferably _G.AutoTradeConfig) BEFORE running this script.
+-- This stays easy to change even if the main script is obfuscated.
+--
+-- Example:
+--
+-- getgenv().AutoTradeConfig = {
+--     TargetUsername = "Martha566951",
+--     -- TargetUserId = 123456789, -- optional, more robust
+--
+--     Items = {
+--         {
+--             Item = "Crystal Ice",
+--             Category = "Wings",
+--             Currency = "Diamonds",
+--             Target = 15
+--         },
+--         {
+--             Item = "Miniskirt",
+--             Category = "Skirts",
+--             Currency = "Diamonds",
+--             Target = 5
+--         }
+--     }
+-- }
+--
+-- Then execute/load the obfuscated AutoTrade script.
+
+local ExecutorEnvironment = nil
+
+if type(getgenv) == "function" then
+    local ok, result = pcall(getgenv)
+
+    if ok and type(result) == "table" then
+        ExecutorEnvironment = result
+    end
+end
+
+-- The loader writes the SAME table to getgenv() and _G.
+-- Read getgenv first, then _G as a compatibility fallback for obfuscators.
+local GlobalConfig = nil
+
+if ExecutorEnvironment
+    and type(ExecutorEnvironment.AutoTradeConfig) == "table"
+then
+    GlobalConfig =
+        ExecutorEnvironment.AutoTradeConfig
+elseif type(_G.AutoTradeConfig) == "table" then
+    GlobalConfig =
+        _G.AutoTradeConfig
+else
+    GlobalConfig = {}
+end
+
+-- Keep both environments pointing to the exact same table.
+if ExecutorEnvironment then
+    ExecutorEnvironment.AutoTradeConfig =
+        GlobalConfig
+end
+
+_G.AutoTradeConfig =
+    GlobalConfig
+
+if type(GlobalConfig.TargetUsername) ~= "string"
+    or GlobalConfig.TargetUsername == ""
+then
+    GlobalConfig.TargetUsername =
+        "Martha566951"
+end
+
+-- Optional and preferred when mass-running accounts:
+-- UserId avoids username capitalization/rename mistakes.
+if GlobalConfig.TargetUserId ~= nil then
+    GlobalConfig.TargetUserId =
+        tonumber(GlobalConfig.TargetUserId)
+end
+
+if type(GlobalConfig.Receiver) ~= "table" then
+    GlobalConfig.Receiver = {}
+end
+
+if type(GlobalConfig.Receiver.DiamondOptions) ~= "table"
+    or #GlobalConfig.Receiver.DiamondOptions == 0
+then
+    -- Deterministic, rounded receiver amounts. The sender UserId chooses
+    -- one of these values; this is not randomized.
+    GlobalConfig.Receiver.DiamondOptions = {
+        2000,
+        3000,
+        4000,
+        5000
+    }
+end
+
+if GlobalConfig.Receiver.Enabled == nil then
+    GlobalConfig.Receiver.Enabled = true
+end
+
+if GlobalConfig.Receiver.ChatEnabled == nil then
+    GlobalConfig.Receiver.ChatEnabled = true
+end
+
+if type(GlobalConfig.Items) ~= "table"
+    or #GlobalConfig.Items == 0
+then
+    GlobalConfig.Items = {
+        {
+            Item = "Crystal Ice",
+            Category = "Wings",
+            Currency = "Diamonds",
+            Target = 15
+        },
+        {
+            Item = "Miniskirt",
+            Category = "Skirts",
+            Currency = "Diamonds",
+            Target = 5
+        },
+        {
+            Item = "Royale Rebel Bustle Skirt",
+            Category = "Skirts",
+            Currency = "Diamonds",
+            Target = 2
+        }
+    }
+end
+
+local function buildConfiguredItems()
+    local stockTargets = {}
+    local offerPool = {}
+    local categoryByItem = {}
+
+    for index, raw in ipairs(GlobalConfig.Items) do
+        if type(raw) == "table" then
+            local itemName =
+                tostring(
+                    raw.Item
+                    or raw.Name
+                    or ""
+                )
+
+            local category =
+                tostring(
+                    raw.Category
+                    or ""
+                )
+
+            local currency =
+                tostring(
+                    raw.Currency
+                    or "Diamonds"
+                )
+
+            local target =
+                math.max(
+                    0,
+                    math.floor(
+                        tonumber(raw.Target)
+                        or tonumber(raw.StockTarget)
+                        or 0
+                    )
+                )
+
+            if itemName ~= ""
+                and category ~= ""
+            then
+                table.insert(
+                    stockTargets,
+                    {
+                        Item = itemName,
+                        Category = category,
+                        Currency = currency,
+                        Target = target
+                    }
+                )
+
+                -- Only items with Target > 0 are included in the random
+                -- outgoing item pool.
+                if target > 0 then
+                    table.insert(
+                        offerPool,
+                        itemName
+                    )
+
+                    categoryByItem[itemName] =
+                        category
+                end
+            else
+                warn(
+                    "[AutoTrade] Ignoring invalid global item config at index",
+                    index,
+                    "- Item/Category required."
+                )
+            end
+        end
+    end
+
+    return
+        stockTargets,
+        offerPool,
+        categoryByItem
+end
+
+local GlobalStockTargets,
+    GlobalOfferPool,
+    GlobalCategoryByItem =
+    buildConfiguredItems()
+
+local Config = {
+    TargetUsername =
+        tostring(GlobalConfig.TargetUsername),
+
+    TargetUserId =
+        tonumber(GlobalConfig.TargetUserId),
+
+    -- Optional: "Auto", "Sender", or "Receiver".
+    -- Auto = the configured target account becomes the receiver;
+    -- every other account remains a sender.
+    Mode =
+        tostring(GlobalConfig.Mode or "Auto"),
+
+    Receiver = {
+        Enabled =
+            GlobalConfig.Receiver.Enabled ~= false,
+
+        -- Optional fixed value. If nil, V23 deterministically selects one
+        -- of DiamondOptions based on the active sender's UserId.
+        FixedDiamondAmount =
+            tonumber(GlobalConfig.Receiver.DiamondAmount),
+
+        DiamondOptions =
+            GlobalConfig.Receiver.DiamondOptions,
+
+        ChatEnabled =
+            GlobalConfig.Receiver.ChatEnabled ~= false,
+
+        IncomingRequestTimeout = 999999,
+        TradeOpenTimeout = 35.0,
+
+        -- Incoming requests can arrive while the receiver is already trading
+        -- or restocking. Keep them in a local FIFO instead of dropping them.
+        RequestQueueEnabled = true,
+
+        -- RH request cards themselves expire quickly, but sender accounts can
+        -- retry while the receiver is occupied. Keep the local entry long
+        -- enough for those retries to refresh it; stale server requests are
+        -- skipped automatically if AcceptTradeRequest rejects them.
+        RequestQueueTTL = 180.0,
+        RequestQueueMax = 100,
+        RequestQueueProcessDelay = 0.15,
+
+        -- Sweep the ACTUAL TradeRequests.Inner cards continuously, including
+        -- while another trade/restock is active. This makes the receiver much
+        -- more reliable with many sender accounts arriving at once.
+        RequestCardSweepEnabled = true,
+        RequestCardSweepPollRate = 0.15,
+
+        -- A transient auto-stock failure must never permanently wedge
+        -- ReceiverBusy=true. Retry a few times, then release the receiver and
+        -- keep servicing/collecting requests while stock recovery retries.
+        PostTradeRestockAttempts = 3,
+        PostTradeRestockRetryDelay = 1.00,
+        StockRecoveryRetryDelay = 2.00,
+
+        -- If the user manually clicks Accept on an incoming request, the
+        -- trade opens without receiverAcceptRequest() owning that transition.
+        -- V28 detects that already-open trade and adopts it automatically.
+        ManualTradeAdoption = true,
+        ManualTradeAdoptPollRate = 0.20,
+
+        -- Re-accept only after the offer has stayed unchanged for this long.
+        ReacceptStabilityDelay = 0.90,
+        ReacceptMinGap = 0.75,
+        MaxReaccepts = 20,
+
+        -- AcceptOffer is a RemoteEvent, so a successful FireServer() call only
+        -- means the packet was sent; it does not prove our checkbox became
+        -- checked. If the OTHER player is visibly accepted but RH has not
+        -- advanced to TradeConfirmation, retry our own AcceptOffer.
+        AcceptWatchdogEnabled = true,
+        AcceptWatchdogDelay = 1.25,
+        AcceptWatchdogMaxRetries = 8,
+
+        -- Safety: receiver will not AcceptOffer while the sender's side
+        -- appears empty. Both sides now contribute configured item copies.
+        MinPartnerItemCards = 1,
+
+        ChatReplyCooldown = 6.0,
+        MaxChatReplies = 3,
+
+        -- Optional allowlist. Empty/nil means accept any sender while idle.
+        -- Entries may be Roblox usernames or numeric UserIds.
+        AllowedSenders =
+            GlobalConfig.Receiver.AllowedSenders
+            or {}
+    },
+
+    -- ============================================================
+    -- AUTO STOCK
+    -- ============================================================
+    AutoStock = true,
+
+    Stock = {
+        ReadyTimeout = 8.0,
+        VerifyTimeout = 3.5,
+        PollRate = 0.10,
+        PurchaseDelay = 0.60,
+
+        Targets =
+            GlobalStockTargets
+    },
+
+    -- Keep the chat varied without changing the typing cadence.
+    ChatEnabled = true,
+
+    Chat = {
+        -- SmartChat combines fragments instead of picking from only a few
+        -- complete fixed sentences. This gives hundreds of possible messages
+        -- while keeping the trade conversation relevant to the current stage.
+        Smart = true,
+        -- Stage-aware cap: normally 5 core messages, with up to 2 more
+        -- only when the trade actually reaches/waits on later confirmation stages.
+        MaxMessagesPerTrade = 7,
+        LongConfirmationWaitMessageAt = 12.0,
+
+        Greetings = {
+            "hey",
+            "hi",
+            "hello",
+            "hey there",
+            "hiya",
+            "hii",
+            "yo"
+        },
+
+        OpenActions = {
+            "give me a sec to load everything",
+            "one sec while i get my side ready",
+            "let me put everything in",
+            "i'm loading my trade stuff now",
+            "just a sec, getting everything ready",
+            "i'll add my side now",
+            "one moment while i set up the offer",
+            "let me get the trade filled in",
+            "putting my side together now",
+            "i'm getting the offer ready"
+        },
+
+        OpenTails = {
+            "",
+            "should be quick",
+            "won't take long",
+            "just a moment",
+            "one sec",
+            "give me a little bit"
+        },
+
+        OfferGeneric = {
+            "adding my diamonds and items now",
+            "putting the diamonds and items in now",
+            "i'm filling in the offer now",
+            "adding everything on my side",
+            "working on my side of the trade now",
+            "putting everything into the offer",
+            "adding the stuff now",
+            "i'm setting the offer up now",
+            "filling my side in",
+            "getting all of it into the trade"
+        },
+
+        OfferShort = {
+            "should only take a sec",
+            "this one should be pretty quick",
+            "almost done adding",
+            "just a few things to add",
+            "finishing the last few items"
+        },
+
+        OfferLong = {
+            "there are quite a few items so give me a sec",
+            "i have a bunch of items to add so one moment",
+            "this one has a few more items, just a sec",
+            "adding a bigger batch so give me a moment",
+            "there are several items on this one, still adding"
+        },
+
+        ReadyGeneric = {
+            "all set on my side",
+            "done adding everything",
+            "my side should be complete now",
+            "everything is in on my side",
+            "okay, my offer is ready",
+            "finished adding everything",
+            "my side is ready now",
+            "that should be everything from me",
+            "offer is complete on my side",
+            "i'm done adding now"
+        },
+
+        ReadyWithCount = {
+            "all %d items are in now",
+            "done, all %d items are added",
+            "finished adding the %d items",
+            "%d items are in, my side is ready",
+            "all %d items should be showing now"
+        },
+
+        ReadyWithDiamondsAndCount = {
+            "all %d items plus %s diamonds are in",
+            "done, %d items and %s diamonds are added",
+            "%d items + %s diamonds should all be showing",
+            "finished, i added %d items and %s diamonds",
+            "my side has %d items and %s diamonds now"
+        },
+
+        Accepting = {
+            "looks good, accepting on my side",
+            "okay, accepting now",
+            "all good on my end, accepting",
+            "my side is ready, i'll accept",
+            "everything looks right, accepting now",
+            "done on my side, accepting",
+            "okay i'm accepting mine now",
+            "offer looks good, i'll accept",
+            "ready here, accepting",
+            "all set, accepting my side",
+            "everything checks out, accepting mine",
+            "i'm good with this, accepting now"
+        },
+
+        PostAccept = {
+            "accepted mine, waiting on your side now",
+            "i accepted on my end, waiting for yours",
+            "mine is accepted, just waiting on the next step",
+            "accepted here, waiting for your side",
+            "my side is accepted now",
+            "accepted mine, take your time",
+            "i'm accepted on my side, waiting now",
+            "accepted here, just waiting for the confirmation",
+            "mine is locked in, waiting on your side",
+            "accepted my offer, waiting for the next screen",
+            "i've accepted mine, just waiting here",
+            "accepted on my end, we're good so far"
+        },
+
+        WaitingForConfirmation = {
+            "still waiting on the confirmation screen on my side",
+            "i'm still here, waiting for the next confirmation",
+            "still waiting for the second confirmation to show",
+            "no rush, i'm just waiting on the confirmation screen",
+            "still on the trade, waiting for the final confirmation",
+            "i'm waiting for the next screen to come up",
+            "still waiting here for the confirmation step",
+            "the final confirmation hasn't shown for me yet",
+            "still here, just waiting for the confirmation",
+            "waiting for the second accept screen on my side"
+        },
+
+        Confirmation = {
+            "got the confirmation screen, checking it now",
+            "final confirmation is up on my side now",
+            "i'm on the final confirmation screen now",
+            "got the second confirmation, one sec",
+            "confirmation screen is showing for me now",
+            "i'm checking the final confirmation now",
+            "the final accept screen just came up",
+            "got the last confirmation screen now",
+            "second confirmation is here, checking it",
+            "i'm at the final confirmation step now",
+            "final screen is up, just checking everything",
+            "confirmation came up on my side"
+        },
+
+        FinalConfirmed = {
+            "confirmed on my side",
+            "final confirmation done here",
+            "confirmed mine, waiting for it to finish",
+            "all confirmed on my end",
+            "done with the final confirmation",
+            "confirmed everything on my side",
+            "final confirm is done for me",
+            "confirmed mine, should be finishing now",
+            "all done confirming here",
+            "my final confirmation is in",
+            "confirmed the last step on my side",
+            "final accept is done here"
+        }
+    },
+
+    -- Actual outgoing text is entered character-by-character through VIM.
+    CharacterDelay = 0.055,
+    ChatOpenDelay = 0.75,
+    BetweenChatMessages = 0.60,
+
+    -- Multi-account request pacing.
+    QueueSlots = 20,
+    InitialSlotSpacing = 0.80,
+    BusyRetryBase = 5.0,
+    BusyRetrySlotSpacing = 0.25,
+
+    TradeOpenTimeout = 35.0,
+    RequestTimeoutRetry = 8.0,
+    PollRate = 0.10,
+
+    -- CAPTCHA GUARD
+    -- V25 detects Royale High's CardCaptchaGame and pauses all trade actions
+    -- until the challenge is no longer visible. It does not attempt to solve
+    -- or bypass the CAPTCHA.
+    CaptchaGuard = {
+        Enabled =
+            GlobalConfig.CaptchaGuardEnabled ~= false,
+
+        -- Matches the Campus script's CardCaptchaGame polling model.
+        PollRate = 0.20,
+        ClearSettleTime = 0.35,
+        MaxPauseTime = 300.0,
+
+        -- Campus solver detects this text explicitly. In AutoTrade we stop
+        -- the current action instead of clicking/guessing when the challenge
+        -- itself failed to load.
+        StopOnFailedToLoad = true
+    },
+
+    -- Diamond stage
+    OfferAllDiamonds = true,
+    DiamondSettleDelay = 0.75,
+
+    -- Deterministic amount policy. This is NOT randomized.
+    -- Example: 126236 with RoundDown10 -> 126230.
+    DiamondPolicy = {
+        Mode = "RoundDown10", -- Exact / RoundDown10 / RoundDown100 / KeepReserve
+        Reserve = 0,
+        StrictDisplayVerification = false,
+        DisplayVerifyTimeout = 2.50
+    },
+
+    -- Item stage.
+    -- A random 10-20 total copies are selected from this SAFE pool.
+    -- We deliberately do not choose arbitrary owned items, so the script
+    -- cannot accidentally offer something valuable outside this list.
+    RequireItemsBeforeAccept = true,
+
+    RandomOffer = {
+        MinItems = 10,
+        MaxItems = 20,
+
+        -- Fixed pacing between each real inventory click.
+        -- Example: Crystal Ice x10 = 10 separate clicks with this delay.
+        ItemClickDelay = 0.55,
+        ItemFindTimeout = 2.50,
+        BetweenItemTypesDelay = 0.20,
+
+        -- MyItems is the sender's "You Offer" container.
+        -- Every copy must replicate here before the script moves on.
+        OfferVerifyTimeout = 3.00,
+        OfferVerifyPollRate = 0.10,
+
+        -- Prefer the normal TradeInventory GUI path.
+        PreferInventoryClicks = true,
+
+        -- If the item's clickable GUI entry genuinely cannot be found,
+        -- use the confirmed Trade.AddItem RemoteFunction as a fallback.
+        DirectAddItemFallback = true,
+
+        Pool =
+            GlobalOfferPool,
+
+        CategoryByItem =
+            GlobalCategoryByItem
+    },
+
+    -- Final trade confirmation.
+    -- TradeConfirmation appears only after the normal offer-accept stage
+    -- has progressed to Royale High's second confirmation screen.
+    FinalConfirmation = {
+        WaitTimeout = 120.0,
+        PollRate = 0.10,
+        InvokeAttempts = 2,
+        RetryDelay = 1.00,
+
+        -- After SetConfirmState(true), Royale High shows a timed final screen.
+        FinalizeReadyTimeout = 75.0,
+
+        -- V13 tries multiple coordinate interpretations because
+        -- AbsolutePosition + GuiInset can double-offset small buttons.
+        FinalizeClickAttempts = 5,
+        FinalizeClickRetryDelay = 0.60,
+        FinalizePostClickObserve = 3.00,
+
+        -- A VIM coordinate/input failure is a client automation failure,
+        -- not evidence that the trade/account itself is bad.
+        QuarantineOnFinalizeClickFailure = false,
+
+        CompletionTimeout = 120.0
+    },
+
+    Reliability = {
+        RecipientLock = true,
+
+        -- V29: Royale High clears BOTH offer-accept checkboxes whenever
+        -- either side edits items/diamonds. If the receiver changes its offer
+        -- after the sender accepted, the sender should re-accept after the
+        -- offer settles instead of treating that normal change as fatal.
+        ReacceptOnCounterpartyModification = true,
+        SenderReacceptStabilityDelay = 0.90,
+        SenderReacceptMinGap = 0.75,
+        SenderMaxReaccepts = 20,
+
+        -- Kept for backward compatibility. When re-accept is enabled, normal
+        -- trade modifications are handled by the re-accept state machine.
+        AbortOnTradeModifiedAfterOfferLock = false,
+
+        AbortIfStockIncomplete = true,
+
+        PostTradeVerify = true,
+        PostTradeVerifyTimeout = 10.0,
+        PostTradeVerifyPollRate = 0.25,
+
+        -- Once a verified trade completes, this sender will not trade the same
+        -- configured receiver again, even if the script is reinjected.
+        PersistCompletion = true,
+        PersistQuarantine = true,
+
+        -- ACCOUNT-LEVEL protection, intentionally NOT JobId scoped.
+        -- Volt writefile/makefolder paths are relative to its workspace.
+        TradeBanFolder = "tradebans",
+
+        -- PRE-FLIGHT: inspect the target profile before any trade request.
+        ProfileTradeIconPreflight = true,
+        ProfilePreflightTimeout = 4.0,
+        ProfilePreflightPollRate = 0.10,
+        ProfilePreflightSettleTime = 0.35,
+
+        TargetResolveTimeout = 15.0,
+        TargetResolvePollRate = 0.25,
+
+        ReceiptFolder = "AutoTradeReceipts",
+        StateFolder = "AutoTradeState"
+    },
+
+    -- Chat fallback is intentionally disabled while testing the real GUI path.
+    DirectChatRemoteFallback = false
+}
+
+-- ================================================================
+-- REMOTES
+-- ================================================================
+
+local TradeFolder = ReplicatedStorage:WaitForChild("Trade")
+local MakeTradeRequest = TradeFolder:WaitForChild("MakeTradeRequest")
+local AcceptTradeRequest = TradeFolder:WaitForChild("AcceptTradeRequest")
+local ReceiveTradeRequest = TradeFolder:WaitForChild("ReceiveTradeRequest")
+local AcceptOffer = TradeFolder:WaitForChild("AcceptOffer")
+local SetConfirmState = TradeFolder:WaitForChild("SetConfirmState")
+
+local ProfileShow =
+    ReplicatedStorage
+        :WaitForChild("Profile")
+        :WaitForChild("Show")
+
+local TradeChatFolder = TradeFolder:WaitForChild("Chat")
+local DirectSendMessage = TradeChatFolder:WaitForChild("SendMessage")
+
+local AssetPurchase =
+    ReplicatedStorage
+        :WaitForChild("Network")
+        :WaitForChild("Functions")
+        :WaitForChild("Asset")
+        :WaitForChild("Purchase")
+
+local GetTradeInventoryCategoryItems =
+    TradeFolder:WaitForChild("GetTradeInventoryCategoryItems")
+
+local AddTradeItem =
+    TradeFolder:WaitForChild("AddItem")
+
+-- ================================================================
+-- STATE
+-- ================================================================
+
+local State = {
+    StockingFinished = false,
+    StockingResults = {},
+
+    Target = nil,
+    ManifestLocked = false,
+    PreTradeSnapshot = nil,
+    PostTradeSnapshot = nil,
+
+    TradeOpened = false,
+    GreetingSent = false,
+    DiamondsOffered = false,
+    DiamondOfferAmount = nil,
+    ChatMessagesSent = 0,
+    ChatUsedMessages = {},
+    ItemOfferPlan = nil,
+    ItemOfferSequence = nil,
+    ItemOfferTargetCount = 0,
+    ItemOfferAddedCount = 0,
+    ItemsOffered = false,
+    Accepted = false,
+    ConfirmationVisible = false,
+    FinalConfirmed = false,
+
+    FinalizeButtonReady = false,
+    FinalizeCountdownObserved = false,
+    FinalizeClicked = false,
+    FinalizeClickAttempts = 0,
+
+    TradeFinished = false,
+
+    TradeOfferLocked = false,
+    TradeModifiedAfterLock = false,
+    TradeModifiedAt = nil,
+    TradeModifiedConnections = {},
+    SenderReacceptCount = 0,
+    SenderLastAcceptAt = 0,
+
+    Completed = false,
+    Quarantined = false,
+
+    TradeBanned = false,
+    TradeBanCode = nil,
+    TradeBanPath = nil,
+
+    RuntimeMode = nil,
+
+    CaptchaActive = false,
+    CaptchaPauseStartedAt = nil,
+    CaptchaFailedToLoad = false,
+
+    ReceiverBusy = false,
+    ReceiverSender = nil,
+
+    -- FIFO of requests observed while the receiver is occupied.
+    ReceiverRequestQueue = {},
+    ReceiverRequestQueuedByUserId = {},
+    ReceiverRequestSequence = 0,
+    ReceiverStockReady = true,
+    ReceiverStockRecoveryRunning = false,
+    ReceiverRequestSweepRunning = false,
+
+    ReceiverManualAdoptions = 0,
+    ReceiverLastManualPartner = nil,
+
+    ReceiverDiamondAmount = nil,
+    ReceiverReacceptCount = 0,
+    ReceiverLastAcceptAt = 0,
+    ReceiverAcceptWatchdogRetries = 0,
+    ReceiverOfferModifiedAt = nil,
+    ReceiverOfferModificationPending = false,
+    ReceiverConnections = {},
+    ReceiverChatConnections = {},
+    ReceiverRequestConnection = nil,
+    ReceiverChatReplies = 0,
+    ReceiverLastChatReplyAt = 0,
+
+    ProfilePreflightChecked = false,
+    ProfilePreflightPassed = false,
+    ProfilePreflightDetail = nil,
+
+    TerminalReason = nil,
+    ReceiptPath = nil,
+
+    DiamondBalanceObject = nil,
+    DiamondOfferDisplayObject = nil
+}
+
+-- ================================================================
+-- CAMPUS-STYLE CAPTCHA GUARD
+-- ================================================================
+-- Ported from the uploaded Campus script's detection/state flow:
+--   CardCaptchaGame -> CaptchaGame.Visible
+--   scan descendants for "failed to load"
+--   event-driven Visible watcher + polling fallback
+--
+-- Intentionally NOT ported:
+--   asset thumbnail lookup
+--   hash -> answer mapping
+--   automatic CAPTCHA button clicking
+--
+-- Trading simply pauses until the challenge is gone.
+
+local function checkCaptchaFailedToLoad()
+    local topCard =
+        PlayerGui:FindFirstChild("CardCaptchaGame")
+
+    if not topCard then
+        return false
+    end
+
+    for _, object in ipairs(topCard:GetDescendants()) do
+        if object:IsA("TextLabel") then
+            local value =
+                string.lower(
+                    tostring(object.Text or "")
+                )
+
+            if string.find(
+                value,
+                "failed to load",
+                1,
+                true
+            ) then
+                return true
+            end
+        end
+    end
+
+    return false
+end
+
+local function captchaChallengeVisible()
+    if not Config.CaptchaGuard.Enabled then
+        return false
+    end
+
+    local topCard =
+        PlayerGui:FindFirstChild("CardCaptchaGame")
+
+    if not topCard then
+        return false
+    end
+
+    local gameFrame =
+        topCard:FindFirstChild("CaptchaGame")
+
+    if not gameFrame then
+        return false
+    end
+
+    local enabled = true
+    local visible = false
+
+    pcall(function()
+        if topCard:IsA("LayerCollector") then
+            enabled = topCard.Enabled
+        end
+    end)
+
+    pcall(function()
+        visible = gameFrame.Visible
+    end)
+
+    return enabled and visible
+end
+
+local function waitForCaptchaClear(context)
+    if not Config.CaptchaGuard.Enabled then
+        return true
+    end
+
+    if not captchaChallengeVisible() then
+        return true
+    end
+
+    local started = os.clock()
+
+    if not State.CaptchaActive then
+        State.CaptchaActive = true
+        State.CaptchaPauseStartedAt = started
+
+        warn(
+            "[AutoTrade][CaptchaGuard] CardCaptchaGame visible - pausing",
+            "| stage:",
+            tostring(context or "unknown")
+        )
+    end
+
+    while captchaChallengeVisible() do
+        if checkCaptchaFailedToLoad() then
+            State.CaptchaFailedToLoad = true
+
+            warn(
+                "[AutoTrade][CaptchaGuard] Captcha reports 'Failed to Load'."
+            )
+
+            if Config.CaptchaGuard.StopOnFailedToLoad then
+                return false
+            end
+        end
+
+        if os.clock() - started
+            >= Config.CaptchaGuard.MaxPauseTime
+        then
+            warn(
+                "[AutoTrade][CaptchaGuard] Captcha remained active too long; "
+                .. "stopping the current action."
+            )
+
+            return false
+        end
+
+        task.wait(
+            Config.CaptchaGuard.PollRate
+        )
+    end
+
+    task.wait(
+        Config.CaptchaGuard.ClearSettleTime
+    )
+
+    State.CaptchaActive = false
+    State.CaptchaPauseStartedAt = nil
+    State.CaptchaFailedToLoad = false
+
+    print(
+        "[AutoTrade][CaptchaGuard] Captcha hidden - resuming",
+        "| stage:",
+        tostring(context or "unknown")
+    )
+
+    return true
+end
+
+local function startCaptchaVisibilityWatcher()
+    if not Config.CaptchaGuard.Enabled then
+        return
+    end
+
+    task.spawn(function()
+        local cardCaptchaUI =
+            PlayerGui:FindFirstChild("CardCaptchaGame")
+            or PlayerGui:WaitForChild(
+                "CardCaptchaGame",
+                10
+            )
+
+        local captchaGameFrame =
+            cardCaptchaUI
+            and (
+                cardCaptchaUI:FindFirstChild("CaptchaGame")
+                or cardCaptchaUI:WaitForChild(
+                    "CaptchaGame",
+                    10
+                )
+            )
+
+        if captchaGameFrame then
+            captchaGameFrame
+                :GetPropertyChangedSignal("Visible")
+                :Connect(function()
+                    if captchaGameFrame.Visible then
+                        State.CaptchaActive = true
+                        State.CaptchaPauseStartedAt =
+                            os.clock()
+
+                        warn(
+                            "[AutoTrade][CaptchaGuard] Captcha UI detected."
+                        )
+                    else
+                        State.CaptchaActive = false
+                        State.CaptchaPauseStartedAt = nil
+                        State.CaptchaFailedToLoad = false
+
+                        print(
+                            "[AutoTrade][CaptchaGuard] Captcha UI closed."
+                        )
+                    end
+                end)
+        end
+
+        if captchaChallengeVisible() then
+            State.CaptchaActive = true
+            State.CaptchaPauseStartedAt =
+                os.clock()
+        end
+    end)
+
+    -- Low-frequency fallback in case the game replaces the GUI instance.
+    task.spawn(function()
+        local previousVisible =
+            captchaChallengeVisible()
+
+        while true do
+            local visible =
+                captchaChallengeVisible()
+
+            if visible ~= previousVisible then
+                previousVisible = visible
+
+                if visible then
+                    State.CaptchaActive = true
+                    State.CaptchaPauseStartedAt =
+                        os.clock()
+
+                    warn(
+                        "[AutoTrade][CaptchaGuard] Captcha became visible."
+                    )
+                else
+                    State.CaptchaActive = false
+                    State.CaptchaPauseStartedAt = nil
+                    State.CaptchaFailedToLoad = false
+
+                    print(
+                        "[AutoTrade][CaptchaGuard] Captcha became hidden."
+                    )
+                end
+            end
+
+            task.wait(
+                Config.CaptchaGuard.PollRate
+            )
+        end
+    end)
+end
+
+startCaptchaVisibilityWatcher()
+
+-- ================================================================
+-- RELIABILITY / PERSISTENT STATE
+-- ================================================================
+
+local function safeMakeFolder(path)
+    if type(makefolder) ~= "function" then
+        return false
+    end
+
+    local ok = pcall(function()
+        if type(isfolder) == "function" and isfolder(path) then
+            return
+        end
+        makefolder(path)
+    end)
+
+    return ok
+end
+
+local function safeWriteFile(path, content)
+    if type(writefile) ~= "function" then
+        return false
+    end
+
+    return pcall(function()
+        writefile(path, content)
+    end)
+end
+
+local function safeIsFile(path)
+    if type(isfile) ~= "function" then
+        return false
+    end
+
+    local ok, result = pcall(function()
+        return isfile(path)
+    end)
+
+    return ok and result == true
+end
+
+
+local function safeReadFile(path)
+    if type(readfile) ~= "function" then
+        return nil
+    end
+
+    local ok, result = pcall(function()
+        return readfile(path)
+    end)
+
+    if not ok then
+        return nil
+    end
+
+    return tostring(result or "")
+end
+
+
+-- ================================================================
+-- GLOBAL SENDER TRADE-BAN VAULT
+-- ================================================================
+-- Unlike normal completion/quarantine state, an RH trading ban/review is
+-- account-level. It must remain blocked across different JobIds.
+
+local SENDER_TRADE_RESTRICTION_MESSAGES = {
+    sender_banned_from_trading =
+        "Exploitive activity has been found on your account. Your trading privileges have been revoked.",
+
+    sender_is_suspicious =
+        "We're sorry: before you can trade, an RH Staff Member needs to manually investigate your account to approve transactions.",
+
+    profile_trade_icon_missing =
+        "The Royale High profile loaded, but no visible Trade control/icon was found. AutoTrade stopped before sending a trade request."
+}
+
+local function tradeBanFilename()
+    -- V22: only authoritative RH SERVER restriction responses use this file.
+    return
+        Config.Reliability.TradeBanFolder
+        .. "/server_"
+        .. tostring(LocalPlayer.UserId)
+        .. "_"
+        .. tostring(LocalPlayer.Name)
+        .. ".txt"
+end
+
+local function legacyTradeBanFilename()
+    -- V19-V21 used this same file for both server errors AND profile-icon
+    -- heuristics. V22 reads it only to migrate genuine server restrictions.
+    return
+        Config.Reliability.TradeBanFolder
+        .. "/"
+        .. tostring(LocalPlayer.UserId)
+        .. "_"
+        .. tostring(LocalPlayer.Name)
+        .. ".txt"
+end
+
+local function profilePreflightFilename(target)
+    return
+        Config.Reliability.TradeBanFolder
+        .. "/profile_"
+        .. tostring(LocalPlayer.UserId)
+        .. "_to_"
+        .. tostring(target and target.UserId or "unknown")
+        .. ".txt"
+end
+
+local function hasSavedSenderTradeBan()
+    local authoritative = tradeBanFilename()
+
+    if safeIsFile(authoritative) then
+        return true
+    end
+
+    -- Backward compatibility:
+    -- migrate ONLY genuine old RH server restriction markers.
+    local legacy = legacyTradeBanFilename()
+
+    if not safeIsFile(legacy) then
+        return false
+    end
+
+    local body = safeReadFile(legacy)
+
+    if not body then
+        -- Do not permanently block from an unreadable legacy marker because
+        -- V20/V21 could have created it from a profile-icon heuristic.
+        warn(
+            "[AutoTrade] Legacy tradeban marker exists but cannot be read. "
+            .. "Ignoring it; RH server restriction checks remain authoritative."
+        )
+        return false
+    end
+
+    local isServerRestriction =
+        string.find(body, "errorCode=sender_banned_from_trading", 1, true)
+        or string.find(body, "errorCode=sender_is_suspicious", 1, true)
+
+    if not isServerRestriction then
+        -- Most importantly, ignore the old V20/V21:
+        -- errorCode=profile_trade_icon_missing
+        return false
+    end
+
+    safeMakeFolder(Config.Reliability.TradeBanFolder)
+    safeWriteFile(authoritative, body)
+
+    print(
+        "[AutoTrade] Migrated legacy SERVER trade restriction marker ->",
+        authoritative
+    )
+
+    return true
+end
+
+local function saveProfilePreflightMarker(target, detail)
+    safeMakeFolder(Config.Reliability.TradeBanFolder)
+
+    local path =
+        profilePreflightFilename(target)
+
+    local body =
+        "status=PROFILE_PREFLIGHT_BLOCK"
+        .. "\ndetail=" .. tostring(detail or "profile_trade_icon_missing")
+        .. "\nusername=" .. tostring(LocalPlayer.Name)
+        .. "\nuserId=" .. tostring(LocalPlayer.UserId)
+        .. "\ntarget=" .. tostring(target and target.Name or Config.TargetUsername)
+        .. "\ntargetUserId=" .. tostring(target and target.UserId or "unknown")
+        .. "\nplaceId=" .. tostring(game.PlaceId)
+        .. "\njobId=" .. tostring(game.JobId)
+        .. "\ndetectedUnix=" .. tostring(os.time())
+
+    safeWriteFile(path, body)
+
+    warn(
+        "[AutoTrade] Profile preflight marker saved:",
+        path
+    )
+
+    return path
+end
+
+local function saveSenderTradeBan(errorCode)
+    errorCode = tostring(errorCode or "unknown_trade_restriction")
+
+    State.TradeBanned = true
+    State.TradeBanCode = errorCode
+    State.TerminalReason = "sender_trade_restricted_" .. errorCode
+
+    safeMakeFolder(Config.Reliability.TradeBanFolder)
+
+    local status =
+        errorCode == "sender_banned_from_trading"
+        and "TRADE_BANNED"
+        or "MANUAL_REVIEW"
+
+    local message =
+        SENDER_TRADE_RESTRICTION_MESSAGES[errorCode]
+        or "Sender trading is restricted."
+
+    local path = tradeBanFilename()
+
+    local body =
+        "status=" .. status
+        .. "\nerrorCode=" .. errorCode
+        .. "\nmessage=" .. message
+        .. "\nusername=" .. tostring(LocalPlayer.Name)
+        .. "\nuserId=" .. tostring(LocalPlayer.UserId)
+        .. "\nplaceId=" .. tostring(game.PlaceId)
+        .. "\njobId=" .. tostring(game.JobId)
+        .. "\ntarget="
+            .. tostring(
+                State.Target
+                and State.Target.Name
+                or Config.TargetUsername
+            )
+        .. "\ntargetUserId="
+            .. tostring(
+                State.Target
+                and State.Target.UserId
+                or "unknown"
+            )
+        .. "\ndetectedUnix=" .. tostring(os.time())
+
+    if safeWriteFile(path, body) then
+        State.TradeBanPath = path
+
+        warn(
+            "[AutoTrade] TRADE RESTRICTION SAVED:",
+            path
+        )
+    else
+        warn(
+            "[AutoTrade] Trade restriction detected, but Volt writefile/makefolder "
+            .. "could not save the tradebans marker."
+        )
+    end
+
+    warn(
+        "[AutoTrade] SENDER TRADING STOPPED:",
+        errorCode,
+        "|",
+        message
+    )
+
+    -- Runtime-global guard too, even if filesystem APIs are unavailable.
+    local env = _G
+
+    if type(getgenv) == "function" then
+        local ok, result = pcall(getgenv)
+        if ok and type(result) == "table" then
+            env = result
+        end
+    end
+
+    env.__AutoTradeSenderTradeBanned = true
+    env.__AutoTradeSenderTradeBanCode = errorCode
+end
+
+local function senderTradeBanRuntimeGuarded()
+    local env = _G
+
+    if type(getgenv) == "function" then
+        local ok, result = pcall(getgenv)
+        if ok and type(result) == "table" then
+            env = result
+        end
+    end
+
+    if env.__AutoTradeSenderTradeBanned ~= true then
+        return false
+    end
+
+    -- V20/V21 could set this from a profile-icon heuristic. Do not let that
+    -- old heuristic block a different TargetUsername forever.
+    if tostring(env.__AutoTradeSenderTradeBanCode)
+        == "profile_trade_icon_missing"
+    then
+        env.__AutoTradeSenderTradeBanned = false
+        env.__AutoTradeSenderTradeBanCode = nil
+        return false
+    end
+
+    return true
+end
+
+
+-- ================================================================
+-- PROFILE TRADE-ICON PRE-FLIGHT
+-- ================================================================
+
+local function preflightNormalize(value)
+    value = string.lower(tostring(value or ""))
+    value = string.gsub(value, "%s+", " ")
+    value = string.gsub(value, "^%s+", "")
+    value = string.gsub(value, "%s+$", "")
+    return value
+end
+
+local function preflightGuiVisible(object)
+    if not object or not object:IsA("GuiObject") then
+        return false
+    end
+
+    local ok, visible = pcall(function()
+        return object.Visible
+            and object.AbsoluteSize.X > 0
+            and object.AbsoluteSize.Y > 0
+    end)
+
+    if not ok or not visible then
+        return false
+    end
+
+    local current = object.Parent
+
+    while current and current ~= PlayerGui do
+        if current:IsA("GuiObject") and current.Visible == false then
+            return false
+        end
+
+        if current:IsA("LayerCollector") and current.Enabled == false then
+            return false
+        end
+
+        current = current.Parent
+    end
+
+    return true
+end
+
+local function preflightVisibleText(object)
+    local pieces = {}
+
+    if object:IsA("TextLabel")
+        or object:IsA("TextButton")
+        or object:IsA("TextBox")
+    then
+        local value = tostring(object.Text or "")
+        if value ~= "" then
+            table.insert(pieces, value)
+        end
+    end
+
+    for _, child in ipairs(object:GetDescendants()) do
+        if (child:IsA("TextLabel")
+            or child:IsA("TextButton")
+            or child:IsA("TextBox"))
+            and preflightGuiVisible(child)
+        then
+            local value = tostring(child.Text or "")
+            if value ~= "" then
+                table.insert(pieces, value)
+            end
+        end
+    end
+
+    return table.concat(pieces, " ")
+end
+
+local function preflightHasProfileToken(object)
+    local current = object
+
+    while current and current ~= PlayerGui do
+        local name = preflightNormalize(current.Name)
+
+        if string.find(name, "profile", 1, true)
+            or string.find(name, "diary", 1, true)
+            or string.find(name, "journal", 1, true)
+        then
+            return true
+        end
+
+        current = current.Parent
+    end
+
+    return false
+end
+
+local function preflightObjectMentionsTarget(object, target)
+    local haystack = preflightNormalize(preflightVisibleText(object))
+    local username = preflightNormalize(target and target.Name)
+    local displayName = preflightNormalize(target and target.DisplayName)
+
+    if username ~= ""
+        and string.find(haystack, username, 1, true)
+    then
+        return true
+    end
+
+    if displayName ~= ""
+        and string.find(haystack, displayName, 1, true)
+    then
+        return true
+    end
+
+    return false
+end
+
+local function findVisibleProfileTradeControl(target)
+    local profileLoaded = false
+    local bestProfileObject = nil
+
+    for _, object in ipairs(PlayerGui:GetDescendants()) do
+        if object:IsA("GuiObject")
+            and preflightGuiVisible(object)
+            and preflightHasProfileToken(object)
+            and preflightObjectMentionsTarget(object, target)
+        then
+            profileLoaded = true
+            bestProfileObject = object
+            break
+        end
+    end
+
+    if not profileLoaded then
+        return nil, false, "profile_not_confidently_loaded"
+    end
+
+    local searchRoot = bestProfileObject
+    local cursor = bestProfileObject
+
+    while cursor and cursor ~= PlayerGui do
+        local name = preflightNormalize(cursor.Name)
+
+        if string.find(name, "profile", 1, true)
+            or string.find(name, "diary", 1, true)
+            or string.find(name, "journal", 1, true)
+        then
+            searchRoot = cursor
+        end
+
+        cursor = cursor.Parent
+    end
+
+    local candidates = {searchRoot}
+
+    for _, child in ipairs(searchRoot:GetDescendants()) do
+        table.insert(candidates, child)
+    end
+
+    for _, object in ipairs(candidates) do
+        if object:IsA("GuiObject")
+            and preflightGuiVisible(object)
+        then
+            local name = preflightNormalize(object.Name)
+            local textValue = preflightNormalize(preflightVisibleText(object))
+            local fullName = preflightNormalize(object:GetFullName())
+
+            local mentionsTrade =
+                string.find(name, "trade", 1, true)
+                or string.find(textValue, "trade", 1, true)
+                or string.find(fullName, "trade", 1, true)
+
+            if mentionsTrade then
+                local clickable =
+                    object:IsA("GuiButton")
+                    and object
+                    or object:FindFirstAncestorWhichIsA("GuiButton")
+
+                if clickable then
+                    return clickable, true, clickable:GetFullName()
+                end
+
+                if name == "trade"
+                    or string.find(name, "tradebutton", 1, true)
+                    or string.find(name, "tradeicon", 1, true)
+                then
+                    return object, true, object:GetFullName()
+                end
+            end
+        end
+    end
+
+    return nil, true, "profile_loaded_but_trade_control_missing"
+end
+
+local function runProfileTradeIconPreflight(target)
+    if not Config.Reliability.ProfileTradeIconPreflight then
+        State.ProfilePreflightChecked = true
+        State.ProfilePreflightPassed = true
+        State.ProfilePreflightDetail = "disabled"
+        return true, "disabled"
+    end
+
+    if not target or target.Parent ~= Players then
+        return false, "target_unavailable"
+    end
+
+    State.ProfilePreflightChecked = true
+    State.ProfilePreflightPassed = false
+    State.ProfilePreflightDetail = nil
+
+    print(
+        "[AutoTrade] Preflight: opening profile before trade request:",
+        target.Name
+    )
+
+    local opened = pcall(function()
+        ProfileShow:FireServer(target, "Preview")
+    end)
+
+    if not opened then
+        State.ProfilePreflightDetail = "profile_show_remote_failed"
+
+        warn(
+            "[AutoTrade] Preflight UNKNOWN - profile open failed. "
+            .. "Not writing a trade-ban marker from an uncertain UI state."
+        )
+
+        return true, "unknown_profile_show_failed"
+    end
+
+    task.wait(Config.Reliability.ProfilePreflightSettleTime)
+
+    local started = os.clock()
+    local profileWasSeen = false
+
+    while os.clock() - started
+        < Config.Reliability.ProfilePreflightTimeout
+    do
+        local control, profileLoaded, detail =
+            findVisibleProfileTradeControl(target)
+
+        if profileLoaded then
+            profileWasSeen = true
+        end
+
+        if control then
+            State.ProfilePreflightPassed = true
+            State.ProfilePreflightDetail = tostring(detail)
+
+            print(
+                "[AutoTrade] Preflight PASS - profile Trade control found:",
+                tostring(detail)
+            )
+
+            return true, detail
+        end
+
+        task.wait(Config.Reliability.ProfilePreflightPollRate)
+    end
+
+    if not profileWasSeen then
+        State.ProfilePreflightPassed = true
+        State.ProfilePreflightDetail = "profile_not_confidently_loaded"
+
+        warn(
+            "[AutoTrade] Preflight UNKNOWN - profile UI could not be "
+            .. "confidently identified. Keeping RH server error checks active."
+        )
+
+        return true, "unknown_profile_ui"
+    end
+
+    State.ProfilePreflightDetail = "profile_trade_icon_missing"
+
+    warn(
+        "[AutoTrade] Preflight FAIL - profile loaded but Trade icon/control "
+        .. "is missing. No trade request will be sent."
+    )
+
+    -- This is a UI heuristic, not an authoritative RH server response.
+    -- Keep it in the tradebans workspace for diagnostics, but scope it to
+    -- this target and DO NOT globally poison the sender account.
+    State.ProfilePreflightDetail =
+        "profile_trade_icon_missing"
+
+    saveProfilePreflightMarker(
+        target,
+        "profile_trade_icon_missing"
+    )
+
+    writeTradeReceipt(
+        "profile_preflight_block",
+        "profile_trade_icon_missing"
+    )
+
+    return false, "profile_trade_icon_missing"
+end
+
+local function sanitizeFileKey(value)
+    value = tostring(value or "")
+    value = string.gsub(value, "[^%w%-%_]", "_")
+    if value == "" then value = "unknown" end
+    return value
+end
+
+local function tradePairKey(target)
+    return tostring(LocalPlayer.UserId)
+        .. "_to_"
+        .. tostring(target and target.UserId or Config.TargetUsername)
+end
+
+local function serverTradeKey(target)
+    -- BOTH completion and quarantine are scoped to this exact Roblox server.
+    -- Same sender + same target can trade again in a different JobId.
+    return tradePairKey(target)
+        .. "_job_"
+        .. sanitizeFileKey(game.JobId)
+end
+
+local function completionKey(target)
+    return serverTradeKey(target)
+end
+
+local function quarantineKey(target)
+    return serverTradeKey(target)
+end
+
+local function completedMarkerPath(target)
+    return Config.Reliability.StateFolder
+        .. "/completed_"
+        .. completionKey(target)
+        .. ".txt"
+end
+
+local function quarantinedMarkerPath(target)
+    return Config.Reliability.StateFolder
+        .. "/quarantined_"
+        .. quarantineKey(target)
+        .. ".txt"
+end
+
+local function getRuntimeStateTable()
+    local env = _G
+
+    if type(getgenv) == "function" then
+        local ok, result = pcall(getgenv)
+        if ok and type(result) == "table" then
+            env = result
+        end
+    end
+
+    env.__AutoTradeTerminalState =
+        env.__AutoTradeTerminalState or {}
+
+    return env.__AutoTradeTerminalState
+end
+
+local function alreadyTerminalForTarget(target)
+    local runtime = getRuntimeStateTable()
+    local completedRuntimeKey = "completed:" .. completionKey(target)
+    local quarantinedRuntimeKey = "quarantined:" .. quarantineKey(target)
+
+    if runtime[completedRuntimeKey] then
+        return true, "completed"
+    end
+
+    if runtime[quarantinedRuntimeKey] then
+        return true, "quarantined"
+    end
+
+    if Config.Reliability.PersistCompletion
+        and safeIsFile(completedMarkerPath(target))
+    then
+        return true, "completed"
+    end
+
+    if Config.Reliability.PersistQuarantine
+        and safeIsFile(quarantinedMarkerPath(target))
+    then
+        return true, "quarantined"
+    end
+
+    return false, nil
+end
+
+local function markTerminalState(target, stateName, reason)
+    local runtime = getRuntimeStateTable()
+    local runtimeKey
+
+    if stateName == "completed" then
+        runtimeKey = "completed:" .. completionKey(target)
+    elseif stateName == "quarantined" then
+        runtimeKey = "quarantined:" .. quarantineKey(target)
+    else
+        runtimeKey = tostring(stateName) .. ":" .. completionKey(target)
+    end
+
+    runtime[runtimeKey] = true
+    safeMakeFolder(Config.Reliability.StateFolder)
+
+    local path = nil
+    if stateName == "completed" and Config.Reliability.PersistCompletion then
+        path = completedMarkerPath(target)
+    elseif stateName == "quarantined" and Config.Reliability.PersistQuarantine then
+        path = quarantinedMarkerPath(target)
+    end
+
+    if path then
+        safeWriteFile(
+            path,
+            "state=" .. tostring(stateName)
+            .. "\nreason=" .. tostring(reason or stateName)
+            .. "\nplaceId=" .. tostring(game.PlaceId)
+            .. "\njobId=" .. tostring(game.JobId)
+            .. "\nsenderUserId=" .. tostring(LocalPlayer.UserId)
+            .. "\ntarget=" .. tostring(target and target.UserId or Config.TargetUsername)
+        )
+    end
+end
+
+local function copySimpleTable(source)
+    local result = {}
+
+    if type(source) ~= "table" then
+        return result
+    end
+
+    for key, value in pairs(source) do
+        if type(value) == "table" then
+            result[key] = copySimpleTable(value)
+        else
+            result[key] = value
+        end
+    end
+
+    return result
+end
+
+local function writeTradeReceipt(status, reason)
+    safeMakeFolder(Config.Reliability.ReceiptFolder)
+
+    local receipt = {
+        Status = status,
+        Reason = reason,
+        TradeBanned = State.TradeBanned,
+        TradeBanCode = State.TradeBanCode,
+        TradeBanPath = State.TradeBanPath,
+        ProfilePreflightChecked = State.ProfilePreflightChecked,
+        ProfilePreflightPassed = State.ProfilePreflightPassed,
+        ProfilePreflightDetail = State.ProfilePreflightDetail,
+        Sender = {
+            Name = LocalPlayer.Name,
+            UserId = LocalPlayer.UserId
+        },
+        Target = State.Target and {
+            Name = State.Target.Name,
+            UserId = State.Target.UserId
+        } or {
+            Name = Config.TargetUsername
+        },
+        Server = {
+            PlaceId = game.PlaceId,
+            JobId = game.JobId
+        },
+        DiamondsOffered = State.DiamondOfferAmount,
+        ItemOfferPlan = copySimpleTable(State.ItemOfferPlan),
+        ItemOfferTargetCount = State.ItemOfferTargetCount,
+        ItemOfferAddedCount = State.ItemOfferAddedCount,
+        PreTrade = copySimpleTable(State.PreTradeSnapshot),
+        PostTrade = copySimpleTable(State.PostTradeSnapshot),
+        Accepted = State.Accepted,
+        FinalConfirmed = State.FinalConfirmed,
+        FinalizeButtonReady = State.FinalizeButtonReady,
+        FinalizeCountdownObserved = State.FinalizeCountdownObserved,
+        FinalizeClicked = State.FinalizeClicked,
+        FinalizeClickAttempts = State.FinalizeClickAttempts,
+        TradeFinished = State.TradeFinished,
+        TradeModifiedAfterLock = State.TradeModifiedAfterLock,
+        TimestampUnix = os.time()
+    }
+
+    local encoded = nil
+
+    local ok, result = pcall(function()
+        return HttpService:JSONEncode(receipt)
+    end)
+
+    if ok then
+        encoded = result
+    else
+        encoded = tostring(receipt)
+    end
+
+    local jobShort = string.sub(sanitizeFileKey(game.JobId), 1, 12)
+
+    local filename =
+        Config.Reliability.ReceiptFolder
+        .. "/"
+        .. tradePairKey(State.Target)
+        .. "_job_"
+        .. jobShort
+        .. "_"
+        .. tostring(os.time())
+        .. "_"
+        .. tostring(status)
+        .. ".json"
+
+    if safeWriteFile(filename, encoded) then
+        State.ReceiptPath = filename
+        print("[AutoTrade] Receipt:", filename)
+    end
+end
+
+local function quarantine(reason)
+    if State.Quarantined then
+        return
+    end
+
+    State.Quarantined = true
+    State.TerminalReason = tostring(reason or "unknown")
+
+    warn("[AutoTrade] Sender quarantined:", State.TerminalReason)
+
+    markTerminalState(
+        State.Target,
+        "quarantined",
+        State.TerminalReason
+    )
+
+    writeTradeReceipt(
+        "quarantined",
+        State.TerminalReason
+    )
+end
+
+local function markCompleted(reason)
+    if State.Completed then
+        return
+    end
+
+    State.Completed = true
+    State.TerminalReason = tostring(reason or "verified_success")
+
+    print(
+        "[AutoTrade] VERIFIED COMPLETE. "
+        .. "This sender will not request another trade in THIS JobId."
+    )
+
+    markTerminalState(
+        State.Target,
+        "completed",
+        State.TerminalReason
+    )
+
+    writeTradeReceipt(
+        "completed",
+        State.TerminalReason
+    )
+end
+
+-- ================================================================
+-- AUTO STOCK
+-- ================================================================
+
+local function getQuantityModule()
+    local shop = PlayerGui:FindFirstChild("Shop")
+        or PlayerGui:WaitForChild("Shop", Config.Stock.ReadyTimeout)
+
+    local moduleScript =
+        shop
+        and shop:FindFirstChild("InventoryQuantitiesLocalModule")
+
+    if not moduleScript or not moduleScript:IsA("ModuleScript") then
+        return nil
+    end
+
+    local ok, module = pcall(require, moduleScript)
+    return ok and module or nil
+end
+
+local function readQuantityData(quantityModule)
+    if not quantityModule
+        or type(quantityModule.GetQuantityData) ~= "function"
+    then
+        return nil, false
+    end
+
+    local ok, data = pcall(function()
+        return quantityModule:GetQuantityData()
+    end)
+
+    if not ok or type(data) ~= "table" then
+        return nil, false
+    end
+
+    -- A populated table means the inventory module has finished loading.
+    return data, next(data) ~= nil
+end
+
+local function waitQuantityDataReady(quantityModule)
+    local started = os.clock()
+
+    while os.clock() - started < Config.Stock.ReadyTimeout do
+        local data, ready = readQuantityData(quantityModule)
+
+        if ready then
+            return data
+        end
+
+        task.wait(Config.Stock.PollRate)
+    end
+
+    return nil
+end
+
+local function getItemQuantity(quantityModule, itemName)
+    local data, ready = readQuantityData(quantityModule)
+
+    if not ready then
+        return nil
+    end
+
+    return tonumber(data[itemName]) or 0
+end
+
+local function snapshotConfiguredInventory()
+    local quantityModule = getQuantityModule()
+
+    if not quantityModule then
+        return nil, "quantity_module_unavailable"
+    end
+
+    local data = waitQuantityDataReady(quantityModule)
+
+    if not data then
+        return nil, "inventory_not_ready"
+    end
+
+    local snapshot = {
+        Items = {}
+    }
+
+    for _, itemName in ipairs(Config.RandomOffer.Pool) do
+        snapshot.Items[itemName] =
+            math.max(
+                0,
+                math.floor(tonumber(data[itemName]) or 0)
+            )
+    end
+
+    return snapshot
+end
+
+local function waitForQuantityIncrease(quantityModule, itemName, before)
+    local started = os.clock()
+
+    while os.clock() - started < Config.Stock.VerifyTimeout do
+        local count = getItemQuantity(quantityModule, itemName)
+
+        if count and count > before then
+            return count
+        end
+
+        task.wait(Config.Stock.PollRate)
+    end
+
+    return nil
+end
+
+local function stockOneTarget(quantityModule, spec)
+    if not waitForCaptchaClear("auto_stock") then
+        return false, nil
+    end
+
+    local item = spec.Item
+    local target = math.max(0, tonumber(spec.Target) or 0)
+
+    local count = getItemQuantity(quantityModule, item)
+
+    if count == nil then
+        warn("[AutoStock] Could not read quantity for", item)
+        return false, nil
+    end
+
+    print(
+        "[AutoStock]",
+        item,
+        "| owned:",
+        count,
+        "| target:",
+        target
+    )
+
+    if count >= target then
+        return true, count
+    end
+
+    while count < target do
+        if not waitForCaptchaClear("auto_stock_purchase") then
+            return false, count
+        end
+
+        local before = count
+
+        local ok, result = pcall(function()
+            return AssetPurchase:InvokeServer(
+                spec.Item,
+                spec.Category,
+                spec.Currency,
+                nil
+            )
+        end)
+
+        if not ok then
+            warn(
+                "[AutoStock]",
+                item,
+                "purchase invoke failed:",
+                result
+            )
+            return false, count
+        end
+
+        local updated =
+            waitForQuantityIncrease(
+                quantityModule,
+                item,
+                before
+            )
+
+        if not updated then
+            warn(
+                "[AutoStock]",
+                item,
+                "quantity did not increase; stopping this target."
+            )
+            return false, count
+        end
+
+        count = updated
+
+        print(
+            "[AutoStock]",
+            item,
+            count .. "/" .. target
+        )
+
+        if count >= target then
+            break
+        end
+
+        task.wait(Config.Stock.PurchaseDelay)
+    end
+
+    return count >= target, count
+end
+
+local function runAutoStock()
+    if not Config.AutoStock then
+        State.StockingFinished = true
+        return true
+    end
+
+    local quantityModule = getQuantityModule()
+
+    if not quantityModule then
+        warn("[AutoStock] InventoryQuantitiesLocalModule unavailable.")
+        State.StockingFinished = true
+        return false
+    end
+
+    local initialData = waitQuantityDataReady(quantityModule)
+
+    if not initialData then
+        warn("[AutoStock] Inventory quantities never became ready.")
+        State.StockingFinished = true
+        return false
+    end
+
+    local allReached = true
+
+    for _, spec in ipairs(Config.Stock.Targets) do
+        local ok, finalCount = stockOneTarget(
+            quantityModule,
+            spec
+        )
+
+        State.StockingResults[spec.Item] = {
+            Success = ok,
+            Count = finalCount,
+            Target = spec.Target
+        }
+
+        if not ok then
+            allReached = false
+        end
+
+        task.wait(Config.Stock.PurchaseDelay)
+    end
+
+    State.StockingFinished = true
+
+    if allReached then
+        print("[AutoStock] All configured stock targets are ready.")
+    else
+        warn("[AutoStock] One or more stock targets could not be completed.")
+    end
+
+    return allReached
+end
+
+-- ================================================================
+-- GUI HELPERS
+-- ================================================================
+
+local function getTradeGui()
+    local screen = PlayerGui:FindFirstChild("TradeGui")
+    local frame = screen and screen:FindFirstChild("TradeGui")
+    return screen, frame
+end
+
+local function isFinalConfirmationOverlayVisible()
+    local _, frame = getTradeGui()
+
+    if not frame then
+        return false
+    end
+
+    local finalConfirmation =
+        frame:FindFirstChild("FinalConfirmation")
+
+    return finalConfirmation
+        and finalConfirmation:IsA("GuiObject")
+        and finalConfirmation.Visible == true
+        or false
+end
+
+local function isTradeOpen()
+    local screen, frame = getTradeGui()
+
+    if not screen or not frame then
+        return false
+    end
+
+    if screen:IsA("ScreenGui") and screen.Enabled == false then
+        return false
+    end
+
+    return frame.Visible == true
+end
+
+local function waitForTradeToClose()
+    while isTradeOpen() do
+        task.wait(Config.PollRate)
+    end
+end
+
+local function getGuiCenter(guiObject)
+    local pos = guiObject.AbsolutePosition
+    local size = guiObject.AbsoluteSize
+
+    local ok, inset = pcall(function()
+        return GuiService:GetGuiInset()
+    end)
+
+    if not ok then
+        inset = Vector2.new(0, 0)
+    end
+
+    return
+        pos.X + size.X / 2,
+        pos.Y + size.Y / 2 + inset.Y
+end
+
+local function vimClick(guiObject)
+    if not guiObject
+        or not guiObject:IsA("GuiObject")
+        or guiObject.AbsoluteSize.X <= 0
+        or guiObject.AbsoluteSize.Y <= 0
+    then
+        return false
+    end
+
+    local x, y = getGuiCenter(guiObject)
+
+    local ok = pcall(function()
+        VirtualInputManager:SendMouseMoveEvent(x, y, game)
+        task.wait(0.05)
+
+        VirtualInputManager:SendMouseButtonEvent(
+            x, y, 0, true, game, 1
+        )
+
+        task.wait(0.06)
+
+        VirtualInputManager:SendMouseButtonEvent(
+            x, y, 0, false, game, 1
+        )
+    end)
+
+    return ok
+end
+
+local function sendKey(keyCode)
+    VirtualInputManager:SendKeyEvent(true, keyCode, false, game)
+    task.wait(0.05)
+    VirtualInputManager:SendKeyEvent(false, keyCode, false, game)
+end
+
+local function utf8Characters(text)
+    local chars = {}
+
+    for _, codepoint in utf8.codes(text) do
+        table.insert(chars, utf8.char(codepoint))
+    end
+
+    return chars
+end
+
+local function typeFocusedTextBox(textBox, text, clearFirst)
+    if not textBox or not textBox:IsA("TextBox") then
+        return false, "textbox_missing"
+    end
+
+    if not vimClick(textBox) then
+        return false, "textbox_click_failed"
+    end
+
+    task.wait(0.10)
+
+    pcall(function()
+        textBox:CaptureFocus()
+    end)
+
+    task.wait(0.08)
+
+    if clearFirst then
+        textBox.Text = ""
+    end
+
+    for _, character in ipairs(utf8Characters(text)) do
+        if not isTradeOpen() then
+            return false, "trade_closed_while_typing"
+        end
+
+        local ok = pcall(function()
+            VirtualInputManager:SendTextInputCharacterEvent(
+                character,
+                game
+            )
+        end)
+
+        if not ok then
+            return false, "vim_text_input_unavailable"
+        end
+
+        task.wait(Config.CharacterDelay)
+    end
+
+    return true
+end
+
+-- ================================================================
+-- CHAT
+-- ================================================================
+
+local rng = Random.new(
+    math.abs(tonumber(LocalPlayer.UserId) or 1)
+    + math.floor(os.clock() * 1000)
+)
+
+local function chooseDifferent(list, previous)
+    if type(list) ~= "table" or #list == 0 then
+        return nil
+    end
+
+    if #list == 1 then
+        return list[1]
+    end
+
+    local chosen = nil
+
+    for _ = 1, 8 do
+        chosen = list[rng:NextInteger(1, #list)]
+
+        if chosen ~= previous then
+            break
+        end
+    end
+
+    return chosen
+end
+
+local lastFragmentByGroup = {}
+
+local function pickFragment(groupName, list)
+    local chosen =
+        chooseDifferent(
+            list,
+            lastFragmentByGroup[groupName]
+        )
+
+    lastFragmentByGroup[groupName] = chosen
+    return chosen
+end
+
+local function formatDiamondAmount(amount)
+    amount = tonumber(amount)
+
+    if not amount then
+        return nil
+    end
+
+    local s = tostring(math.floor(amount))
+    local formatted = s
+
+    while true do
+        local changed
+        formatted, changed =
+            string.gsub(
+                formatted,
+                "^(-?%d+)(%d%d%d)",
+                "%1,%2"
+            )
+
+        if changed == 0 then
+            break
+        end
+    end
+
+    return formatted
+end
+
+local function normalizeChatSpacing(message)
+    message = tostring(message or "")
+    message = string.gsub(message, "%s+", " ")
+    message = string.gsub(message, "%s+([%.,!?])", "%1")
+    message = string.gsub(message, "^%s+", "")
+    message = string.gsub(message, "%s+$", "")
+    return message
+end
+
+local function rememberChatMessage(message)
+    if not message or message == "" then
+        return false
+    end
+
+    if State.ChatUsedMessages[message] then
+        return false
+    end
+
+    State.ChatUsedMessages[message] = true
+    return true
+end
+
+local function buildSmartTradeMessage(stage)
+    if not Config.ChatEnabled then
+        return nil
+    end
+
+    local chat = Config.Chat
+
+    if not chat.Smart then
+        return nil
+    end
+
+    local message = nil
+
+    if stage == "Open" then
+        local greeting =
+            pickFragment("Greetings", chat.Greetings)
+
+        local action =
+            pickFragment("OpenActions", chat.OpenActions)
+
+        local tail =
+            pickFragment("OpenTails", chat.OpenTails)
+
+        message = tostring(greeting or "hey")
+            .. ", "
+            .. tostring(action or "give me a sec")
+
+        if tail and tail ~= "" then
+            message = message .. ", " .. tail
+        end
+
+    elseif stage == "Offering" then
+        local itemCount =
+            tonumber(State.ItemOfferTargetCount) or 0
+
+        local base =
+            pickFragment("OfferGeneric", chat.OfferGeneric)
+
+        local tail = nil
+
+        if itemCount >= 16 then
+            tail =
+                pickFragment(
+                    "OfferLong",
+                    chat.OfferLong
+                )
+        elseif itemCount > 0 and itemCount <= 12 then
+            tail =
+                pickFragment(
+                    "OfferShort",
+                    chat.OfferShort
+                )
+        end
+
+        message = tostring(base or "adding everything now")
+
+        if tail and tail ~= "" then
+            message = message .. ", " .. tail
+        end
+
+    elseif stage == "Ready" then
+        local itemCount =
+            tonumber(State.ItemOfferTargetCount) or 0
+
+        local diamondAmount =
+            formatDiamondAmount(
+                State.DiamondOfferAmount
+            )
+
+        if itemCount > 0 and diamondAmount then
+            local template =
+                pickFragment(
+                    "ReadyWithDiamondsAndCount",
+                    chat.ReadyWithDiamondsAndCount
+                )
+
+            message = string.format(
+                template,
+                itemCount,
+                diamondAmount
+            )
+
+        elseif itemCount > 0 then
+            local template =
+                pickFragment(
+                    "ReadyWithCount",
+                    chat.ReadyWithCount
+                )
+
+            message = string.format(
+                template,
+                itemCount
+            )
+
+        else
+            message =
+                pickFragment(
+                    "ReadyGeneric",
+                    chat.ReadyGeneric
+                )
+        end
+
+    elseif stage == "Accepting" then
+        message =
+            pickFragment(
+                "Accepting",
+                chat.Accepting
+            )
+
+    elseif stage == "PostAccept" then
+        message =
+            pickFragment(
+                "PostAccept",
+                chat.PostAccept
+            )
+
+    elseif stage == "WaitingForConfirmation" then
+        message =
+            pickFragment(
+                "WaitingForConfirmation",
+                chat.WaitingForConfirmation
+            )
+
+    elseif stage == "Confirmation" then
+        message =
+            pickFragment(
+                "Confirmation",
+                chat.Confirmation
+            )
+
+    elseif stage == "FinalConfirmed" then
+        message =
+            pickFragment(
+                "FinalConfirmed",
+                chat.FinalConfirmed
+            )
+    end
+
+    message = normalizeChatSpacing(message)
+
+    if message == "" then
+        return nil
+    end
+
+    -- Exact-message de-duplication for this trade session.
+    if rememberChatMessage(message) then
+        return message
+    end
+
+    -- Rebuild a few times if the fragment combination happened to repeat.
+    for _ = 1, 6 do
+        if stage == "Open" then
+            message =
+                normalizeChatSpacing(
+                    tostring(pickFragment("Greetings", chat.Greetings) or "hey")
+                    .. ", "
+                    .. tostring(pickFragment("OpenActions", chat.OpenActions) or "give me a sec")
+                )
+
+        elseif stage == "Offering" then
+            message =
+                normalizeChatSpacing(
+                    tostring(
+                        pickFragment(
+                            "OfferGeneric",
+                            chat.OfferGeneric
+                        )
+                        or "adding everything now"
+                    )
+                )
+
+        elseif stage == "Ready" then
+            message =
+                normalizeChatSpacing(
+                    tostring(
+                        pickFragment(
+                            "ReadyGeneric",
+                            chat.ReadyGeneric
+                        )
+                        or "all set on my side"
+                    )
+                )
+
+        elseif stage == "Accepting" then
+            message =
+                normalizeChatSpacing(
+                    tostring(
+                        pickFragment(
+                            "Accepting",
+                            chat.Accepting
+                        )
+                        or "accepting now"
+                    )
+                )
+
+        elseif stage == "PostAccept" then
+            message =
+                normalizeChatSpacing(
+                    tostring(
+                        pickFragment(
+                            "PostAccept",
+                            chat.PostAccept
+                        )
+                        or "accepted mine, waiting on your side"
+                    )
+                )
+
+        elseif stage == "WaitingForConfirmation" then
+            message =
+                normalizeChatSpacing(
+                    tostring(
+                        pickFragment(
+                            "WaitingForConfirmation",
+                            chat.WaitingForConfirmation
+                        )
+                        or "still waiting for the confirmation screen"
+                    )
+                )
+
+        elseif stage == "Confirmation" then
+            message =
+                normalizeChatSpacing(
+                    tostring(
+                        pickFragment(
+                            "Confirmation",
+                            chat.Confirmation
+                        )
+                        or "got the final confirmation screen"
+                    )
+                )
+
+        elseif stage == "FinalConfirmed" then
+            message =
+                normalizeChatSpacing(
+                    tostring(
+                        pickFragment(
+                            "FinalConfirmed",
+                            chat.FinalConfirmed
+                        )
+                        or "confirmed on my side"
+                    )
+                )
+        end
+
+        if rememberChatMessage(message) then
+            return message
+        end
+    end
+
+    return message
+end
+
+local function typeIntoTradeChat(message)
+    if not waitForCaptchaClear("trade_chat") then
+        return false, "captcha_pause_timeout"
+    end
+
+    local _, frame = getTradeGui()
+
+    if not frame or not isTradeOpen() then
+        return false, "trade_not_open"
+    end
+
+    -- FinalConfirmation overlays the lower TradeGui. Its red No/Decline
+    -- button overlaps the normal SendMessage screen area, so chat must stop
+    -- completely once this overlay appears.
+    if isFinalConfirmationOverlayVisible() then
+        return false, "final_confirmation_overlay_active"
+    end
+
+    local chatBox = frame:FindFirstChild("Chat")
+    local sendButton = frame:FindFirstChild("SendMessage")
+
+    if not chatBox or not chatBox:IsA("TextBox") then
+        return false, "chat_box_missing"
+    end
+
+    if not sendButton or not sendButton:IsA("GuiButton") then
+        return false, "send_button_missing"
+    end
+
+    local typed, reason = typeFocusedTextBox(
+        chatBox,
+        message,
+        true
+    )
+
+    if not typed then
+        return false, reason
+    end
+
+    task.wait(0.15)
+
+    if tostring(chatBox.Text or "") == "" then
+        return false, "textbox_stayed_empty"
+    end
+
+    -- Re-check immediately before the physical Send! click. The other party
+    -- can advance the trade while this account is typing.
+    if isFinalConfirmationOverlayVisible() then
+        return false, "final_confirmation_appeared_before_send"
+    end
+
+    if not vimClick(sendButton) then
+        return false, "send_click_failed"
+    end
+
+    task.wait(0.20)
+    return true
+end
+
+local function sendTradeChat(message)
+    if not Config.ChatEnabled or not message then
+        return true
+    end
+
+    local maxMessages =
+        math.max(
+            1,
+            tonumber(Config.Chat.MaxMessagesPerTrade) or 7
+        )
+
+    if State.ChatMessagesSent >= maxMessages then
+        return true
+    end
+
+    local ok, reason = typeIntoTradeChat(message)
+
+    if ok then
+        State.ChatMessagesSent += 1
+        print("[AutoTrade] Chat:", message)
+        return true
+    end
+
+    warn("[AutoTrade] GUI chat failed:", reason)
+
+    if Config.DirectChatRemoteFallback then
+        local remoteOk, remoteResult = pcall(function()
+            return DirectSendMessage:InvokeServer(message)
+        end)
+
+        if remoteOk then
+            State.ChatMessagesSent += 1
+            print("[AutoTrade] Direct chat fallback:", message)
+            return true
+        end
+
+        warn("[AutoTrade] Direct chat fallback failed:", remoteResult)
+    end
+
+    return false
+end
+
+local function sendStageChat(stage)
+    local message =
+        buildSmartTradeMessage(stage)
+
+    if not message then
+        return true
+    end
+
+    local ok = sendTradeChat(message)
+    task.wait(Config.BetweenChatMessages)
+    return ok
+end
+
+-- ================================================================
+-- DIAMONDS
+-- ================================================================
+
+local function parseNumber(text)
+    if type(text) ~= "string" then
+        return nil
+    end
+
+    local cleaned = string.gsub(text, "[^%d]", "")
+
+    if cleaned == "" then
+        return nil
+    end
+
+    return tonumber(cleaned)
+end
+
+local function findCurrentDiamondBalance()
+    local _, frame = getTradeGui()
+
+    if not frame then
+        return nil
+    end
+
+    local bestAmount = nil
+    local bestObject = nil
+
+    -- Prefer text objects whose names/parents mention diamonds.
+    for _, object in ipairs(frame:GetDescendants()) do
+        if object:IsA("TextLabel") or object:IsA("TextButton") then
+            local amount = parseNumber(object.Text)
+
+            if amount and amount > 0 then
+                local path = string.lower(object:GetFullName())
+                local score = amount
+
+                if string.find(path, "diamond", 1, true) then
+                    score += 1000000000
+                end
+
+                if not bestAmount or score > bestAmount.score then
+                    bestAmount = {
+                        value = amount,
+                        score = score
+                    }
+                    bestObject = object
+                end
+            end
+        end
+    end
+
+    if bestAmount then
+        print(
+            "[AutoTrade] Diamond balance candidate:",
+            bestAmount.value,
+            "|",
+            bestObject:GetFullName()
+        )
+
+        return bestAmount.value, bestObject
+    end
+
+    return nil, nil
+end
+
+local function applyDiamondPolicy(balance)
+    local mode = tostring(Config.DiamondPolicy.Mode or "Exact")
+    local reserve = math.max(
+        0,
+        math.floor(tonumber(Config.DiamondPolicy.Reserve) or 0)
+    )
+
+    balance = math.max(0, math.floor(tonumber(balance) or 0))
+
+    if mode == "RoundDown10" then
+        return math.floor(balance / 10) * 10
+
+    elseif mode == "RoundDown100" then
+        return math.floor(balance / 100) * 100
+
+    elseif mode == "KeepReserve" then
+        return math.max(0, balance - reserve)
+    end
+
+    return balance
+end
+
+local function findDiamondOfferDisplayObject(expectedAmount)
+    local _, frame = getTradeGui()
+
+    if not frame then
+        return nil
+    end
+
+    for _, object in ipairs(frame:GetDescendants()) do
+        if (object:IsA("TextLabel") or object:IsA("TextButton"))
+            and object ~= State.DiamondBalanceObject
+        then
+            local amount = parseNumber(object.Text)
+
+            if amount == expectedAmount then
+                return object
+            end
+        end
+    end
+
+    return nil
+end
+
+local function waitForDiamondOfferDisplay(expectedAmount)
+    local started = os.clock()
+
+    while os.clock() - started
+        < Config.DiamondPolicy.DisplayVerifyTimeout
+    do
+        if not isTradeOpen() then
+            return false, nil
+        end
+
+        local object =
+            findDiamondOfferDisplayObject(expectedAmount)
+
+        if object then
+            return true, object
+        end
+
+        task.wait(Config.PollRate)
+    end
+
+    return false, nil
+end
+
+local function verifyCurrentDiamondOffer()
+    if not Config.OfferAllDiamonds then
+        return true
+    end
+
+    local _, frame = getTradeGui()
+
+    if not frame then
+        return false
+    end
+
+    local diamondBox = frame:FindFirstChild("DiamondAmount")
+    local expected = tonumber(State.DiamondOfferAmount)
+
+    if not diamondBox or not expected then
+        return false
+    end
+
+    if parseNumber(diamondBox.Text) ~= expected then
+        return false
+    end
+
+    if State.DiamondOfferDisplayObject
+        and State.DiamondOfferDisplayObject.Parent
+    then
+        return
+            parseNumber(State.DiamondOfferDisplayObject.Text)
+            == expected
+    end
+
+    if Config.DiamondPolicy.StrictDisplayVerification then
+        local verified, object =
+            waitForDiamondOfferDisplay(expected)
+
+        if verified then
+            State.DiamondOfferDisplayObject = object
+        end
+
+        return verified
+    end
+
+    return true
+end
+
+local function offerAllDiamonds()
+    if not waitForCaptchaClear("sender_diamonds") then
+        return false
+    end
+
+    if not Config.OfferAllDiamonds then
+        State.DiamondsOffered = true
+        return true
+    end
+
+    local _, frame = getTradeGui()
+
+    if not frame or not isTradeOpen() then
+        return false
+    end
+
+    local diamondBox = frame:FindFirstChild("DiamondAmount")
+
+    if not diamondBox or not diamondBox:IsA("TextBox") then
+        warn("[AutoTrade] TradeGui.TradeGui.DiamondAmount missing.")
+        return false
+    end
+
+    local balance, balanceObject =
+        findCurrentDiamondBalance()
+
+    if balance == nil then
+        warn("[AutoTrade] Could not determine current diamond balance.")
+        return false
+    end
+
+    State.DiamondBalanceObject = balanceObject
+
+    if not State.PreTradeSnapshot then
+        State.PreTradeSnapshot = {
+            Items = {}
+        }
+    end
+
+    State.PreTradeSnapshot.Diamonds = balance
+
+    local amount = applyDiamondPolicy(balance)
+
+    if amount <= 0 then
+        warn("[AutoTrade] Diamond policy produced no transferable diamonds.")
+        return false
+    end
+
+    local typed, reason = typeFocusedTextBox(
+        diamondBox,
+        tostring(amount),
+        true
+    )
+
+    if not typed then
+        warn("[AutoTrade] Could not type diamond amount:", reason)
+        return false
+    end
+
+    sendKey(Enum.KeyCode.Return)
+    task.wait(Config.DiamondSettleDelay)
+
+    local boxAmount = parseNumber(diamondBox.Text)
+
+    if boxAmount ~= amount then
+        warn(
+            "[AutoTrade] Diamond TextBox verification failed:",
+            tostring(boxAmount),
+            "/",
+            tostring(amount)
+        )
+        return false
+    end
+
+    local displayVerified, displayObject =
+        waitForDiamondOfferDisplay(amount)
+
+    if displayVerified then
+        State.DiamondOfferDisplayObject = displayObject
+        print(
+            "[AutoTrade] Diamond offer display verified:",
+            amount
+        )
+    elseif Config.DiamondPolicy.StrictDisplayVerification then
+        warn(
+            "[AutoTrade] Offered diamond display could not be verified."
+        )
+        return false
+    else
+        warn(
+            "[AutoTrade] Could not identify the separate offered-diamond label; "
+            .. "TextBox verification passed."
+        )
+    end
+
+    State.DiamondsOffered = true
+    State.DiamondOfferAmount = amount
+
+    print(
+        "[AutoTrade] Diamond policy:",
+        tostring(Config.DiamondPolicy.Mode),
+        "| balance:",
+        balance,
+        "| offer:",
+        amount
+    )
+
+    return true
+end
+
+-- ================================================================
+-- ITEMS
+-- ================================================================
+
+local function normalizeItemText(value)
+    return string.lower(
+        string.gsub(
+            tostring(value or ""),
+            "^%s*(.-)%s*$",
+            "%1"
+        )
+    )
+end
+
+local function randomOfferPoolSet()
+    local set = {}
+
+    for _, name in ipairs(Config.RandomOffer.Pool) do
+        set[name] = true
+    end
+
+    return set
+end
+
+local function buildRandomItemOfferPlan()
+    if State.ManifestLocked
+        and type(State.ItemOfferPlan) == "table"
+        and type(State.ItemOfferSequence) == "table"
+        and #State.ItemOfferSequence > 0
+    then
+        return State.ItemOfferPlan, State.ItemOfferSequence
+    end
+
+    local quantityModule = getQuantityModule()
+
+    if not quantityModule then
+        return nil, "quantity_module_unavailable"
+    end
+
+    local data = waitQuantityDataReady(quantityModule)
+
+    if not data then
+        return nil, "inventory_not_ready"
+    end
+
+    local poolSet = randomOfferPoolSet()
+    local copies = {}
+
+    -- Expand owned copies into individual RNG slots.
+    -- With the configured stock targets this can be:
+    --   Crystal Ice x15
+    --   Miniskirt x5
+    --   Royale Rebel Bustle Skirt x2
+    -- = 22 individual selectable copies.
+    for itemName, rawCount in pairs(data) do
+        if poolSet[itemName] then
+            local count = math.max(
+                0,
+                math.floor(tonumber(rawCount) or 0)
+            )
+
+            for _ = 1, count do
+                table.insert(copies, itemName)
+            end
+        end
+    end
+
+    if #copies == 0 then
+        return nil, "no_safe_items_owned"
+    end
+
+    -- Fisher-Yates: the actual COPY ORDER is randomized, not just the total.
+    for i = #copies, 2, -1 do
+        local j = rng:NextInteger(1, i)
+        copies[i], copies[j] = copies[j], copies[i]
+    end
+
+    local minWanted = math.max(
+        1,
+        math.floor(tonumber(Config.RandomOffer.MinItems) or 10)
+    )
+
+    local maxWanted = math.max(
+        minWanted,
+        math.floor(tonumber(Config.RandomOffer.MaxItems) or 20)
+    )
+
+    local wanted = rng:NextInteger(minWanted, maxWanted)
+    wanted = math.min(wanted, #copies)
+
+    local plan = {}
+    local sequence = {}
+
+    for i = 1, wanted do
+        local itemName = copies[i]
+
+        table.insert(sequence, itemName)
+        plan[itemName] = (plan[itemName] or 0) + 1
+    end
+
+    State.ItemOfferPlan = plan
+    State.ItemOfferSequence = sequence
+    State.ItemOfferTargetCount = #sequence
+    State.ItemOfferAddedCount = 0
+
+    print(
+        "[AutoTrade] Random item offer target:",
+        #sequence,
+        "item(s)"
+    )
+
+    for itemName, count in pairs(plan) do
+        print(
+            "[AutoTrade]   ",
+            itemName,
+            "x" .. tostring(count)
+        )
+    end
+
+    return plan, sequence
+end
+
+local function getTradeInventoryFrame()
+    local _, frame = getTradeGui()
+
+    if not frame then
+        return nil
+    end
+
+    return frame:FindFirstChild("TradeInventory")
+end
+
+local function getTradeInventoryInner()
+    local inventory = getTradeInventoryFrame()
+    return inventory and inventory:FindFirstChild("Inner") or nil
+end
+
+local function getMyItemsFrame()
+    local _, frame = getTradeGui()
+    return frame and frame:FindFirstChild("MyItems") or nil
+end
+
+local function countMyOfferedItemCopies(itemName)
+    local myItems = getMyItemsFrame()
+
+    if not myItems then
+        return nil
+    end
+
+    local count = 0
+
+    -- Roblox allows multiple siblings with the same Name, so ten copies of
+    -- Crystal Ice can appear as ten children all named "Crystal Ice".
+    for _, object in ipairs(myItems:GetChildren()) do
+        if object.Name == itemName then
+            count += 1
+        end
+    end
+
+    return count
+end
+
+local function countTotalPlannedItemsPresent(plan)
+    local total = 0
+
+    for itemName, expected in pairs(plan) do
+        local count = countMyOfferedItemCopies(itemName)
+
+        if count == nil then
+            return nil
+        end
+
+        total += math.min(count, expected)
+    end
+
+    return total
+end
+
+local function waitForOfferedCopyIncrease(itemName, beforeCount)
+    local started = os.clock()
+
+    while os.clock() - started < Config.RandomOffer.OfferVerifyTimeout do
+        if not isTradeOpen() then
+            return false, "trade_closed"
+        end
+
+        local now = countMyOfferedItemCopies(itemName)
+
+        if now and now >= beforeCount + 1 then
+            return true, now
+        end
+
+        task.wait(Config.RandomOffer.OfferVerifyPollRate)
+    end
+
+    local finalCount = countMyOfferedItemCopies(itemName)
+
+    if finalCount and finalCount >= beforeCount + 1 then
+        return true, finalCount
+    end
+
+    return false, finalCount
+end
+
+local function guiObjectActuallyVisible(object)
+    if not object or not object:IsA("GuiObject") then
+        return false
+    end
+
+    if object.Visible == false
+        or object.AbsoluteSize.X <= 0
+        or object.AbsoluteSize.Y <= 0
+    then
+        return false
+    end
+
+    local current = object.Parent
+
+    while current and current ~= PlayerGui do
+        if current:IsA("GuiObject") and current.Visible == false then
+            return false
+        end
+
+        if current:IsA("ScreenGui") and current.Enabled == false then
+            return false
+        end
+
+        current = current.Parent
+    end
+
+    return true
+end
+
+local function findClickableInside(container)
+    if not container then
+        return nil
+    end
+
+    if container:IsA("GuiButton") and guiObjectActuallyVisible(container) then
+        return container
+    end
+
+    -- Common Royale High structure: item Frame -> Button.
+    local namedButton = container:FindFirstChild("Button")
+
+    if namedButton
+        and namedButton:IsA("GuiButton")
+        and guiObjectActuallyVisible(namedButton)
+    then
+        return namedButton
+    end
+
+    for _, object in ipairs(container:GetDescendants()) do
+        if object:IsA("GuiButton") and guiObjectActuallyVisible(object) then
+            return object
+        end
+    end
+
+    return nil
+end
+
+local function findTradeInventoryItemButton(itemName)
+    local inventory = getTradeInventoryFrame()
+    local inner = getTradeInventoryInner()
+
+    if not inventory then
+        return nil
+    end
+
+    local wanted = normalizeItemText(itemName)
+
+    -- Confirmed exact structure:
+    -- TradeGui.TradeGui.TradeInventory.Inner["Crystal Ice"]
+    -- TradeGui.TradeGui.TradeInventory.Inner.Miniskirt
+    -- TradeGui.TradeGui.TradeInventory.Inner["Royale Rebel Bustle Skirt"]
+    local direct = inner and inner:FindFirstChild(itemName)
+
+    if direct then
+        local button = findClickableInside(direct)
+
+        if button then
+            return button
+        end
+    end
+
+    -- Fallback recursive path in case the GUI structure changes slightly.
+    direct = inventory:FindFirstChild(itemName, true)
+
+    if direct then
+        local button = findClickableInside(direct)
+
+        if button then
+            return button
+        end
+
+        -- If the exact named object is a label inside an item card, walk up
+        -- a few levels and look for that card's button.
+        local parent = direct.Parent
+
+        for _ = 1, 5 do
+            if not parent or parent == inventory.Parent then
+                break
+            end
+
+            button = findClickableInside(parent)
+
+            if button then
+                return button
+            end
+
+            parent = parent.Parent
+        end
+    end
+
+    -- Text path: locate an exact item-name label and then its nearest
+    -- clickable card/container.
+    for _, object in ipairs(inventory:GetDescendants()) do
+        local text = nil
+
+        if object:IsA("TextLabel")
+            or object:IsA("TextButton")
+            or object:IsA("TextBox")
+        then
+            text = object.Text
+        end
+
+        local nameMatches =
+            normalizeItemText(object.Name) == wanted
+
+        local textMatches =
+            text ~= nil
+            and normalizeItemText(text) == wanted
+
+        if nameMatches or textMatches then
+            if object:IsA("GuiButton")
+                and guiObjectActuallyVisible(object)
+            then
+                return object
+            end
+
+            local parent = object.Parent
+
+            for _ = 1, 6 do
+                if not parent then
+                    break
+                end
+
+                local button = findClickableInside(parent)
+
+                if button then
+                    return button
+                end
+
+                if parent == inventory then
+                    break
+                end
+
+                parent = parent.Parent
+            end
+        end
+    end
+
+    return nil
+end
+
+local function waitForTradeInventoryItemButton(itemName)
+    local started = os.clock()
+
+    while os.clock() - started < Config.RandomOffer.ItemFindTimeout do
+        if not isTradeOpen() then
+            return nil
+        end
+
+        local button = findTradeInventoryItemButton(itemName)
+
+        if button then
+            return button
+        end
+
+        task.wait(Config.PollRate)
+    end
+
+    return nil
+end
+
+local function directAddTradeItem(itemName)
+    local category =
+        Config.RandomOffer.CategoryByItem[itemName]
+
+    if not category then
+        return false, "category_missing"
+    end
+
+    local ok, result = pcall(function()
+        return AddTradeItem:InvokeServer(
+            itemName,
+            category
+        )
+    end)
+
+    if not ok then
+        return false, tostring(result)
+    end
+
+    -- A literal false is treated as rejection.
+    if result == false then
+        return false, "server_rejected"
+    end
+
+    return true, result
+end
+
+local function addOneTradeItemByNormalClick(itemName)
+    if not waitForCaptchaClear("sender_add_item") then
+        return false, "captcha_pause_timeout"
+    end
+
+    if not isTradeOpen() then
+        return false, "trade_closed"
+    end
+
+    local beforeCount = countMyOfferedItemCopies(itemName)
+
+    if beforeCount == nil then
+        return false, "my_items_missing"
+    end
+
+    if Config.RandomOffer.PreferInventoryClicks then
+        -- Re-find the exact TradeInventory.Inner item for EVERY copy.
+        -- The game may rebuild/reorder the inventory after each AddItem.
+        local button =
+            waitForTradeInventoryItemButton(itemName)
+
+        if button then
+            local clicked = vimClick(button)
+
+            if clicked then
+                local verified, afterCount =
+                    waitForOfferedCopyIncrease(
+                        itemName,
+                        beforeCount
+                    )
+
+                if verified then
+                    return true, "gui_click_verified", afterCount
+                end
+
+                -- IMPORTANT: do not immediately fire the fallback without
+                -- checking MyItems. A delayed GUI replication could otherwise
+                -- produce an accidental duplicate.
+                local finalCount =
+                    countMyOfferedItemCopies(itemName)
+
+                if finalCount
+                    and finalCount >= beforeCount + 1
+                then
+                    return true, "gui_click_late_verified", finalCount
+                end
+            end
+        end
+    end
+
+    if Config.RandomOffer.DirectAddItemFallback then
+        -- Only fallback after the GUI path failed AND MyItems still confirms
+        -- that this copy was not added.
+        local stillCount =
+            countMyOfferedItemCopies(itemName)
+
+        if stillCount == nil then
+            return false, "my_items_missing"
+        end
+
+        if stillCount >= beforeCount + 1 then
+            return true, "gui_click_late_verified", stillCount
+        end
+
+        local ok, result = directAddTradeItem(itemName)
+
+        if not ok then
+            return false, result
+        end
+
+        local verified, afterCount =
+            waitForOfferedCopyIncrease(
+                itemName,
+                beforeCount
+            )
+
+        if verified then
+            return true, "remote_fallback_verified", afterCount
+        end
+
+        return false, "additem_not_reflected_in_myitems"
+    end
+
+    return false, "item_button_not_found"
+end
+
+local function offerConfiguredItems()
+    if not Config.RequireItemsBeforeAccept then
+        State.ItemsOffered = true
+        return true
+    end
+
+    local plan = State.ItemOfferPlan
+    local sequence = State.ItemOfferSequence
+
+    if type(plan) ~= "table"
+        or type(sequence) ~= "table"
+        or #sequence == 0
+    then
+        warn("[AutoTrade] Locked item manifest is missing.")
+        State.ItemsOffered = false
+        return false
+    end
+
+    -- The plan was generated once before entering the request queue.
+    -- Retries cannot silently change what this sender intends to transfer.
+    sendStageChat("Offering")
+
+    -- Ask the normal inventory endpoint to load/refresh Show All before
+    -- searching the TradeInventory GUI.
+    local inventoryOk, inventoryResult = pcall(function()
+        return GetTradeInventoryCategoryItems:InvokeServer(
+            "Show All",
+            nil
+        )
+    end)
+
+    if not inventoryOk then
+        warn(
+            "[AutoTrade] GetTradeInventoryCategoryItems failed:",
+            inventoryResult
+        )
+
+        State.ItemsOffered = false
+        return false
+    end
+
+    task.wait(0.40)
+
+    print(
+        "[AutoTrade] Adding",
+        #sequence,
+        "RNG-selected item copies..."
+    )
+
+    local previousItem = nil
+
+    -- IMPORTANT:
+    -- sequence contains INDIVIDUAL COPIES.
+    -- If the RNG plan contains Crystal Ice x10, this loop performs
+    -- TEN separate inventory clicks, each separated by ItemClickDelay.
+    for index, itemName in ipairs(sequence) do
+        if not waitForCaptchaClear("sender_item_loop") then
+            State.ItemsOffered = false
+            return false
+        end
+
+        if not isTradeOpen() then
+            warn("[AutoTrade] Trade closed while adding items.")
+            State.ItemsOffered = false
+            return false
+        end
+
+        if previousItem
+            and previousItem ~= itemName
+            and Config.RandomOffer.BetweenItemTypesDelay > 0
+        then
+            task.wait(Config.RandomOffer.BetweenItemTypesDelay)
+        end
+
+        local added, method, replicatedCount =
+            addOneTradeItemByNormalClick(itemName)
+
+        if not added then
+            warn(
+                "[AutoTrade] Failed to add item",
+                index .. "/" .. #sequence,
+                itemName,
+                "|",
+                tostring(method)
+            )
+
+            State.ItemsOffered = false
+            return false
+        end
+
+        State.ItemOfferAddedCount += 1
+
+        print(
+            "[AutoTrade] Added + verified",
+            index .. "/" .. #sequence,
+            itemName,
+            "| MyItems:",
+            tostring(replicatedCount),
+            "|",
+            tostring(method)
+        )
+
+        previousItem = itemName
+
+        -- Fixed pacing so repeated AddItem operations do not hammer the
+        -- trade inventory. No blind loop / no zero-delay spam.
+        if index < #sequence then
+            task.wait(Config.RandomOffer.ItemClickDelay)
+        end
+    end
+
+    local visiblePlannedTotal =
+        countTotalPlannedItemsPresent(plan)
+
+    State.ItemsOffered =
+        State.ItemOfferAddedCount == State.ItemOfferTargetCount
+        and visiblePlannedTotal == State.ItemOfferTargetCount
+
+    if not State.ItemsOffered then
+        warn(
+            "[AutoTrade] Final You Offer verification mismatch:",
+            "actions=" .. tostring(State.ItemOfferAddedCount),
+            "visible=" .. tostring(visiblePlannedTotal),
+            "target=" .. tostring(State.ItemOfferTargetCount)
+        )
+        return false
+    end
+
+    -- Per-item final verification.
+    for itemName, expectedCount in pairs(plan) do
+        local actualCount =
+            countMyOfferedItemCopies(itemName) or 0
+
+        if actualCount < expectedCount then
+            warn(
+                "[AutoTrade] Final per-item mismatch:",
+                itemName,
+                actualCount .. "/" .. expectedCount
+            )
+            State.ItemsOffered = false
+            return false
+        end
+    end
+
+    print(
+        "[AutoTrade] Finished adding + verifying all",
+        State.ItemOfferAddedCount,
+        "planned item copies in MyItems."
+    )
+
+    return true
+end
+
+-- ================================================================
+-- RECIPIENT / OFFER LOCK
+-- ================================================================
+
+local function tradeGuiMatchesTarget(target)
+    if not Config.Reliability.RecipientLock then
+        return true
+    end
+
+    if not target then
+        return false
+    end
+
+    local _, frame = getTradeGui()
+
+    if not frame then
+        return false
+    end
+
+    local wanted = string.lower(target.Name)
+
+    for _, object in ipairs(frame:GetDescendants()) do
+        if object:IsA("TextLabel")
+            or object:IsA("TextButton")
+        then
+            local value = string.lower(tostring(object.Text or ""))
+
+            -- The trade header normally contains "Let's Trade <username>!"
+            if string.find(value, wanted, 1, true) then
+                return true
+            end
+        end
+    end
+
+    return false
+end
+
+local function verifyLockedItemOffer()
+    local plan = State.ItemOfferPlan
+
+    if type(plan) ~= "table" then
+        return false
+    end
+
+    local total = countTotalPlannedItemsPresent(plan)
+
+    if total ~= State.ItemOfferTargetCount then
+        return false
+    end
+
+    for itemName, expectedCount in pairs(plan) do
+        local actual =
+            countMyOfferedItemCopies(itemName) or 0
+
+        if actual < expectedCount then
+            return false
+        end
+    end
+
+    return true
+end
+
+local function verifyLockedOffer()
+    if not verifyLockedItemOffer() then
+        return false, "item_offer_changed"
+    end
+
+    if not verifyCurrentDiamondOffer() then
+        return false, "diamond_offer_changed"
+    end
+
+    if not tradeGuiMatchesTarget(State.Target) then
+        return false, "recipient_mismatch"
+    end
+
+    return true
+end
+
+local function disconnectTradeModifiedWatcher()
+    for _, connection in ipairs(State.TradeModifiedConnections) do
+        pcall(function()
+            connection:Disconnect()
+        end)
+    end
+
+    State.TradeModifiedConnections = {}
+end
+
+local function armTradeModifiedWatcher()
+    disconnectTradeModifiedWatcher()
+
+    local _, frame = getTradeGui()
+
+    if not frame then
+        return false
+    end
+
+    State.TradeModifiedAfterLock = false
+    State.TradeModifiedAt = nil
+    State.TradeOfferLocked = true
+
+    local function markModified(source)
+        if not State.TradeOfferLocked
+            or State.TradeFinished
+            or isTradeConfirmationVisible()
+        then
+            return
+        end
+
+        State.TradeModifiedAfterLock = true
+        State.TradeModifiedAt = os.clock()
+
+        -- RH clears the offer-stage checkbox after an offer edit.
+        State.Accepted = false
+
+        print(
+            "[AutoTrade] Offer changed after sender accepted; "
+            .. "sender acceptance marked stale.",
+            "| source:",
+            tostring(source or "unknown")
+        )
+    end
+
+    local function watch(object)
+        if not object then
+            return
+        end
+
+        local connection =
+            object.Changed:Connect(function()
+                markModified(object.Name)
+            end)
+
+        table.insert(
+            State.TradeModifiedConnections,
+            connection
+        )
+    end
+
+    watch(frame:FindFirstChild("TradeModified"))
+    watch(frame:FindFirstChild("TradeModifiedNotice"))
+
+    return true
+end
+
+local function abortIfTradeModified()
+    if not State.TradeModifiedAfterLock then
+        return false
+    end
+
+    if Config.Reliability.ReacceptOnCounterpartyModification then
+        return false
+    end
+
+    if Config.Reliability.AbortOnTradeModifiedAfterOfferLock then
+        quarantine("trade_modified_after_offer_lock")
+        return true
+    end
+
+    return false
+end
+
+-- ================================================================
+-- ACCEPT + FINAL CONFIRMATION
+-- ================================================================
+
+local function getTradeConfirmation()
+    local _, frame = getTradeGui()
+    return frame and frame:FindFirstChild("TradeConfirmation") or nil
+end
+
+local function isTradeConfirmationVisible()
+    local confirmation = getTradeConfirmation()
+
+    if not confirmation then
+        return false
+    end
+
+    if confirmation:IsA("GuiObject") then
+        return guiObjectActuallyVisible(confirmation)
+    end
+
+    return false
+end
+
+local function senderReacceptAfterModification()
+    if not State.TradeModifiedAfterLock then
+        return true, "no_change"
+    end
+
+    if not Config.Reliability.ReacceptOnCounterpartyModification then
+        return not abortIfTradeModified(),
+            "reaccept_disabled"
+    end
+
+    local changedAt =
+        tonumber(State.TradeModifiedAt)
+        or os.clock()
+
+    local now =
+        os.clock()
+
+    if now - changedAt
+        < Config.Reliability.SenderReacceptStabilityDelay
+    then
+        return nil, "waiting_for_offer_stability"
+    end
+
+    if now - (State.SenderLastAcceptAt or 0)
+        < Config.Reliability.SenderReacceptMinGap
+    then
+        return nil, "waiting_for_reaccept_gap"
+    end
+
+    -- Re-accept only if OUR OWN locked contribution is still exactly intact.
+    -- A counterparty change is okay; our own items/diamonds changing is not.
+    local offerOK, offerReason =
+        verifyLockedOffer()
+
+    if not offerOK then
+        quarantine(
+            "sender_offer_changed_during_reaccept_"
+            .. tostring(offerReason)
+        )
+
+        return false, offerReason
+    end
+
+    if State.SenderReacceptCount
+        >= Config.Reliability.SenderMaxReaccepts
+    then
+        quarantine("sender_reaccept_limit")
+        return false, "sender_reaccept_limit"
+    end
+
+    local ok, err =
+        pcall(function()
+            AcceptOffer:FireServer()
+        end)
+
+    if not ok then
+        warn(
+            "[AutoTrade] Sender re-AcceptOffer failed:",
+            tostring(err)
+        )
+
+        return false, "sender_reaccept_invoke_failed"
+    end
+
+    State.SenderReacceptCount += 1
+    State.SenderLastAcceptAt = os.clock()
+    State.Accepted = true
+    State.TradeModifiedAfterLock = false
+    State.TradeModifiedAt = nil
+
+    print(
+        "[AutoTrade] Sender re-accepted after receiver/offer update",
+        State.SenderReacceptCount
+            .. "/"
+            .. Config.Reliability.SenderMaxReaccepts
+    )
+
+    return true, "reaccepted"
+end
+
+local function waitForTradeConfirmation()
+    local started = os.clock()
+    local waitingMessageSent = false
+
+    while os.clock() - started < Config.FinalConfirmation.WaitTimeout do
+        if abortIfTradeModified() then
+            return false, "trade_modified_after_offer_lock"
+        end
+
+        if State.TradeModifiedAfterLock then
+            local reaccepted, reacceptReason =
+                senderReacceptAfterModification()
+
+            if reaccepted == false then
+                return false, reacceptReason
+            end
+
+            -- nil means the offer is still inside the stability/min-gap
+            -- debounce. Keep waiting without firing AcceptOffer repeatedly.
+        end
+
+        local offerOK, offerReason = verifyLockedOffer()
+        if not offerOK then
+            quarantine("offer_verification_failed_" .. tostring(offerReason))
+            return false, offerReason
+        end
+
+        -- The normal trade GUI can disappear if the trade is cancelled.
+        if not isTradeOpen() then
+            return false, "trade_closed_before_confirmation"
+        end
+
+        if isTradeConfirmationVisible() then
+            State.ConfirmationVisible = true
+
+            -- This message is tied to a real state transition, not a timer.
+            sendStageChat("Confirmation")
+
+            print(
+                "[AutoTrade] Final TradeConfirmation is visible. "
+                .. "Both parties reached the confirmation stage."
+            )
+            return true
+        end
+
+        -- Optional sixth message only when the user has genuinely been
+        -- waiting for the second confirmation for a while.
+        if not waitingMessageSent
+            and os.clock() - started
+                >= (tonumber(Config.Chat.LongConfirmationWaitMessageAt) or 12)
+        then
+            waitingMessageSent = true
+            sendStageChat("WaitingForConfirmation")
+        end
+
+        task.wait(Config.FinalConfirmation.PollRate)
+    end
+
+    return false, "confirmation_timeout"
+end
+
+local function setFinalConfirmState()
+    if not waitForCaptchaClear("sender_confirm_state") then
+        return false, "captcha_pause_timeout"
+    end
+
+    if State.FinalConfirmed then
+        return true
+    end
+
+    if abortIfTradeModified() then
+        return false, "trade_modified_after_offer_lock"
+    end
+
+    local offerOK, offerReason = verifyLockedOffer()
+    if not offerOK then
+        quarantine("offer_verification_failed_" .. tostring(offerReason))
+        return false, offerReason
+    end
+
+    if not isTradeConfirmationVisible() then
+        return false, "confirmation_not_visible"
+    end
+
+    local attempts = math.max(
+        1,
+        tonumber(Config.FinalConfirmation.InvokeAttempts) or 2
+    )
+
+    for attempt = 1, attempts do
+        if not isTradeOpen() then
+            return false, "trade_closed_before_final_confirm"
+        end
+
+        if not isTradeConfirmationVisible() then
+            return false, "confirmation_disappeared"
+        end
+
+        local ok, result = pcall(function()
+            return SetConfirmState:InvokeServer(true)
+        end)
+
+        if ok and result ~= false then
+            State.FinalConfirmed = true
+
+            print(
+                "[AutoTrade] Final confirmation sent",
+                result ~= nil and ("| result: " .. tostring(result)) or ""
+            )
+
+            -- Do not send any trade-chat messages after SetConfirmState.
+            -- FinalConfirmation can appear immediately and cover SendMessage.
+            return true
+        end
+
+        warn(
+            "[AutoTrade] SetConfirmState(true) attempt",
+            attempt .. "/" .. attempts,
+            "failed/rejected:",
+            tostring(result)
+        )
+
+        if attempt < attempts then
+            task.wait(Config.FinalConfirmation.RetryDelay)
+        end
+    end
+
+    return false, "final_confirm_rejected"
+end
+
+
+-- ================================================================
+-- THIRD / FINAL ACCEPT SCREEN
+-- ================================================================
+-- Cobalt showed that the game's own final green Accept eventually invokes
+-- ReplicatedStorage.Trade.FinalizeTrade. V11 does not call that remote itself.
+-- It waits for the countdown to finish and physically clicks the live GUI.
+
+local function normalizeFinalizeText(value)
+    value = string.lower(tostring(value or ""))
+    value = string.gsub(value, "%s+", " ")
+    value = string.gsub(value, "^%s+", "")
+    value = string.gsub(value, "%s+$", "")
+    return value
+end
+
+local function getButtonVisibleText(button)
+    if not button then
+        return ""
+    end
+
+    local pieces = {}
+
+    if button:IsA("TextButton") then
+        table.insert(pieces, tostring(button.Text or ""))
+    end
+
+    for _, object in ipairs(button:GetDescendants()) do
+        if object:IsA("TextLabel") or object:IsA("TextButton") then
+            local value = tostring(object.Text or "")
+
+            if value ~= "" then
+                table.insert(pieces, value)
+            end
+        end
+    end
+
+    return table.concat(pieces, " ")
+end
+
+local function getExactFinalizeYesButton()
+    local _, frame = getTradeGui()
+
+    if not frame then
+        return nil
+    end
+
+    -- CONFIRMED EXACT PATH:
+    -- Players.LocalPlayer.PlayerGui.TradeGui.TradeGui.FinalConfirmation.Yes
+    local finalConfirmation =
+        frame:FindFirstChild("FinalConfirmation")
+
+    if not finalConfirmation then
+        return nil
+    end
+
+    local yesButton =
+        finalConfirmation:FindFirstChild("Yes")
+
+    if yesButton and yesButton:IsA("GuiButton") then
+        return yesButton
+    end
+
+    return nil
+end
+
+local function getFinalizeYesState(button)
+    if not button then
+        return "missing", ""
+    end
+
+    local visibleText =
+        normalizeFinalizeText(
+            getButtonVisibleText(button)
+        )
+
+    if string.find(visibleText, "waiting for other player", 1, true) then
+        return "already_accepted", visibleText
+    end
+
+    if string.find(visibleText, "can accept in", 1, true) then
+        return "countdown", visibleText
+    end
+
+    if visibleText == "accept"
+        or string.find(visibleText, "accept", 1, true)
+    then
+        return "ready", visibleText
+    end
+
+    return "unknown", visibleText
+end
+
+local function findFinalizeAcceptButton()
+    local button = getExactFinalizeYesButton()
+
+    if not button then
+        return nil, nil
+    end
+
+    return button, normalizeFinalizeText(getButtonVisibleText(button))
+end
+
+local function finalizeButtonIsReady(button, visibleText)
+    local exact = getExactFinalizeYesButton()
+
+    if not button or not exact or button ~= exact then
+        return false
+    end
+
+    if not guiObjectActuallyVisible(button) then
+        return false
+    end
+
+    local state =
+        getFinalizeYesState(button)
+
+    if state ~= "ready" then
+        return false
+    end
+
+    local okActive, active = pcall(function()
+        return button.Active
+    end)
+
+    if okActive and active == false then
+        return false
+    end
+
+    local okInteractable, interactable = pcall(function()
+        return button.Interactable
+    end)
+
+    if okInteractable and interactable == false then
+        return false
+    end
+
+    return true
+end
+
+local function waitForFinalizeButtonReady()
+    local started = os.clock()
+    local lastText = nil
+    local preCountdownAcceptSeenAt = nil
+
+    while os.clock() - started
+        < Config.FinalConfirmation.FinalizeReadyTimeout
+    do
+        if not isTradeOpen() then
+            return false, "trade_closed_before_finalize"
+        end
+
+        local button = getExactFinalizeYesButton()
+
+        if button and guiObjectActuallyVisible(button) then
+            local state, visibleText =
+                getFinalizeYesState(button)
+
+            if state == "already_accepted" then
+                State.FinalizeButtonReady = true
+                State.FinalizeClicked = true
+
+                print(
+                    "[AutoTrade] FinalConfirmation.Yes already accepted:",
+                    visibleText
+                )
+
+                return true, "already_accepted"
+            end
+
+            if state == "countdown" then
+                if not State.FinalizeCountdownObserved then
+                    State.FinalizeCountdownObserved = true
+                    print(
+                        "[AutoTrade] Final cooldown is now armed; "
+                        .. "will only click after this countdown returns to Accept."
+                    )
+                end
+
+                preCountdownAcceptSeenAt = nil
+            elseif state == "ready" then
+                -- CRITICAL V17 FIX:
+                -- RH briefly exposes FinalConfirmation.Yes as "Accept"
+                -- immediately after SetConfirmState(true), BEFORE it starts
+                -- the mandatory ~30 second cooldown. That first "Accept" is
+                -- transitional and must never be clicked.
+                if State.FinalizeCountdownObserved then
+                    State.FinalizeButtonReady = true
+
+                    -- We are now at the real post-cooldown Accept state.
+                    State.TradeOfferLocked = false
+                    disconnectTradeModifiedWatcher()
+
+                    print(
+                        "[AutoTrade] REAL post-cooldown FinalConfirmation.Yes is ready:",
+                        visibleText
+                    )
+
+                    return true, button
+                end
+
+                if not preCountdownAcceptSeenAt then
+                    preCountdownAcceptSeenAt = os.clock()
+
+                    print(
+                        "[AutoTrade] Pre-cooldown Accept observed; waiting for RH countdown to start."
+                    )
+                end
+            end
+
+            if visibleText ~= ""
+                and visibleText ~= lastText
+            then
+                lastText = visibleText
+
+                print(
+                    "[AutoTrade] FinalConfirmation.Yes state:",
+                    state,
+                    "|",
+                    visibleText
+                )
+            end
+        end
+
+        task.wait(Config.FinalConfirmation.PollRate)
+    end
+
+    return false, "finalize_yes_timeout"
+end
+
+local function finalButtonContainsGuiObject(button, object)
+    if not button or not object then
+        return false
+    end
+
+    if object == button then
+        return true
+    end
+
+    local ok, result = pcall(function()
+        return object:IsDescendantOf(button)
+    end)
+
+    return ok and result == true
+end
+
+local function pointHitsFinalButton(button, x, y)
+    local ok, objects = pcall(function()
+        return GuiService:GetGuiObjectsAtPosition(
+            math.floor(x),
+            math.floor(y)
+        )
+    end)
+
+    if not ok or type(objects) ~= "table" then
+        return nil
+    end
+
+    for _, object in ipairs(objects) do
+        if finalButtonContainsGuiObject(button, object) then
+            return true
+        end
+    end
+
+    return false
+end
+
+
+local function vimClickExactFinalYes(button)
+    if not button
+        or not button:IsA("GuiButton")
+        or button.AbsoluteSize.X <= 0
+        or button.AbsoluteSize.Y <= 0
+    then
+        return false, "invalid_final_yes"
+    end
+
+    local position = button.AbsolutePosition
+    local size = button.AbsoluteSize
+
+    local rawX = position.X + size.X / 2
+    local rawY = position.Y + size.Y / 2
+
+    local inset = Vector2.new(0, 0)
+
+    local insetOK, insetResult = pcall(function()
+        return GuiService:GetGuiInset()
+    end)
+
+    if insetOK and typeof(insetResult) == "Vector2" then
+        inset = insetResult
+    end
+
+    -- This matches the coordinate convention already used successfully by
+    -- the script's regular VIM GUI clicks. AbsolutePosition is in Roblox GUI
+    -- space, while VirtualInputManager mouse input needs the top-bar inset.
+    local x = rawX + inset.X
+    local y = rawY + inset.Y
+
+    print(
+        "[AutoTrade] Final Yes coordinates",
+        "| raw:",
+        math.floor(rawX),
+        math.floor(rawY),
+        "| inset:",
+        math.floor(inset.X),
+        math.floor(inset.Y),
+        "| VIM:",
+        math.floor(x),
+        math.floor(y)
+    )
+
+    local ok, err = pcall(function()
+        VirtualInputManager:SendMouseMoveEvent(x, y, game)
+        task.wait(0.15)
+
+        VirtualInputManager:SendMouseButtonEvent(
+            x,
+            y,
+            0,
+            true,
+            game,
+            0
+        )
+
+        task.wait(0.12)
+
+        VirtualInputManager:SendMouseButtonEvent(
+            x,
+            y,
+            0,
+            false,
+            game,
+            0
+        )
+    end)
+
+    if not ok then
+        return false, tostring(err)
+    end
+
+    return true
+end
+
+
+local function clickFinalizeTradeViaVIM()
+    if not waitForCaptchaClear("final_accept") then
+        return false, "captcha_pause_timeout"
+    end
+
+    if State.FinalizeClicked then
+        return true
+    end
+
+    local ready, buttonOrState =
+        waitForFinalizeButtonReady()
+
+    if not ready then
+        return false, buttonOrState
+    end
+
+    if buttonOrState == "already_accepted" then
+        return true
+    end
+
+    local attempts = math.max(
+        1,
+        tonumber(
+            Config.FinalConfirmation.FinalizeClickAttempts
+        ) or 3
+    )
+
+    for attempt = 1, attempts do
+        if not waitForCaptchaClear("final_accept_retry") then
+            return false, "captcha_pause_timeout"
+        end
+
+        if not isTradeOpen() then
+            return false, "trade_closed_before_finalize_click"
+        end
+
+        -- IMPORTANT:
+        -- Do NOT use the old TradeModified UI watcher here. We have already
+        -- reached FinalConfirmation, which is the game's final server-built
+        -- review snapshot. The old watcher could fire during normal UI state
+        -- transitions and block the final click.
+
+        local button =
+            getExactFinalizeYesButton()
+
+        if not button then
+            return false, "final_confirmation_yes_missing"
+        end
+
+        local state, visibleText =
+            getFinalizeYesState(button)
+
+        if state == "already_accepted" then
+            State.FinalizeClicked = true
+
+            print(
+                "[AutoTrade] FinalConfirmation.Yes already says:",
+                visibleText
+            )
+
+            return true
+        end
+
+        if state == "countdown" then
+            local reReady, refreshed =
+                waitForFinalizeButtonReady()
+
+            if not reReady then
+                return false, refreshed
+            end
+
+            if refreshed == "already_accepted" then
+                State.FinalizeClicked = true
+                return true
+            end
+
+            button = refreshed
+            state, visibleText =
+                getFinalizeYesState(button)
+        end
+
+        if state ~= "ready"
+            or not State.FinalizeCountdownObserved
+        then
+            warn(
+                "[AutoTrade] FinalConfirmation.Yes not eligible for final click:",
+                tostring(state),
+                "| countdownObserved:",
+                tostring(State.FinalizeCountdownObserved),
+                "|",
+                tostring(visibleText)
+            )
+
+            local reReady, refreshed =
+                waitForFinalizeButtonReady()
+
+            if not reReady then
+                return false, refreshed
+            end
+
+            if refreshed == "already_accepted" then
+                State.FinalizeClicked = true
+                return true
+            end
+
+            button = refreshed
+            state, visibleText =
+                getFinalizeYesState(button)
+
+            if state ~= "ready"
+                or not State.FinalizeCountdownObserved
+            then
+                task.wait(Config.FinalConfirmation.FinalizeClickRetryDelay)
+                continue
+            end
+        end
+
+        -- Exact known button:
+        -- TradeGui.TradeGui.FinalConfirmation.Yes
+        --
+        -- V17 proved the state machine is correct, but its RAW y-coordinate
+        -- was about one Roblox GUI inset too high. V18 uses the same
+        -- AbsolutePosition + GuiInset convention as our already-working
+        -- inventory/chat VIM clicks.
+        State.FinalizeClickAttempts += 1
+
+        print(
+            "[AutoTrade] VIM clicking REAL post-cooldown FinalConfirmation.Yes",
+            attempt .. "/" .. attempts,
+            "| text:",
+            normalizeFinalizeText(
+                getButtonVisibleText(button)
+            )
+        )
+
+        local clicked, clickReason =
+            vimClickExactFinalYes(button)
+
+        if clicked then
+            local observeStarted = os.clock()
+
+            while os.clock() - observeStarted
+                < Config.FinalConfirmation.FinalizePostClickObserve
+            do
+                if not isTradeOpen() then
+                    State.FinalizeClicked = true
+                    print("[AutoTrade] Trade closed after final Yes click.")
+                    return true
+                end
+
+                local current =
+                    getExactFinalizeYesButton()
+
+                if not current then
+                    State.FinalizeClicked = true
+                    print("[AutoTrade] FinalConfirmation.Yes disappeared.")
+                    return true
+                end
+
+                local currentState, currentText =
+                    getFinalizeYesState(current)
+
+                if currentState == "already_accepted" then
+                    State.FinalizeClicked = true
+
+                    print(
+                        "[AutoTrade] FinalConfirmation.Yes changed to:",
+                        currentText
+                    )
+
+                    return true
+                end
+
+                task.wait(0.10)
+            end
+        else
+            warn(
+                "[AutoTrade] Final Yes VIM input call failed:",
+                tostring(clickReason)
+            )
+        end
+
+        if attempt < attempts then
+            task.wait(
+                Config.FinalConfirmation.FinalizeClickRetryDelay
+            )
+        end
+    end
+
+    return false, "final_confirmation_yes_vim_failed"
+end
+
+local function readPostTradeDiamondBalance()
+    if State.DiamondBalanceObject
+        and State.DiamondBalanceObject.Parent
+    then
+        return parseNumber(State.DiamondBalanceObject.Text)
+    end
+
+    local value = findCurrentDiamondBalance()
+    return value
+end
+
+local function postTradeVerificationMatches(snapshot)
+    local pre = State.PreTradeSnapshot
+
+    if not pre or not snapshot then
+        return false, "snapshot_missing"
+    end
+
+    if type(pre.Items) ~= "table"
+        or type(snapshot.Items) ~= "table"
+    then
+        return false, "item_snapshot_missing"
+    end
+
+    for itemName, sentCount in pairs(State.ItemOfferPlan or {}) do
+        local before = tonumber(pre.Items[itemName]) or 0
+        local after = tonumber(snapshot.Items[itemName]) or 0
+        local expected = before - sentCount
+
+        if after ~= expected then
+            return false,
+                "item_delta_"
+                .. itemName
+                .. "_expected_"
+                .. tostring(expected)
+                .. "_got_"
+                .. tostring(after)
+        end
+    end
+
+    if Config.OfferAllDiamonds
+        and pre.Diamonds ~= nil
+        and State.DiamondOfferAmount ~= nil
+        and snapshot.Diamonds ~= nil
+    then
+        local expected =
+            math.max(
+                0,
+                tonumber(pre.Diamonds)
+                - tonumber(State.DiamondOfferAmount)
+            )
+
+        if tonumber(snapshot.Diamonds) ~= expected then
+            return false,
+                "diamond_delta_expected_"
+                .. tostring(expected)
+                .. "_got_"
+                .. tostring(snapshot.Diamonds)
+        end
+    end
+
+    return true
+end
+
+local function verifyPostTrade()
+    if not Config.Reliability.PostTradeVerify then
+        return true, "verification_disabled"
+    end
+
+    local started = os.clock()
+    local lastReason = "not_checked"
+
+    while os.clock() - started
+        < Config.Reliability.PostTradeVerifyTimeout
+    do
+        local inventorySnapshot =
+            snapshotConfiguredInventory()
+
+        if inventorySnapshot then
+            inventorySnapshot.Diamonds =
+                readPostTradeDiamondBalance()
+
+            State.PostTradeSnapshot =
+                inventorySnapshot
+
+            local ok, reason =
+                postTradeVerificationMatches(
+                    inventorySnapshot
+                )
+
+            if ok then
+                print(
+                    "[AutoTrade] Post-trade inventory/diamond verification passed."
+                )
+                return true, "verified"
+            end
+
+            lastReason = reason
+        else
+            lastReason = "inventory_snapshot_unavailable"
+        end
+
+        task.wait(
+            Config.Reliability.PostTradeVerifyPollRate
+        )
+    end
+
+    return false, lastReason
+end
+
+local function waitForTradeCompletion()
+    local started = os.clock()
+
+    while os.clock() - started < Config.FinalConfirmation.CompletionTimeout do
+        if not isTradeOpen() then
+            State.TradeFinished = true
+            State.TradeOfferLocked = false
+            disconnectTradeModifiedWatcher()
+
+            print("[AutoTrade] Trade window closed after final VIM Accept.")
+
+            -- Give inventory/balance replication a moment before verification.
+            task.wait(1.00)
+
+            local verified, reason =
+                verifyPostTrade()
+
+            if verified then
+                markCompleted("post_trade_verified")
+                return true
+            end
+
+            quarantine(
+                "post_trade_verification_failed_"
+                .. tostring(reason)
+            )
+            return false
+        end
+
+        task.wait(Config.FinalConfirmation.PollRate)
+    end
+
+    warn(
+        "[AutoTrade] Still waiting for the other party/final trade completion."
+    )
+
+    return false
+end
+
+local function acceptTradeOffer()
+    if State.Accepted then
+        return true
+    end
+
+    if Config.OfferAllDiamonds and not State.DiamondsOffered then
+        warn("[AutoTrade] Refusing to accept: diamonds are not confirmed.")
+        return false
+    end
+
+    if Config.RequireItemsBeforeAccept and not State.ItemsOffered then
+        warn("[AutoTrade] Refusing to accept: items are not confirmed.")
+        return false
+    end
+
+    if not tradeGuiMatchesTarget(State.Target) then
+        quarantine("recipient_lock_failed_before_accept")
+        return false
+    end
+
+    local offerOK, offerReason = verifyLockedOffer()
+    if not offerOK then
+        quarantine("pre_accept_offer_verification_failed_" .. tostring(offerReason))
+        return false
+    end
+
+    -- Arm only AFTER our own diamond/item changes are complete. Any later
+    -- TradeModified signal is therefore treated as a changed counterparty/
+    -- unexpected trade state and blocks final confirmation.
+    armTradeModifiedWatcher()
+
+    sendStageChat("Ready")
+    sendStageChat("Accepting")
+
+    local ok, err = pcall(function()
+        AcceptOffer:FireServer()
+    end)
+
+    if not ok then
+        warn("[AutoTrade] AcceptOffer failed:", err)
+        return false
+    end
+
+    State.Accepted = true
+    State.SenderLastAcceptAt = os.clock()
+    State.SenderReacceptCount = 0
+    State.TradeModifiedAfterLock = false
+    State.TradeModifiedAt = nil
+
+    -- Fifth core trade message: only sent after our initial offer acceptance
+    -- actually succeeds.
+    sendStageChat("PostAccept")
+
+    print(
+        "[AutoTrade] Initial AcceptOffer sent. "
+        .. "Waiting for the other party to accept..."
+    )
+
+    -- IMPORTANT:
+    -- SetConfirmState(true) is NOT sent immediately.
+    -- We wait until TradeGui.TradeGui.TradeConfirmation is actually visible,
+    -- which is the second confirmation stage shown after the offer stage.
+    local confirmationReady, confirmationReason =
+        waitForTradeConfirmation()
+
+    if not confirmationReady then
+        warn(
+            "[AutoTrade] Final confirmation stage was not reached:",
+            tostring(confirmationReason)
+        )
+        return false
+    end
+
+    local confirmed, confirmReason =
+        setFinalConfirmState()
+
+    if not confirmed then
+        warn(
+            "[AutoTrade] Could not set confirmation state:",
+            tostring(confirmReason)
+        )
+        return false
+    end
+
+    -- SetConfirmState(true) only advances us to Royale High's timed
+    -- Accept/Decline screen. Wait for the countdown and click the real green
+    -- Accept with VirtualInputManager.
+    local finalized, finalizeReason =
+        clickFinalizeTradeViaVIM()
+
+    if not finalized then
+        warn(
+            "[AutoTrade] Could not complete final VIM Accept:",
+            tostring(finalizeReason)
+        )
+
+        if Config.FinalConfirmation.QuarantineOnFinalizeClickFailure then
+            quarantine(
+                "finalize_vim_failed_"
+                .. tostring(finalizeReason)
+            )
+        else
+            State.TerminalReason =
+                "finalize_vim_failed_"
+                .. tostring(finalizeReason)
+
+            warn(
+                "[AutoTrade] Final VIM failure was NOT quarantined. "
+                .. "The script stops this run so the same trade is not duplicated."
+            )
+        end
+
+        return false
+    end
+
+    -- From here the game's own GUI code should handle the finalization remote.
+    local completed =
+        waitForTradeCompletion()
+
+    return completed == true
+end
+
+-- ================================================================
+-- QUEUE / REQUEST STATE
+-- ================================================================
+
+local function getQueueSlot()
+    local slots = math.max(1, tonumber(Config.QueueSlots) or 20)
+    return math.abs(tonumber(LocalPlayer.UserId) or 0) % slots
+end
+
+local function waitInitialQueueSlot()
+    local slot = getQueueSlot()
+    local spacing = math.max(0, tonumber(Config.InitialSlotSpacing) or 0.80)
+    local delay = slot * spacing
+
+    if delay > 0 then
+        print(
+            "[AutoTrade] Queue slot",
+            slot,
+            "| initial wait",
+            string.format("%.2fs", delay)
+        )
+
+        task.wait(delay)
+    end
+end
+
+local function waitBusyRetry()
+    local slot = getQueueSlot()
+
+    local delay =
+        math.max(0, tonumber(Config.BusyRetryBase) or 5)
+        + slot * math.max(0, tonumber(Config.BusyRetrySlotSpacing) or 0.25)
+
+    print(
+        "[AutoTrade] Receiver/sender busy. Retrying in",
+        string.format("%.2fs", delay)
+    )
+
+    task.wait(delay)
+end
+
+local BUSY_ERRORS = {
+    sender_already_in_trade = true,
+    receiver_already_in_trade = true,
+    other_player_already_in_trade = true
+}
+
+local SENDER_TRADE_RESTRICTION_ERRORS = {
+    sender_banned_from_trading = true,
+    sender_is_suspicious = true
+}
+
+local TERMINAL_ERRORS = {
+    player_too_low_level = true,
+    trading_player_too_low_level = true,
+    receiver_disabled_trade_requests = true,
+    receiver_banned_from_trading = true,
+    receiver_is_suspicious = true
+}
+
+local function invokeTradeRequest(target)
+    if not waitForCaptchaClear("send_trade_request") then
+        return "error", "captcha_pause_timeout"
+    end
+
+    local ok, result = pcall(function()
+        return MakeTradeRequest:InvokeServer(target)
+    end)
+
+    if not ok then
+        return "invoke_error", tostring(result)
+    end
+
+    if type(result) == "table" and result.error then
+        local err = tostring(result.error)
+
+        if BUSY_ERRORS[err] then
+            return "busy", err
+        end
+
+        if SENDER_TRADE_RESTRICTION_ERRORS[err] then
+            return "sender_trade_restricted", err
+        end
+
+        if TERMINAL_ERRORS[err] then
+            return "terminal", err
+        end
+
+        return "error", err
+    end
+
+    return "sent", result
+end
+
+local function waitForTradeOpen(timeout)
+    local started = os.clock()
+
+    while os.clock() - started < timeout do
+        if isTradeOpen() then
+            return true
+        end
+
+        task.wait(Config.PollRate)
+    end
+
+    return false
+end
+
+-- ================================================================
+-- TRADE WORKFLOW
+-- ================================================================
+
+local function runActiveTrade(target)
+    State.Target = target
+    State.TradeOpened = true
+
+    task.wait(Config.ChatOpenDelay)
+
+    if not tradeGuiMatchesTarget(target) then
+        quarantine("recipient_lock_failed_on_trade_open")
+        return false
+    end
+
+    sendStageChat("Open")
+    State.GreetingSent = true
+
+    if not offerAllDiamonds() then
+        warn("[AutoTrade] Diamond stage failed; trade left unaccepted.")
+        return false
+    end
+
+    if not offerConfiguredItems() then
+        warn("[AutoTrade] Item stage incomplete; trade left unaccepted.")
+        return false
+    end
+
+    return acceptTradeOffer()
+end
+
+
+-- ================================================================
+-- RECEIVER MODE
+-- ================================================================
+
+local function normalizeRuntimeName(value)
+    return string.lower(tostring(value or ""))
+end
+
+local function receiverAccountMatchesConfiguredTarget()
+    if Config.TargetUserId
+        and LocalPlayer.UserId == Config.TargetUserId
+    then
+        return true
+    end
+
+    return
+        normalizeRuntimeName(LocalPlayer.Name)
+        == normalizeRuntimeName(Config.TargetUsername)
+end
+
+local function detectRuntimeMode()
+    local requested =
+        normalizeRuntimeName(Config.Mode)
+
+    if requested == "receiver" then
+        return "receiver"
+    end
+
+    if requested == "sender" then
+        return "sender"
+    end
+
+    if receiverAccountMatchesConfiguredTarget() then
+        return "receiver"
+    end
+
+    return "sender"
+end
+
+local function receiverSenderAllowed(sender)
+    if not sender or sender == LocalPlayer then
+        return false
+    end
+
+    local allowed =
+        Config.Receiver.AllowedSenders
+
+    if type(allowed) ~= "table"
+        or #allowed == 0
+    then
+        return true
+    end
+
+    local wantedName =
+        normalizeRuntimeName(sender.Name)
+
+    local wantedId =
+        tonumber(sender.UserId)
+
+    for _, entry in ipairs(allowed) do
+        if tonumber(entry)
+            and tonumber(entry) == wantedId
+        then
+            return true
+        end
+
+        if normalizeRuntimeName(entry)
+            == wantedName
+        then
+            return true
+        end
+    end
+
+    return false
+end
+
+local function disconnectReceiverConnections()
+    for _, connection in ipairs(State.ReceiverConnections) do
+        pcall(function()
+            connection:Disconnect()
+        end)
+    end
+
+    State.ReceiverConnections = {}
+end
+
+local function disconnectReceiverChatConnections()
+    for _, connection in ipairs(State.ReceiverChatConnections) do
+        pcall(function()
+            connection:Disconnect()
+        end)
+    end
+
+    State.ReceiverChatConnections = {}
+end
+
+local function resetReceiverTradeState(sender)
+    disconnectReceiverConnections()
+    disconnectReceiverChatConnections()
+
+    State.Target = sender
+    State.ReceiverSender = sender
+    State.ReceiverDiamondAmount = nil
+    State.ReceiverReacceptCount = 0
+    State.ReceiverLastAcceptAt = 0
+    State.ReceiverAcceptWatchdogRetries = 0
+    State.ReceiverOfferModifiedAt = nil
+    State.ReceiverOfferModificationPending = false
+    State.ReceiverChatReplies = 0
+    State.ReceiverLastChatReplyAt = 0
+
+    State.TradeOpened = false
+    State.DiamondsOffered = false
+    State.DiamondOfferAmount = nil
+    State.DiamondBalanceObject = nil
+    State.DiamondOfferDisplayObject = nil
+
+    -- Receiver gets a fresh 10-20 item manifest for every sender.
+    State.ManifestLocked = false
+    State.ItemOfferPlan = nil
+    State.ItemOfferSequence = nil
+    State.ItemOfferTargetCount = 0
+    State.ItemOfferAddedCount = 0
+    State.ItemsOffered = false
+
+    State.Accepted = false
+    State.ConfirmationVisible = false
+    State.FinalConfirmed = false
+    State.FinalizeButtonReady = false
+    State.FinalizeCountdownObserved = false
+    State.FinalizeClicked = false
+    State.FinalizeClickAttempts = 0
+    State.TradeFinished = false
+
+    State.ChatMessagesSent = 0
+    State.ChatUsedMessages = {}
+end
+
+local function receiverSendChat(message)
+    if not Config.Receiver.ChatEnabled
+        or not message
+        or message == ""
+    then
+        return true
+    end
+
+    if isFinalConfirmationOverlayVisible() then
+        return false
+    end
+
+    local ok, reason =
+        typeIntoTradeChat(message)
+
+    if ok then
+        print("[AutoTrade][Receiver] Chat:", message)
+        return true
+    end
+
+    warn(
+        "[AutoTrade][Receiver] Chat failed:",
+        tostring(reason)
+    )
+
+    return false
+end
+
+local function receiverBuildReply(message)
+    local text =
+        normalizeRuntimeName(message)
+
+    if string.find(text, "wait", 1, true)
+        or string.find(text, "sec", 1, true)
+        or string.find(text, "moment", 1, true)
+    then
+        return "no worries, take your time"
+    end
+
+    if string.find(text, "ready", 1, true)
+        or string.find(text, "accept", 1, true)
+        or string.find(text, "done", 1, true)
+    then
+        return "yep, i'm ready on my side too"
+    end
+
+    if string.find(text, "diamond", 1, true)
+        or string.find(text, "item", 1, true)
+        or string.find(text, "offer", 1, true)
+    then
+        return "got it, i can see the offer"
+    end
+
+    if string.find(text, "thank", 1, true)
+        or text == "ty"
+        or string.find(text, "ty ", 1, true)
+    then
+        return "you're good"
+    end
+
+    return "got it"
+end
+
+local function receiverMaybeReply(sender, message)
+    if not Config.Receiver.ChatEnabled
+        or not sender
+        or sender ~= State.ReceiverSender
+        or not isTradeOpen()
+        or isFinalConfirmationOverlayVisible()
+    then
+        return
+    end
+
+    if State.ReceiverChatReplies
+        >= Config.Receiver.MaxChatReplies
+    then
+        return
+    end
+
+    local now = os.clock()
+
+    if now - State.ReceiverLastChatReplyAt
+        < Config.Receiver.ChatReplyCooldown
+    then
+        return
+    end
+
+    State.ReceiverLastChatReplyAt = now
+    State.ReceiverChatReplies += 1
+
+    local reply =
+        receiverBuildReply(message)
+
+    task.spawn(function()
+        receiverSendChat(reply)
+    end)
+end
+
+local function bindReceiverIncomingChat(sender)
+    disconnectReceiverChatConnections()
+
+    for _, remote in ipairs(TradeChatFolder:GetDescendants()) do
+        if remote:IsA("RemoteEvent")
+            and string.find(
+                normalizeRuntimeName(remote.Name),
+                "message",
+                1,
+                true
+            )
+            and normalizeRuntimeName(remote.Name)
+                ~= "sendmessage"
+        then
+            local connection =
+                remote.OnClientEvent:Connect(
+                    function(...)
+                        local args = {...}
+                        local fromSender = false
+                        local message = nil
+
+                        for _, value in ipairs(args) do
+                            if typeof(value) == "Instance"
+                                and value:IsA("Player")
+                                and value == sender
+                            then
+                                fromSender = true
+                            elseif type(value) == "string"
+                                and value ~= ""
+                            then
+                                message = value
+
+                                if string.find(
+                                    normalizeRuntimeName(value),
+                                    normalizeRuntimeName(sender.Name),
+                                    1,
+                                    true
+                                ) then
+                                    fromSender = true
+                                end
+                            end
+                        end
+
+                        if fromSender and message then
+                            receiverMaybeReply(
+                                sender,
+                                message
+                            )
+                        end
+                    end
+                )
+
+            table.insert(
+                State.ReceiverChatConnections,
+                connection
+            )
+
+            print(
+                "[AutoTrade][Receiver] Bound incoming chat remote:",
+                remote:GetFullName()
+            )
+        end
+    end
+end
+
+local function normalizeReceiverDiamondOptions()
+    local values = {}
+
+    for _, raw in ipairs(
+        Config.Receiver.DiamondOptions or {}
+    ) do
+        local amount =
+            tonumber(raw)
+
+        if amount then
+            amount =
+                math.floor(amount / 1000) * 1000
+
+            if amount >= 2000
+                and amount <= 5000
+            then
+                local duplicate = false
+
+                for _, existing in ipairs(values) do
+                    if existing == amount then
+                        duplicate = true
+                        break
+                    end
+                end
+
+                if not duplicate then
+                    table.insert(values, amount)
+                end
+            end
+        end
+    end
+
+    table.sort(values)
+
+    if #values == 0 then
+        values = {
+            2000,
+            3000,
+            4000,
+            5000
+        }
+    end
+
+    return values
+end
+
+local function chooseReceiverDiamondAmount(sender, balance)
+    balance =
+        math.floor(
+            tonumber(balance)
+            or 0
+        )
+
+    if balance < 2000 then
+        return nil, "receiver_balance_below_2000"
+    end
+
+    local fixed =
+        tonumber(
+            Config.Receiver.FixedDiamondAmount
+        )
+
+    if fixed then
+        fixed =
+            math.floor(fixed / 1000) * 1000
+
+        fixed =
+            math.max(
+                2000,
+                math.min(5000, fixed)
+            )
+
+        if fixed <= balance then
+            return fixed
+        end
+    end
+
+    local options =
+        normalizeReceiverDiamondOptions()
+
+    local affordable = {}
+
+    for _, amount in ipairs(options) do
+        if amount <= balance then
+            table.insert(affordable, amount)
+        end
+    end
+
+    if #affordable == 0 then
+        return nil, "no_affordable_receiver_diamond_option"
+    end
+
+    -- Deterministic by sender account. This keeps the selected rounded
+    -- amount stable for the same sender instead of randomizing it.
+    local senderId =
+        math.abs(
+            tonumber(sender and sender.UserId)
+            or 0
+        )
+
+    local index =
+        (senderId % #affordable) + 1
+
+    return affordable[index]
+end
+
+local function setReceiverDiamondOffer(sender)
+    if not waitForCaptchaClear("receiver_diamonds") then
+        return false, "captcha_pause_timeout"
+    end
+
+    local _, frame =
+        getTradeGui()
+
+    if not frame or not isTradeOpen() then
+        return false, "trade_not_open"
+    end
+
+    local diamondBox =
+        frame:FindFirstChild("DiamondAmount")
+
+    if not diamondBox
+        or not diamondBox:IsA("TextBox")
+    then
+        return false, "diamond_box_missing"
+    end
+
+    local balance, balanceObject =
+        findCurrentDiamondBalance()
+
+    if balance == nil then
+        return false, "diamond_balance_unknown"
+    end
+
+    local amount, amountReason =
+        chooseReceiverDiamondAmount(
+            sender,
+            balance
+        )
+
+    if not amount then
+        return false, amountReason
+    end
+
+    State.DiamondBalanceObject =
+        balanceObject
+
+    State.ReceiverDiamondAmount =
+        amount
+
+    State.DiamondOfferAmount =
+        amount
+
+    local typed, reason =
+        typeFocusedTextBox(
+            diamondBox,
+            tostring(amount),
+            true
+        )
+
+    if not typed then
+        return false, reason
+    end
+
+    sendKey(Enum.KeyCode.Return)
+    task.wait(Config.DiamondSettleDelay)
+
+    local boxAmount =
+        parseNumber(diamondBox.Text)
+
+    if boxAmount ~= amount then
+        return false,
+            "receiver_diamond_box_mismatch_"
+            .. tostring(boxAmount)
+    end
+
+    local displayVerified, displayObject =
+        waitForDiamondOfferDisplay(amount)
+
+    if displayVerified then
+        State.DiamondOfferDisplayObject =
+            displayObject
+    end
+
+    State.DiamondsOffered = true
+
+    print(
+        "[AutoTrade][Receiver] Diamond offer:",
+        amount,
+        "| balance:",
+        balance
+    )
+
+    return true, amount
+end
+
+local function receiverBuildItemManifest()
+    local plan, sequenceOrReason =
+        buildRandomItemOfferPlan()
+
+    if not plan then
+        return false, sequenceOrReason
+    end
+
+    State.ManifestLocked = true
+
+    print(
+        "[AutoTrade][Receiver] Item manifest locked:",
+        State.ItemOfferTargetCount,
+        "item(s)"
+    )
+
+    return true, State.ItemOfferSequence
+end
+
+local function receiverOfferConfiguredItems()
+    if not waitForCaptchaClear("receiver_items") then
+        return false, "captcha_pause_timeout"
+    end
+
+    local plan =
+        State.ItemOfferPlan
+
+    local sequence =
+        State.ItemOfferSequence
+
+    if type(plan) ~= "table"
+        or type(sequence) ~= "table"
+        or #sequence == 0
+    then
+        return false, "receiver_item_manifest_missing"
+    end
+
+    local inventoryOK, inventoryResult =
+        pcall(function()
+            return GetTradeInventoryCategoryItems:InvokeServer(
+                "Show All",
+                nil
+            )
+        end)
+
+    if not inventoryOK then
+        return false,
+            "receiver_inventory_refresh_failed_"
+            .. tostring(inventoryResult)
+    end
+
+    task.wait(0.40)
+
+    receiverSendChat(
+        "adding my items now"
+    )
+
+    print(
+        "[AutoTrade][Receiver] Adding",
+        #sequence,
+        "configured item copies..."
+    )
+
+    local previousItem = nil
+
+    for index, itemName in ipairs(sequence) do
+        if not waitForCaptchaClear("receiver_item_loop") then
+            State.ItemsOffered = false
+            return false, "captcha_pause_timeout"
+        end
+
+        if not isTradeOpen() then
+            State.ItemsOffered = false
+            return false, "trade_closed_while_receiver_adding_items"
+        end
+
+        if previousItem
+            and previousItem ~= itemName
+            and Config.RandomOffer.BetweenItemTypesDelay > 0
+        then
+            task.wait(
+                Config.RandomOffer.BetweenItemTypesDelay
+            )
+        end
+
+        local added, method, replicatedCount =
+            addOneTradeItemByNormalClick(itemName)
+
+        if not added then
+            State.ItemsOffered = false
+
+            warn(
+                "[AutoTrade][Receiver] Failed to add item",
+                index .. "/" .. #sequence,
+                itemName,
+                "|",
+                tostring(method)
+            )
+
+            return false,
+                "receiver_add_item_failed_"
+                .. tostring(itemName)
+                .. "_"
+                .. tostring(method)
+        end
+
+        State.ItemOfferAddedCount += 1
+
+        print(
+            "[AutoTrade][Receiver] Added + verified",
+            index .. "/" .. #sequence,
+            itemName,
+            "| MyItems:",
+            tostring(replicatedCount),
+            "|",
+            tostring(method)
+        )
+
+        previousItem = itemName
+
+        if index < #sequence then
+            task.wait(
+                Config.RandomOffer.ItemClickDelay
+            )
+        end
+    end
+
+    local visiblePlannedTotal =
+        countTotalPlannedItemsPresent(plan)
+
+    State.ItemsOffered =
+        State.ItemOfferAddedCount
+            == State.ItemOfferTargetCount
+        and visiblePlannedTotal
+            == State.ItemOfferTargetCount
+
+    if not State.ItemsOffered then
+        return false,
+            "receiver_item_offer_verification_mismatch"
+    end
+
+    for itemName, expectedCount in pairs(plan) do
+        local actualCount =
+            countMyOfferedItemCopies(itemName)
+            or 0
+
+        if actualCount < expectedCount then
+            State.ItemsOffered = false
+
+            return false,
+                "receiver_item_count_mismatch_"
+                .. tostring(itemName)
+        end
+    end
+
+    print(
+        "[AutoTrade][Receiver] Finished adding + verifying",
+        State.ItemOfferAddedCount,
+        "item copies."
+    )
+
+    return true
+end
+
+local function receiverCountPartnerItemCards()
+    local _, frame =
+        getTradeGui()
+
+    local container =
+        frame and frame:FindFirstChild(
+            "TradingPlayerItems"
+        )
+
+    if not container then
+        return 0
+    end
+
+    local count = 0
+
+    for _, object in ipairs(container:GetChildren()) do
+        if object:IsA("GuiObject")
+            and object.Visible
+            and object.AbsoluteSize.X > 0
+            and object.AbsoluteSize.Y > 0
+        then
+            count += 1
+        end
+    end
+
+    return count
+end
+
+local function receiverPartnerOfferReady()
+    local minimum =
+        math.max(
+            0,
+            math.floor(
+                tonumber(
+                    Config.Receiver.MinPartnerItemCards
+                )
+                or 1
+            )
+        )
+
+    if minimum <= 0 then
+        return true
+    end
+
+    local count =
+        receiverCountPartnerItemCards()
+
+    if count < minimum then
+        print(
+            "[AutoTrade][Receiver] Waiting for sender items:",
+            count .. "/" .. minimum
+        )
+        return false
+    end
+
+    return true
+end
+
+local receiverFireAcceptOffer
+
+local function receiverOtherPartyAccepted()
+    local _, frame =
+        getTradeGui()
+
+    if not frame then
+        return false, "trade_gui_missing"
+    end
+
+    -- Confirmed from the live TradeGui dump: Player2Accept is the OTHER
+    -- player's acceptance label on this client's screen.
+    local label =
+        frame:FindFirstChild("Player2Accept")
+
+    if not label
+        or not (label:IsA("TextLabel") or label:IsA("TextButton"))
+    then
+        return false, "player2_accept_label_missing"
+    end
+
+    local value =
+        string.lower(
+            tostring(label.Text or "")
+        )
+
+    local accepted =
+        string.find(value, "accept", 1, true) ~= nil
+        and string.find(value, "✅", 1, true) ~= nil
+
+    return accepted, value
+end
+
+local function receiverAcceptWatchdogTick()
+    if not Config.Receiver.AcceptWatchdogEnabled
+        or not isTradeOpen()
+        or isTradeConfirmationVisible()
+        or captchaChallengeVisible()
+    then
+        return false, "watchdog_not_applicable"
+    end
+
+    local otherAccepted, otherText =
+        receiverOtherPartyAccepted()
+
+    if not otherAccepted then
+        return false, "other_not_accepted"
+    end
+
+    local now = os.clock()
+
+    if now - (State.ReceiverLastAcceptAt or 0)
+        < Config.Receiver.AcceptWatchdogDelay
+    then
+        return false, "watchdog_gap"
+    end
+
+    if State.ReceiverAcceptWatchdogRetries
+        >= Config.Receiver.AcceptWatchdogMaxRetries
+    then
+        return false, "watchdog_retry_limit"
+    end
+
+    -- Other party is checked, but we're STILL on the offer screen. If our
+    -- receiver checkbox were actually checked too, RH should have advanced.
+    -- This recovers the exact screenshot state where Player2Accept is green
+    -- but the receiver's own checkbox is blank.
+    State.ReceiverAcceptWatchdogRetries += 1
+
+    print(
+        "[AutoTrade][Receiver] Accept watchdog retry",
+        State.ReceiverAcceptWatchdogRetries
+            .. "/"
+            .. Config.Receiver.AcceptWatchdogMaxRetries,
+        "| other:",
+        tostring(otherText)
+    )
+
+    local accepted =
+        receiverFireAcceptOffer(
+            "partner_accepted_watchdog"
+        )
+
+    if accepted then
+        State.ReceiverLastAcceptAt = os.clock()
+        return true, "watchdog_accept_sent"
+    end
+
+    return false, "watchdog_accept_failed"
+end
+
+receiverFireAcceptOffer = function(reason)
+    if not waitForCaptchaClear("receiver_accept_offer") then
+        return false
+    end
+
+    if not isTradeOpen()
+        or isTradeConfirmationVisible()
+    then
+        return false
+    end
+
+    if not receiverPartnerOfferReady() then
+        return false
+    end
+
+    State.ReceiverLastAcceptAt = os.clock()
+
+    local ok, err = pcall(function()
+        AcceptOffer:FireServer()
+    end)
+
+    if not ok then
+        warn(
+            "[AutoTrade][Receiver] AcceptOffer failed:",
+            tostring(err)
+        )
+        return false
+    end
+
+    State.Accepted = true
+
+    print(
+        "[AutoTrade][Receiver] AcceptOffer sent",
+        "| reason:",
+        tostring(reason or "initial")
+    )
+
+    return true
+end
+
+local function bindReceiverOfferModificationWatcher()
+    disconnectReceiverConnections()
+
+    local _, frame =
+        getTradeGui()
+
+    if not frame then
+        return false
+    end
+
+    local function markReceiverOfferChanged(source)
+        if not isTradeOpen()
+            or isTradeConfirmationVisible()
+        then
+            return
+        end
+
+        State.ReceiverOfferModifiedAt =
+            os.clock()
+
+        State.ReceiverOfferModificationPending =
+            true
+
+        -- RH clears our offer-stage check when either side edits the offer.
+        State.Accepted = false
+
+        print(
+            "[AutoTrade][Receiver] Offer changed; receiver acceptance is stale.",
+            "| source:",
+            tostring(source or "unknown")
+        )
+    end
+
+    local function watch(object)
+        if not object then
+            return
+        end
+
+        local connection =
+            object.Changed:Connect(function()
+                markReceiverOfferChanged(
+                    object.Name
+                )
+            end)
+
+        table.insert(
+            State.ReceiverConnections,
+            connection
+        )
+    end
+
+    watch(frame:FindFirstChild("TradeModified"))
+    watch(frame:FindFirstChild("TradeModifiedNotice"))
+
+    -- Extra direct coverage for manual receiver edits after initial accept.
+    local myItems =
+        frame:FindFirstChild("MyItems")
+
+    if myItems then
+        table.insert(
+            State.ReceiverConnections,
+            myItems.ChildAdded:Connect(function()
+                markReceiverOfferChanged("MyItems.ChildAdded")
+            end)
+        )
+
+        table.insert(
+            State.ReceiverConnections,
+            myItems.ChildRemoved:Connect(function()
+                markReceiverOfferChanged("MyItems.ChildRemoved")
+            end)
+        )
+    end
+
+    local diamondBox =
+        frame:FindFirstChild("DiamondAmount")
+
+    if diamondBox and diamondBox:IsA("TextBox") then
+        table.insert(
+            State.ReceiverConnections,
+            diamondBox:GetPropertyChangedSignal("Text"):Connect(function()
+                markReceiverOfferChanged("DiamondAmount.Text")
+            end)
+        )
+    end
+
+    return true
+end
+
+local function receiverWaitAndMaintainAccept()
+    local started = os.clock()
+    local lastAcceptAt =
+        tonumber(State.ReceiverLastAcceptAt)
+        or 0
+
+    local reacceptChatSent = false
+
+    if not State.Accepted then
+        if receiverFireAcceptOffer("initial") then
+            lastAcceptAt = os.clock()
+            State.ReceiverLastAcceptAt = lastAcceptAt
+            State.ReceiverOfferModificationPending = false
+            State.ReceiverOfferModifiedAt = nil
+        end
+    end
+
+    while os.clock() - started
+        < Config.FinalConfirmation.WaitTimeout
+    do
+        if not isTradeOpen() then
+            return false, "trade_closed_before_confirmation"
+        end
+
+        if isTradeConfirmationVisible() then
+            State.ConfirmationVisible = true
+            disconnectReceiverConnections()
+
+            print(
+                "[AutoTrade][Receiver] TradeConfirmation reached."
+            )
+
+            return true
+        end
+
+        -- Do not trust the local State.Accepted flag as authoritative.
+        -- If the partner is visibly accepted and this screen has not advanced,
+        -- the receiver checkbox is still unchecked/reset and needs another
+        -- AcceptOffer attempt.
+        receiverAcceptWatchdogTick()
+
+        if State.ReceiverOfferModificationPending
+            and State.ReceiverOfferModifiedAt
+        then
+            local now = os.clock()
+
+            if now - State.ReceiverOfferModifiedAt
+                    >= Config.Receiver.ReacceptStabilityDelay
+                and now - lastAcceptAt
+                    >= Config.Receiver.ReacceptMinGap
+            then
+                if State.ReceiverReacceptCount
+                    >= Config.Receiver.MaxReaccepts
+                then
+                    return false, "receiver_reaccept_limit"
+                end
+
+                if receiverFireAcceptOffer(
+                    "offer_modified"
+                ) then
+                    State.ReceiverReacceptCount += 1
+                    lastAcceptAt = now
+                    State.ReceiverLastAcceptAt = now
+                    State.ReceiverOfferModificationPending = false
+                    State.ReceiverOfferModifiedAt = nil
+                    State.Accepted = true
+
+                    print(
+                        "[AutoTrade][Receiver] Re-accepted after offer update",
+                        State.ReceiverReacceptCount
+                            .. "/"
+                            .. Config.Receiver.MaxReaccepts
+                    )
+
+                    if not reacceptChatSent then
+                        reacceptChatSent = true
+                        receiverSendChat(
+                            "reaccepted after the update"
+                        )
+                    end
+                end
+            end
+        end
+
+        task.wait(Config.PollRate)
+    end
+
+    return false, "receiver_confirmation_timeout"
+end
+
+local function receiverSetFinalConfirmState()
+    if not waitForCaptchaClear("receiver_confirm_state") then
+        return false, "captcha_pause_timeout"
+    end
+
+    if not isTradeConfirmationVisible() then
+        return false, "confirmation_not_visible"
+    end
+
+    local attempts =
+        math.max(
+            1,
+            tonumber(
+                Config.FinalConfirmation.InvokeAttempts
+            )
+            or 2
+        )
+
+    for attempt = 1, attempts do
+        local ok, result =
+            pcall(function()
+                return SetConfirmState:InvokeServer(true)
+            end)
+
+        if ok and result ~= false then
+            State.FinalConfirmed = true
+
+            print(
+                "[AutoTrade][Receiver] Final confirmation sent",
+                result ~= nil
+                    and ("| result: " .. tostring(result))
+                    or ""
+            )
+
+            return true
+        end
+
+        warn(
+            "[AutoTrade][Receiver] SetConfirmState attempt",
+            attempt .. "/" .. attempts,
+            "failed:",
+            tostring(result)
+        )
+
+        if attempt < attempts then
+            task.wait(
+                Config.FinalConfirmation.RetryDelay
+            )
+        end
+    end
+
+    return false, "receiver_final_confirm_rejected"
+end
+
+local function receiverWaitForTradeClose()
+    local started = os.clock()
+
+    while os.clock() - started
+        < Config.FinalConfirmation.CompletionTimeout
+    do
+        if not isTradeOpen() then
+            State.TradeFinished = true
+
+            print(
+                "[AutoTrade][Receiver] Trade window closed; "
+                .. "receiver cycle completed."
+            )
+
+            return true
+        end
+
+        task.wait(
+            Config.FinalConfirmation.PollRate
+        )
+    end
+
+    return false
+end
+
+local function runReceiverActiveTrade(sender)
+    resetReceiverTradeState(sender)
+
+    if not waitForTradeOpen(
+        Config.Receiver.TradeOpenTimeout
+    ) then
+        return false, "receiver_trade_open_timeout"
+    end
+
+    State.TradeOpened = true
+
+    if not tradeGuiMatchesTarget(sender) then
+        warn(
+            "[AutoTrade][Receiver] Trade opened, but partner lock "
+            .. "did not match expected sender:",
+            sender.Name
+        )
+        return false, "receiver_partner_mismatch"
+    end
+
+    print(
+        "[AutoTrade][Receiver] Trade opened with:",
+        sender.Name
+    )
+
+    bindReceiverIncomingChat(sender)
+
+    task.wait(Config.ChatOpenDelay)
+
+    receiverSendChat(
+        "got it, i'll add my side now"
+    )
+
+    -- Build a fresh 10-20 item manifest from the configured safe pool.
+    local manifestOK, manifestReason =
+        receiverBuildItemManifest()
+
+    if not manifestOK then
+        warn(
+            "[AutoTrade][Receiver] Item manifest failed:",
+            tostring(manifestReason)
+        )
+        return false, manifestReason
+    end
+
+    local itemsOK, itemsReason =
+        receiverOfferConfiguredItems()
+
+    if not itemsOK then
+        warn(
+            "[AutoTrade][Receiver] Item stage failed:",
+            tostring(itemsReason)
+        )
+        return false, itemsReason
+    end
+
+    local diamondOK, diamondResult =
+        setReceiverDiamondOffer(sender)
+
+    if not diamondOK then
+        warn(
+            "[AutoTrade][Receiver] Diamond stage failed:",
+            tostring(diamondResult)
+        )
+        return false, diamondResult
+    end
+
+    receiverSendChat(
+        "i added "
+        .. tostring(State.ItemOfferAddedCount)
+        .. " items and "
+        .. formatDiamondAmount(
+            State.ReceiverDiamondAmount
+        )
+        .. " diamonds on my side"
+    )
+
+    -- Bind AFTER our automated item + diamond changes so those 10-20 setup
+    -- edits do not produce repeated re-accepts. From this point onward, any
+    -- sender edit OR manual receiver edit marks the checkbox stale.
+    bindReceiverOfferModificationWatcher()
+
+    -- Critical V29 behavior:
+    -- If the sender accepted BEFORE we finished adding our diamonds/items,
+    -- RH reset the offer-stage checkboxes. Explicitly accept our finalized
+    -- receiver offer here, immediately after our own last change.
+    task.wait(
+        Config.Receiver.ReacceptStabilityDelay
+    )
+
+    if not receiverFireAcceptOffer(
+        "own_offer_complete_after_items_and_diamonds"
+    ) then
+        return false, "receiver_initial_reaccept_failed"
+    end
+
+    State.ReceiverLastAcceptAt = os.clock()
+    State.ReceiverOfferModificationPending = false
+    State.ReceiverOfferModifiedAt = nil
+    State.Accepted = true
+
+    print(
+        "[AutoTrade][Receiver] Receiver AcceptOffer sent after final "
+        .. "item/diamond offer; acceptance watchdog armed."
+    )
+
+    receiverSendChat(
+        "i'm ready on my side"
+    )
+
+    local confirmationOK, confirmationReason =
+        receiverWaitAndMaintainAccept()
+
+    if not confirmationOK then
+        return false, confirmationReason
+    end
+
+    receiverSendChat(
+        "final confirmation is up on my side"
+    )
+
+    local confirmOK, confirmReason =
+        receiverSetFinalConfirmState()
+
+    if not confirmOK then
+        return false, confirmReason
+    end
+
+    -- Reuse the V18/V22 exact FinalConfirmation.Yes + GuiInset path.
+    local finalized, finalizeReason =
+        clickFinalizeTradeViaVIM()
+
+    if not finalized then
+        return false, finalizeReason
+    end
+
+    local completed =
+        receiverWaitForTradeClose()
+
+    disconnectReceiverConnections()
+    disconnectReceiverChatConnections()
+
+    return completed == true,
+        completed and "completed" or "receiver_completion_timeout"
+end
+
+local processReceiverRequestQueue
+local receiverQueueIncomingRequest
+local removeReceiverQueuedSender
+local startReceiverTradeWorker
+
+removeReceiverQueuedSender = function(sender)
+    if not sender then
+        return false
+    end
+
+    local userId =
+        tonumber(sender.UserId)
+
+    local removed = false
+
+    for index = #State.ReceiverRequestQueue, 1, -1 do
+        local entry =
+            State.ReceiverRequestQueue[index]
+
+        if entry
+            and tonumber(entry.UserId) == userId
+        then
+            table.remove(
+                State.ReceiverRequestQueue,
+                index
+            )
+
+            removed = true
+        end
+    end
+
+    State.ReceiverRequestQueuedByUserId[userId] =
+        nil
+
+    for index, queued in ipairs(
+        State.ReceiverRequestQueue
+    ) do
+        queued.PositionHint = index
+    end
+
+    return removed
+end
+
+local function getReceiverRequestInner()
+    local screen =
+        PlayerGui:FindFirstChild("TradeGui")
+
+    local frame =
+        screen and screen:FindFirstChild("TradeGui")
+
+    local requests =
+        frame and frame:FindFirstChild("TradeRequests")
+
+    return
+        requests and requests:FindFirstChild("Inner")
+end
+
+local function receiverFindRequestCardsForSender(sender)
+    local inner =
+        getReceiverRequestInner()
+
+    local results = {}
+
+    if not inner or not sender then
+        return results
+    end
+
+    for _, card in ipairs(inner:GetChildren()) do
+        local playerValue =
+            card:FindFirstChild("Player")
+
+        if playerValue
+            and playerValue:IsA("ObjectValue")
+            and playerValue.Value == sender
+        then
+            table.insert(results, card)
+        end
+    end
+
+    return results
+end
+
+local function receiverHideRequestCardsForSender(sender)
+    local hidden = 0
+
+    for _, card in ipairs(
+        receiverFindRequestCardsForSender(sender)
+    ) do
+        if card:IsA("GuiObject") then
+            pcall(function()
+                card.Visible = false
+            end)
+
+            hidden += 1
+        end
+    end
+
+    if hidden > 0 then
+        print(
+            "[AutoTrade][ReceiverQueue] Hid accepted request card(s):",
+            sender.Name,
+            "| count:",
+            hidden
+        )
+    end
+
+    return hidden
+end
+
+local function receiverCollectAllVisibleRequestCards(source)
+    local inner =
+        getReceiverRequestInner()
+
+    if not inner then
+        return 0
+    end
+
+    local queued = 0
+
+    -- IMPORTANT V31: do not return after the first card. Queue EVERY visible
+    -- request so 5-10 sender accounts can stack safely while one trade runs.
+    for _, card in ipairs(inner:GetChildren()) do
+        if card:IsA("GuiObject")
+            and card.Visible
+        then
+            local playerValue =
+                card:FindFirstChild("Player")
+
+            if playerValue
+                and playerValue:IsA("ObjectValue")
+                and playerValue.Value
+                and playerValue.Value:IsA("Player")
+            then
+                if receiverQueueIncomingRequest(
+                    playerValue.Value,
+                    source or "request_card_sweep"
+                ) then
+                    queued += 1
+                end
+            end
+        end
+    end
+
+    return queued
+end
+
+local function receiverTryRestockWithRetries(context)
+    local attempts =
+        math.max(
+            1,
+            tonumber(Config.Receiver.PostTradeRestockAttempts)
+            or 3
+        )
+
+    for attempt = 1, attempts do
+        State.StockingFinished = false
+        State.StockingResults = {}
+
+        local ok, result =
+            pcall(runAutoStock)
+
+        if ok and result == true then
+            State.ReceiverStockReady = true
+
+            print(
+                "[AutoTrade][Receiver] Stock ready",
+                "| context:",
+                tostring(context or "unknown"),
+                "| attempt:",
+                attempt .. "/" .. attempts
+            )
+
+            return true
+        end
+
+        State.ReceiverStockReady = false
+
+        warn(
+            "[AutoTrade][Receiver] Restock attempt failed",
+            attempt .. "/" .. attempts,
+            "| context:",
+            tostring(context or "unknown"),
+            "| result:",
+            tostring(result)
+        )
+
+        if attempt < attempts then
+            task.wait(
+                Config.Receiver.PostTradeRestockRetryDelay
+            )
+        end
+    end
+
+    return false
+end
+
+local function receiverScheduleStockRecovery()
+    if State.ReceiverStockRecoveryRunning
+        or State.ReceiverStockReady
+    then
+        return
+    end
+
+    State.ReceiverStockRecoveryRunning = true
+
+    task.spawn(function()
+        while Config.Receiver.Enabled
+            and not State.ReceiverStockReady
+        do
+            -- Never try to purchase over an active trade.
+            if not isTradeOpen() then
+                local recovered =
+                    receiverTryRestockWithRetries(
+                        "background_recovery"
+                    )
+
+                if recovered then
+                    break
+                end
+            end
+
+            task.wait(
+                Config.Receiver.StockRecoveryRetryDelay
+            )
+        end
+
+        State.ReceiverStockRecoveryRunning = false
+
+        if State.ReceiverStockReady
+            and not State.ReceiverBusy
+            and not isTradeOpen()
+            and processReceiverRequestQueue
+        then
+            processReceiverRequestQueue()
+        end
+    end)
+end
+
+startReceiverTradeWorker = function(sender, source)
+    if not sender
+        or not sender:IsA("Player")
+    then
+        return false
+    end
+
+    -- Both automatic AcceptTradeRequest and manual GUI acceptance end up here.
+    -- ReceiverBusy must already be true before this worker is started.
+    removeReceiverQueuedSender(sender)
+
+    State.ReceiverSender =
+        sender
+
+    print(
+        "[AutoTrade][Receiver] Starting active trade worker:",
+        sender.Name,
+        "| source:",
+        tostring(source or "unknown")
+    )
+
+    task.spawn(function()
+        local success, reason =
+            runReceiverActiveTrade(sender)
+
+        if success then
+            print(
+                "[AutoTrade][Receiver] Finished trade with:",
+                sender.Name
+            )
+        else
+            warn(
+                "[AutoTrade][Receiver] Receiver trade ended:",
+                sender.Name,
+                "|",
+                tostring(reason)
+            )
+        end
+
+        disconnectReceiverConnections()
+        disconnectReceiverChatConnections()
+
+        -- Whether the trade completed or was cancelled, try to top stock up.
+        -- V30 could permanently wedge here: if runAutoStock() failed once it
+        -- returned while ReceiverBusy was STILL true. V31 always releases the
+        -- busy lock, even when stock recovery needs to continue in background.
+        local restockOK =
+            receiverTryRestockWithRetries(
+                "post_trade"
+            )
+
+        State.ReceiverBusy = false
+        State.ReceiverSender = nil
+
+        if not restockOK then
+            warn(
+                "[AutoTrade][Receiver] Post-trade stock is incomplete. "
+                .. "Busy lock released; background stock recovery started."
+            )
+
+            receiverScheduleStockRecovery()
+        end
+
+        task.wait(
+            Config.Receiver.RequestQueueProcessDelay
+        )
+
+        -- Harvest every currently-visible card before choosing the next sender.
+        receiverCollectAllVisibleRequestCards(
+            "post_trade_sweep"
+        )
+
+        if State.ReceiverStockReady
+            and processReceiverRequestQueue
+        then
+            processReceiverRequestQueue()
+        end
+    end)
+
+    return true
+end
+
+local function receiverAcceptRequest(sender)
+    if not waitForCaptchaClear("receiver_accept_request") then
+        return false
+    end
+
+    if not receiverSenderAllowed(sender) then
+        return false, "sender_not_allowed"
+    end
+
+    if State.ReceiverBusy
+        or isTradeOpen()
+    then
+        if receiverQueueIncomingRequest then
+            receiverQueueIncomingRequest(
+                sender,
+                "receiver_busy"
+            )
+        end
+
+        return false, "queued_while_busy"
+    end
+
+    State.ReceiverBusy = true
+
+    print(
+        "[AutoTrade][Receiver] Incoming trade request from:",
+        sender.Name
+    )
+
+    local ok, result =
+        pcall(function()
+            return AcceptTradeRequest:InvokeServer(
+                sender
+            )
+        end)
+
+    if not ok then
+        State.ReceiverBusy = false
+
+        warn(
+            "[AutoTrade][Receiver] AcceptTradeRequest invoke failed:",
+            tostring(result)
+        )
+
+        if processReceiverRequestQueue then
+            task.defer(processReceiverRequestQueue)
+        end
+
+        return false, "accept_request_invoke_failed"
+    end
+
+    if typeof(result) == "table"
+        and result.error
+    then
+        State.ReceiverBusy = false
+
+        warn(
+            "[AutoTrade][Receiver] AcceptTradeRequest rejected:",
+            tostring(result.error)
+        )
+
+        -- Most commonly this means a queued request expired while another
+        -- trade/restock was running. Immediately try the next queued sender.
+        if processReceiverRequestQueue then
+            task.defer(processReceiverRequestQueue)
+        end
+
+        return false, tostring(result.error)
+    end
+
+    -- RH's own GUI handler hides this request card after clicking Accept.
+    -- Because our script invokes AcceptTradeRequest directly, reproduce that
+    -- local UI cleanup or the stale visible card can be queued again later.
+    receiverHideRequestCardsForSender(sender)
+
+    startReceiverTradeWorker(
+        sender,
+        "AcceptTradeRequest"
+    )
+
+    return true
+end
+
+-- ================================================================
+-- MANUALLY-ACCEPTED TRADE ADOPTION
+-- ================================================================
+-- If the user clicks the green Accept button herself, Royale High opens
+-- TradeGui directly. No AcceptTradeRequest call from this script occurs, so
+-- older receiver versions never launched runReceiverActiveTrade().
+--
+-- V28 identifies the trade partner from the already-open trade header and
+-- adopts that trade into the exact same receiver worker used by auto-accept.
+
+local function resolveOpenReceiverTradePartner()
+    if not isTradeOpen() then
+        return nil
+    end
+
+    -- tradeGuiMatchesTarget() already verifies the header/visible TradeGui
+    -- contains the player's real Roblox username (e.g. "Let's Trade X!").
+    for _, player in ipairs(
+        Players:GetPlayers()
+    ) do
+        if player ~= LocalPlayer
+            and receiverSenderAllowed(player)
+            and tradeGuiMatchesTarget(player)
+        then
+            return player
+        end
+    end
+
+    return nil
+end
+
+local function adoptManualReceiverTradeIfNeeded()
+    if not Config.Receiver.ManualTradeAdoption
+        or State.ReceiverBusy
+        or not isTradeOpen()
+        or captchaChallengeVisible()
+    then
+        return false
+    end
+
+    local sender =
+        resolveOpenReceiverTradePartner()
+
+    if not sender then
+        return false
+    end
+
+    State.ReceiverBusy = true
+    State.ReceiverManualAdoptions += 1
+    State.ReceiverLastManualPartner =
+        sender.Name
+
+    removeReceiverQueuedSender(sender)
+    receiverHideRequestCardsForSender(sender)
+
+    print(
+        "[AutoTrade][Receiver] MANUAL TRADE ADOPTED:",
+        sender.Name,
+        "| adoption:",
+        State.ReceiverManualAdoptions
+    )
+
+    return startReceiverTradeWorker(
+        sender,
+        "manual_gui_accept"
+    )
+end
+
+-- ================================================================
+-- RECEIVER REQUEST FIFO
+-- ================================================================
+
+receiverQueueIncomingRequest = function(sender, source)
+    if not Config.Receiver.RequestQueueEnabled
+        or not sender
+        or not sender:IsA("Player")
+        or sender == LocalPlayer
+        or not receiverSenderAllowed(sender)
+    then
+        return false
+    end
+
+    -- The currently active sender does not need another queue entry.
+    if State.ReceiverSender
+        and State.ReceiverSender.UserId == sender.UserId
+    then
+        return false
+    end
+
+    local userId =
+        tonumber(sender.UserId)
+
+    local existing =
+        State.ReceiverRequestQueuedByUserId[userId]
+
+    if existing then
+        -- A sender may retry while waiting. Refresh its timestamp instead of
+        -- creating duplicate queue entries.
+        existing.LastSeen = os.clock()
+        existing.Player = sender
+        existing.Username = sender.Name
+        existing.SeenCount =
+            (existing.SeenCount or 1) + 1
+
+        print(
+            "[AutoTrade][ReceiverQueue] Refreshed:",
+            sender.Name,
+            "| position:",
+            tostring(existing.PositionHint or "?"),
+            "| seen:",
+            existing.SeenCount,
+            "| source:",
+            tostring(source or "event")
+        )
+
+        return true
+    end
+
+    if #State.ReceiverRequestQueue
+        >= Config.Receiver.RequestQueueMax
+    then
+        warn(
+            "[AutoTrade][ReceiverQueue] Queue full; cannot store:",
+            sender.Name
+        )
+        return false
+    end
+
+    State.ReceiverRequestSequence += 1
+
+    local entry = {
+        Player = sender,
+        UserId = userId,
+        Username = sender.Name,
+        FirstSeen = os.clock(),
+        LastSeen = os.clock(),
+        Sequence = State.ReceiverRequestSequence,
+        SeenCount = 1,
+        Source = tostring(source or "event")
+    }
+
+    table.insert(
+        State.ReceiverRequestQueue,
+        entry
+    )
+
+    State.ReceiverRequestQueuedByUserId[userId] =
+        entry
+
+    -- Recompute simple position hints for logs.
+    for index, queued in ipairs(
+        State.ReceiverRequestQueue
+    ) do
+        queued.PositionHint = index
+    end
+
+    print(
+        "[AutoTrade][ReceiverQueue] Queued:",
+        sender.Name,
+        "| position:",
+        #State.ReceiverRequestQueue,
+        "| busy:",
+        tostring(State.ReceiverBusy),
+        "| tradeOpen:",
+        tostring(isTradeOpen())
+    )
+
+    return true
+end
+
+local function popNextReceiverQueuedRequest()
+    while #State.ReceiverRequestQueue > 0 do
+        local entry =
+            table.remove(
+                State.ReceiverRequestQueue,
+                1
+            )
+
+        if entry and entry.UserId then
+            State.ReceiverRequestQueuedByUserId[
+                entry.UserId
+            ] = nil
+        end
+
+        for index, queued in ipairs(
+            State.ReceiverRequestQueue
+        ) do
+            queued.PositionHint = index
+        end
+
+        if entry then
+            local age =
+                os.clock()
+                - (entry.LastSeen or entry.FirstSeen or 0)
+
+            local sender =
+                entry.Player
+
+            if (not sender
+                    or sender.Parent ~= Players)
+                and entry.Username
+            then
+                sender =
+                    Players:FindFirstChild(
+                        entry.Username
+                    )
+            end
+
+            if age > Config.Receiver.RequestQueueTTL then
+                print(
+                    "[AutoTrade][ReceiverQueue] Dropping expired local queue entry:",
+                    tostring(entry.Username),
+                    "| age:",
+                    string.format("%.1fs", age)
+                )
+            elseif sender
+                and sender.Parent == Players
+                and receiverSenderAllowed(sender)
+            then
+                return sender, entry
+            else
+                print(
+                    "[AutoTrade][ReceiverQueue] Dropping unavailable sender:",
+                    tostring(entry.Username)
+                )
+            end
+        end
+    end
+
+    return nil, nil
+end
+
+processReceiverRequestQueue = function()
+    if State.ReceiverBusy
+        or isTradeOpen()
+        or captchaChallengeVisible()
+    then
+        return false
+    end
+
+    if not State.ReceiverStockReady then
+        receiverScheduleStockRecovery()
+        return false, "receiver_stock_recovering"
+    end
+
+    -- Pick up cards that may have arrived before our event listener or while
+    -- the receiver was busy. This sweep adds ALL visible cards to the FIFO.
+    receiverCollectAllVisibleRequestCards(
+        "pre_process_sweep"
+    )
+
+    local sender, entry =
+        popNextReceiverQueuedRequest()
+
+    if not sender then
+        return false
+    end
+
+    print(
+        "[AutoTrade][ReceiverQueue] Processing next sender:",
+        sender.Name,
+        "| remaining:",
+        #State.ReceiverRequestQueue,
+        "| queued age:",
+        string.format(
+            "%.1fs",
+            os.clock()
+                - (entry.LastSeen or entry.FirstSeen or os.clock())
+        )
+    )
+
+    local accepted, reason =
+        receiverAcceptRequest(sender)
+
+    if accepted then
+        return true
+    end
+
+    -- If this request expired/rejected, continue to the next queued entry
+    -- after a short deterministic gap.
+    if not State.ReceiverBusy
+        and not isTradeOpen()
+    then
+        task.delay(
+            Config.Receiver.RequestQueueProcessDelay,
+            function()
+                if processReceiverRequestQueue then
+                    processReceiverRequestQueue()
+                end
+            end
+        )
+    end
+
+    return false, reason
+end
+
+local function acceptExistingReceiverRequestCard()
+    local queued =
+        receiverCollectAllVisibleRequestCards(
+            "visible_request_card"
+        )
+
+    if queued <= 0 then
+        return false
+    end
+
+    if not State.ReceiverBusy
+        and not isTradeOpen()
+        and State.ReceiverStockReady
+    then
+        return processReceiverRequestQueue()
+    end
+
+    return true
+end
+
+local function runReceiverMode()
+    if not Config.Receiver.Enabled then
+        warn(
+            "[AutoTrade][Receiver] Receiver mode detected but disabled."
+        )
+        return
+    end
+
+    print(
+        "[AutoTrade] MODE = RECEIVER",
+        "| account:",
+        LocalPlayer.Name
+    )
+
+    if #Config.RandomOffer.Pool == 0 then
+        warn(
+            "[AutoTrade][Receiver] No configured item pool. "
+            .. "Receiver cannot build a 10-20 item offer."
+        )
+        return
+    end
+
+    -- Receiver needs the same configured inventory reserve as senders.
+    -- However, if a trade is ALREADY open because the user manually accepted
+    -- it before/during startup, do not purchase over that live trade. Adopt it.
+    if not isTradeOpen() then
+        State.StockingFinished = false
+        State.StockingResults = {}
+
+        local initialStockOK =
+            receiverTryRestockWithRetries(
+                "receiver_startup"
+            )
+
+        State.ReceiverStockReady =
+            initialStockOK == true
+
+        if not initialStockOK then
+            warn(
+                "[AutoTrade][Receiver] Initial auto-stock incomplete. "
+                .. "Receiver stays alive and will recover stock in background."
+            )
+
+            receiverScheduleStockRecovery()
+        end
+    else
+        State.ReceiverStockReady = true
+
+        print(
+            "[AutoTrade][Receiver] Trade already open at receiver startup; "
+            .. "skipping initial stock and preparing manual adoption."
+        )
+    end
+
+    print(
+        "[AutoTrade][Receiver] Waiting for incoming trade requests..."
+    )
+
+    State.ReceiverRequestConnection =
+        ReceiveTradeRequest.OnClientEvent:Connect(
+            function(sender)
+                if sender
+                    and sender:IsA("Player")
+                then
+                    -- V26 used to call receiverAcceptRequest directly here.
+                    -- If the receiver was trading/restocking, that function
+                    -- returned immediately and the request was LOST.
+                    receiverQueueIncomingRequest(
+                        sender,
+                        "ReceiveTradeRequest"
+                    )
+
+                    if not State.ReceiverBusy
+                        and not isTradeOpen()
+                        and not captchaChallengeVisible()
+                    then
+                        processReceiverRequestQueue()
+                    end
+                end
+            end
+        )
+
+    -- Keep this listener separate from per-trade connections so resetting
+    -- one completed trade does not disable the receiver for the next sender.
+
+    -- V31: continuously harvest every visible request card, even while busy.
+    -- This is important when many accounts send around the same time or when
+    -- an executor misses one ReceiveTradeRequest event.
+    if Config.Receiver.RequestCardSweepEnabled
+        and not State.ReceiverRequestSweepRunning
+    then
+        State.ReceiverRequestSweepRunning = true
+
+        task.spawn(function()
+            while Config.Receiver.Enabled do
+                receiverCollectAllVisibleRequestCards(
+                    "continuous_card_sweep"
+                )
+
+                task.wait(
+                    Config.Receiver.RequestCardSweepPollRate
+                )
+            end
+
+            State.ReceiverRequestSweepRunning = false
+        end)
+    end
+
+    -- Covers the case where the request UI appeared just before injection.
+    task.defer(function()
+        if isTradeOpen() then
+            adoptManualReceiverTradeIfNeeded()
+            return
+        end
+
+        acceptExistingReceiverRequestCard()
+
+        if #State.ReceiverRequestQueue > 0
+            and not State.ReceiverBusy
+            and not isTradeOpen()
+        then
+            processReceiverRequestQueue()
+        end
+    end)
+
+    -- Keep the receiver alive for sequential sender accounts.
+    while Config.Receiver.Enabled do
+        task.wait(
+            Config.Receiver.ManualTradeAdoptPollRate
+        )
+
+        if not State.ReceiverBusy
+            and not captchaChallengeVisible()
+        then
+            if isTradeOpen() then
+                -- Covers a manual click on the in-game request's Accept button.
+                adoptManualReceiverTradeIfNeeded()
+            else
+                receiverCollectAllVisibleRequestCards(
+                    "idle_loop_sweep"
+                )
+
+                if not State.ReceiverStockReady then
+                    receiverScheduleStockRecovery()
+                elseif #State.ReceiverRequestQueue > 0 then
+                    processReceiverRequestQueue()
+                end
+            end
+        end
+    end
+end
+
+local function resolveConfiguredTarget()
+    local wantedUserId =
+        tonumber(Config.TargetUserId)
+
+    local wantedName =
+        string.lower(
+            tostring(Config.TargetUsername or "")
+        )
+
+    local function findNow()
+        if wantedUserId then
+            for _, player in ipairs(Players:GetPlayers()) do
+                if player.UserId == wantedUserId then
+                    return player
+                end
+            end
+        end
+
+        if wantedName ~= "" then
+            for _, player in ipairs(Players:GetPlayers()) do
+                if string.lower(player.Name) == wantedName then
+                    return player
+                end
+            end
+        end
+
+        return nil
+    end
+
+    local target = findNow()
+
+    if target then
+        return target
+    end
+
+    local started = os.clock()
+
+    while os.clock() - started
+        < Config.Reliability.TargetResolveTimeout
+    do
+        target = findNow()
+
+        if target then
+            return target
+        end
+
+        task.wait(
+            Config.Reliability.TargetResolvePollRate
+        )
+    end
+
+    return nil
+end
+
+local function runQueuedTradeSender()
+    print(
+        "[AutoTrade] Global target config:",
+        Config.TargetUsername,
+        "| userId:",
+        tostring(Config.TargetUserId or "not-set")
+    )
+
+    print(
+        "[AutoTrade] Global configured items:",
+        #Config.Stock.Targets
+    )
+
+    for _, spec in ipairs(Config.Stock.Targets) do
+        print(
+            "[AutoTrade] Item config:",
+            spec.Item,
+            "| category:",
+            spec.Category,
+            "| currency:",
+            spec.Currency,
+            "| stock target:",
+            spec.Target
+        )
+    end
+
+    if #Config.RandomOffer.Pool == 0 then
+        warn(
+            "[AutoTrade] Global Items config has no enabled items "
+            .. "(Target must be > 0). Stopping."
+        )
+        return
+    end
+
+    -- Global account-level trade-ban marker takes priority over everything.
+    -- This check happens before auto-stock and before any trade request.
+    if hasSavedSenderTradeBan() or senderTradeBanRuntimeGuarded() then
+        State.TradeBanned = true
+
+        warn(
+            "[AutoTrade] Sender is already recorded in Volt workspace/",
+            Config.Reliability.TradeBanFolder,
+            "- refusing to stock or send any trade requests."
+        )
+
+        return
+    end
+
+    local target =
+        resolveConfiguredTarget()
+
+    if not target then
+        warn(
+            "[AutoTrade] Target could not be resolved in this server.",
+            "| configured username:",
+            Config.TargetUsername,
+            "| configured userId:",
+            tostring(Config.TargetUserId or "not-set"),
+            "| IMPORTANT: use the Roblox USERNAME, not DisplayName."
+        )
+        return
+    end
+
+    print(
+        "[AutoTrade] Resolved target:",
+        target.Name,
+        "(" .. tostring(target.UserId) .. ")"
+    )
+
+    if target == LocalPlayer then
+        warn("[AutoTrade] Target cannot be the local player.")
+        return
+    end
+
+    State.Target = target
+
+    -- PRE-FLIGHT BEFORE AUTO-STOCK.
+    local preflightOK, preflightReason =
+        runProfileTradeIconPreflight(target)
+
+    if not preflightOK then
+        warn(
+            "[AutoTrade] Stopped by profile trade-icon preflight:",
+            tostring(preflightReason)
+        )
+        return
+    end
+
+    local terminal, terminalState =
+        alreadyTerminalForTarget(target)
+
+    if terminal then
+        if terminalState == "quarantined" then
+            print(
+                "[AutoTrade] Sender is quarantined for THIS JobId:",
+                string.sub(tostring(game.JobId), 1, 12),
+                "| target:",
+                target.Name,
+                "- no new trade will be sent in this server job."
+            )
+        else
+            print(
+                "[AutoTrade] Sender already completed a verified trade for",
+                target.Name,
+                "in THIS JobId:",
+                string.sub(tostring(game.JobId), 1, 12),
+                "- no new trade will be sent in this server job."
+            )
+        end
+        return
+    end
+
+    -- Finish stock preparation before entering the request queue.
+    local stockOK = runAutoStock()
+
+    if not stockOK
+        and Config.Reliability.AbortIfStockIncomplete
+    then
+        quarantine("stock_targets_incomplete")
+        return
+    end
+
+    local preSnapshot, snapshotReason =
+        snapshotConfiguredInventory()
+
+    if not preSnapshot then
+        quarantine(
+            "pretrade_snapshot_failed_"
+            .. tostring(snapshotReason)
+        )
+        return
+    end
+
+    State.PreTradeSnapshot = preSnapshot
+
+    -- Lock the item manifest ONCE. Busy/request retries reuse this exact
+    -- manifest instead of rolling a different 10-20 item set each time.
+    local plan, sequenceOrReason =
+        buildRandomItemOfferPlan()
+
+    if not plan then
+        quarantine(
+            "manifest_generation_failed_"
+            .. tostring(sequenceOrReason)
+        )
+        return
+    end
+
+    State.ManifestLocked = true
+
+    print(
+        "[AutoTrade] Manifest locked before queue:",
+        State.ItemOfferTargetCount,
+        "item(s)"
+    )
+
+    waitInitialQueueSlot()
+
+    while target.Parent == Players do
+        if State.TradeBanned
+            or hasSavedSenderTradeBan()
+            or senderTradeBanRuntimeGuarded()
+        then
+            warn(
+                "[AutoTrade] Trade-ban guard became active. "
+                .. "No further trade requests will be sent."
+            )
+            return
+        end
+
+        -- Never request another trade while this sender is already trading.
+        if isTradeOpen() then
+            print("[AutoTrade] Local account already trading. Waiting...")
+            waitForTradeToClose()
+            task.wait(1)
+        end
+
+        -- Re-check immediately before EVERY request attempt.
+        local requestPreflightOK, requestPreflightReason =
+            runProfileTradeIconPreflight(target)
+
+        if not requestPreflightOK then
+            warn(
+                "[AutoTrade] Request blocked by profile preflight:",
+                tostring(requestPreflightReason)
+            )
+            return
+        end
+
+        local state, detail = invokeTradeRequest(target)
+
+        if state == "busy" then
+            print("[AutoTrade] Trade busy:", tostring(detail))
+            waitBusyRetry()
+            continue
+        end
+
+        if state == "sender_trade_restricted" then
+            saveSenderTradeBan(detail)
+
+            -- Dedicated receipt for diagnostics, but do NOT use normal
+            -- JobId-scoped quarantine as the primary guard. The tradebans
+            -- marker is global for this sender account.
+            writeTradeReceipt(
+                "trade_restricted",
+                tostring(detail)
+            )
+
+            return
+        end
+
+        if state == "terminal" then
+            quarantine("trade_terminal_" .. tostring(detail))
+            return
+        end
+
+        if state == "invoke_error" or state == "error" then
+            warn("[AutoTrade] Request error:", tostring(detail))
+            task.wait(Config.BusyRetryBase)
+            continue
+        end
+
+        print("[AutoTrade] Trade request sent to", target.Name)
+
+        if waitForTradeOpen(Config.TradeOpenTimeout) then
+            print("[AutoTrade] Trade opened with", target.Name)
+
+            local success = runActiveTrade(target)
+
+            if success and State.Completed then
+                print(
+                    "[AutoTrade] Sender finished successfully. "
+                    .. "Trade loop permanently stopped."
+                )
+            elseif State.Quarantined then
+                warn(
+                    "[AutoTrade] Sender stopped in quarantine:",
+                    tostring(State.TerminalReason)
+                )
+            else
+                warn(
+                    "[AutoTrade] Active trade ended without verified completion. "
+                    .. "No new trade will be attempted in this run."
+                )
+            end
+
+            return
+        end
+
+        print("[AutoTrade] Request timed out without opening.")
+        task.wait(Config.RequestTimeoutRetry)
+    end
+
+    warn("[AutoTrade] Target left the server.")
+end
+
+State.RuntimeMode =
+    detectRuntimeMode()
+
+if State.RuntimeMode == "receiver" then
+    task.spawn(runReceiverMode)
+else
+    print(
+        "[AutoTrade] MODE = SENDER",
+        "| account:",
+        LocalPlayer.Name,
+        "| receiver:",
+        Config.TargetUsername
+    )
+
+    task.spawn(runQueuedTradeSender)
+end
