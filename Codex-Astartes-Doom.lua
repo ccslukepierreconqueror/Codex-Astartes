@@ -1,5 +1,5 @@
 -- ========================================================================
--- 🎓 CAMPUS 4 CLASS AUTOMATION FRAMEWORK (V63 + BREAKFAST SEASONAL MENU)
+-- 🎓 CAMPUS 4 CLASS AUTOMATION FRAMEWORK (V65 + MASS ACCOUNT + LOW GRAPHICS + SLEEP CONTROLLER)
 -- Includes: 👗 Auto Outfit | 🍳 Breakfast | 🏀 Basketball | 🔭 Star Gazing | 🧚 Fairy Flight | 💻 Computer | 🏊 Swim Spinner | 🧪 Potionology | 🏹 Archery | 🛒 Shopping | 📚 Homework | 📖 Study Hall | 📝 English | 🤖 API Captcha
 
 -- ========================================================================
@@ -14,6 +14,23 @@ local CollectionService = game:GetService("CollectionService")
 local HttpService = game:GetService("HttpService")
 local VirtualUser = game:GetService("VirtualUser")
 local GuiService = game:GetService("GuiService")
+local Lighting = game:GetService("Lighting")
+
+-- ========================================================================
+-- 🪶 MASS-ACCOUNT LOW GRAPHICS
+-- ========================================================================
+-- Client-side rendering reductions requested for large multi-instance farms.
+-- Wrapped in pcall so an executor/runtime that blocks a setting will not stop
+-- the Campus controller from loading.
+pcall(function()
+    settings().Rendering.QualityLevel = Enum.QualityLevel.Level01
+end)
+
+pcall(function()
+    Lighting.GlobalShadows = false
+    Lighting.FogEnd = 9e9
+end)
+
 while not Players.LocalPlayer do task.wait(0.1) end
 local LocalPlayer = Players.LocalPlayer
 local PlayerGui = LocalPlayer:WaitForChild("PlayerGui", 9999)
@@ -42,7 +59,30 @@ local Config = { Debug = false, -- true = show detailed class diagnostics
         -- ComputerMinigameRemotes.LetterTyped.
         LetterDelay = 0.045, WordChangeTimeout = 1.50,
         -- Seating / UI readiness
-        SeatRetryDelay = 0.20, SeatAttemptTimeout = 1.25, SeatTeleportHeight = 2.6, PollRate = 0.025 }, FairyFlight = { Enabled = _G.AutoEnableFairyFlight, ArenaIntroDelay = 6.0, PollRate = 0.03, MoveSpeed = 85.0, CollectDistance = 2.25, MaxStep = 1.75, TouchWait = 0.45, RingDelay = 0.30, FallbackRetry = 0.60, WallNoclip = true }, StarGazing = { Enabled = _G.AutoEnableStarGazing, PromptRetry = 0.75, PromptTeleportHeight = 2.5, PollRate = 0.05, ClickDelay = 0.40, ButtonRetry = 0.80, UIReadyTimeout = 2.50 }, Breakfast = {
+        SeatRetryDelay = 0.20, SeatAttemptTimeout = 1.25, SeatTeleportHeight = 2.6, PollRate = 0.025 }, FairyFlight = { Enabled = _G.AutoEnableFairyFlight,
+        -- V64: start from the first real UpdateRings payload instead of
+        -- throwing away ~6 seconds on a fixed intro delay.
+        ArenaIntroDelay = 0.12,
+        PollRate = 0.015,
+
+        -- The old MaxStep=1.75 at PollRate=.03 capped real movement near
+        -- 58 studs/s even though MoveSpeed said 85. These values let the
+        -- configured speed actually be reached while keeping short steps.
+        MoveSpeed = 145.0,
+        MaxStep = 2.40,
+
+        -- Move THROUGH the ring center so the game's native Touched handler
+        -- gets a real chance to fire GetRing immediately.
+        FinalTouchDistance = 3.25,
+        TouchSettle = 0.045,
+        ConfirmTimeout = 0.18,
+        RingDelay = 0.025,
+
+        -- If Touched did not replicate quickly enough, use the exact same
+        -- GetRing remote only while physically in-range.
+        FallbackRetry = 0.10,
+        FallbackDistance = 4.0,
+        WallNoclip = true }, StarGazing = { Enabled = _G.AutoEnableStarGazing, PromptRetry = 0.75, PromptTeleportHeight = 2.5, PollRate = 0.05, ClickDelay = 0.40, ButtonRetry = 0.80, UIReadyTimeout = 2.50 }, Breakfast = {
         Enabled = _G.AutoEnableBreakfast,
 
         -- Food ordering
@@ -119,21 +159,67 @@ local Config = { Debug = false, -- true = show detailed class diagnostics
         UiTimeout = 8.0,
         DoneAttempts = 5,
         DoneCloseTimeout = 1.25,
-        DoneWatcherPollRate = 0.35,
+        DoneWatcherPollRate = 1.25,
         PollRate = 0.10
-    }, Controller = { FallbackPollRate = 0.25, MouseReleaseTimeout = 0.40 } }
+    }, Controller = { FallbackPollRate = 1.00, MouseReleaseTimeout = 0.40, WaitSlice = 0.04 } }
 
 -- ========================================================================
 -- ♻️ RUNTIME MANAGER
 -- ========================================================================
-if _G.Campus4Runtime then
-    for _, conn in ipairs(_G.Campus4Runtime.Connections) do pcall(function() conn:Disconnect() end) end
-    for _, thread in ipairs(_G.Campus4Runtime.Threads) do pcall(function() task.cancel(thread) end) end
+local function cleanupOldRuntimeRegistry(registry, operation)
+    if type(registry) ~= "table" then return end
+
+    for key, value in pairs(registry) do
+        -- V63 and older stored objects as array values. V64 stores active
+        -- connections as keys and threads as weak keys with value=true.
+        local object = value == true and key or value
+        if object ~= nil then
+            pcall(operation, object)
+        end
+    end
 end
-_G.Campus4Runtime = { Connections = {}, Threads = {}, CaptchaActive = false }
+
+if _G.Campus4Runtime then
+    cleanupOldRuntimeRegistry(
+        _G.Campus4Runtime.Connections,
+        function(connection) connection:Disconnect() end
+    )
+    cleanupOldRuntimeRegistry(
+        _G.Campus4Runtime.Threads,
+        function(thread) task.cancel(thread) end
+    )
+end
+
+-- Clean a render-step binding left by an interrupted/reinjected V63 shot.
+pcall(function() RunService:UnbindFromRenderStep("BBAim") end)
+
+_G.Campus4Runtime = {
+    Connections = {},
+    -- Weak keys mean completed task threads are not retained until the next
+    -- reinjection. Running tasks remain alive through Roblox's scheduler.
+    Threads = setmetatable({}, { __mode = "k" }),
+    CaptchaActive = false
+}
+
 local Runtime = {}
-function Runtime.Connect(signal, callback) local conn = signal:Connect(callback); table.insert(_G.Campus4Runtime.Connections, conn); return conn end
-function Runtime.Spawn(func) local thread = task.spawn(func); table.insert(_G.Campus4Runtime.Threads, thread); return thread end
+
+function Runtime.Connect(signal, callback)
+    local connection = signal:Connect(callback)
+    _G.Campus4Runtime.Connections[connection] = true
+    return connection
+end
+
+function Runtime.Disconnect(connection)
+    if not connection then return end
+    pcall(function() connection:Disconnect() end)
+    _G.Campus4Runtime.Connections[connection] = nil
+end
+
+function Runtime.Spawn(func)
+    local thread = task.spawn(func)
+    _G.Campus4Runtime.Threads[thread] = true
+    return thread
+end
 
 -- ========================================================================
 -- 🛠️ UTILITIES, LOGGING & HUMANIZER ENGINE
@@ -1187,107 +1273,251 @@ end
 -- ========================================================================
 -- 🎓 SHARED CLASS CONTROLLER
 -- ========================================================================
-local ClassController = { Modules = {}, ModuleOrder = {}, ActiveName = nil, SessionId = 0 }
-function ClassController:Register(module) self.Modules[normalizeClassName(module.ClassName)] = module; table.insert(self.ModuleOrder, module.ClassName) end
+-- V65 sleep model:
+--   * module tables stay registered (tiny/static)
+--   * ONLY ActiveModule receives a Run() thread
+--   * Stop() invalidates SessionId so the active module exits immediately
+--   * inactive modules have no polling Run() coroutine
+--   * controller wakeups are event-driven, with a 1s safety fallback
+local ClassController = {
+    Modules = {},
+    ModuleOrder = {},
+    OverrideModules = {},
+    ActiveName = nil,
+    ActiveModule = nil,
+    SessionId = 0
+}
+
+function ClassController:Register(module)
+    local key = normalizeClassName(module.ClassName)
+    module._ControllerKey = key
+    self.Modules[key] = module
+    table.insert(self.ModuleOrder, module.ClassName)
+
+    if module.IsOverride then
+        table.insert(self.OverrideModules, module)
+    end
+end
+
 function ClassController:IsSessionActive(sessionId, module)
-    if self.SessionId ~= sessionId or self.ActiveName ~= module.ClassName or not module:IsEnabled() then return false end
+    if self.SessionId ~= sessionId
+        or self.ActiveModule ~= module
+        or self.ActiveName ~= module.ClassName
+        or not module:IsEnabled()
+    then
+        return false
+    end
+
     if module.IsOverride then
         if not module:CheckOverride() then return false end
     else
         if not isCurrentClass(module.ClassName) then return false end
-        if module.UseSharedTimer ~= false and not isClassRoundActive() then return false end
+        if module.UseSharedTimer ~= false and not isClassRoundActive() then
+            return false
+        end
     end
+
     if module.ShouldStayActive then
-        local ok, result = pcall(function() return module:ShouldStayActive() end)
+        local ok, result = pcall(function()
+            return module:ShouldStayActive()
+        end)
         if not ok or result == false then return false end
     end
+
     return true
 end
+
 function ClassController:Wait(sessionId, module, duration)
     local started = os.clock()
-    while os.clock() - started < duration do
+    local targetDuration = math.max(0, tonumber(duration) or 0)
+    local maxSlice = math.max(
+        0.015,
+        tonumber(Config.Controller.WaitSlice) or 0.04
+    )
+
+    while true do
         -- 🛑 PAUSE AUTOMATION DURING CAPTCHA
         while _G.Campus4Runtime.CaptchaActive do
-            task.wait(0.1)
-            started += 0.1
+            local pauseStarted = os.clock()
+            task.wait(0.10)
+            started += os.clock() - pauseStarted
         end
-        if not self:IsSessionActive(sessionId, module) then return false end
-        task.wait(0.015)
+
+        if not self:IsSessionActive(sessionId, module) then
+            return false
+        end
+
+        local elapsed = os.clock() - started
+        if elapsed >= targetDuration then
+            return true
+        end
+
+        task.wait(
+            math.min(
+                maxSlice,
+                math.max(0.001, targetDuration - elapsed)
+            )
+        )
     end
-    return true
 end
+
 function ClassController:Stop(reason)
-    if not self.ActiveName then return end
-    local previousName = self.ActiveName
-    local module = self.Modules[normalizeClassName(previousName)]
+    local module = self.ActiveModule
+    if not module then
+        self.ActiveName = nil
+        return
+    end
+
+    local previousName = module.ClassName
+
+    -- Invalidate the Run loop BEFORE calling module cleanup.
     self.SessionId += 1
     self.ActiveName = nil
-    if module and module.Stop then pcall(function() module:Stop(reason) end) end
-    Logger.Log("🛑 [ClassController] " .. previousName .. " stopped | " .. tostring(reason))
+    self.ActiveModule = nil
+
+    if module.Stop then
+        pcall(function()
+            module:Stop(reason)
+        end)
+    end
+
+    Logger.Log(
+        "🛑 [ClassController] "
+        .. previousName
+        .. " stopped | "
+        .. tostring(reason)
+    )
 end
+
 function ClassController:Start(module)
-    if self.ActiveName or not module:IsEnabled() then return end
+    if self.ActiveModule or not module or not module:IsEnabled() then
+        return
+    end
+
     if not module.IsOverride then
         if not isCurrentClass(module.ClassName) then return end
-        if module.UseSharedTimer ~= false and not isClassRoundActive() then return end
+        if module.UseSharedTimer ~= false and not isClassRoundActive() then
+            return
+        end
     end
+
     if module.CanStart then
-        local ok, canStart = pcall(function() return module:CanStart() end)
+        local ok, canStart = pcall(function()
+            return module:CanStart()
+        end)
         if not ok or canStart == false then return end
     end
+
     self.SessionId += 1
     local mySession = self.SessionId
+
     self.ActiveName = module.ClassName
+    self.ActiveModule = module
+
     Logger.Log("\n==============================================")
-    Logger.Log("▶️ STARTING " .. (module.IsOverride and "OVERRIDE" or "CLASS") .. ": " .. module.ClassName)
+    Logger.Log(
+        "▶️ STARTING "
+        .. (module.IsOverride and "OVERRIDE" or "CLASS")
+        .. ": "
+        .. module.ClassName
+    )
     Logger.Log("==============================================")
+
     Runtime.Spawn(function()
-        local success, errorMessage = pcall(function() module:Run(mySession) end)
-        if not success then Logger.Warn("❌ [" .. module.ClassName .. "] " .. tostring(errorMessage)) end
-        if ClassController.ActiveName == module.ClassName and ClassController.SessionId == mySession then
-            ClassController:Stop(success and "round-finished" or "module-error")
+        local success, errorMessage = pcall(function()
+            module:Run(mySession)
+        end)
+
+        if not success then
+            Logger.Warn(
+                "❌ ["
+                .. module.ClassName
+                .. "] "
+                .. tostring(errorMessage)
+            )
+        end
+
+        if ClassController.ActiveModule == module
+            and ClassController.SessionId == mySession
+        then
+            ClassController:Stop(
+                success and "round-finished" or "module-error"
+            )
         end
     end)
 end
+
 function ClassController:Update()
     if _G.Campus4Runtime.CaptchaActive then return end
-    -- Check High-Priority Overrides First
-    for _, moduleName in ipairs(self.ModuleOrder) do
-        local module = self.Modules[normalizeClassName(moduleName)]
-        if module and module.IsOverride and module:IsEnabled() and module:CheckOverride() then
-            if self.ActiveName ~= moduleName then
+
+    -- Overrides are cached as module references so Update() does not rebuild
+    -- names or perform a Modules lookup for every override on every wakeup.
+    for _, module in ipairs(self.OverrideModules) do
+        if module:IsEnabled() and module:CheckOverride() then
+            if self.ActiveModule ~= module then
                 self:Stop("override-triggered")
                 self:Start(module)
-                return
-            elseif self.ActiveName == moduleName then
-                return
             end
-        end
-    end
-    local currentName = getCurrentClassName()
-    if self.ActiveName then
-        local module = self.Modules[normalizeClassName(self.ActiveName)]
-        if not module then return self:Stop("module-missing") end
-        if not module:IsEnabled() then return self:Stop("global-disabled") end
-        if module.IsOverride then
-            if not module:CheckOverride() then return self:Stop("override-ended") end
             return
         end
-        if not isCurrentClass(module.ClassName) then return self:Stop("class-changed-to-" .. tostring(currentName)) end
-        if module.UseSharedTimer ~= false and not isClassRoundActive() then return self:Stop("timer-ended") end
-        if module.ShouldStayActive then
-            local ok, active = pcall(function() return module:ShouldStayActive() end)
-            if not ok or active == false then return self:Stop("module-lifecycle-ended") end
+    end
+
+    local currentName = getCurrentClassName()
+
+    if self.ActiveModule then
+        local module = self.ActiveModule
+
+        if not module:IsEnabled() then
+            return self:Stop("global-disabled")
         end
+
+        if module.IsOverride then
+            if not module:CheckOverride() then
+                return self:Stop("override-ended")
+            end
+            return
+        end
+
+        if not isCurrentClass(module.ClassName) then
+            return self:Stop(
+                "class-changed-to-" .. tostring(currentName)
+            )
+        end
+
+        if module.UseSharedTimer ~= false
+            and not isClassRoundActive()
+        then
+            return self:Stop("timer-ended")
+        end
+
+        if module.ShouldStayActive then
+            local ok, active = pcall(function()
+                return module:ShouldStayActive()
+            end)
+
+            if not ok or active == false then
+                return self:Stop("module-lifecycle-ended")
+            end
+        end
+
         return
     end
+
+    -- No active module = every class Run() coroutine is asleep.
     local module = self.Modules[normalizeClassName(currentName)]
     if not module or not module:IsEnabled() then return end
-    if module.UseSharedTimer ~= false and not isClassRoundActive() then return end
+
+    if module.UseSharedTimer ~= false and not isClassRoundActive() then
+        return
+    end
+
     if module.CanStart then
-        local ok, canStart = pcall(function() return module:CanStart() end)
+        local ok, canStart = pcall(function()
+            return module:CanStart()
+        end)
         if not ok or canStart == false then return end
     end
+
     self:Start(module)
 end
 
@@ -2416,16 +2646,21 @@ local function cleanupBreakfastTrayTools()
 end
 
 local function scheduleBreakfastTrayCleanupSweep()
+    Breakfast.State.CleanupGeneration += 1
+    local generation = Breakfast.State.CleanupGeneration
+
     Runtime.Spawn(function()
         local started = os.clock()
         local removedTotal = 0
 
-        while os.clock() - started < Config.Breakfast.TrayCleanupSweepTime do
+        while generation == Breakfast.State.CleanupGeneration
+            and os.clock() - started < Config.Breakfast.TrayCleanupSweepTime
+        do
             removedTotal += cleanupBreakfastTrayTools()
             task.wait(Config.Breakfast.TrayCleanupPollRate)
         end
 
-        if removedTotal > 0 then
+        if removedTotal > 0 and generation == Breakfast.State.CleanupGeneration then
             Logger.Debug(
                 "🧹 [Breakfast] Cleanup sweep removed "
                 .. tostring(removedTotal)
@@ -2665,7 +2900,7 @@ function Breakfast:Run(sessionId)
     self.State.TrayPlaceRequested = false
     self.State.TrayGuiReady = false
     self.State.VotesCast = 0
-    self.State.VotedUserIds = {}
+    table.clear(self.State.VotedUserIds)
     self.State.VotingFinished = false
 
     -- Voting is intentionally independent from the cafeteria pipeline.
@@ -2736,7 +2971,7 @@ function Breakfast:Stop()
     self.State.TrayPlaceRequested = false
     self.State.TrayGuiReady = false
     self.State.VotesCast = 0
-    self.State.VotedUserIds = {}
+    table.clear(self.State.VotedUserIds)
     self.State.VotingFinished = false
 
     local character, humanoid = getCharacter()
@@ -2774,7 +3009,7 @@ end -- scope: Breakfast
 do
 local StarGazing = {
     ClassName = "Star Gazing", UseSharedTimer = false, IsOverride = true,
-    State = { LastPromptAttempt = 0, ClickedButtons = {}, LastClickAt = 0 }
+    State = { LastPromptAttempt = 0, ClickedButtons = {}, LastClickAt = 0, SurfaceGui = nil }
 }
 
 local function starGazingClassMatches()
@@ -2867,12 +3102,18 @@ local function enterTelescopeGame(sessionId)
 end
 
 local function getTelescopeSurfaceGui()
+    local cached = StarGazing.State.SurfaceGui
+    if cached and cached.Parent then return cached end
+
+    StarGazing.State.SurfaceGui = nil
+
     for _, object in ipairs(PlayerGui:GetChildren()) do
         if object:IsA("SurfaceGui")
             and (object:FindFirstChild("BrightStars")
                 or object:FindFirstChild("RainbowStarCanvasGroup")
                 or object:FindFirstChild("BrightStarTemplate"))
         then
+            StarGazing.State.SurfaceGui = object
             return object
         end
     end
@@ -2900,51 +3141,53 @@ local function findTelescopeButton(root, objectName, nestedName)
     return nil
 end
 
-local function collectTelescopeButtons()
+local function getBestTelescopeTarget()
     local surface = getTelescopeSurfaceGui()
-    if not surface then return {} end
+    if not surface then return nil, nil end
 
-    local buttons, seen = {}, {}
-    local function add(button, kind)
-        if button and not seen[button] and not StarGazing.State.ClickedButtons[button] then
-            seen[button] = true
-            table.insert(buttons, { Button = button, Kind = kind })
-        end
+    local function usable(button)
+        return button
+            and button:IsA("GuiButton")
+            and not StarGazing.State.ClickedButtons[button]
+            and guiObjectUsable(button)
     end
 
-    -- BrightStar instances are placed inside SurfaceGui.BrightStars.
-    local brightStars = surface:FindFirstChild("BrightStars")
-    if brightStars then
-        for _, starFrame in ipairs(brightStars:GetChildren()) do
-            if starFrame.Name == "BrightStar" and starFrame:IsA("GuiObject") and starFrame.Visible then
-                local starImage = starFrame:FindFirstChild("BrightStar")
-                local button = starImage and starImage:FindFirstChild("Button")
-                if button and button:IsA("GuiButton") and guiObjectUsable(button) then add(button, "BrightStar") end
-            end
-        end
+    -- Highest-value temporary objects first. Returning immediately avoids
+    -- building/sorting a candidates table every 50ms.
+    local ufo = surface:FindFirstChild("UFO")
+    if ufo and ufo:IsA("GuiObject") and ufo.Visible then
+        local button = ufo:FindFirstChild("Button")
+        if usable(button) then return button, "UFO" end
     end
 
-    -- One-off server-spawned objects.
     local rainbowGroup = surface:FindFirstChild("RainbowStarCanvasGroup")
     if rainbowGroup and rainbowGroup:IsA("GuiObject") and rainbowGroup.Visible then
         local rainbow = rainbowGroup:FindFirstChild("RainbowStar")
         local button = rainbow and rainbow:FindFirstChild("Button")
-        if button and button:IsA("GuiButton") and guiObjectUsable(button) then add(button, "RainbowStar") end
+        if usable(button) then return button, "RainbowStar" end
     end
 
     local shooting = surface:FindFirstChild("ShootingStar")
     if shooting and shooting:IsA("GuiObject") and shooting.Visible then
         local button = shooting:FindFirstChild("Button")
-        if button and button:IsA("GuiButton") and guiObjectUsable(button) then add(button, "ShootingStar") end
+        if usable(button) then return button, "ShootingStar" end
     end
 
-    local ufo = surface:FindFirstChild("UFO")
-    if ufo and ufo:IsA("GuiObject") and ufo.Visible then
-        local button = ufo:FindFirstChild("Button")
-        if button and button:IsA("GuiButton") and guiObjectUsable(button) then add(button, "UFO") end
+    local brightStars = surface:FindFirstChild("BrightStars")
+    if brightStars then
+        for _, starFrame in ipairs(brightStars:GetChildren()) do
+            if starFrame.Name == "BrightStar"
+                and starFrame:IsA("GuiObject")
+                and starFrame.Visible
+            then
+                local starImage = starFrame:FindFirstChild("BrightStar")
+                local button = starImage and starImage:FindFirstChild("Button")
+                if usable(button) then return button, "BrightStar" end
+            end
+        end
     end
 
-    return buttons
+    return nil, nil
 end
 
 local function pressTelescopeButton(button)
@@ -3007,7 +3250,8 @@ function StarGazing:CanStart() return starGazingClassMatches() end
 function StarGazing:Run(sessionId)
     Logger.Debug("🔭 [StarGazing] Automation active.")
     self.State.LastPromptAttempt = 0
-    self.State.ClickedButtons = {}
+    table.clear(self.State.ClickedButtons)
+    self.State.SurfaceGui = nil
     self.State.LastClickAt = 0
 
     while ClassController:IsSessionActive(sessionId, self) do
@@ -3030,19 +3274,12 @@ function StarGazing:Run(sessionId)
 
         local now = os.clock()
         if now - self.State.LastClickAt >= Config.StarGazing.ClickDelay then
-            local candidates = collectTelescopeButtons()
-            if #candidates > 0 then
-                -- Prioritize rare temporary objects over the permanent bright-star loop.
-                table.sort(candidates, function(a, b)
-                    local priority = { UFO = 1, RainbowStar = 2, ShootingStar = 3, BrightStar = 4 }
-                    return (priority[a.Kind] or 9) < (priority[b.Kind] or 9)
-                end)
-
-                local target = candidates[1]
-                if pressTelescopeButton(target.Button) then
-                    self.State.ClickedButtons[target.Button] = os.clock()
+            local button, kind = getBestTelescopeTarget()
+            if button then
+                if pressTelescopeButton(button) then
+                    self.State.ClickedButtons[button] = os.clock()
                     self.State.LastClickAt = os.clock()
-                    Logger.Debug("🔭 [StarGazing] Collected " .. target.Kind)
+                    Logger.Debug("🔭 [StarGazing] Collected " .. tostring(kind))
 
                     -- Pace successful collections so the game's normal
                     -- MouseButton1Down -> TelescopeGameRemote("Get", type)
@@ -3073,7 +3310,8 @@ function StarGazing:Stop()
     closeTelescopeResults()
     closeTelescopeGame()
     self.State.LastPromptAttempt = 0
-    self.State.ClickedButtons = {}
+    table.clear(self.State.ClickedButtons)
+    self.State.SurfaceGui = nil
     self.State.LastClickAt = 0
 end
 
@@ -3082,30 +3320,58 @@ end -- scope: StarGazing
 
 
 -- ========================================================================
--- 🧚 FAIRY FLIGHT MODULE
+-- 🧚 FAIRY FLIGHT MODULE (V64 THROUGHPUT + LOW-ALLOCATION)
 -- ========================================================================
--- FlightMinigameLocal behavior:
---   * active rings are chosen from UpdateRings.RandomRings / GotRings
---   * the normal client only calls GetRing AFTER the character touches a ring
---   * the server rejects GetRing when the player is too far away
+-- Confirmed FlightMinigameLocal behavior:
+--   * UpdateRings supplies RandomRings / GotRings / MaxToSpawn.
+--   * active ring parts use Touched, then the normal client fires
+--       FlightMinigameRemote:FireServer("GetRing", ring)
+--   * GetRing can fail when the player is not actually close enough.
 --
--- This module mirrors that flow: double-Space enables normal flying, the
--- character moves through only the server-selected live ring, waits for the
--- touch/update, and uses GetRing only as an in-range fallback.
+-- V64 therefore still moves the character into the server-selected active
+-- ring. It starts as soon as the first UpdateRings payload is ready, physically
+-- passes through the ring center, gives Touched a short settle window, and only
+-- uses the same GetRing call as an in-range fallback.
 -- ========================================================================
 do
 local FairyFlight = {
     ClassName = "Fairy Flight", UseSharedTimer = false, IsOverride = true,
-    State = { RemoteConnection = nil, FlightModel = nil, FlightData = nil, ArenaDetectedAt = nil, FlyingEnabled = false, CurrentTarget = nil, LastFallbackAt = 0, NoclipActive = false, SavedCanCollide = {} }
+    State = {
+        RemoteConnection = nil,
+        FlightModel = nil,
+        FlightData = nil,
+        DataRevision = 0,
+        ReadyAt = nil,
+        FlyingEnabled = false,
+        CurrentTarget = nil,
+        LastFallbackAt = 0,
+        CollectedCount = 0,
+
+        ActiveRings = {},
+        ActiveRingsDirty = true,
+
+        NoclipActive = false,
+        NoclipCharacter = nil,
+        SavedCanCollide = {},
+        NoclipAddedConnection = nil,
+        NoclipRemovingConnection = nil
+    }
 }
 
-local function fairyFlightClassMatches() local name = normalizeClassName(getCurrentClassName()); return string.find(name, "fairy flight", 1, true) ~= nil end
-local function getFairyFlightRemote() local remote = ReplicatedStorage:FindFirstChild("FlightMinigameRemote"); return remote and remote:IsA("RemoteEvent") and remote or nil end
+local function fairyFlightClassMatches()
+    local name = normalizeClassName(getCurrentClassName())
+    return string.find(name, "fairy flight", 1, true) ~= nil
+end
+
+local function getFairyFlightRemote()
+    local remote = ReplicatedStorage:FindFirstChild("FlightMinigameRemote")
+    return remote and remote:IsA("RemoteEvent") and remote or nil
+end
 
 local function tapFairySpace()
     local ok = pcall(function()
         VirtualInputManager:SendKeyEvent(true, Enum.KeyCode.Space, false, game)
-        task.wait(0.055)
+        task.wait(0.045)
         VirtualInputManager:SendKeyEvent(false, Enum.KeyCode.Space, false, game)
     end)
     return ok
@@ -3114,7 +3380,7 @@ end
 local function enableFairyFlying()
     if FairyFlight.State.FlyingEnabled then return true end
     if not tapFairySpace() then return false end
-    task.wait(0.12)
+    task.wait(0.08)
     if not tapFairySpace() then return false end
     FairyFlight.State.FlyingEnabled = true
     Logger.Debug("🧚 [FairyFlight] Double-Space -> flying ON.")
@@ -3129,75 +3395,91 @@ local function disableFairyFlying()
     return ok
 end
 
-local function enableFairyWallNoclip(character)
-    if not Config.FairyFlight.WallNoclip or not character then return end
-
-    if not FairyFlight.State.NoclipActive then
-        FairyFlight.State.NoclipActive = true
-        FairyFlight.State.SavedCanCollide = {}
-        Logger.Debug("🧚 [FairyFlight] Wall noclip ON.")
-    end
-
-    -- Only CanCollide is changed. CanTouch stays untouched so the game's
-    -- normal ring.Touched -> GetRing path can still fire.
-    for _, object in ipairs(character:GetDescendants()) do
-        if object:IsA("BasePart") then
-            if FairyFlight.State.SavedCanCollide[object] == nil then
-                FairyFlight.State.SavedCanCollide[object] = object.CanCollide
-            end
-            pcall(function() object.CanCollide = false end)
-        end
-    end
+local function disconnectFairyNoclipWatchers()
+    Runtime.Disconnect(FairyFlight.State.NoclipAddedConnection)
+    Runtime.Disconnect(FairyFlight.State.NoclipRemovingConnection)
+    FairyFlight.State.NoclipAddedConnection = nil
+    FairyFlight.State.NoclipRemovingConnection = nil
 end
 
 local function disableFairyWallNoclip()
-    if not FairyFlight.State.NoclipActive then return end
-
-    for part, original in pairs(FairyFlight.State.SavedCanCollide) do
-        if part and part.Parent then
-            pcall(function() part.CanCollide = original end)
+    if FairyFlight.State.NoclipActive then
+        for part, original in pairs(FairyFlight.State.SavedCanCollide) do
+            if part and part.Parent then
+                pcall(function() part.CanCollide = original end)
+            end
         end
     end
 
-    FairyFlight.State.SavedCanCollide = {}
+    disconnectFairyNoclipWatchers()
+    table.clear(FairyFlight.State.SavedCanCollide)
+    FairyFlight.State.NoclipCharacter = nil
     FairyFlight.State.NoclipActive = false
-    Logger.Debug("🧚 [FairyFlight] Wall noclip OFF.")
 end
 
-local function disconnectFairyRemote()
-    if FairyFlight.State.RemoteConnection then pcall(function() FairyFlight.State.RemoteConnection:Disconnect() end); FairyFlight.State.RemoteConnection = nil end
+local function applyFairyNoclipPart(object)
+    if not object or not object:IsA("BasePart") then return end
+
+    if FairyFlight.State.SavedCanCollide[object] == nil then
+        FairyFlight.State.SavedCanCollide[object] = object.CanCollide
+    end
+
+    pcall(function() object.CanCollide = false end)
+end
+
+local function enableFairyWallNoclip(character)
+    if not Config.FairyFlight.WallNoclip or not character then return end
+
+    -- This used to call Character:GetDescendants() every 15-30ms while flying.
+    -- Scan once per character and maintain new/removed parts with events.
+    if FairyFlight.State.NoclipActive
+        and FairyFlight.State.NoclipCharacter == character
+    then
+        return
+    end
+
+    disableFairyWallNoclip()
+    FairyFlight.State.NoclipActive = true
+    FairyFlight.State.NoclipCharacter = character
+
+    for _, object in ipairs(character:GetDescendants()) do
+        applyFairyNoclipPart(object)
+    end
+
+    FairyFlight.State.NoclipAddedConnection = Runtime.Connect(
+        character.DescendantAdded,
+        applyFairyNoclipPart
+    )
+
+    FairyFlight.State.NoclipRemovingConnection = Runtime.Connect(
+        character.DescendantRemoving,
+        function(object)
+            FairyFlight.State.SavedCanCollide[object] = nil
+        end
+    )
+
+    Logger.Debug("🧚 [FairyFlight] Wall noclip ON (tracked once).")
 end
 
 local function getFairyRingContainer()
     local model = FairyFlight.State.FlightModel
-    if model and model.Parent then local rings = model:FindFirstChild("FlightClassRings"); if rings then return rings end end
+    if model and model.Parent then
+        local rings = model:FindFirstChild("FlightClassRings")
+        if rings then return rings end
+    end
+
     local fallback = Workspace:FindFirstChild("FlightClassModel")
     return fallback and fallback:FindFirstChild("FlightClassRings") or nil
 end
 
-local function setupFairyRemoteListener()
-    disconnectFairyRemote()
-    local remote = getFairyFlightRemote()
-    if not remote then return false end
-    FairyFlight.State.RemoteConnection = remote.OnClientEvent:Connect(function(action, a2, a3)
-        if action == "Setup" then
-            FairyFlight.State.FlightModel = a2; FairyFlight.State.FlightData = nil; FairyFlight.State.ArenaDetectedAt = os.clock(); FairyFlight.State.CurrentTarget = nil
-            Logger.Debug("🧚 [FairyFlight] Setup received; starting 6s arena intro.")
-        elseif action == "UpdateRings" then
-            FairyFlight.State.FlightData = type(a2) == "table" and a2 or nil
-        elseif action == "End" then
-            FairyFlight.State.FlightModel = nil; FairyFlight.State.FlightData = nil; FairyFlight.State.ArenaDetectedAt = nil; FairyFlight.State.CurrentTarget = nil
-        elseif action == "GetRingFailed" then
-            Logger.Debug("🧚 [FairyFlight] GetRingFailed: " .. tostring(a2) .. " (" .. tostring(a3) .. ")")
-        end
-    end)
-    return true
-end
-
 local function getFairyMaxRingGroup(data)
     if type(data) ~= "table" then return 0 end
+
     local maxGot = 0
-    for key in pairs(data.GotRings or {}) do maxGot = math.max(tonumber(key) or 0, maxGot) end
+    for key in pairs(data.GotRings or {}) do
+        maxGot = math.max(tonumber(key) or 0, maxGot)
+    end
+
     return maxGot + (tonumber(data.MaxToSpawn) or 0)
 end
 
@@ -3213,22 +3495,24 @@ local function getFairyRandomRingIndex(data, groupIndex)
     return random[groupIndex] or random[tostring(groupIndex)]
 end
 
-local function getNextFairyRing()
+local function markFairyRingsDirty()
+    FairyFlight.State.ActiveRingsDirty = true
+end
+
+local function rebuildFairyActiveRings()
+    local active = FairyFlight.State.ActiveRings
+    table.clear(active)
+
     local data = FairyFlight.State.FlightData
     local container = getFairyRingContainer()
-    local _, _, rootPart = getCharacter()
-
-    if type(data) ~= "table" or not container or not rootPart then
-        return nil, nil
+    if type(data) ~= "table" or not container then
+        FairyFlight.State.ActiveRingsDirty = true
+        return false
     end
 
-    local bestRing, bestGroup, bestDistance = nil, nil, math.huge
     local maxGroup = getFairyMaxRingGroup(data)
+    local missingLivePart = false
 
-    -- UpdateRings activates one server-selected RandomRings entry for every
-    -- currently available group. The old code returned the LOWEST group
-    -- number, which could be across the map. Pick the closest ACTIVE ring
-    -- instead.
     for groupIndex = 1, maxGroup do
         local ringIndex = getFairyRandomRingIndex(data, groupIndex)
 
@@ -3237,13 +3521,40 @@ local function getNextFairyRing()
             local ring = group and group:FindFirstChild(tostring(ringIndex))
 
             if ring and ring:IsA("BasePart") then
-                local distance = (ring.Position - rootPart.Position).Magnitude
+                active[groupIndex] = ring
+            else
+                missingLivePart = true
+            end
+        end
+    end
 
-                if distance < bestDistance then
-                    bestRing = ring
-                    bestGroup = groupIndex
-                    bestDistance = distance
-                end
+    -- If replication is still loading one of the active parts, rebuild again
+    -- next poll instead of caching an incomplete active set.
+    FairyFlight.State.ActiveRingsDirty = missingLivePart
+    return next(active) ~= nil
+end
+
+local function getNextFairyRing()
+    if FairyFlight.State.ActiveRingsDirty then
+        rebuildFairyActiveRings()
+    end
+
+    local _, _, rootPart = getCharacter()
+    if not rootPart then return nil, nil end
+
+    local bestRing, bestGroup, bestDistance = nil, nil, math.huge
+
+    for groupIndex, ring in pairs(FairyFlight.State.ActiveRings) do
+        if not ring or not ring.Parent
+            or fairyGroupWasGot(FairyFlight.State.FlightData, groupIndex)
+        then
+            FairyFlight.State.ActiveRings[groupIndex] = nil
+        else
+            local distance = (ring.Position - rootPart.Position).Magnitude
+            if distance < bestDistance then
+                bestRing = ring
+                bestGroup = groupIndex
+                bestDistance = distance
             end
         end
     end
@@ -3251,69 +3562,157 @@ local function getNextFairyRing()
     return bestRing, bestGroup
 end
 
-local function waitForFairyRingCollected(sessionId, ring, groupIndex, timeout)
+local function disconnectFairyRemote()
+    Runtime.Disconnect(FairyFlight.State.RemoteConnection)
+    FairyFlight.State.RemoteConnection = nil
+end
+
+local function setupFairyRemoteListener()
+    if FairyFlight.State.RemoteConnection then return true end
+
+    local remote = getFairyFlightRemote()
+    if not remote then return false end
+
+    FairyFlight.State.RemoteConnection = Runtime.Connect(
+        remote.OnClientEvent,
+        function(action, a2, a3)
+            if action == "Setup" then
+                FairyFlight.State.FlightModel = a2
+                FairyFlight.State.FlightData = nil
+                FairyFlight.State.DataRevision += 1
+                FairyFlight.State.ReadyAt = nil
+                FairyFlight.State.CurrentTarget = nil
+                FairyFlight.State.CollectedCount = 0
+                table.clear(FairyFlight.State.ActiveRings)
+                markFairyRingsDirty()
+                Logger.Debug("🧚 [FairyFlight] Setup received; waiting for first UpdateRings.")
+
+            elseif action == "UpdateRings" then
+                FairyFlight.State.FlightData = type(a2) == "table" and a2 or nil
+                FairyFlight.State.DataRevision += 1
+                FairyFlight.State.ReadyAt = FairyFlight.State.ReadyAt
+                    or (os.clock() + Config.FairyFlight.ArenaIntroDelay)
+                markFairyRingsDirty()
+
+            elseif action == "End" then
+                FairyFlight.State.FlightModel = nil
+                FairyFlight.State.FlightData = nil
+                FairyFlight.State.DataRevision += 1
+                FairyFlight.State.ReadyAt = nil
+                FairyFlight.State.CurrentTarget = nil
+                table.clear(FairyFlight.State.ActiveRings)
+                markFairyRingsDirty()
+
+            elseif action == "GetRingFailed" then
+                markFairyRingsDirty()
+                Logger.Debug(
+                    "🧚 [FairyFlight] GetRingFailed: "
+                    .. tostring(a2)
+                    .. " ("
+                    .. tostring(a3)
+                    .. ")"
+                )
+            end
+        end
+    )
+
+    return true
+end
+
+local function waitForFairyRingCollected(sessionId, ring, groupIndex, timeout, startRevision)
     local started = os.clock()
-    while os.clock() - started < timeout do
-        if not ClassController:IsSessionActive(sessionId, FairyFlight) then return false end
-        if not ring or not ring.Parent then return true end
-        if fairyGroupWasGot(FairyFlight.State.FlightData, groupIndex) then return true end
+    local duration = math.max(0, tonumber(timeout) or 0)
+
+    while os.clock() - started < duration do
+        if not ClassController:IsSessionActive(sessionId, FairyFlight) then
+            return false
+        end
+
+        if fairyGroupWasGot(FairyFlight.State.FlightData, groupIndex) then
+            FairyFlight.State.ActiveRings[groupIndex] = nil
+            return true
+        end
+
+        if not ring or not ring.Parent then
+            markFairyRingsDirty()
+            return true
+        end
+
+        -- A new UpdateRings payload normally arrives immediately after a
+        -- successful collection. Re-check without waiting the whole timeout.
+        if startRevision
+            and FairyFlight.State.DataRevision ~= startRevision
+            and fairyGroupWasGot(FairyFlight.State.FlightData, groupIndex)
+        then
+            FairyFlight.State.ActiveRings[groupIndex] = nil
+            return true
+        end
+
         task.wait(Config.FairyFlight.PollRate)
     end
+
     return fairyGroupWasGot(FairyFlight.State.FlightData, groupIndex)
 end
 
-local function flyFairyToRing(sessionId, ring)
+local function pivotFairyCharacter(character, rootPart, position)
+    local rotationOnly = rootPart.CFrame - rootPart.Position
+    local targetCFrame = CFrame.new(position) * rotationOnly
+
+    return pcall(function()
+        rootPart.AssemblyLinearVelocity = Vector3.zero
+        rootPart.AssemblyAngularVelocity = Vector3.zero
+        character:PivotTo(targetCFrame)
+    end)
+end
+
+local function flyFairyThroughRing(sessionId, ring)
     local character, humanoid, rootPart = getCharacter()
-    if not character or not humanoid or not rootPart or not ring or not ring.Parent then return false end
+    if not character or not humanoid or not rootPart or not ring or not ring.Parent then
+        return false
+    end
 
     enableFairyWallNoclip(character)
 
-    local speed = math.max(10, tonumber(Config.FairyFlight.MoveSpeed) or 85)
-    local collectDistance = math.max(0.5, tonumber(Config.FairyFlight.CollectDistance) or 2.25)
-    local maxStep = math.max(0.5, tonumber(Config.FairyFlight.MaxStep) or 1.75)
+    local speed = math.max(10, tonumber(Config.FairyFlight.MoveSpeed) or 145)
+    local maxStep = math.max(0.5, tonumber(Config.FairyFlight.MaxStep) or 2.40)
+    local finalTouchDistance = math.max(0.75, tonumber(Config.FairyFlight.FinalTouchDistance) or 3.25)
+    local dt = math.max(0.01, tonumber(Config.FairyFlight.PollRate) or 0.015)
 
-    while ClassController:IsSessionActive(sessionId, FairyFlight) and ring and ring.Parent do
+    while ClassController:IsSessionActive(sessionId, FairyFlight)
+        and ring
+        and ring.Parent
+    do
         character, humanoid, rootPart = getCharacter()
         if not character or not humanoid or not rootPart then return false end
 
         enableFairyWallNoclip(character)
 
-        local targetPos = ring.Position
-        local delta = targetPos - rootPart.Position
+        local targetPosition = ring.Position
+        local delta = targetPosition - rootPart.Position
         local distance = delta.Magnitude
 
-        if distance <= collectDistance then
+        if distance <= finalTouchDistance then
+            -- The V45 singularity came from lookAt(center, center). We now
+            -- preserve rotation, so moving directly through the ring center is
+            -- safe and gives the game's native Touched connection a real hit.
+            if not pivotFairyCharacter(character, rootPart, targetPosition) then
+                return false
+            end
+
+            RunService.Heartbeat:Wait()
             return true
         end
 
-        -- Never jump exactly onto the ring center. V45 could enter a narrow
-        -- 2.25-2.55 stud band where math.min(distance, speed*dt) == distance,
-        -- making nextPos == ring.Position. CFrame.lookAt(nextPos, ring.Position)
-        -- then has identical origin/target points and can create an invalid
-        -- orientation that sends the character to nonsense coordinates.
-        local dt = Config.FairyFlight.PollRate
-        local remainingBeforeRing = math.max(0.05, distance - collectDistance * 0.55)
-        local step = math.min(speed * dt, maxStep, remainingBeforeRing)
+        if distance <= 0.001 then return true end
 
-        if step <= 0.001 or delta.Magnitude <= 0.001 then
-            return true
-        end
+        local step = math.min(speed * dt, maxStep, distance)
+        if step <= 0.001 then return false end
 
-        local nextPos = rootPart.Position + delta.Unit * step
-
-        -- Preserve the current rotation instead of using lookAt against the
-        -- ring. This removes the same-point lookAt singularity completely.
-        local rotationOnly = rootPart.CFrame - rootPart.Position
-        local nextCF = CFrame.new(nextPos) * rotationOnly
-
-        local ok = pcall(function()
-            rootPart.AssemblyLinearVelocity = Vector3.zero
-            rootPart.AssemblyAngularVelocity = Vector3.zero
-            character:PivotTo(nextCF)
-        end)
-
-        if not ok then
-            Logger.Warn("⚠️ [FairyFlight] Safe approach PivotTo failed.")
+        if not pivotFairyCharacter(
+            character,
+            rootPart,
+            rootPart.Position + delta.Unit * step
+        ) then
             return false
         end
 
@@ -3323,29 +3722,71 @@ local function flyFairyToRing(sessionId, ring)
     return false
 end
 
+local function tryFairyInRangeFallback(ring)
+    local remote = getFairyFlightRemote()
+    local _, _, rootPart = getCharacter()
+
+    if not remote or not rootPart or not ring or not ring.Parent then
+        return false
+    end
+
+    local distance = (ring.Position - rootPart.Position).Magnitude
+    if distance > Config.FairyFlight.FallbackDistance then
+        return false
+    end
+
+    local now = os.clock()
+    if now - FairyFlight.State.LastFallbackAt < Config.FairyFlight.FallbackRetry then
+        return false
+    end
+
+    FairyFlight.State.LastFallbackAt = now
+
+    local ok, err = pcall(function()
+        remote:FireServer("GetRing", ring)
+    end)
+
+    if not ok then
+        Logger.Warn("⚠️ [FairyFlight] In-range GetRing fallback failed: " .. tostring(err))
+    end
+
+    return ok
+end
+
 function FairyFlight:IsEnabled() return Config.FairyFlight.Enabled end
 function FairyFlight:CheckOverride() return fairyFlightClassMatches() end
 function FairyFlight:CanStart() return fairyFlightClassMatches() end
 
 function FairyFlight:Run(sessionId)
-    Logger.Debug("🧚 [FairyFlight] Automation active.")
-    self.State.FlightModel = nil; self.State.FlightData = nil; self.State.ArenaDetectedAt = nil; self.State.FlyingEnabled = false; self.State.CurrentTarget = nil; self.State.LastFallbackAt = 0; self.State.NoclipActive = false; self.State.SavedCanCollide = {}
-    setupFairyRemoteListener()
+    Logger.Debug("🧚 [FairyFlight] V64 throughput automation active.")
+
+    self.State.FlyingEnabled = false
+    self.State.CurrentTarget = nil
+    self.State.LastFallbackAt = 0
+    self.State.CollectedCount = 0
+    table.clear(self.State.ActiveRings)
+    self.State.ActiveRingsDirty = true
+
+    -- Listener is normally already active before the class begins so Setup and
+    -- the first UpdateRings cannot be missed. Reconnect only if needed.
+    if not self.State.RemoteConnection then setupFairyRemoteListener() end
 
     while ClassController:IsSessionActive(sessionId, self) do
-        if not self.State.RemoteConnection then setupFairyRemoteListener() end
         local ringContainer = getFairyRingContainer()
-        if ringContainer and not self.State.ArenaDetectedAt then self.State.ArenaDetectedAt = os.clock(); Logger.Debug("🧚 [FairyFlight] Ring arena found; starting 6s arena intro fallback.") end
-        local ready = self.State.ArenaDetectedAt and (os.clock() - self.State.ArenaDetectedAt >= Config.FairyFlight.ArenaIntroDelay)
+        local readyAt = self.State.ReadyAt
+        local ready = readyAt ~= nil and os.clock() >= readyAt
 
-        if not ready or not ringContainer or type(self.State.FlightData) ~= "table" then
+        if not ready
+            or not ringContainer
+            or type(self.State.FlightData) ~= "table"
+        then
             if not ClassController:Wait(sessionId, self, Config.FairyFlight.PollRate) then break end
             continue
         end
 
         if not enableFairyFlying() then
             Logger.Warn("⚠️ [FairyFlight] Could not enable flying with double-Space.")
-            if not ClassController:Wait(sessionId, self, 0.25) then break end
+            if not ClassController:Wait(sessionId, self, 0.15) then break end
             continue
         end
 
@@ -3354,34 +3795,61 @@ function FairyFlight:Run(sessionId)
 
         local ring, groupIndex = getNextFairyRing()
         if not ring then
+            self.State.ActiveRingsDirty = true
             if not ClassController:Wait(sessionId, self, Config.FairyFlight.PollRate) then break end
             continue
         end
 
         self.State.CurrentTarget = ring
-        Logger.Debug("🧚 [FairyFlight] Target group " .. tostring(groupIndex) .. " -> " .. ring:GetFullName())
+        local revisionBeforeTouch = self.State.DataRevision
 
-        if flyFairyToRing(sessionId, ring) then
-            local collected = waitForFairyRingCollected(sessionId, ring, groupIndex, Config.FairyFlight.TouchWait)
-            if not collected and os.clock() - self.State.LastFallbackAt >= Config.FairyFlight.FallbackRetry then
-                local remote = getFairyFlightRemote()
-                if remote and ring and ring.Parent then
-                    self.State.LastFallbackAt = os.clock()
-                    local ok, err = pcall(function() remote:FireServer("GetRing", ring) end)
-                    if not ok then Logger.Warn("⚠️ [FairyFlight] In-range GetRing fallback failed: " .. tostring(err)) end
-                    collected = waitForFairyRingCollected(sessionId, ring, groupIndex, 0.45)
-                end
+        if flyFairyThroughRing(sessionId, ring) then
+            local collected = waitForFairyRingCollected(
+                sessionId,
+                ring,
+                groupIndex,
+                Config.FairyFlight.TouchSettle,
+                revisionBeforeTouch
+            )
+
+            if not collected then
+                tryFairyInRangeFallback(ring)
+                collected = waitForFairyRingCollected(
+                    sessionId,
+                    ring,
+                    groupIndex,
+                    Config.FairyFlight.ConfirmTimeout,
+                    revisionBeforeTouch
+                )
             end
 
             if collected then
-                Logger.Debug("✅ [FairyFlight] Ring group " .. tostring(groupIndex) .. " collected.")
-                if not ClassController:Wait(sessionId, self, Config.FairyFlight.RingDelay) then break end
+                self.State.CollectedCount += 1
+                self.State.ActiveRings[groupIndex] = nil
+                self.State.CurrentTarget = nil
+                Logger.Debug(
+                    "✅ [FairyFlight] Ring "
+                    .. tostring(self.State.CollectedCount)
+                    .. " collected | group "
+                    .. tostring(groupIndex)
+                )
+
+                if Config.FairyFlight.RingDelay > 0 then
+                    if not ClassController:Wait(
+                        sessionId,
+                        self,
+                        Config.FairyFlight.RingDelay
+                    ) then
+                        break
+                    end
+                end
             else
-                Logger.Debug("⚠️ [FairyFlight] Ring did not confirm; retrying after short delay.")
-                if not ClassController:Wait(sessionId, self, 0.15) then break end
+                markFairyRingsDirty()
+                if not ClassController:Wait(sessionId, self, 0.04) then break end
             end
         else
-            if not ClassController:Wait(sessionId, self, 0.10) then break end
+            markFairyRingsDirty()
+            if not ClassController:Wait(sessionId, self, 0.04) then break end
         end
     end
 end
@@ -3389,16 +3857,20 @@ end
 function FairyFlight:Stop()
     disableFairyWallNoclip()
     disableFairyFlying()
-    disconnectFairyRemote()
 
-    self.State.FlightModel = nil
-    self.State.FlightData = nil
-    self.State.ArenaDetectedAt = nil
+    -- Keep both the lightweight listener and the most recent server state.
+    -- The server's explicit End event owns FlightData/FlightModel cleanup.
+    -- This also lets the controller recover if CurrentClass briefly flickers
+    -- and restarts Fairy Flight without waiting for another UpdateRings packet.
     self.State.CurrentTarget = nil
     self.State.LastFallbackAt = 0
-    self.State.SavedCanCollide = {}
-    self.State.NoclipActive = false
+    table.clear(self.State.ActiveRings)
+    self.State.ActiveRingsDirty = true
 end
+
+-- Attach once for the lifetime of this script. Runtime manager disconnects it
+-- automatically on reinjection.
+setupFairyRemoteListener()
 
 ClassController:Register(FairyFlight)
 end -- scope: FairyFlight
@@ -3417,7 +3889,7 @@ end -- scope: FairyFlight
 
 -- ========================================================================
 do
-local Computer = { ClassName = "Computer", UseSharedTimer = false, IsOverride = true, State = { Remotes = nil, GameUI = nil, Active = false, CurrentWord = nil, NextWord = nil, CorrectWordCount = 0, ToggleConnection = nil, UpdateConnection = nil, LastTypedSignature = nil, LastSeatAttempt = 0 } }
+local Computer = { ClassName = "Computer", UseSharedTimer = false, IsOverride = true, State = { Remotes = nil, GameUI = nil, Active = false, CurrentWord = nil, NextWord = nil, CorrectWordCount = 0, ToggleConnection = nil, UpdateConnection = nil, LastTypedSignature = nil, LastSeatAttempt = 0, ChairContainer = nil, SeatCache = {}, SeatBuffer = {} } }
 local function computerCurrentClassMatches() local current = normalizeClassName( getCurrentClassName() ); return string.find( current, "computer", 1, true ) ~= nil end
 local function getComputerGameUI() local classes = PlayerGui:FindFirstChild( "RH4Classes" ); return classes and classes:FindFirstChild( "ComputerGame" ) or nil end
 local function isComputerGameVisible()
@@ -3436,9 +3908,7 @@ local function disconnectComputerRemoteListeners()
     for _, field in ipairs({ "ToggleConnection", "UpdateConnection" }) do
         local connection = Computer.State[field]
         if connection then
-            pcall(function()
-                connection:Disconnect()
-            end)
+            Runtime.Disconnect(connection)
             Computer.State[field] = nil
         end
     end
@@ -3457,13 +3927,13 @@ local function setupComputerRemoteListeners()
     end
     Computer.State.Remotes = remotes
     Computer.State.GameUI = getComputerGameUI()
-    Computer.State.ToggleConnection = toggle.OnClientEvent: Connect(function(active)
+    Computer.State.ToggleConnection = Runtime.Connect(toggle.OnClientEvent, function(active)
                 Computer.State.Active = active == true
                 if active then
                     Computer.State .LastTypedSignature = nil
                 end
             end)
-    Computer.State.UpdateConnection = update.OnClientEvent: Connect(function(data)
+    Computer.State.UpdateConnection = Runtime.Connect(update.OnClientEvent, function(data)
                 if type(data) ~= "table" then
                     return
                 end
@@ -3478,23 +3948,48 @@ local function setupComputerRemoteListeners()
 end
 local function getComputerChairContainer() local computerClass = Workspace:FindFirstChild( "ComputerClass" ); return computerClass and computerClass:FindFirstChild( "ComputerChairs" ) or nil end
 local function isOurComputerSeat( seat ) local chairs = getComputerChairContainer(); return seat and chairs and seat:IsDescendantOf( chairs ) end
-local function getAvailableComputerSeats( rootPart, humanoid )
+local function refreshComputerSeatCache()
     local chairs = getComputerChairContainer()
-    local seats = {}
-    if not chairs then
-        return seats
+    local cache = Computer.State.SeatCache
+
+    if chairs == Computer.State.ChairContainer and #cache > 0 then
+        return cache
     end
-    for _, object in ipairs( chairs:GetDescendants() ) do
+
+    Computer.State.ChairContainer = chairs
+    table.clear(cache)
+
+    if not chairs then return cache end
+
+    -- Chair geometry is static for the class. Discover Seat instances once
+    -- instead of allocating a fresh GetDescendants result every retry.
+    for _, object in ipairs(chairs:GetDescendants()) do
         if object:IsA("Seat") or object:IsA("VehicleSeat") then
-            local occupant = object.Occupant
-            if occupant == nil or occupant == humanoid then
-                table.insert( seats, object )
-            end
+            table.insert(cache, object)
         end
     end
-    table.sort( seats, function(a, b)
-            return ( a.Position - rootPart.Position ).Magnitude < ( b.Position - rootPart.Position ).Magnitude
-        end )
+
+    return cache
+end
+
+local function getAvailableComputerSeats(rootPart, humanoid)
+    local seats = Computer.State.SeatBuffer
+    table.clear(seats)
+
+    for _, object in ipairs(refreshComputerSeatCache()) do
+        if object
+            and object.Parent
+            and (object.Occupant == nil or object.Occupant == humanoid)
+        then
+            table.insert(seats, object)
+        end
+    end
+
+    table.sort(seats, function(a, b)
+        return (a.Position - rootPart.Position).Magnitude
+            < (b.Position - rootPart.Position).Magnitude
+    end)
+
     return seats
 end
 local function waitForComputerSeatOrUI( sessionId, seat )
@@ -3658,6 +4153,11 @@ function Computer:Stop()
     self.State.LastTypedSignature = nil
     self.State.Remotes = nil
     self.State.GameUI = nil
+    table.clear(self.State.SeatBuffer)
+    if not self.State.ChairContainer or not self.State.ChairContainer.Parent then
+        self.State.ChairContainer = nil
+        table.clear(self.State.SeatCache)
+    end
     -- Release the computer chair cleanly when the class changes.
     local _, humanoid = getCharacter()
     if humanoid and humanoid.SeatPart and isOurComputerSeat( humanoid.SeatPart ) then
@@ -3733,27 +4233,29 @@ local function getCurrentHomeworkDirection( withQuest )
     if not recipe then
         return nil
     end
-    local visible = {}
-    for _, object in ipairs( recipe:GetChildren() ) do
-        if object:IsA("GuiObject") and object.Visible and HOMEWORK_DIRECTION_KEY[ object.Name ] then
-            table.insert( visible, object )
+    local best, bestX, bestY = nil, math.huge, math.huge
+
+    -- CreateIcon() positions queue slots from left -> right. The game's
+    -- press() checks only tbl_upv_1[1], so choose the leftmost card directly
+    -- instead of creating and sorting a temporary table every input.
+    for _, object in ipairs(recipe:GetChildren()) do
+        if object:IsA("GuiObject")
+            and object.Visible
+            and HOMEWORK_DIRECTION_KEY[object.Name]
+        then
+            local x = object.AbsolutePosition.X
+            local y = object.AbsolutePosition.Y
+
+            if x < bestX - 1 or (math.abs(x - bestX) <= 1 and y < bestY) then
+                best = object
+                bestX = x
+                bestY = y
+            end
         end
     end
-    if #visible == 0 then
-        return nil
-    end
-    -- CreateIcon() positions queue slots from left -> right.
-    -- The game's press() checks only tbl_upv_1[1], so the leftmost
-    -- visible recipe card is the ONLY direction that should be submitted.
-    table.sort( visible, function(a, b)
-            local ax = a.AbsolutePosition.X
-            local bx = b.AbsolutePosition.X
-            if math.abs(ax - bx) > 1 then
-                return ax < bx
-            end
-            return a.AbsolutePosition.Y < b.AbsolutePosition.Y
-        end )
-    return visible[1].Name, visible[1]
+
+    if not best then return nil end
+    return best.Name, best
 end
 local function sendHomeworkDirection( direction )
     local key = HOMEWORK_DIRECTION_KEY[ direction ]
@@ -4303,7 +4805,7 @@ local SwimSpinner = { ClassName = "Swim Spinner",
     -- Start from CurrentClass itself. The Spinner model is created dynamically
     -- later, so the module can safely wait through the intro without relying
     -- on the shared class timer.
-    UseSharedTimer = false, State = { Spinner = nil, BoopParts = {}, DescendantAddedConnection = nil, TouchShieldActive = false, TouchShieldStartedAt = 0, SavedCanTouch = {}, Armed = true, LastJumpAt = -math.huge } }
+    UseSharedTimer = false, State = { Spinner = nil, BoopParts = {}, DescendantAddedConnection = nil, TouchShieldActive = false, TouchShieldStartedAt = 0, SavedCanTouch = {}, TouchShieldCharacter = nil, Armed = true, LastJumpAt = -math.huge } }
 local function getSwimSpinnerModel() local minigame = Workspace:FindFirstChild( "JumpingPoolMinigame" ); return minigame and minigame:FindFirstChild( "Spinner" ) or nil end
 local function isBoopPart(object) return object and object:IsA("BasePart") and object:GetAttribute("Boop") ~= nil end
 local function addSwimBoopPart(object)
@@ -4316,9 +4818,7 @@ end
 local function disconnectSwimSpinnerWatcher()
     local connection = SwimSpinner.State .DescendantAddedConnection
     if connection then
-        pcall(function()
-            connection:Disconnect()
-        end)
+        Runtime.Disconnect(connection)
     end
     SwimSpinner.State .DescendantAddedConnection = nil
 end
@@ -4328,14 +4828,14 @@ local function attachSwimSpinner(spinner)
     end
     disconnectSwimSpinnerWatcher()
     SwimSpinner.State.Spinner = spinner
-    SwimSpinner.State.BoopParts = {}
+    table.clear(SwimSpinner.State.BoopParts)
     if not spinner then
         return
     end
     for _, object in ipairs( spinner:GetDescendants() ) do
         addSwimBoopPart( object )
     end
-    SwimSpinner.State .DescendantAddedConnection = spinner.DescendantAdded: Connect(function(object)
+    SwimSpinner.State .DescendantAddedConnection = Runtime.Connect(spinner.DescendantAdded, function(object)
                 addSwimBoopPart( object )
             end)
     Logger.Debug( "🏊 [SwimSpinner] Spinner attached with " .. tostring( (function()
@@ -4390,16 +4890,27 @@ local function applySwimTouchShield( character )
         end
     end
 end
-local function enableSwimTouchShield( character )
-    if not SwimSpinner.State .TouchShieldActive then
-        SwimSpinner.State .SavedCanTouch = {}
-        SwimSpinner.State .TouchShieldStartedAt = os.clock()
-        SwimSpinner.State .TouchShieldActive = true
-        Logger.Debug( "🛡️ [SwimSpinner] Touch shield ON." )
+local function enableSwimTouchShield(character)
+    if SwimSpinner.State.TouchShieldActive
+        and SwimSpinner.State.TouchShieldCharacter == character
+    then
+        return
     end
-    -- Reapply every poll so any character BasePart that appears while the
-    -- shield is active is also protected.
-    applySwimTouchShield( character )
+
+    if SwimSpinner.State.TouchShieldActive then
+        for part, originalCanTouch in pairs(SwimSpinner.State.SavedCanTouch) do
+            if part and part.Parent then
+                pcall(function() part.CanTouch = originalCanTouch end)
+            end
+        end
+    end
+
+    table.clear(SwimSpinner.State.SavedCanTouch)
+    SwimSpinner.State.TouchShieldStartedAt = os.clock()
+    SwimSpinner.State.TouchShieldActive = true
+    SwimSpinner.State.TouchShieldCharacter = character
+    applySwimTouchShield(character)
+    Logger.Debug("🛡️ [SwimSpinner] Touch shield ON.")
 end
 local function disableSwimTouchShield()
     if not SwimSpinner.State .TouchShieldActive then
@@ -4412,7 +4923,8 @@ local function disableSwimTouchShield()
             end)
         end
     end
-    SwimSpinner.State .SavedCanTouch = {}
+    table.clear(SwimSpinner.State.SavedCanTouch)
+    SwimSpinner.State.TouchShieldCharacter = nil
     SwimSpinner.State .TouchShieldActive = false
     SwimSpinner.State .TouchShieldStartedAt = 0
     Logger.Debug( "🛡️ [SwimSpinner] Touch shield OFF." )
@@ -4494,7 +5006,7 @@ function SwimSpinner:Run( sessionId )
         end
     end
 end
-function SwimSpinner:Stop() disableSwimTouchShield(); disconnectSwimSpinnerWatcher(); self.State.Spinner = nil; self.State.BoopParts = {}; self.State.Armed = true; self.State.LastJumpAt = -math.huge end
+function SwimSpinner:Stop() disableSwimTouchShield(); disconnectSwimSpinnerWatcher(); self.State.Spinner = nil; table.clear(self.State.BoopParts); self.State.Armed = true; self.State.LastJumpAt = -math.huge end
 ClassController:Register( SwimSpinner )
 end -- scope: SwimSpinner
 
@@ -4828,7 +5340,7 @@ end -- scope: English
 -- ========================================================================
 local ShoppingRush = { ClassName = "Student Store Rush!", UseSharedTimer = false }
 ShoppingRush.State = { ActiveHeader = nil, WaitingForFreshList = false, PreviousListSignature = nil, ItemAttempts = {}, PendingCursor = 1 }
-local ShoppingCache = { Objects = {}, Remotes = {}, ClickParts = {} }
+local ShoppingCache = { Objects = {}, Remotes = {}, ClickParts = {}, SignatureParts = {} }
 local function normalizeShoppingName(text) text = tostring(text or ""); text = string.lower(text); text = string.gsub(text, "<.->", ""); text = string.gsub(text, "&", "and"); text = string.gsub(text, "[^%w]", ""); return text end
 local function getShoppingUI()
     local minigame = RH4Classes:FindFirstChild("ShoppingMinigame")
@@ -4875,8 +5387,13 @@ local function readShoppingList()
     return entries
 end
 local function getShoppingListSignature(entries)
-    local parts = {}
-    for _, entry in ipairs(entries or {}) do table.insert(parts, entry.CellIndex .. "|" .. entry.Item .. "|" .. entry.Remaining) end
+    local parts = ShoppingCache.SignatureParts
+    table.clear(parts)
+
+    for _, entry in ipairs(entries or {}) do
+        table.insert(parts, entry.CellIndex .. "|" .. entry.Item .. "|" .. entry.Remaining)
+    end
+
     return table.concat(parts, "||")
 end
 local function findShoppingObject(itemName)
@@ -4955,7 +5472,7 @@ function ShoppingRush:CanStart()
 end
 function ShoppingRush:ShouldStayActive() return true end
 function ShoppingRush:Run(sessionId)
-    table.clear(ShoppingCache.Objects); table.clear(ShoppingCache.Remotes); table.clear(ShoppingCache.ClickParts)
+    table.clear(ShoppingCache.Objects); table.clear(ShoppingCache.Remotes); table.clear(ShoppingCache.ClickParts); table.clear(ShoppingCache.SignatureParts)
     local initialHeader = getShoppingHeaderText()
     self.State = { ActiveHeader = initialHeader, ActiveListSignature = getShoppingListSignature(readShoppingList()), WaitingForFreshList = false, ItemAttempts = {}, PendingCursor = 1 }
     while ClassController:IsSessionActive(sessionId, self) do
@@ -4976,14 +5493,39 @@ function ShoppingRush:Run(sessionId)
                 continue
             end
         end
-        local pending = {}
-        for _, entry in ipairs(currentEntries) do if not entry.Completed and entry.Remaining > 0 then table.insert(pending, entry) end end
-        if #pending == 0 then
+        -- Select the Nth pending entry directly instead of allocating a second
+        -- pending table every Shopping poll.
+        local pendingCount = 0
+        for _, candidate in ipairs(currentEntries) do
+            if not candidate.Completed and candidate.Remaining > 0 then
+                pendingCount += 1
+            end
+        end
+
+        if pendingCount == 0 then
             if not ClassController:Wait(sessionId, self, Config.Shopping.IdlePoll) then break end
             continue
         end
-        if self.State.PendingCursor > #pending then self.State.PendingCursor = 1 end
-        local entry = pending[self.State.PendingCursor]
+
+        if self.State.PendingCursor > pendingCount then self.State.PendingCursor = 1 end
+
+        local entry = nil
+        local pendingIndex = 0
+        for _, candidate in ipairs(currentEntries) do
+            if not candidate.Completed and candidate.Remaining > 0 then
+                pendingIndex += 1
+                if pendingIndex == self.State.PendingCursor then
+                    entry = candidate
+                    break
+                end
+            end
+        end
+
+        if not entry then
+            self.State.PendingCursor = 1
+            if not ClassController:Wait(sessionId, self, Config.Shopping.IdlePoll) then break end
+            continue
+        end
         local shoppingObject = findShoppingObject(entry.Item)
         local madeAttempt = false
         if shoppingObject then
@@ -5077,13 +5619,41 @@ local ArcheryRemote = ReplicatedStorage:WaitForChild("ArcheryRemote", 10)
 local FireArrowRemote = ArcheryRemote and ArcheryRemote:WaitForChild("FireArrow", 10)
 local ARCHERY_TAG = "ArcheryRaycastInclude"
 local ArcheryTargets = {}
-Runtime.Connect(CollectionService:GetInstanceAddedSignal(ARCHERY_TAG), function(inst) ArcheryTargets[inst] = true end)
-Runtime.Connect(CollectionService:GetInstanceRemovedSignal(ARCHERY_TAG), function(inst) ArcheryTargets[inst] = nil end)
-for _, inst in ipairs(CollectionService:GetTagged(ARCHERY_TAG)) do ArcheryTargets[inst] = true end
+local ArcheryRaycastFilter = { Workspace.Terrain }
+local ArcheryRaycastFilterDirty = true
+
+Runtime.Connect(CollectionService:GetInstanceAddedSignal(ARCHERY_TAG), function(inst)
+    ArcheryTargets[inst] = true
+    ArcheryRaycastFilterDirty = true
+end)
+Runtime.Connect(CollectionService:GetInstanceRemovedSignal(ARCHERY_TAG), function(inst)
+    ArcheryTargets[inst] = nil
+    ArcheryRaycastFilterDirty = true
+end)
+for _, inst in ipairs(CollectionService:GetTagged(ARCHERY_TAG)) do
+    ArcheryTargets[inst] = true
+end
+
 local SharedRaycastParams = RaycastParams.new()
 SharedRaycastParams.FilterType = Enum.RaycastFilterType.Include
 SharedRaycastParams.IgnoreWater = true
 Archery.State = { LastFiredAt = {}, LastBlockedAt = {} }
+
+local function refreshArcheryRaycastFilter()
+    if not ArcheryRaycastFilterDirty then return end
+
+    table.clear(ArcheryRaycastFilter)
+    table.insert(ArcheryRaycastFilter, Workspace.Terrain)
+
+    for target in pairs(ArcheryTargets) do
+        if target and target.Parent then
+            table.insert(ArcheryRaycastFilter, target)
+        end
+    end
+
+    SharedRaycastParams.FilterDescendantsInstances = ArcheryRaycastFilter
+    ArcheryRaycastFilterDirty = false
+end
 function Archery:IsEnabled() return Config.Archery.Enabled end
 function Archery:CanStart() return LocalPlayer:GetAttribute("BowEnabled") == true end
 function Archery:ShouldStayActive() return LocalPlayer:GetAttribute("BowEnabled") == true end
@@ -5107,9 +5677,9 @@ local function hasArcheryLineOfSight(target, targetPosition)
     local origin = camera.CFrame.Position
     local direction = targetPosition - origin
     if direction.Magnitude <= 0.01 then return false end
-    local filter = { Workspace.Terrain }
-    for tgt in pairs(ArcheryTargets) do table.insert(filter, tgt) end
-    SharedRaycastParams.FilterDescendantsInstances = filter
+    -- V64: reuse one filter table. The old path rebuilt a new table for
+    -- every line-of-sight check, which becomes expensive with many targets.
+    refreshArcheryRaycastFilter()
     local result = Workspace:Raycast(origin, direction, SharedRaycastParams)
     if not result then return true end
     local hit = result.Instance
@@ -5170,7 +5740,35 @@ local Basketball = { ClassName = "Basketball", UseSharedTimer = true }
 local ShootRemote = ReplicatedStorage:WaitForChild("BasketballClass", 10) and ReplicatedStorage.BasketballClass:WaitForChild("ShootBasketball", 10)
 local TP_BIN = CFrame.new(-4533, -2, 1959)
 local LEFT_STATION = { CFrame = CFrame.new(-4516, -2, 1915), Hoop = Vector3.new(-4490.087, 12.5, 1915.069) }
-Basketball.State = { StopAimLock = nil, ReturnGraceUntil = 0, OwnedBall = nil, TouchShieldActive = false, SavedCanTouch = {}, ShotSlotIndex = 1, ShotSlotCount = 1, ShotGroupIndex = 1, ShotGroupCount = 1, LaneMember = 1 }
+Basketball.State = {
+    ReturnGraceUntil = 0,
+    OwnedBall = nil,
+
+    BallSet = {},
+    BallSnapshot = {},
+    BallConnections = {},
+    BallTrackedCharacter = nil,
+    BallTrackedBackpack = nil,
+
+    TouchShieldActive = false,
+    TouchShieldCharacter = nil,
+    SavedCanTouch = {},
+
+    AimBound = false,
+    AimActive = false,
+    AimHumanoid = nil,
+    AimRoot = nil,
+    AimOriginalAutoRotate = nil,
+    AimSessionId = nil,
+
+    CleanupGeneration = 0,
+
+    ShotSlotIndex = 1,
+    ShotSlotCount = 1,
+    ShotGroupIndex = 1,
+    ShotGroupCount = 1,
+    LaneMember = 1
+}
 
 function Basketball:IsEnabled() return Config.Basketball.Enabled end
 function Basketball:CanStart() return (getClassTimeRemaining() or 0) > 5 end
@@ -5196,56 +5794,151 @@ local function isLiveBallTool(tool, character, backpack)
     return parent ~= nil and (parent == character or parent == backpack)
 end
 
-local function findLiveBall(character, backpack, excluded)
+local function disconnectBasketballBallTracker()
+    for _, connection in ipairs(Basketball.State.BallConnections) do
+        Runtime.Disconnect(connection)
+    end
+
+    table.clear(Basketball.State.BallConnections)
+    table.clear(Basketball.State.BallSet)
+    Basketball.State.BallTrackedCharacter = nil
+    Basketball.State.BallTrackedBackpack = nil
+end
+
+local function trackBasketballBall(object)
+    if isBallTool(object) then
+        Basketball.State.BallSet[object] = true
+    end
+end
+
+local function untrackBasketballBall(object)
+    Basketball.State.BallSet[object] = nil
+end
+
+local function ensureBasketballBallTracker(character, backpack)
+    if Basketball.State.BallTrackedCharacter == character
+        and Basketball.State.BallTrackedBackpack == backpack
+    then
+        return
+    end
+
+    disconnectBasketballBallTracker()
+    Basketball.State.BallTrackedCharacter = character
+    Basketball.State.BallTrackedBackpack = backpack
+
     if character then
-        for _, obj in ipairs(character:GetChildren()) do
-            if isLiveBallTool(obj, character, backpack) and not (excluded and excluded[obj]) then return obj end
+        for _, object in ipairs(character:GetChildren()) do
+            trackBasketballBall(object)
         end
+
+        table.insert(
+            Basketball.State.BallConnections,
+            Runtime.Connect(character.ChildAdded, trackBasketballBall)
+        )
+        table.insert(
+            Basketball.State.BallConnections,
+            Runtime.Connect(character.ChildRemoved, untrackBasketballBall)
+        )
     end
+
     if backpack then
-        for _, obj in ipairs(backpack:GetChildren()) do
-            if isLiveBallTool(obj, character, backpack) and not (excluded and excluded[obj]) then return obj end
+        for _, object in ipairs(backpack:GetChildren()) do
+            trackBasketballBall(object)
+        end
+
+        table.insert(
+            Basketball.State.BallConnections,
+            Runtime.Connect(backpack.ChildAdded, trackBasketballBall)
+        )
+        table.insert(
+            Basketball.State.BallConnections,
+            Runtime.Connect(backpack.ChildRemoved, untrackBasketballBall)
+        )
+    end
+end
+
+local function findLiveBall(character, backpack, excluded)
+    ensureBasketballBallTracker(character, backpack)
+
+    for object in pairs(Basketball.State.BallSet) do
+        if not object or not object.Parent then
+            Basketball.State.BallSet[object] = nil
+        elseif isLiveBallTool(object, character, backpack)
+            and not (excluded and excluded[object])
+        then
+            return object
         end
     end
+
     return nil
 end
 
 local function snapshotBasketballTools(character, backpack)
-    local snapshot = {}
-    if character then for _, obj in ipairs(character:GetChildren()) do if isBallTool(obj) then snapshot[obj] = true end end end
-    if backpack then for _, obj in ipairs(backpack:GetChildren()) do if isBallTool(obj) then snapshot[obj] = true end end end
+    ensureBasketballBallTracker(character, backpack)
+
+    local snapshot = Basketball.State.BallSnapshot
+    table.clear(snapshot)
+
+    for object in pairs(Basketball.State.BallSet) do
+        if isLiveBallTool(object, character, backpack) then
+            snapshot[object] = true
+        end
+    end
+
     return snapshot
 end
 
 local function clearUnownedBasketballs(character, backpack)
+    ensureBasketballBallTracker(character, backpack)
     local owned = Basketball.State.OwnedBall
-    local function clean(parent)
-        if not parent then return end
-        for _, obj in ipairs(parent:GetChildren()) do
-            if isBallTool(obj) and obj ~= owned then pcall(function() obj.Enabled = false; obj:Destroy() end) end
-        end
-    end
-    clean(character); clean(backpack)
-end
 
-local function enableBasketballTouchShield(character)
-    if not character then return end
-    if not Basketball.State.TouchShieldActive then Basketball.State.SavedCanTouch = {}; Basketball.State.TouchShieldActive = true end
-    for _, obj in ipairs(character:GetChildren()) do
-        if obj:IsA("BasePart") then
-            if Basketball.State.SavedCanTouch[obj] == nil then Basketball.State.SavedCanTouch[obj] = obj.CanTouch end
-            pcall(function() obj.CanTouch = false end)
+    for object in pairs(Basketball.State.BallSet) do
+        if object ~= owned and isLiveBallTool(object, character, backpack) then
+            Basketball.State.BallSet[object] = nil
+            pcall(function()
+                object.Enabled = false
+                object:Destroy()
+            end)
         end
     end
 end
 
 local function disableBasketballTouchShield()
     if not Basketball.State.TouchShieldActive then return end
+
     for part, original in pairs(Basketball.State.SavedCanTouch) do
-        if part and part.Parent then pcall(function() part.CanTouch = original end) end
+        if part and part.Parent then
+            pcall(function() part.CanTouch = original end)
+        end
     end
-    Basketball.State.SavedCanTouch = {}
+
+    table.clear(Basketball.State.SavedCanTouch)
+    Basketball.State.TouchShieldCharacter = nil
     Basketball.State.TouchShieldActive = false
+end
+
+local function enableBasketballTouchShield(character)
+    if not character then return end
+
+    if Basketball.State.TouchShieldActive
+        and Basketball.State.TouchShieldCharacter == character
+    then
+        return
+    end
+
+    if Basketball.State.TouchShieldActive then
+        disableBasketballTouchShield()
+    end
+
+    Basketball.State.TouchShieldActive = true
+    Basketball.State.TouchShieldCharacter = character
+
+    for _, object in ipairs(character:GetChildren()) do
+        if object:IsA("BasePart") then
+            Basketball.State.SavedCanTouch[object] = object.CanTouch
+            pcall(function() object.CanTouch = false end)
+        end
+    end
 end
 
 local function basketballServerTime()
@@ -5370,7 +6063,73 @@ local function getFacingErrorDegrees(rootPart)
 end
 
 local function stopBasketballAimLock()
-    if Basketball.State.StopAimLock then Basketball.State.StopAimLock(); Basketball.State.StopAimLock = nil end
+    if Basketball.State.AimActive then
+        local humanoid = Basketball.State.AimHumanoid
+        local original = Basketball.State.AimOriginalAutoRotate
+
+        if humanoid and humanoid.Parent and original ~= nil then
+            pcall(function() humanoid.AutoRotate = original end)
+        end
+    end
+
+    Basketball.State.AimActive = false
+    Basketball.State.AimHumanoid = nil
+    Basketball.State.AimRoot = nil
+    Basketball.State.AimOriginalAutoRotate = nil
+end
+
+local function unbindBasketballAimUpdater()
+    stopBasketballAimLock()
+
+    if Basketball.State.AimBound then
+        pcall(function() RunService:UnbindFromRenderStep("BBAim") end)
+        Basketball.State.AimBound = false
+    end
+
+    Basketball.State.AimSessionId = nil
+end
+
+local function bindBasketballAimUpdater(sessionId)
+    unbindBasketballAimUpdater()
+    Basketball.State.AimSessionId = sessionId
+
+    RunService:BindToRenderStep(
+        "BBAim",
+        Enum.RenderPriority.Character.Value + 50,
+        function()
+            if not Basketball.State.AimActive
+                or Basketball.State.AimSessionId ~= sessionId
+                or not ClassController:IsSessionActive(sessionId, Basketball)
+            then
+                return
+            end
+
+            local humanoid = Basketball.State.AimHumanoid
+            local rootPart = Basketball.State.AimRoot
+
+            if humanoid
+                and humanoid.Parent
+                and rootPart
+                and rootPart.Parent
+                and getFacingErrorDegrees(rootPart)
+                    > Config.Basketball.Tolerances.FacingCorrection
+            then
+                forceFaceStation(humanoid, rootPart)
+            end
+        end
+    )
+
+    Basketball.State.AimBound = true
+end
+
+local function startBasketballAimLock(humanoid, rootPart)
+    stopBasketballAimLock()
+
+    Basketball.State.AimHumanoid = humanoid
+    Basketball.State.AimRoot = rootPart
+    Basketball.State.AimOriginalAutoRotate = humanoid.AutoRotate
+    Basketball.State.AimActive = true
+    humanoid.AutoRotate = false
 end
 
 local function waitForNewBallFromGiver(sessionId, before)
@@ -5441,8 +6200,13 @@ function Basketball:Run(sessionId)
     if not ShootRemote then return end
     self.State.ReturnGraceUntil = 0
     self.State.OwnedBall = nil
+    self.State.CleanupGeneration += 1 -- cancel any old post-class cleanup worker
     initializeBasketballShotSlot()
-    local startCharacter = LocalPlayer.Character
+
+    local startCharacter, _, _, startBackpack = getBasketballRefs()
+    ensureBasketballBallTracker(startCharacter, startBackpack)
+    bindBasketballAimUpdater(sessionId)
+
     if startCharacter then enableBasketballTouchShield(startCharacter) end
     moveBasketballToHoldingArea()
 
@@ -5482,19 +6246,9 @@ function Basketball:Run(sessionId)
         local shotCFrame = getBasketballShotCFrame()
         character:PivotTo(shotCFrame)
 
-        local originalAutoRotate = humanoid.AutoRotate
-        local active = true
-        self.State.StopAimLock = function()
-            if not active then return end
-            active = false
-            pcall(function() RunService:UnbindFromRenderStep("BBAim") end)
-            if humanoid and humanoid.Parent then humanoid.AutoRotate = originalAutoRotate end
-        end
-
-        RunService:BindToRenderStep("BBAim", Enum.RenderPriority.Character.Value + 50, function()
-            if not active or not ClassController:IsSessionActive(sessionId, self) then return end
-            if humanoid.Parent and rootPart.Parent and getFacingErrorDegrees(rootPart) > Config.Basketball.Tolerances.FacingCorrection then forceFaceStation(humanoid, rootPart) end
-        end)
+        -- V64: one RenderStep callback is bound for the whole Basketball class.
+        -- Per shot we only swap the active Humanoid/Root references.
+        startBasketballAimLock(humanoid, rootPart)
 
         if not ClassController:Wait(sessionId, self, 0.5) then stopBasketballAimLock(); break end
 
@@ -5582,20 +6336,38 @@ local function cleanupBasketballTools()
 end
 
 local function scheduleBasketballCleanupSweep()
+    Basketball.State.CleanupGeneration += 1
+    local generation = Basketball.State.CleanupGeneration
+
     Runtime.Spawn(function()
         local started = os.clock()
         local removedTotal = 0
-        while os.clock() - started < 3.0 do removedTotal += cleanupBasketballTools(); task.wait(0.10) end
-        if removedTotal > 0 then Logger.Debug("🧹 [Basketball] Cleanup sweep removed " .. tostring(removedTotal) .. " Basketball Tool instance(s).") end
+
+        while generation == Basketball.State.CleanupGeneration
+            and os.clock() - started < 3.0
+        do
+            removedTotal += cleanupBasketballTools()
+            task.wait(0.10)
+        end
+
+        if removedTotal > 0 and generation == Basketball.State.CleanupGeneration then
+            Logger.Debug(
+                "🧹 [Basketball] Cleanup sweep removed "
+                .. tostring(removedTotal)
+                .. " Basketball Tool instance(s)."
+            )
+        end
     end)
 end
 
 function Basketball:Stop(reason)
-    stopBasketballAimLock()
+    unbindBasketballAimUpdater()
     self.State.ReturnGraceUntil = 0
     self.State.OwnedBall = nil
     disableBasketballTouchShield()
     cleanupBasketballTools()
+    disconnectBasketballBallTracker()
+    table.clear(self.State.BallSnapshot)
     scheduleBasketballCleanupSweep()
     Logger.Log("⏹️ [Basketball] Released control | " .. tostring(reason))
 end
@@ -5607,69 +6379,124 @@ end -- scope: Basketball
 -- CONTROLLER EVENT UPDATE & WATCHERS
 -- ========================================================================
 local updateQueued = false
+
 local function requestControllerUpdate()
     if updateQueued then return end
     updateQueued = true
-    task.defer(function() updateQueued = false ClassController:Update() end)
+
+    task.defer(function()
+        updateQueued = false
+        ClassController:Update()
+    end)
 end
-Runtime.Connect(CurrentClass:GetPropertyChangedSignal("Text"), requestControllerUpdate)
-Runtime.Connect(TimerLabel:GetPropertyChangedSignal("Text"), requestControllerUpdate)
-Runtime.Connect(ClassStartingLabel:GetPropertyChangedSignal("Text"), requestControllerUpdate)
-Runtime.Connect(ClassStartingLabel:GetPropertyChangedSignal("Visible"), requestControllerUpdate)
-Runtime.Connect(LocalPlayer:GetAttributeChangedSignal("BowEnabled"), requestControllerUpdate)
-Runtime.Spawn(function()
-    local hwWatcher = nil
-    local function checkHW()
-        local hw = PlayerGui:FindFirstChild("RH4Homework")
-        if hw and hw ~= hwWatcher then
-            hwWatcher = hw
-            Runtime.Connect(hw.DescendantAdded, function(d)
-                if d.Name == "WithQuest" or d.Name == "DoHomeworkButton" then requestControllerUpdate() end
-            end)
+
+-- Primary controller wake signals.
+Runtime.Connect(
+    CurrentClass:GetPropertyChangedSignal("Text"),
+    requestControllerUpdate
+)
+Runtime.Connect(
+    TimerLabel:GetPropertyChangedSignal("Text"),
+    requestControllerUpdate
+)
+Runtime.Connect(
+    ClassStartingLabel:GetPropertyChangedSignal("Text"),
+    requestControllerUpdate
+)
+Runtime.Connect(
+    ClassStartingLabel:GetPropertyChangedSignal("Visible"),
+    requestControllerUpdate
+)
+Runtime.Connect(
+    LocalPlayer:GetAttributeChangedSignal("BowEnabled"),
+    requestControllerUpdate
+)
+
+-- Dynamic RH4 class GUI creation is event-driven instead of being scanned
+-- four times per second. This is especially useful with many Roblox clients.
+Runtime.Connect(RH4Classes.DescendantAdded, function()
+    requestControllerUpdate()
+end)
+
+-- Homework is an override and may appear outside a normal CurrentClass
+-- transition. Wake the controller when its GUI or assignment Tools change.
+local function isInsideHomeworkGui(object)
+    local current = object
+
+    while current and current ~= PlayerGui do
+        if current.Name == "RH4Homework" then
+            return true
         end
+        current = current.Parent
     end
-    local connectedTimer, timerConnection = nil, nil
-    while true do
-        local frame = RH4Classes:FindFirstChild("Archery")
-        local archeryTimer = frame and frame:FindFirstChild("MidGame") and frame.MidGame:FindFirstChild("Timer")
-        if archeryTimer and archeryTimer ~= connectedTimer then
-            if timerConnection then timerConnection:Disconnect() end
-            connectedTimer = archeryTimer
-            timerConnection = archeryTimer:GetPropertyChangedSignal("Text"):Connect(requestControllerUpdate)
-        end
-        if connectedTimer and not connectedTimer:IsDescendantOf(game) then
-            connectedTimer = nil
-            if timerConnection then timerConnection:Disconnect(); timerConnection = nil end
-        end
-        checkHW()
-        task.wait(0.25)
+
+    return false
+end
+
+Runtime.Connect(PlayerGui.DescendantAdded, function(object)
+    if object.Name == "RH4Homework" or isInsideHomeworkGui(object) then
+        requestControllerUpdate()
     end
 end)
-Runtime.Spawn(function()
-    local connectedHeader, headerConnection = nil, nil
-    local connectedTimer, shoppingTimerConnection = nil, nil
-    local connectedList, listVisibleConnection = nil, nil
-    while true do
-        local _, list, _, timer, header = getShoppingUI()
-        if header and header ~= connectedHeader then
-            if headerConnection then headerConnection:Disconnect() end
-            connectedHeader = header
-            headerConnection = header:GetPropertyChangedSignal("Text"):Connect(requestControllerUpdate)
-        end
-        if timer and timer ~= connectedTimer then
-            if shoppingTimerConnection then shoppingTimerConnection:Disconnect() end
-            connectedTimer = timer
-            shoppingTimerConnection = timer:GetPropertyChangedSignal("Text"):Connect(requestControllerUpdate)
-        end
-        if list and list ~= connectedList then
-            if listVisibleConnection then listVisibleConnection:Disconnect() end
-            connectedList = list
-            listVisibleConnection = list:GetPropertyChangedSignal("Visible"):Connect(requestControllerUpdate)
-        end
-        if connectedHeader and not connectedHeader:IsDescendantOf(game) then connectedHeader = nil; if headerConnection then headerConnection:Disconnect(); headerConnection = nil end end
-        if connectedTimer and not connectedTimer:IsDescendantOf(game) then connectedTimer = nil; if shoppingTimerConnection then shoppingTimerConnection:Disconnect(); shoppingTimerConnection = nil end end
-        if connectedList and not connectedList:IsDescendantOf(game) then connectedList = nil; if listVisibleConnection then listVisibleConnection:Disconnect(); listVisibleConnection = nil end end
-        task.wait(0.25)
+
+local homeworkContainerConnections = {}
+
+local function disconnectHomeworkContainerConnections()
+    for i = 1, #homeworkContainerConnections do
+        Runtime.Disconnect(homeworkContainerConnections[i])
+    end
+    table.clear(homeworkContainerConnections)
+end
+
+local function shouldWakeForTool(object)
+    return object
+        and object:IsA("Tool")
+        and (
+            object:GetAttribute("HomeworkId") ~= nil
+            or object:GetAttribute("Done") ~= nil
+        )
+end
+
+local function bindHomeworkContainer(container)
+    if not container then return end
+
+    table.insert(
+        homeworkContainerConnections,
+        Runtime.Connect(container.ChildAdded, function(object)
+            if shouldWakeForTool(object) then
+                requestControllerUpdate()
+            end
+        end)
+    )
+
+    table.insert(
+        homeworkContainerConnections,
+        Runtime.Connect(container.ChildRemoved, function(object)
+            if object and object:IsA("Tool") then
+                requestControllerUpdate()
+            end
+        end)
+    )
+end
+
+local function rebindHomeworkToolWatchers(character)
+    disconnectHomeworkContainerConnections()
+    bindHomeworkContainer(LocalPlayer:FindFirstChildOfClass("Backpack"))
+    bindHomeworkContainer(character or LocalPlayer.Character)
+    requestControllerUpdate()
+end
+
+rebindHomeworkToolWatchers(LocalPlayer.Character)
+
+Runtime.Connect(LocalPlayer.CharacterAdded, function(character)
+    rebindHomeworkToolWatchers(character)
+end)
+
+-- Backpack is normally persistent, but this catches unusual respawn/load
+-- replacement behavior without needing a permanent polling loop.
+Runtime.Connect(LocalPlayer.ChildAdded, function(child)
+    if child:IsA("Backpack") then
+        rebindHomeworkToolWatchers(LocalPlayer.Character)
     end
 end)
 
