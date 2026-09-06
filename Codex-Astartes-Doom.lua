@@ -1,5 +1,5 @@
 -- ========================================================================
--- 🎓 CAMPUS 4 CLASS AUTOMATION FRAMEWORK (V69 + BLACK PANEL + BIGGER ACCOUNT OVERLAY)
+-- 🎓 CAMPUS 4 CLASS AUTOMATION FRAMEWORK (V70 + FULLSCREEN BLACK OVERLAY + LARGE TEXT)
 -- Includes: 👗 Auto Outfit | 🍳 Breakfast | 🏀 Basketball | 🔭 Star Gazing | 🧚 Fairy Flight | 💻 Computer | 🏊 Swim Spinner | 🧪 Potionology | 🏹 Archery | 🛒 Shopping | 📚 Homework | 📖 Study Hall | 📝 English | 🤖 API Captcha
 
 -- ========================================================================
@@ -6869,8 +6869,8 @@ local function makeMonitorLabel(parent, name, yScale, color)
     label.Name = name
     label.BackgroundTransparency = 1
     label.BorderSizePixel = 0
-    label.Position = UDim2.fromScale(0.025, yScale)
-    label.Size = UDim2.fromScale(0.95, 0.24)
+    label.Position = UDim2.fromScale(0.02, yScale)
+    label.Size = UDim2.fromScale(0.96, 0.22)
     label.Font = Enum.Font.GothamBold
     label.Text = ""
     label.TextColor3 = color
@@ -6887,8 +6887,8 @@ local function makeMonitorLabel(parent, name, yScale, color)
     label.Parent = parent
 
     local constraint = Instance.new("UITextSizeConstraint")
-    constraint.MinTextSize = 18
-    constraint.MaxTextSize = 92
+    constraint.MinTextSize = 26
+    constraint.MaxTextSize = 150
     constraint.Parent = label
 
     return label
@@ -6910,31 +6910,21 @@ local function createMonitorGui()
 
     local panel = Instance.new("Frame")
     panel.Name = "Background"
-    panel.AnchorPoint = Vector2.new(0.5, 0.5)
-    panel.Position = UDim2.fromScale(0.5, 0.55)
-    panel.Size = UDim2.fromScale(0.97, 0.60)
+    panel.AnchorPoint = Vector2.new(0, 0)
+    panel.Position = UDim2.fromScale(0, 0)
+    panel.Size = UDim2.fromScale(1, 1)
     panel.BackgroundColor3 = Color3.fromRGB(0, 0, 0)
-    panel.BackgroundTransparency = 0.16
+    panel.BackgroundTransparency = 0.12
     panel.BorderSizePixel = 0
     panel.ZIndex = 1000
     panel.Active = false
     panel.Parent = gui
 
-    local corner = Instance.new("UICorner")
-    corner.CornerRadius = UDim.new(0, 10)
-    corner.Parent = panel
-
-    local stroke = Instance.new("UIStroke")
-    stroke.Thickness = 1
-    stroke.Transparency = 0.78
-    stroke.Color = Color3.fromRGB(255, 255, 255)
-    stroke.Parent = panel
-
     Monitor.NameLabel =
         makeMonitorLabel(
             panel,
             "AccountLevel",
-            0.06,
+            0.16,
             Color3.fromRGB(255, 105, 180)
         )
 
@@ -6942,7 +6932,7 @@ local function createMonitorGui()
         makeMonitorLabel(
             panel,
             "Diamonds",
-            0.37,
+            0.41,
             Color3.fromRGB(69, 220, 255)
         )
 
@@ -6950,7 +6940,7 @@ local function createMonitorGui()
         makeMonitorLabel(
             panel,
             "TradeStatus",
-            0.68,
+            0.66,
             Color3.fromRGB(190, 190, 190)
         )
 
