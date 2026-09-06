@@ -1,5 +1,5 @@
 -- ========================================================================
--- 🎓 CAMPUS 4 CLASS AUTOMATION FRAMEWORK (V68 + SWIMWEAR VOTING + PINK OVERLAY)
+-- 🎓 CAMPUS 4 CLASS AUTOMATION FRAMEWORK (V69 + BLACK PANEL + BIGGER ACCOUNT OVERLAY)
 -- Includes: 👗 Auto Outfit | 🍳 Breakfast | 🏀 Basketball | 🔭 Star Gazing | 🧚 Fairy Flight | 💻 Computer | 🏊 Swim Spinner | 🧪 Potionology | 🏹 Archery | 🛒 Shopping | 📚 Homework | 📖 Study Hall | 📝 English | 🤖 API Captcha
 
 -- ========================================================================
@@ -6718,6 +6718,7 @@ end -- scope: Basketball
 do
 local Monitor = {
     Gui = nil,
+    Panel = nil,
     NameLabel = nil,
     DiamondLabel = nil,
     TradeLabel = nil,
@@ -6868,15 +6869,16 @@ local function makeMonitorLabel(parent, name, yScale, color)
     label.Name = name
     label.BackgroundTransparency = 1
     label.BorderSizePixel = 0
-    label.Position = UDim2.fromScale(0.03, yScale)
-    label.Size = UDim2.fromScale(0.94, 0.14)
+    label.Position = UDim2.fromScale(0.025, yScale)
+    label.Size = UDim2.fromScale(0.95, 0.24)
     label.Font = Enum.Font.GothamBold
     label.Text = ""
     label.TextColor3 = color
     label.TextScaled = true
     label.TextWrapped = false
+    label.RichText = true
     label.TextStrokeColor3 = Color3.new(0, 0, 0)
-    label.TextStrokeTransparency = 0.18
+    label.TextStrokeTransparency = 0.10
     label.TextXAlignment = Enum.TextXAlignment.Center
     label.TextYAlignment = Enum.TextYAlignment.Center
     label.ZIndex = 1002
@@ -6885,8 +6887,8 @@ local function makeMonitorLabel(parent, name, yScale, color)
     label.Parent = parent
 
     local constraint = Instance.new("UITextSizeConstraint")
-    constraint.MinTextSize = 12
-    constraint.MaxTextSize = 68
+    constraint.MinTextSize = 18
+    constraint.MaxTextSize = 92
     constraint.Parent = label
 
     return label
@@ -6906,16 +6908,54 @@ local function createMonitorGui()
     gui.ZIndexBehavior = Enum.ZIndexBehavior.Sibling
     gui.Parent = PlayerGui
 
+    local panel = Instance.new("Frame")
+    panel.Name = "Background"
+    panel.AnchorPoint = Vector2.new(0.5, 0.5)
+    panel.Position = UDim2.fromScale(0.5, 0.55)
+    panel.Size = UDim2.fromScale(0.97, 0.60)
+    panel.BackgroundColor3 = Color3.fromRGB(0, 0, 0)
+    panel.BackgroundTransparency = 0.16
+    panel.BorderSizePixel = 0
+    panel.ZIndex = 1000
+    panel.Active = false
+    panel.Parent = gui
+
+    local corner = Instance.new("UICorner")
+    corner.CornerRadius = UDim.new(0, 10)
+    corner.Parent = panel
+
+    local stroke = Instance.new("UIStroke")
+    stroke.Thickness = 1
+    stroke.Transparency = 0.78
+    stroke.Color = Color3.fromRGB(255, 255, 255)
+    stroke.Parent = panel
+
     Monitor.NameLabel =
-        makeMonitorLabel(gui, "AccountLevel", 0.31, Color3.fromRGB(255, 105, 180))
+        makeMonitorLabel(
+            panel,
+            "AccountLevel",
+            0.06,
+            Color3.fromRGB(255, 105, 180)
+        )
 
     Monitor.DiamondLabel =
-        makeMonitorLabel(gui, "Diamonds", 0.49, Color3.fromRGB(69, 220, 255))
+        makeMonitorLabel(
+            panel,
+            "Diamonds",
+            0.37,
+            Color3.fromRGB(69, 220, 255)
+        )
 
     Monitor.TradeLabel =
-        makeMonitorLabel(gui, "TradeStatus", 0.67, Color3.fromRGB(190, 190, 190))
+        makeMonitorLabel(
+            panel,
+            "TradeStatus",
+            0.68,
+            Color3.fromRGB(190, 190, 190)
+        )
 
     Monitor.Gui = gui
+    Monitor.Panel = panel
 end
 
 local function setTradeStatus(textValue, kind)
@@ -7273,19 +7313,21 @@ local function updateMonitorValues()
     local level = readLevel()
     local diamonds = readDiamonds()
 
+    local levelText =
+        level ~= nil
+        and ("Lv" .. formatWholeNumber(level))
+        or "Lv?"
+
     Monitor.NameLabel.Text =
         tostring(LocalPlayer.Name)
-        .. " | "
-        .. (
-            level ~= nil
-            and ("Lv" .. formatWholeNumber(level))
-            or "Lv?"
-        )
+        .. ' <font color="#FFD84D">| '
+        .. levelText
+        .. "</font>"
 
     Monitor.DiamondLabel.Text =
         diamonds ~= nil
-        and ("$ " .. formatWholeNumber(diamonds))
-        or "$ ?"
+        and ("$" .. formatWholeNumber(diamonds))
+        or "$?"
 
     if level == nil then
         setTradeStatus("Waiting for level", "unknown")
