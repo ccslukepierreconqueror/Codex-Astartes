@@ -1,5 +1,5 @@
 -- ========================================================================
--- 🎓 CAMPUS 4 CLASS AUTOMATION FRAMEWORK (V70 + FULLSCREEN BLACK OVERLAY + LARGE TEXT)
+-- 🎓 CAMPUS 4 CLASS AUTOMATION FRAMEWORK (V71 + COMPACT STACK + LARGER NAME)
 -- Includes: 👗 Auto Outfit | 🍳 Breakfast | 🏀 Basketball | 🔭 Star Gazing | 🧚 Fairy Flight | 💻 Computer | 🏊 Swim Spinner | 🧪 Potionology | 🏹 Archery | 🛒 Shopping | 📚 Homework | 📖 Study Hall | 📝 English | 🤖 API Captcha
 
 -- ========================================================================
@@ -6864,13 +6864,21 @@ local function readDiamonds()
     return diamonds and math.max(0, math.floor(diamonds)) or nil
 end
 
-local function makeMonitorLabel(parent, name, yScale, color)
+local function makeMonitorLabel(
+    parent,
+    name,
+    yScale,
+    heightScale,
+    color,
+    minTextSize,
+    maxTextSize
+)
     local label = Instance.new("TextLabel")
     label.Name = name
     label.BackgroundTransparency = 1
     label.BorderSizePixel = 0
-    label.Position = UDim2.fromScale(0.02, yScale)
-    label.Size = UDim2.fromScale(0.96, 0.22)
+    label.Position = UDim2.fromScale(0.015, yScale)
+    label.Size = UDim2.fromScale(0.97, heightScale)
     label.Font = Enum.Font.GothamBold
     label.Text = ""
     label.TextColor3 = color
@@ -6878,7 +6886,7 @@ local function makeMonitorLabel(parent, name, yScale, color)
     label.TextWrapped = false
     label.RichText = true
     label.TextStrokeColor3 = Color3.new(0, 0, 0)
-    label.TextStrokeTransparency = 0.10
+    label.TextStrokeTransparency = 0.08
     label.TextXAlignment = Enum.TextXAlignment.Center
     label.TextYAlignment = Enum.TextYAlignment.Center
     label.ZIndex = 1002
@@ -6887,8 +6895,8 @@ local function makeMonitorLabel(parent, name, yScale, color)
     label.Parent = parent
 
     local constraint = Instance.new("UITextSizeConstraint")
-    constraint.MinTextSize = 26
-    constraint.MaxTextSize = 150
+    constraint.MinTextSize = minTextSize
+    constraint.MaxTextSize = maxTextSize
     constraint.Parent = label
 
     return label
@@ -6920,28 +6928,39 @@ local function createMonitorGui()
     panel.Active = false
     panel.Parent = gui
 
+    -- Compact vertical stack:
+    -- Name/Level is intentionally the dominant row.
     Monitor.NameLabel =
         makeMonitorLabel(
             panel,
             "AccountLevel",
-            0.16,
-            Color3.fromRGB(255, 105, 180)
+            0.285,
+            0.19,
+            Color3.fromRGB(255, 105, 180),
+            34,
+            180
         )
 
     Monitor.DiamondLabel =
         makeMonitorLabel(
             panel,
             "Diamonds",
-            0.41,
-            Color3.fromRGB(69, 220, 255)
+            0.455,
+            0.145,
+            Color3.fromRGB(69, 220, 255),
+            26,
+            125
         )
 
     Monitor.TradeLabel =
         makeMonitorLabel(
             panel,
             "TradeStatus",
-            0.66,
-            Color3.fromRGB(190, 190, 190)
+            0.585,
+            0.145,
+            Color3.fromRGB(190, 190, 190),
+            24,
+            115
         )
 
     Monitor.Gui = gui
