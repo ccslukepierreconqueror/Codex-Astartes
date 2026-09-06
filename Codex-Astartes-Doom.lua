@@ -1,5 +1,5 @@
 -- ========================================================================
--- 🎓 CAMPUS 4 CLASS AUTOMATION FRAMEWORK (V71 + COMPACT STACK + LARGER NAME)
+-- 🎓 CAMPUS 4 CLASS AUTOMATION FRAMEWORK (V72 + RESPONSIVE OVERLAY AUTO-SCALE)
 -- Includes: 👗 Auto Outfit | 🍳 Breakfast | 🏀 Basketball | 🔭 Star Gazing | 🧚 Fairy Flight | 💻 Computer | 🏊 Swim Spinner | 🧪 Potionology | 🏹 Archery | 🛒 Shopping | 📚 Homework | 📖 Study Hall | 📝 English | 🤖 API Captcha
 
 -- ========================================================================
@@ -6928,8 +6928,10 @@ local function createMonitorGui()
     panel.Active = false
     panel.Parent = gui
 
-    -- Compact vertical stack:
-    -- Name/Level is intentionally the dominant row.
+    -- Responsive vertical stack:
+    -- TextScaled handles the actual resize. The small MinTextSize values
+    -- allow the text to keep shrinking on very narrow tiled windows instead
+    -- of clipping. Name/Level still remains visually dominant.
     Monitor.NameLabel =
         makeMonitorLabel(
             panel,
@@ -6937,7 +6939,7 @@ local function createMonitorGui()
             0.285,
             0.19,
             Color3.fromRGB(255, 105, 180),
-            34,
+            8,
             180
         )
 
@@ -6948,7 +6950,7 @@ local function createMonitorGui()
             0.455,
             0.145,
             Color3.fromRGB(69, 220, 255),
-            26,
+            8,
             125
         )
 
@@ -6959,12 +6961,34 @@ local function createMonitorGui()
             0.585,
             0.145,
             Color3.fromRGB(190, 190, 190),
-            24,
+            8,
             115
         )
 
     Monitor.Gui = gui
     Monitor.Panel = panel
+
+    -- Roblox TextScaled normally recomputes automatically as AbsoluteSize
+    -- changes. This lightweight viewport hook nudges the three labels after
+    -- external Win32 window resizing so the scale refreshes immediately.
+    local camera = Workspace.CurrentCamera
+    if camera then
+        Runtime.Connect(
+            camera:GetPropertyChangedSignal("ViewportSize"),
+            function()
+                if not Monitor.Panel or not Monitor.Panel.Parent then
+                    return
+                end
+
+                -- Re-assigning the same scale sizes is cheap and forces a
+                -- layout/text-scale refresh on clients/executors that lag
+                -- behind rapid window resizing.
+                Monitor.NameLabel.Size = UDim2.fromScale(0.97, 0.19)
+                Monitor.DiamondLabel.Size = UDim2.fromScale(0.97, 0.145)
+                Monitor.TradeLabel.Size = UDim2.fromScale(0.97, 0.145)
+            end
+        )
+    end
 end
 
 local function setTradeStatus(textValue, kind)
