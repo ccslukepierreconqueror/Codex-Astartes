@@ -1,5 +1,5 @@
 -- ========================================================================
--- 🎓 CAMPUS 4 CLASS AUTOMATION FRAMEWORK (V65 + MASS ACCOUNT + LOW GRAPHICS + SLEEP CONTROLLER)
+-- 🎓 CAMPUS 4 CLASS AUTOMATION FRAMEWORK (V68 + SWIMWEAR VOTING + PINK OVERLAY)
 -- Includes: 👗 Auto Outfit | 🍳 Breakfast | 🏀 Basketball | 🔭 Star Gazing | 🧚 Fairy Flight | 💻 Computer | 🏊 Swim Spinner | 🧪 Potionology | 🏹 Archery | 🛒 Shopping | 📚 Homework | 📖 Study Hall | 📝 English | 🤖 API Captcha
 
 -- ========================================================================
@@ -53,6 +53,8 @@ if _G.AutoEnableAutoOutfit == nil then _G.AutoEnableAutoOutfit = true end
 if _G.AutoEnableStudyHall == nil then _G.AutoEnableStudyHall = true end
 if _G.AutoEnableSwimSpinner == nil then _G.AutoEnableSwimSpinner = true end
 if _G.AutoEnableEnglish == nil then _G.AutoEnableEnglish = true end
+if _G.AutoEnableSwimwearFashionShow == nil then _G.AutoEnableSwimwearFashionShow = true end
+if _G.AutoEnableAccountMonitor == nil then _G.AutoEnableAccountMonitor = true end
 local Config = { Debug = false, -- true = show detailed class diagnostics
     Basketball = { Enabled = _G.AutoEnableBasketball, Power = 37.0, ArcY = 1.5, Timeouts = { Acquisition = 2.0, Equip = 0.80, Teleport = 1.0, PromptReady = 0.75, Result = 2.50 }, Delays = { RequestRetry = 0.15, Cooldown = 0.35, Failure = 0.05, ReturnGrace = 1.50, FaceStabilize = 0.10 }, Tolerances = { Teleport = 1.5, Position = 2.0, FacingMax = 3.0, FacingCorrection = 0.5 }, MultiInstance = { Slots = 24, SlotSpacing = 0.08, GroupSize = 3, ShotGroupDuration = 1.20, LaneSpacing = 2.75, HoldSpacing = 3.5 } }, Potionology = { Enabled = _G.AutoEnablePotionologyClass, ClickDelay = 0.3, ChangeTimeout = 2.50, PollRate = 0.03 }, Archery = { Enabled = _G.AutoEnableArchery, Delays = { ShotCooldown = 0.42, TargetReuse = 0.52, BlockedRetry = 0.20, IdlePoll = 0.025 }, Timeouts = { Result = 1.40 }, Tolerances = { Endpoint = 6.0 } }, Shopping = { Enabled = _G.AutoEnableShopping, ClickDelay = 0.7, UpdateTimeout = 1.20, IdlePoll = 0.05 }, Computer = { Enabled = _G.AutoEnableComputer,
         -- The client sends one character at a time through
@@ -122,6 +124,17 @@ local Config = { Debug = false, -- true = show detailed class diagnostics
         VotingRetryDelay = 0.50,
 
         PollRate = 0.05
+    }, SwimwearFashionShow = {
+        Enabled = _G.AutoEnableSwimwearFashionShow,
+
+        -- Same CostumeContestVotingRemote flow already confirmed for Breakfast.
+        MaxVotes = 3,
+        VoteDelay = 0.70,
+        VoteInitialSlotSpacing = 0.10,
+        VoteReadyTimeout = 4.00,
+        VoteStartDelay = 2.00,
+        VotingRetryDelay = 0.50,
+        PollRate = 0.05
     }, Homework = { Enabled = _G.AutoEnableHomework,
         -- The real minigame is a continuously sliding 4-card queue.
         -- Submit ONE current leftmost direction, wait for Progress to
@@ -161,6 +174,13 @@ local Config = { Debug = false, -- true = show detailed class diagnostics
         DoneCloseTimeout = 1.25,
         DoneWatcherPollRate = 1.25,
         PollRate = 0.10
+    }, AccountMonitor = {
+        Enabled = _G.AutoEnableAccountMonitor,
+        ValueRefreshRate = 1.00,
+        TradeCheckSettle = 0.35,
+        TradeCheckTimeout = 3.00,
+        TradeCheckPollRate = 0.10,
+        MaxProfileTargets = 3
     }, Controller = { FallbackPollRate = 1.00, MouseReleaseTimeout = 0.40, WaitSlice = 0.04 } }
 
 -- ========================================================================
@@ -2992,6 +3012,311 @@ end
 
 ClassController:Register(Breakfast)
 end -- scope: Breakfast
+
+
+-- ========================================================================
+-- 👙 SWIMWEAR FASHION SHOW VOTING MODULE
+-- ========================================================================
+-- Uses the exact same server-side voting action already confirmed for the
+-- Breakfast Fashion Show:
+--
+--     ReplicatedStorage.CostumeContestVotingRemote:FireServer(targetPlayer)
+--
+-- The module only wakes while CurrentClass is Swimwear Fashion Show.
+-- It casts up to three votes on distinct active players, then sleeps until
+-- the class changes.
+-- ========================================================================
+do
+local SwimwearFashionShow = {
+    ClassName = "Swimwear Fashion Show",
+    UseSharedTimer = false,
+    IsOverride = true,
+
+    State = {
+        VotesCast = 0,
+        VotedUserIds = {},
+        VotingFinished = false
+    }
+}
+
+local function swimwearClassMatches()
+    local name = normalizeClassName(getCurrentClassName())
+
+    return string.find(name, "swimwear", 1, true) ~= nil
+        and string.find(name, "fashion", 1, true) ~= nil
+end
+
+local function getSwimwearVotingRemote()
+    local remote =
+        ReplicatedStorage:FindFirstChild("CostumeContestVotingRemote")
+
+    return remote
+        and remote:IsA("RemoteEvent")
+        and remote
+        or nil
+end
+
+local function waitForSwimwearVoting(sessionId)
+    local started = os.clock()
+
+    while os.clock() - started
+        < Config.SwimwearFashionShow.VoteReadyTimeout
+    do
+        if not ClassController:IsSessionActive(
+            sessionId,
+            SwimwearFashionShow
+        ) then
+            return false
+        end
+
+        if getSwimwearVotingRemote() then
+            for _, player in ipairs(Players:GetPlayers()) do
+                if player ~= LocalPlayer then
+                    local character = player.Character
+                    local humanoid =
+                        character
+                        and character:FindFirstChildOfClass("Humanoid")
+
+                    if character
+                        and humanoid
+                        and humanoid.Health > 0
+                    then
+                        return true
+                    end
+                end
+            end
+        end
+
+        task.wait(Config.SwimwearFashionShow.PollRate)
+    end
+
+    return getSwimwearVotingRemote() ~= nil
+end
+
+local function getSwimwearVoteCandidates()
+    local candidates = {}
+
+    for _, player in ipairs(Players:GetPlayers()) do
+        if player ~= LocalPlayer
+            and not SwimwearFashionShow.State.VotedUserIds[player.UserId]
+        then
+            local character = player.Character
+            local humanoid =
+                character
+                and character:FindFirstChildOfClass("Humanoid")
+
+            if character
+                and humanoid
+                and humanoid.Health > 0
+            then
+                table.insert(candidates, player)
+            end
+        end
+    end
+
+    table.sort(candidates, function(a, b)
+        return a.UserId < b.UserId
+    end)
+
+    return candidates
+end
+
+local function chooseSwimwearVoteTarget()
+    local candidates = getSwimwearVoteCandidates()
+    if #candidates == 0 then return nil end
+
+    -- Deterministic distribution across many accounts: each local account
+    -- starts from a different position in the same sorted player list.
+    local userId =
+        math.abs(tonumber(LocalPlayer.UserId) or 0)
+
+    local index =
+        (userId % #candidates) + 1
+
+    return candidates[index]
+end
+
+local function waitSwimwearVoteSlot(sessionId)
+    local maxSlots =
+        math.max(
+            1,
+            tonumber(Config.Breakfast.MaxInitialSlots) or 12
+        )
+
+    local spacing =
+        math.max(
+            0,
+            tonumber(
+                Config.SwimwearFashionShow.VoteInitialSlotSpacing
+            ) or 0.10
+        )
+
+    local slot =
+        math.abs(tonumber(LocalPlayer.UserId) or 0)
+        % maxSlots
+
+    local delay = slot * spacing
+
+    if delay <= 0 then
+        return true
+    end
+
+    return ClassController:Wait(
+        sessionId,
+        SwimwearFashionShow,
+        delay
+    )
+end
+
+local function castSwimwearVotes(sessionId)
+    if SwimwearFashionShow.State.VotingFinished then
+        return true
+    end
+
+    if not waitForSwimwearVoting(sessionId) then
+        Logger.Debug(
+            "👙 [Swimwear] Costume Contest voting remote not ready yet."
+        )
+        return false
+    end
+
+    if SwimwearFashionShow.State.VotesCast == 0 then
+        if not waitSwimwearVoteSlot(sessionId) then
+            return false
+        end
+    end
+
+    local remote = getSwimwearVotingRemote()
+    if not remote then return false end
+
+    while SwimwearFashionShow.State.VotesCast
+        < Config.SwimwearFashionShow.MaxVotes
+    do
+        if not ClassController:IsSessionActive(
+            sessionId,
+            SwimwearFashionShow
+        ) then
+            return false
+        end
+
+        local target = chooseSwimwearVoteTarget()
+
+        if not target then
+            return false
+        end
+
+        local ok, err = pcall(function()
+            remote:FireServer(target)
+        end)
+
+        if ok then
+            SwimwearFashionShow.State.VotedUserIds[target.UserId] = true
+            SwimwearFashionShow.State.VotesCast += 1
+
+            Logger.Debug(
+                "👙 [Swimwear] Vote "
+                .. tostring(SwimwearFashionShow.State.VotesCast)
+                .. "/"
+                .. tostring(Config.SwimwearFashionShow.MaxVotes)
+                .. " -> "
+                .. tostring(target.Name)
+            )
+        else
+            Logger.Warn(
+                "⚠️ [Swimwear] Vote failed for "
+                .. tostring(target.Name)
+                .. ": "
+                .. tostring(err)
+            )
+        end
+
+        if SwimwearFashionShow.State.VotesCast
+            < Config.SwimwearFashionShow.MaxVotes
+        then
+            if not ClassController:Wait(
+                sessionId,
+                SwimwearFashionShow,
+                Config.SwimwearFashionShow.VoteDelay
+            ) then
+                return false
+            end
+        end
+    end
+
+    SwimwearFashionShow.State.VotingFinished = true
+    return true
+end
+
+function SwimwearFashionShow:IsEnabled()
+    return Config.SwimwearFashionShow.Enabled
+end
+
+function SwimwearFashionShow:CheckOverride()
+    return swimwearClassMatches()
+end
+
+function SwimwearFashionShow:CanStart()
+    return swimwearClassMatches()
+end
+
+function SwimwearFashionShow:Run(sessionId)
+    self.State.VotesCast = 0
+    table.clear(self.State.VotedUserIds)
+    self.State.VotingFinished = false
+
+    Logger.Debug(
+        "👙 [Swimwear] Fashion Show voting active."
+    )
+
+    if Config.SwimwearFashionShow.VoteStartDelay > 0 then
+        if not ClassController:Wait(
+            sessionId,
+            self,
+            Config.SwimwearFashionShow.VoteStartDelay
+        ) then
+            return
+        end
+    end
+
+    while ClassController:IsSessionActive(sessionId, self)
+        and not self.State.VotingFinished
+    do
+        castSwimwearVotes(sessionId)
+
+        if self.State.VotingFinished then
+            break
+        end
+
+        if not ClassController:Wait(
+            sessionId,
+            self,
+            Config.SwimwearFashionShow.VotingRetryDelay
+        ) then
+            break
+        end
+    end
+
+    -- Keep the override alive for the remainder of the fashion-show class
+    -- without doing any further voting work.
+    while ClassController:IsSessionActive(sessionId, self) do
+        if not ClassController:Wait(
+            sessionId,
+            self,
+            0.50
+        ) then
+            break
+        end
+    end
+end
+
+function SwimwearFashionShow:Stop()
+    self.State.VotesCast = 0
+    table.clear(self.State.VotedUserIds)
+    self.State.VotingFinished = false
+end
+
+ClassController:Register(SwimwearFashionShow)
+end -- scope: SwimwearFashionShow
 
 
 -- ========================================================================
@@ -6376,6 +6701,690 @@ ClassController:Register(Basketball)
 end -- scope: Basketball
 
 -- ========================================================================
+
+-- ========================================================================
+-- 🖥️ MASS-ACCOUNT ACCOUNT OVERLAY
+-- ========================================================================
+-- V67 uses the exact Royale High HUD paths supplied by the user:
+--
+-- Level:
+--   PlayerGui.HUD.Frame.XPStuff.Level
+--
+-- Diamonds:
+--   PlayerGui.HUD.Frame.Middle.DiamondsFrame.DiamondAmount
+--
+-- This removes the V66 level/diamond GUI discovery scans completely.
+-- Both labels are read directly and their Text changes wake the overlay.
+do
+local Monitor = {
+    Gui = nil,
+    NameLabel = nil,
+    DiamondLabel = nil,
+    TradeLabel = nil,
+    LevelLabel = nil,
+    DiamondAmountLabel = nil,
+    LastLevel = nil,
+    TradeCheckedForLevel75 = false,
+    TradeChecking = false,
+    TradeStatus = "Loading...",
+    TradeStatusKind = "unknown"
+}
+
+local PROFILE_SHOW =
+    ReplicatedStorage:FindFirstChild("Profile")
+    and ReplicatedStorage.Profile:FindFirstChild("Show")
+
+local function monitorNormalize(value)
+    value = string.lower(tostring(value or ""))
+    value = string.gsub(value, "%s+", " ")
+    value = string.gsub(value, "^%s+", "")
+    value = string.gsub(value, "%s+$", "")
+    return value
+end
+
+local function formatWholeNumber(value)
+    local number = math.floor(tonumber(value) or 0)
+    local sign = number < 0 and "-" or ""
+    local digits = tostring(math.abs(number))
+
+    while true do
+        local updated, count = string.gsub(
+            digits,
+            "^(-?%d+)(%d%d%d)",
+            "%1,%2"
+        )
+        digits = updated
+        if count == 0 then break end
+    end
+
+    return sign .. digits
+end
+
+local function parseLooseNumber(value)
+    local textValue = tostring(value or "")
+    local compact = string.gsub(textValue, ",", "")
+    compact = string.gsub(compact, "%s", "")
+    local number = string.match(compact, "%-?%d+%.?%d*")
+    return tonumber(number)
+end
+
+local function parseLevelText(value)
+    local textValue = string.lower(tostring(value or ""))
+    textValue = string.gsub(textValue, ",", "")
+
+    return tonumber(
+        string.match(textValue, "level%s*[:%-]?%s*(%d+)")
+        or string.match(textValue, "lvl%s*[:%-]?%s*(%d+)")
+        or string.match(textValue, "lv%.?%s*[:%-]?%s*(%d+)")
+        or string.match(textValue, "(%d+)")
+    )
+end
+
+local function parseDiamondText(value)
+    local textValue = tostring(value or "")
+    local compact = string.gsub(textValue, ",", "")
+
+    return tonumber(
+        string.match(compact, "%$%s*(%d+)")
+        or string.match(string.lower(compact), "(%d+)%s*diamonds?")
+        or string.match(compact, "(%d+)")
+    )
+end
+
+local function resolveMonitorHudLabels()
+    local hud = PlayerGui:FindFirstChild("HUD")
+        or PlayerGui:WaitForChild("HUD", 10)
+
+    if not hud then
+        return false
+    end
+
+    local frame = hud:FindFirstChild("Frame")
+    if not frame then
+        return false
+    end
+
+    local xpStuff = frame:FindFirstChild("XPStuff")
+    local levelLabel = xpStuff and xpStuff:FindFirstChild("Level")
+
+    local middle = frame:FindFirstChild("Middle")
+    local diamondsFrame =
+        middle and middle:FindFirstChild("DiamondsFrame")
+    local diamondAmountLabel =
+        diamondsFrame and diamondsFrame:FindFirstChild("DiamondAmount")
+
+    if levelLabel then
+        Monitor.LevelLabel = levelLabel
+    end
+
+    if diamondAmountLabel then
+        Monitor.DiamondAmountLabel = diamondAmountLabel
+    end
+
+    return Monitor.LevelLabel ~= nil
+        and Monitor.DiamondAmountLabel ~= nil
+end
+
+local function readLevel()
+    local label = Monitor.LevelLabel
+
+    if not label or not label.Parent then
+        resolveMonitorHudLabels()
+        label = Monitor.LevelLabel
+    end
+
+    if not label then return nil end
+
+    local ok, value = pcall(function()
+        return label.Text
+    end)
+
+    if not ok then return nil end
+    local level = parseLevelText(value)
+    return level and math.max(0, math.floor(level)) or nil
+end
+
+local function readDiamonds()
+    local label = Monitor.DiamondAmountLabel
+
+    if not label or not label.Parent then
+        resolveMonitorHudLabels()
+        label = Monitor.DiamondAmountLabel
+    end
+
+    if not label then return nil end
+
+    local ok, value = pcall(function()
+        return label.Text
+    end)
+
+    if not ok then return nil end
+    local diamonds = parseDiamondText(value)
+    return diamonds and math.max(0, math.floor(diamonds)) or nil
+end
+
+local function makeMonitorLabel(parent, name, yScale, color)
+    local label = Instance.new("TextLabel")
+    label.Name = name
+    label.BackgroundTransparency = 1
+    label.BorderSizePixel = 0
+    label.Position = UDim2.fromScale(0.03, yScale)
+    label.Size = UDim2.fromScale(0.94, 0.14)
+    label.Font = Enum.Font.GothamBold
+    label.Text = ""
+    label.TextColor3 = color
+    label.TextScaled = true
+    label.TextWrapped = false
+    label.TextStrokeColor3 = Color3.new(0, 0, 0)
+    label.TextStrokeTransparency = 0.18
+    label.TextXAlignment = Enum.TextXAlignment.Center
+    label.TextYAlignment = Enum.TextYAlignment.Center
+    label.ZIndex = 1002
+    label.Active = false
+    label.Selectable = false
+    label.Parent = parent
+
+    local constraint = Instance.new("UITextSizeConstraint")
+    constraint.MinTextSize = 12
+    constraint.MaxTextSize = 68
+    constraint.Parent = label
+
+    return label
+end
+
+local function createMonitorGui()
+    local old = PlayerGui:FindFirstChild("Campus4AccountMonitor")
+    if old then
+        pcall(function() old:Destroy() end)
+    end
+
+    local gui = Instance.new("ScreenGui")
+    gui.Name = "Campus4AccountMonitor"
+    gui.ResetOnSpawn = false
+    gui.IgnoreGuiInset = true
+    gui.DisplayOrder = 1000000
+    gui.ZIndexBehavior = Enum.ZIndexBehavior.Sibling
+    gui.Parent = PlayerGui
+
+    Monitor.NameLabel =
+        makeMonitorLabel(gui, "AccountLevel", 0.31, Color3.fromRGB(255, 105, 180))
+
+    Monitor.DiamondLabel =
+        makeMonitorLabel(gui, "Diamonds", 0.49, Color3.fromRGB(69, 220, 255))
+
+    Monitor.TradeLabel =
+        makeMonitorLabel(gui, "TradeStatus", 0.67, Color3.fromRGB(190, 190, 190))
+
+    Monitor.Gui = gui
+end
+
+local function setTradeStatus(textValue, kind)
+    Monitor.TradeStatus = tostring(textValue or "Unknown")
+    Monitor.TradeStatusKind = kind or "unknown"
+
+    if not Monitor.TradeLabel or not Monitor.TradeLabel.Parent then
+        return
+    end
+
+    Monitor.TradeLabel.Text = "Trade Status: " .. Monitor.TradeStatus
+
+    if kind == "available" then
+        Monitor.TradeLabel.TextColor3 = Color3.fromRGB(127, 255, 108)
+    elseif kind == "locked" then
+        Monitor.TradeLabel.TextColor3 = Color3.fromRGB(255, 105, 105)
+    elseif kind == "underlevel" then
+        Monitor.TradeLabel.TextColor3 = Color3.fromRGB(195, 195, 195)
+    elseif kind == "checking" then
+        Monitor.TradeLabel.TextColor3 = Color3.fromRGB(255, 205, 88)
+    else
+        Monitor.TradeLabel.TextColor3 = Color3.fromRGB(195, 195, 195)
+    end
+end
+
+local function profileGuiVisible(object)
+    if not object or not object:IsA("GuiObject") then return false end
+
+    local ok, visible = pcall(function()
+        return object.Visible
+            and object.AbsoluteSize.X > 0
+            and object.AbsoluteSize.Y > 0
+    end)
+
+    if not ok or not visible then return false end
+
+    local current = object.Parent
+    while current and current ~= PlayerGui do
+        if current:IsA("GuiObject") and current.Visible == false then
+            return false
+        end
+
+        if current:IsA("LayerCollector") and current.Enabled == false then
+            return false
+        end
+
+        current = current.Parent
+    end
+
+    return true
+end
+
+local function profileVisibleText(object)
+    local pieces = {}
+
+    if object:IsA("TextLabel")
+        or object:IsA("TextButton")
+        or object:IsA("TextBox")
+    then
+        local value = tostring(object.Text or "")
+        if value ~= "" then table.insert(pieces, value) end
+    end
+
+    for _, child in ipairs(object:GetDescendants()) do
+        if (
+            child:IsA("TextLabel")
+            or child:IsA("TextButton")
+            or child:IsA("TextBox")
+        ) and profileGuiVisible(child)
+        then
+            local value = tostring(child.Text or "")
+            if value ~= "" then table.insert(pieces, value) end
+        end
+    end
+
+    return table.concat(pieces, " ")
+end
+
+local function profileHasToken(object)
+    local current = object
+
+    while current and current ~= PlayerGui do
+        local name = monitorNormalize(current.Name)
+
+        if string.find(name, "profile", 1, true)
+            or string.find(name, "diary", 1, true)
+            or string.find(name, "journal", 1, true)
+        then
+            return true
+        end
+
+        current = current.Parent
+    end
+
+    return false
+end
+
+local function profileMentionsTarget(object, target)
+    local haystack = monitorNormalize(profileVisibleText(object))
+    local username = monitorNormalize(target and target.Name)
+    local displayName = monitorNormalize(target and target.DisplayName)
+
+    return (
+        username ~= ""
+        and string.find(haystack, username, 1, true) ~= nil
+    ) or (
+        displayName ~= ""
+        and string.find(haystack, displayName, 1, true) ~= nil
+    )
+end
+
+local function findVisibleProfileTradeControl(target)
+    local profileLoaded = false
+    local bestProfileObject = nil
+
+    for _, object in ipairs(PlayerGui:GetDescendants()) do
+        if object:IsA("GuiObject")
+            and profileGuiVisible(object)
+            and profileHasToken(object)
+            and profileMentionsTarget(object, target)
+        then
+            profileLoaded = true
+            bestProfileObject = object
+            break
+        end
+    end
+
+    if not profileLoaded then
+        return nil, false, "profile_not_confidently_loaded", nil
+    end
+
+    local searchRoot = bestProfileObject
+    local cursor = bestProfileObject
+
+    while cursor and cursor ~= PlayerGui do
+        local name = monitorNormalize(cursor.Name)
+
+        if string.find(name, "profile", 1, true)
+            or string.find(name, "diary", 1, true)
+            or string.find(name, "journal", 1, true)
+        then
+            searchRoot = cursor
+        end
+
+        cursor = cursor.Parent
+    end
+
+    local function inspect(object)
+        if not object:IsA("GuiObject") or not profileGuiVisible(object) then
+            return nil
+        end
+
+        local name = monitorNormalize(object.Name)
+        local textValue = monitorNormalize(
+            (object:IsA("TextLabel")
+                or object:IsA("TextButton")
+                or object:IsA("TextBox"))
+            and object.Text
+            or ""
+        )
+        local fullName = monitorNormalize(object:GetFullName())
+
+        local mentionsTrade =
+            string.find(name, "trade", 1, true)
+            or string.find(textValue, "trade", 1, true)
+            or string.find(fullName, "trade", 1, true)
+
+        if not mentionsTrade then return nil end
+
+        local clickable =
+            object:IsA("GuiButton")
+            and object
+            or object:FindFirstAncestorWhichIsA("GuiButton")
+
+        if clickable then return clickable end
+
+        if name == "trade"
+            or string.find(name, "tradebutton", 1, true)
+            or string.find(name, "tradeicon", 1, true)
+        then
+            return object
+        end
+
+        return nil
+    end
+
+    local direct = inspect(searchRoot)
+    if direct then
+        return direct, true, direct:GetFullName(), searchRoot
+    end
+
+    for _, object in ipairs(searchRoot:GetDescendants()) do
+        local control = inspect(object)
+        if control then
+            return control, true, control:GetFullName(), searchRoot
+        end
+    end
+
+    return nil, true, "profile_loaded_but_trade_control_missing", searchRoot
+end
+
+local function closeProfileRoot(root)
+    if not root or not root.Parent then return end
+
+    local best = nil
+
+    for _, object in ipairs(root:GetDescendants()) do
+        if object:IsA("GuiButton") and profileGuiVisible(object) then
+            local name = monitorNormalize(object.Name)
+            local textValue = monitorNormalize(
+                (object:IsA("TextButton") and object.Text) or ""
+            )
+
+            if name == "close"
+                or string.find(name, "closebutton", 1, true)
+                or textValue == "close"
+                or textValue == "x"
+                or textValue == "×"
+            then
+                best = object
+                break
+            end
+        end
+    end
+
+    if best then
+        local fired = Utils.fireClick(best)
+        if not fired then Utils.clickGuiObject(best) end
+    end
+end
+
+local function getProfileTargets()
+    local targets = {}
+
+    for _, player in ipairs(Players:GetPlayers()) do
+        if player ~= LocalPlayer then
+            table.insert(targets, player)
+
+            if #targets >= math.max(
+                1,
+                tonumber(Config.AccountMonitor.MaxProfileTargets) or 3
+            ) then
+                break
+            end
+        end
+    end
+
+    return targets
+end
+
+local function checkTradeIconStatus()
+    if Monitor.TradeChecking then return end
+    if not PROFILE_SHOW or not PROFILE_SHOW:IsA("RemoteEvent") then
+        setTradeStatus("Unknown (Profile remote unavailable)", "unknown")
+        return
+    end
+
+    Monitor.TradeChecking = true
+    setTradeStatus("Checking...", "checking")
+
+    Runtime.Spawn(function()
+        -- Avoid opening a profile over an active class/captcha. The overlay can
+        -- still update level/diamonds while this waits.
+        while ClassController.ActiveModule
+            or _G.Campus4Runtime.CaptchaActive
+        do
+            task.wait(0.50)
+        end
+
+        local targets = getProfileTargets()
+
+        if #targets == 0 then
+            setTradeStatus("Waiting for another player", "unknown")
+            Monitor.TradeChecking = false
+            Monitor.TradeCheckedForLevel75 = false
+            return
+        end
+
+        local sawProfile = false
+        local sawMissingTradeControl = false
+
+        for _, target in ipairs(targets) do
+            if target.Parent ~= Players then continue end
+
+            local opened = pcall(function()
+                PROFILE_SHOW:FireServer(target, "Preview")
+            end)
+
+            if not opened then continue end
+
+            task.wait(Config.AccountMonitor.TradeCheckSettle)
+
+            local started = os.clock()
+            local profileRoot = nil
+
+            while os.clock() - started
+                < Config.AccountMonitor.TradeCheckTimeout
+            do
+                local control, loaded, _, root =
+                    findVisibleProfileTradeControl(target)
+
+                if loaded then
+                    sawProfile = true
+                    profileRoot = root
+                end
+
+                if control then
+                    closeProfileRoot(root)
+                    setTradeStatus("Available", "available")
+                    Monitor.TradeCheckedForLevel75 = true
+                    Monitor.TradeChecking = false
+                    return
+                end
+
+                task.wait(Config.AccountMonitor.TradeCheckPollRate)
+            end
+
+            if profileRoot then
+                sawMissingTradeControl = true
+                closeProfileRoot(profileRoot)
+            end
+
+            task.wait(0.10)
+        end
+
+        if sawProfile and sawMissingTradeControl then
+            -- Same semantics as AutoTrade's profile preflight:
+            -- useful UI signal, but NOT an authoritative server ban verdict.
+            setTradeStatus("No Trade Icon", "locked")
+            Monitor.TradeCheckedForLevel75 = true
+        else
+            setTradeStatus("Unknown (Profile UI)", "unknown")
+            Monitor.TradeCheckedForLevel75 = false
+        end
+
+        Monitor.TradeChecking = false
+    end)
+end
+
+
+local monitorHudConnections = {}
+
+local function disconnectMonitorHudConnections()
+    for i = 1, #monitorHudConnections do
+        Runtime.Disconnect(monitorHudConnections[i])
+    end
+    table.clear(monitorHudConnections)
+end
+
+local function updateMonitorValues()
+    if not Monitor.Gui or not Monitor.Gui.Parent then
+        createMonitorGui()
+    end
+
+    local level = readLevel()
+    local diamonds = readDiamonds()
+
+    Monitor.NameLabel.Text =
+        tostring(LocalPlayer.Name)
+        .. " | "
+        .. (
+            level ~= nil
+            and ("Lv" .. formatWholeNumber(level))
+            or "Lv?"
+        )
+
+    Monitor.DiamondLabel.Text =
+        diamonds ~= nil
+        and ("$ " .. formatWholeNumber(diamonds))
+        or "$ ?"
+
+    if level == nil then
+        setTradeStatus("Waiting for level", "unknown")
+        Monitor.TradeCheckedForLevel75 = false
+    elseif level < 75 then
+        setTradeStatus("< Level 75", "underlevel")
+        Monitor.TradeCheckedForLevel75 = false
+    else
+        if Monitor.LastLevel and Monitor.LastLevel < 75 then
+            Monitor.TradeCheckedForLevel75 = false
+        end
+
+        if not Monitor.TradeCheckedForLevel75
+            and not Monitor.TradeChecking
+        then
+            checkTradeIconStatus()
+        end
+    end
+
+    Monitor.LastLevel = level
+end
+
+local function bindMonitorHudEvents()
+    disconnectMonitorHudConnections()
+
+    if not resolveMonitorHudLabels() then
+        return false
+    end
+
+    table.insert(
+        monitorHudConnections,
+        Runtime.Connect(
+            Monitor.LevelLabel:GetPropertyChangedSignal("Text"),
+            updateMonitorValues
+        )
+    )
+
+    table.insert(
+        monitorHudConnections,
+        Runtime.Connect(
+            Monitor.DiamondAmountLabel:GetPropertyChangedSignal("Text"),
+            updateMonitorValues
+        )
+    )
+
+    return true
+end
+
+if Config.AccountMonitor.Enabled then
+    createMonitorGui()
+    setTradeStatus("Loading...", "unknown")
+
+    bindMonitorHudEvents()
+    updateMonitorValues()
+
+    -- If HUD gets rebuilt after respawn/teleport, re-bind the exact paths.
+    Runtime.Connect(PlayerGui.ChildAdded, function(child)
+        if child.Name == "HUD" then
+            task.defer(function()
+                task.wait(0.25)
+                bindMonitorHudEvents()
+                updateMonitorValues()
+            end)
+        end
+    end)
+
+    Runtime.Connect(Players.PlayerAdded, function()
+        if (Monitor.LastLevel or 0) >= 75
+            and not Monitor.TradeCheckedForLevel75
+        then
+            task.defer(checkTradeIconStatus)
+        end
+    end)
+
+    -- Very light safety fallback only; direct Text-change events are primary.
+    Runtime.Spawn(function()
+        while true do
+            if not Monitor.LevelLabel
+                or not Monitor.LevelLabel.Parent
+                or not Monitor.DiamondAmountLabel
+                or not Monitor.DiamondAmountLabel.Parent
+            then
+                bindMonitorHudEvents()
+            end
+
+            updateMonitorValues()
+            task.wait(
+                math.max(
+                    0.5,
+                    tonumber(Config.AccountMonitor.ValueRefreshRate) or 1.0
+                )
+            )
+        end
+    end)
+end
+end -- scope: AccountMonitor
+
+-- ========================================================================
+
 -- CONTROLLER EVENT UPDATE & WATCHERS
 -- ========================================================================
 local updateQueued = false
