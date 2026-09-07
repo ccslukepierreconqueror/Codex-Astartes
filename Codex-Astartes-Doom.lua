@@ -1,5 +1,5 @@
 -- ========================================================================
--- 🎓 CAMPUS 4 CLASS AUTOMATION FRAMEWORK (V72 + RESPONSIVE OVERLAY AUTO-SCALE)
+-- 🎓 CAMPUS 4 CLASS AUTOMATION FRAMEWORK (V74 + DIRECT PROFILE LEVEL + 5 PLAYER GATE)
 -- Includes: 👗 Auto Outfit | 🍳 Breakfast | 🏀 Basketball | 🔭 Star Gazing | 🧚 Fairy Flight | 💻 Computer | 🏊 Swim Spinner | 🧪 Potionology | 🏹 Archery | 🛒 Shopping | 📚 Homework | 📖 Study Hall | 📝 English | 🤖 API Captcha
 
 -- ========================================================================
@@ -180,7 +180,15 @@ local Config = { Debug = false, -- true = show detailed class diagnostics
         TradeCheckSettle = 0.35,
         TradeCheckTimeout = 3.00,
         TradeCheckPollRate = 0.10,
-        MaxProfileTargets = 3
+
+        -- Trade-profile checks only run in servers with MORE than 4 players.
+        -- This means at least 5 total players including the local account.
+        MinPlayersForTradeCheck = 5,
+
+        -- Only a target whose direct ProfilePreview.Level confirms Lv75+
+        -- can be used to judge whether ProfilePreview.Trade is missing.
+        MaxProfileTargets = 6,
+        TradeRetryDelay = 30.00
     }, Controller = { FallbackPollRate = 1.00, MouseReleaseTimeout = 0.40, WaitSlice = 0.04 } }
 
 -- ========================================================================
@@ -6727,6 +6735,8 @@ local Monitor = {
     LastLevel = nil,
     TradeCheckedForLevel75 = false,
     TradeChecking = false,
+    NextTradeCheckAt = 0,
+    LastTradeTargetLevel = nil,
     TradeStatus = "Loading...",
     TradeStatusKind = "unknown"
 }
@@ -7100,102 +7110,57 @@ local function profileMentionsTarget(object, target)
     )
 end
 
-local function findVisibleProfileTradeControl(target)
-    local profileLoaded = false
-    local bestProfileObject = nil
+local function getDirectProfilePreview()
+    local profileGui = PlayerGui:FindFirstChild("ProfilePreviewGui")
+    local profilePreview =
+        profileGui and profileGui:FindFirstChild("ProfilePreview")
 
-    for _, object in ipairs(PlayerGui:GetDescendants()) do
-        if object:IsA("GuiObject")
-            and profileGuiVisible(object)
-            and profileHasToken(object)
-            and profileMentionsTarget(object, target)
-        then
-            profileLoaded = true
-            bestProfileObject = object
-            break
-        end
+    return profilePreview
+end
+
+local function getDirectProfileObjects()
+    local profilePreview = getDirectProfilePreview()
+
+    if not profilePreview then
+        return nil, nil, nil
     end
 
-    if not profileLoaded then
-        return nil, false, "profile_not_confidently_loaded", nil
-    end
+    local tradeBtn = profilePreview:FindFirstChild("Trade")
+    local lvlLabel = profilePreview:FindFirstChild("Level")
 
-    local searchRoot = bestProfileObject
-    local cursor = bestProfileObject
+    return profilePreview, tradeBtn, lvlLabel
+end
 
-    while cursor and cursor ~= PlayerGui do
-        local name = monitorNormalize(cursor.Name)
-
-        if string.find(name, "profile", 1, true)
-            or string.find(name, "diary", 1, true)
-            or string.find(name, "journal", 1, true)
-        then
-            searchRoot = cursor
-        end
-
-        cursor = cursor.Parent
-    end
-
-    local function inspect(object)
-        if not object:IsA("GuiObject") or not profileGuiVisible(object) then
-            return nil
-        end
-
-        local name = monitorNormalize(object.Name)
-        local textValue = monitorNormalize(
-            (object:IsA("TextLabel")
-                or object:IsA("TextButton")
-                or object:IsA("TextBox"))
-            and object.Text
-            or ""
-        )
-        local fullName = monitorNormalize(object:GetFullName())
-
-        local mentionsTrade =
-            string.find(name, "trade", 1, true)
-            or string.find(textValue, "trade", 1, true)
-            or string.find(fullName, "trade", 1, true)
-
-        if not mentionsTrade then return nil end
-
-        local clickable =
-            object:IsA("GuiButton")
-            and object
-            or object:FindFirstAncestorWhichIsA("GuiButton")
-
-        if clickable then return clickable end
-
-        if name == "trade"
-            or string.find(name, "tradebutton", 1, true)
-            or string.find(name, "tradeicon", 1, true)
-        then
-            return object
-        end
-
+local function readDirectProfileLevel(lvlLabel)
+    if not lvlLabel then
         return nil
     end
 
-    local direct = inspect(searchRoot)
-    if direct then
-        return direct, true, direct:GetFullName(), searchRoot
+    local ok, rawText = pcall(function()
+        return lvlLabel.Text
+    end)
+
+    if not ok then
+        return nil
     end
 
-    for _, object in ipairs(searchRoot:GetDescendants()) do
-        local control = inspect(object)
-        if control then
-            return control, true, control:GetFullName(), searchRoot
-        end
+    local value = parseLooseNumber(rawText)
+
+    if value == nil then
+        return nil
     end
 
-    return nil, true, "profile_loaded_but_trade_control_missing", searchRoot
+    return math.max(0, math.floor(value))
 end
 
-local function closeProfileRoot(root)
-    if not root or not root.Parent then return end
+local function closeDirectProfile(profilePreview)
+    if not profilePreview or not profilePreview.Parent then
+        return
+    end
 
     local best = nil
 
-    for _, object in ipairs(root:GetDescendants()) do
+    for _, object in ipairs(profilePreview:GetDescendants()) do
         if object:IsA("GuiButton") and profileGuiVisible(object) then
             local name = monitorNormalize(object.Name)
             local textValue = monitorNormalize(
@@ -7216,7 +7181,9 @@ local function closeProfileRoot(root)
 
     if best then
         local fired = Utils.fireClick(best)
-        if not fired then Utils.clickGuiObject(best) end
+        if not fired then
+            Utils.clickGuiObject(best)
+        end
     end
 end
 
@@ -7226,102 +7193,242 @@ local function getProfileTargets()
     for _, player in ipairs(Players:GetPlayers()) do
         if player ~= LocalPlayer then
             table.insert(targets, player)
-
-            if #targets >= math.max(
-                1,
-                tonumber(Config.AccountMonitor.MaxProfileTargets) or 3
-            ) then
-                break
-            end
         end
     end
+
+    table.sort(targets, function(a, b)
+        return a.UserId < b.UserId
+    end)
 
     return targets
 end
 
+local function enoughPlayersForTradeCheck()
+    return #Players:GetPlayers()
+        >= math.max(
+            5,
+            tonumber(Config.AccountMonitor.MinPlayersForTradeCheck) or 5
+        )
+end
+
+local function setWaitingForPlayerCount()
+    setTradeStatus("Waiting for 5+ Players", "unknown")
+    Monitor.TradeCheckedForLevel75 = false
+
+    -- Do not retry from the 1-second overlay refresh while the server is
+    -- too small. PlayerAdded wakes it immediately once the server reaches 5.
+    Monitor.NextTradeCheckAt = math.huge
+end
+
 local function checkTradeIconStatus()
-    if Monitor.TradeChecking then return end
+    if Monitor.TradeChecking then
+        return
+    end
+
+    if not enoughPlayersForTradeCheck() then
+        setWaitingForPlayerCount()
+        return
+    end
+
+    if os.clock() < (Monitor.NextTradeCheckAt or 0) then
+        return
+    end
+
     if not PROFILE_SHOW or not PROFILE_SHOW:IsA("RemoteEvent") then
         setTradeStatus("Unknown (Profile remote unavailable)", "unknown")
+        Monitor.NextTradeCheckAt =
+            os.clock() + Config.AccountMonitor.TradeRetryDelay
         return
     end
 
     Monitor.TradeChecking = true
-    setTradeStatus("Checking...", "checking")
+    setTradeStatus("Checking Lv75+ Player...", "checking")
 
     Runtime.Spawn(function()
-        -- Avoid opening a profile over an active class/captcha. The overlay can
-        -- still update level/diamonds while this waits.
+        -- Avoid opening a profile over an active class/captcha.
         while ClassController.ActiveModule
             or _G.Campus4Runtime.CaptchaActive
         do
+            if not enoughPlayersForTradeCheck() then
+                setWaitingForPlayerCount()
+                Monitor.TradeChecking = false
+                return
+            end
+
             task.wait(0.50)
+        end
+
+        if not enoughPlayersForTradeCheck() then
+            setWaitingForPlayerCount()
+            Monitor.TradeChecking = false
+            return
         end
 
         local targets = getProfileTargets()
 
-        if #targets == 0 then
-            setTradeStatus("Waiting for another player", "unknown")
-            Monitor.TradeChecking = false
-            Monitor.TradeCheckedForLevel75 = false
-            return
-        end
+        local maxProfiles =
+            math.max(
+                1,
+                tonumber(Config.AccountMonitor.MaxProfileTargets) or 6
+            )
 
-        local sawProfile = false
-        local sawMissingTradeControl = false
+        local profilesOpened = 0
+        local eligibleProfilesSeen = 0
+        local eligibleMissingTrade = false
 
         for _, target in ipairs(targets) do
-            if target.Parent ~= Players then continue end
+            if profilesOpened >= maxProfiles then
+                break
+            end
+
+            if not enoughPlayersForTradeCheck() then
+                setWaitingForPlayerCount()
+                Monitor.TradeChecking = false
+                return
+            end
+
+            if not target or target.Parent ~= Players then
+                continue
+            end
+
+            -- Close any leftover preview first so the next visible preview is
+            -- associated with the target we are about to request.
+            local stalePreview = getDirectProfilePreview()
+
+            if stalePreview and profileGuiVisible(stalePreview) then
+                closeDirectProfile(stalePreview)
+                task.wait(0.10)
+            end
 
             local opened = pcall(function()
                 PROFILE_SHOW:FireServer(target, "Preview")
             end)
 
-            if not opened then continue end
+            if not opened then
+                continue
+            end
 
-            task.wait(Config.AccountMonitor.TradeCheckSettle)
+            profilesOpened += 1
 
             local started = os.clock()
-            local profileRoot = nil
+            local profilePreview = nil
+            local tradeBtn = nil
+            local lvlLabel = nil
+            local confirmedTargetLevel = nil
 
+            -- Exact target-level read:
+            -- PlayerGui.ProfilePreviewGui.ProfilePreview.Level
+            --
+            -- Until that exact Level label is present and parseable, this
+            -- player cannot be used as evidence for a missing Trade icon.
             while os.clock() - started
                 < Config.AccountMonitor.TradeCheckTimeout
             do
-                local control, loaded, _, root =
-                    findVisibleProfileTradeControl(target)
+                profilePreview, tradeBtn, lvlLabel =
+                    getDirectProfileObjects()
 
-                if loaded then
-                    sawProfile = true
-                    profileRoot = root
+                if profilePreview
+                    and profileGuiVisible(profilePreview)
+                    and lvlLabel
+                then
+                    confirmedTargetLevel =
+                        readDirectProfileLevel(lvlLabel)
+
+                    if confirmedTargetLevel ~= nil then
+                        break
+                    end
                 end
 
-                if control then
-                    closeProfileRoot(root)
+                task.wait(Config.AccountMonitor.TradeCheckPollRate)
+            end
+
+            if confirmedTargetLevel == nil then
+                if profilePreview then
+                    closeDirectProfile(profilePreview)
+                end
+
+                task.wait(0.10)
+                continue
+            end
+
+            Monitor.LastTradeTargetLevel = confirmedTargetLevel
+
+            -- Direct ProfilePreview.Level confirms this target is under 75:
+            -- skip it. Missing ProfilePreview.Trade on this player means
+            -- absolutely nothing for our local account.
+            if confirmedTargetLevel < 75 then
+                closeDirectProfile(profilePreview)
+                task.wait(0.10)
+                continue
+            end
+
+            eligibleProfilesSeen += 1
+
+            -- Only NOW, after the exact target Level says 75+, is the exact
+            -- ProfilePreview.Trade child allowed to affect the result.
+            tradeBtn = profilePreview:FindFirstChild("Trade")
+
+            if tradeBtn then
+                closeDirectProfile(profilePreview)
+                setTradeStatus("Available", "available")
+                Monitor.TradeCheckedForLevel75 = true
+                Monitor.TradeChecking = false
+                Monitor.NextTradeCheckAt = math.huge
+                return
+            end
+
+            -- The profile level can appear before the Trade object finishes
+            -- loading, so allow the remainder of the normal timeout.
+            while os.clock() - started
+                < Config.AccountMonitor.TradeCheckTimeout
+            do
+                if not enoughPlayersForTradeCheck() then
+                    closeDirectProfile(profilePreview)
+                    setWaitingForPlayerCount()
+                    Monitor.TradeChecking = false
+                    return
+                end
+
+                local currentPreview = getDirectProfilePreview()
+
+                if not currentPreview
+                    or not profileGuiVisible(currentPreview)
+                then
+                    break
+                end
+
+                tradeBtn = currentPreview:FindFirstChild("Trade")
+
+                if tradeBtn then
+                    closeDirectProfile(currentPreview)
                     setTradeStatus("Available", "available")
                     Monitor.TradeCheckedForLevel75 = true
                     Monitor.TradeChecking = false
+                    Monitor.NextTradeCheckAt = math.huge
                     return
                 end
 
                 task.wait(Config.AccountMonitor.TradeCheckPollRate)
             end
 
-            if profileRoot then
-                sawMissingTradeControl = true
-                closeProfileRoot(profileRoot)
-            end
-
+            -- Safe missing-icon evidence:
+            -- this profile's EXACT Level child was confirmed >=75 above.
+            eligibleMissingTrade = true
+            closeDirectProfile(profilePreview)
             task.wait(0.10)
         end
 
-        if sawProfile and sawMissingTradeControl then
-            -- Same semantics as AutoTrade's profile preflight:
-            -- useful UI signal, but NOT an authoritative server ban verdict.
+        if eligibleProfilesSeen > 0 and eligibleMissingTrade then
             setTradeStatus("No Trade Icon", "locked")
             Monitor.TradeCheckedForLevel75 = true
+            Monitor.NextTradeCheckAt = math.huge
         else
-            setTradeStatus("Unknown (Profile UI)", "unknown")
+            -- Server has enough players, but none of the inspected profiles
+            -- had a confirmed direct Level >=75.
+            setTradeStatus("Waiting for Lv75+ Player", "unknown")
             Monitor.TradeCheckedForLevel75 = false
+            Monitor.NextTradeCheckAt =
+                os.clock() + Config.AccountMonitor.TradeRetryDelay
         end
 
         Monitor.TradeChecking = false
@@ -7371,10 +7478,16 @@ local function updateMonitorValues()
     else
         if Monitor.LastLevel and Monitor.LastLevel < 75 then
             Monitor.TradeCheckedForLevel75 = false
+            Monitor.NextTradeCheckAt = 0
         end
 
-        if not Monitor.TradeCheckedForLevel75
+        if not enoughPlayersForTradeCheck() then
+            if not Monitor.TradeCheckedForLevel75 then
+                setWaitingForPlayerCount()
+            end
+        elseif not Monitor.TradeCheckedForLevel75
             and not Monitor.TradeChecking
+            and os.clock() >= (Monitor.NextTradeCheckAt or 0)
         then
             checkTradeIconStatus()
         end
@@ -7430,8 +7543,33 @@ if Config.AccountMonitor.Enabled then
     Runtime.Connect(Players.PlayerAdded, function()
         if (Monitor.LastLevel or 0) >= 75
             and not Monitor.TradeCheckedForLevel75
+            and enoughPlayersForTradeCheck()
         then
+            -- A new player may be the first one that brings the server to
+            -- 5 total players, or may be a new eligible Lv75+ target.
+            Monitor.NextTradeCheckAt = 0
             task.defer(checkTradeIconStatus)
+        end
+    end)
+
+    Runtime.Connect(Players.PlayerRemoving, function()
+        if (Monitor.LastLevel or 0) < 75
+            or Monitor.TradeCheckedForLevel75
+        then
+            return
+        end
+
+        -- PlayerRemoving fires before the player disappears from GetPlayers,
+        -- so predict the count after removal.
+        local countAfterRemoval = #Players:GetPlayers() - 1
+        local required =
+            math.max(
+                5,
+                tonumber(Config.AccountMonitor.MinPlayersForTradeCheck) or 5
+            )
+
+        if countAfterRemoval < required then
+            setWaitingForPlayerCount()
         end
     end)
 
