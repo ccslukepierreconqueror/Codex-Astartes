@@ -1,5 +1,5 @@
 -- ========================================================================
--- 🎓 CAMPUS 4 CLASS AUTOMATION FRAMEWORK (V74 + DIRECT PROFILE LEVEL + 5 PLAYER GATE)
+-- 🎓 CAMPUS 4 CLASS AUTOMATION FRAMEWORK (V76 + FRIEND-STYLE OVERLAY + CURRENT CLASS)
 -- Includes: 👗 Auto Outfit | 🍳 Breakfast | 🏀 Basketball | 🔭 Star Gazing | 🧚 Fairy Flight | 💻 Computer | 🏊 Swim Spinner | 🧪 Potionology | 🏹 Archery | 🛒 Shopping | 📚 Homework | 📖 Study Hall | 📝 English | 🤖 API Captcha
 
 -- ========================================================================
@@ -17,11 +17,50 @@ local GuiService = game:GetService("GuiService")
 local Lighting = game:GetService("Lighting")
 
 -- ========================================================================
--- 🪶 MASS-ACCOUNT LOW GRAPHICS
+-- 🪶 MASS-INSTANCE PERFORMANCE MODE
 -- ========================================================================
--- Client-side rendering reductions requested for large multi-instance farms.
--- Wrapped in pcall so an executor/runtime that blocks a setting will not stop
--- the Campus controller from loading.
+-- V75: optimized for very large tiled-client setups.
+--
+-- Main savings:
+--   • cap each client to 5 FPS
+--   • disable 3D scene rendering
+--   • keep minimum Roblox graphics + no shadows
+--
+-- We deliberately DO NOT destroy workspace/map instances. Class modules can
+-- still query and interact with the real objects while Roblox skips drawing
+-- the 3D scene.
+if _G.Campus4MassInstanceMode == nil then
+    _G.Campus4MassInstanceMode = true
+end
+if _G.Campus4MassInstanceFPS == nil then
+    _G.Campus4MassInstanceFPS = 5
+end
+if _G.Campus4Disable3DRendering == nil then
+    _G.Campus4Disable3DRendering = true
+end
+
+if _G.Campus4MassInstanceMode then
+    pcall(function()
+        if type(setfpscap) == "function" then
+            setfpscap(math.max(1, tonumber(_G.Campus4MassInstanceFPS) or 5))
+        end
+    end)
+
+    if _G.Campus4Disable3DRendering then
+        -- Some executors expose their own helper; Roblox RunService also has
+        -- the native client render toggle. Try both safely.
+        pcall(function()
+            if type(set3drenderingenabled) == "function" then
+                set3drenderingenabled(false)
+            end
+        end)
+
+        pcall(function()
+            RunService:Set3dRenderingEnabled(false)
+        end)
+    end
+end
+
 pcall(function()
     settings().Rendering.QualityLevel = Enum.QualityLevel.Level01
 end)
@@ -218,7 +257,7 @@ if _G.Campus4Runtime then
     )
 end
 
--- Clean a render-step binding left by an interrupted/reinjected V63 shot.
+-- Compatibility cleanup: remove BBAim if an older Campus build left it bound.
 pcall(function() RunService:UnbindFromRenderStep("BBAim") end)
 
 _G.Campus4Runtime = {
@@ -6087,12 +6126,9 @@ Basketball.State = {
     TouchShieldCharacter = nil,
     SavedCanTouch = {},
 
-    AimBound = false,
     AimActive = false,
     AimHumanoid = nil,
-    AimRoot = nil,
     AimOriginalAutoRotate = nil,
-    AimSessionId = nil,
 
     CleanupGeneration = 0,
 
@@ -6401,68 +6437,32 @@ local function stopBasketballAimLock()
         local original = Basketball.State.AimOriginalAutoRotate
 
         if humanoid and humanoid.Parent and original ~= nil then
-            pcall(function() humanoid.AutoRotate = original end)
+            pcall(function()
+                humanoid.AutoRotate = original
+            end)
         end
     end
 
     Basketball.State.AimActive = false
     Basketball.State.AimHumanoid = nil
-    Basketball.State.AimRoot = nil
     Basketball.State.AimOriginalAutoRotate = nil
 end
 
-local function unbindBasketballAimUpdater()
+local function startBasketballStaticAim(humanoid, rootPart)
     stopBasketballAimLock()
 
-    if Basketball.State.AimBound then
-        pcall(function() RunService:UnbindFromRenderStep("BBAim") end)
-        Basketball.State.AimBound = false
+    if not humanoid or not rootPart then
+        return false
     end
 
-    Basketball.State.AimSessionId = nil
-end
-
-local function bindBasketballAimUpdater(sessionId)
-    unbindBasketballAimUpdater()
-    Basketball.State.AimSessionId = sessionId
-
-    RunService:BindToRenderStep(
-        "BBAim",
-        Enum.RenderPriority.Character.Value + 50,
-        function()
-            if not Basketball.State.AimActive
-                or Basketball.State.AimSessionId ~= sessionId
-                or not ClassController:IsSessionActive(sessionId, Basketball)
-            then
-                return
-            end
-
-            local humanoid = Basketball.State.AimHumanoid
-            local rootPart = Basketball.State.AimRoot
-
-            if humanoid
-                and humanoid.Parent
-                and rootPart
-                and rootPart.Parent
-                and getFacingErrorDegrees(rootPart)
-                    > Config.Basketball.Tolerances.FacingCorrection
-            then
-                forceFaceStation(humanoid, rootPart)
-            end
-        end
-    )
-
-    Basketball.State.AimBound = true
-end
-
-local function startBasketballAimLock(humanoid, rootPart)
-    stopBasketballAimLock()
-
     Basketball.State.AimHumanoid = humanoid
-    Basketball.State.AimRoot = rootPart
     Basketball.State.AimOriginalAutoRotate = humanoid.AutoRotate
     Basketball.State.AimActive = true
-    humanoid.AutoRotate = false
+
+    -- No RenderStep / Heartbeat connection. Hold AutoRotate off and face the
+    -- hoop once. We correct it one more time immediately before firing.
+    forceFaceStation(humanoid, rootPart)
+    return true
 end
 
 local function waitForNewBallFromGiver(sessionId, before)
@@ -6538,7 +6538,6 @@ function Basketball:Run(sessionId)
 
     local startCharacter, _, _, startBackpack = getBasketballRefs()
     ensureBasketballBallTracker(startCharacter, startBackpack)
-    bindBasketballAimUpdater(sessionId)
 
     if startCharacter then enableBasketballTouchShield(startCharacter) end
     moveBasketballToHoldingArea()
@@ -6579,11 +6578,14 @@ function Basketball:Run(sessionId)
         local shotCFrame = getBasketballShotCFrame()
         character:PivotTo(shotCFrame)
 
-        -- V64: one RenderStep callback is bound for the whole Basketball class.
-        -- Per shot we only swap the active Humanoid/Root references.
-        startBasketballAimLock(humanoid, rootPart)
+        -- V75: static aim only. There is no per-frame Basketball callback.
+        -- Face once after teleport, then correct once immediately before shot.
+        startBasketballStaticAim(humanoid, rootPart)
 
-        if not ClassController:Wait(sessionId, self, 0.5) then stopBasketballAimLock(); break end
+        if not ClassController:Wait(sessionId, self, 0.5) then
+            stopBasketballAimLock()
+            break
+        end
 
         character, humanoid, rootPart, backpack = getBasketballRefs()
         if not character or not humanoid or not rootPart or not isLiveBallTool(ballTool, character, backpack) then
@@ -6694,7 +6696,7 @@ local function scheduleBasketballCleanupSweep()
 end
 
 function Basketball:Stop(reason)
-    unbindBasketballAimUpdater()
+    stopBasketballAimLock()
     self.State.ReturnGraceUntil = 0
     self.State.OwnedBall = nil
     disableBasketballTouchShield()
@@ -6730,6 +6732,7 @@ local Monitor = {
     NameLabel = nil,
     DiamondLabel = nil,
     TradeLabel = nil,
+    ClassLabel = nil,
     LevelLabel = nil,
     DiamondAmountLabel = nil,
     LastLevel = nil,
@@ -6938,16 +6941,15 @@ local function createMonitorGui()
     panel.Active = false
     panel.Parent = gui
 
-    -- Responsive vertical stack:
-    -- TextScaled handles the actual resize. The small MinTextSize values
-    -- allow the text to keep shrinking on very narrow tiled windows instead
-    -- of clipping. Name/Level still remains visually dominant.
+    -- V76: friend's large four-row overlay proportions, but with our colors.
+    -- Each row uses 20% of the viewport height and TextScaled, which makes
+    -- it naturally grow/shrink with tiled Roblox window resizing.
     Monitor.NameLabel =
         makeMonitorLabel(
             panel,
             "AccountLevel",
-            0.285,
-            0.19,
+            0.05,
+            0.20,
             Color3.fromRGB(255, 105, 180),
             8,
             180
@@ -6957,29 +6959,40 @@ local function createMonitorGui()
         makeMonitorLabel(
             panel,
             "Diamonds",
-            0.455,
-            0.145,
+            0.30,
+            0.20,
             Color3.fromRGB(69, 220, 255),
             8,
-            125
+            150
         )
 
     Monitor.TradeLabel =
         makeMonitorLabel(
             panel,
             "TradeStatus",
-            0.585,
-            0.145,
+            0.55,
+            0.20,
             Color3.fromRGB(190, 190, 190),
             8,
-            115
+            130
+        )
+
+    Monitor.ClassLabel =
+        makeMonitorLabel(
+            panel,
+            "CurrentClass",
+            0.80,
+            0.20,
+            Color3.fromRGB(194, 154, 255),
+            8,
+            125
         )
 
     Monitor.Gui = gui
     Monitor.Panel = panel
 
     -- Roblox TextScaled normally recomputes automatically as AbsoluteSize
-    -- changes. This lightweight viewport hook nudges the three labels after
+    -- changes. This lightweight viewport hook nudges the four labels after
     -- external Win32 window resizing so the scale refreshes immediately.
     local camera = Workspace.CurrentCamera
     if camera then
@@ -6993,9 +7006,10 @@ local function createMonitorGui()
                 -- Re-assigning the same scale sizes is cheap and forces a
                 -- layout/text-scale refresh on clients/executors that lag
                 -- behind rapid window resizing.
-                Monitor.NameLabel.Size = UDim2.fromScale(0.97, 0.19)
-                Monitor.DiamondLabel.Size = UDim2.fromScale(0.97, 0.145)
-                Monitor.TradeLabel.Size = UDim2.fromScale(0.97, 0.145)
+                Monitor.NameLabel.Size = UDim2.fromScale(0.97, 0.20)
+                Monitor.DiamondLabel.Size = UDim2.fromScale(0.97, 0.20)
+                Monitor.TradeLabel.Size = UDim2.fromScale(0.97, 0.20)
+                Monitor.ClassLabel.Size = UDim2.fromScale(0.97, 0.20)
             end
         )
     end
@@ -7445,6 +7459,34 @@ local function disconnectMonitorHudConnections()
     table.clear(monitorHudConnections)
 end
 
+local function readCurrentClassText()
+    if not CurrentClass or not CurrentClass.Parent then
+        return "Waiting"
+    end
+
+    local ok, value = pcall(function()
+        local content = CurrentClass.ContentText
+        if content and content ~= "" then
+            return content
+        end
+        return CurrentClass.Text
+    end)
+
+    if not ok then
+        return "Waiting"
+    end
+
+    local classText = tostring(value or "")
+    classText = string.gsub(classText, "^%s+", "")
+    classText = string.gsub(classText, "%s+$", "")
+
+    if classText == "" then
+        return "Waiting"
+    end
+
+    return classText
+end
+
 local function updateMonitorValues()
     if not Monitor.Gui or not Monitor.Gui.Parent then
         createMonitorGui()
@@ -7458,8 +7500,10 @@ local function updateMonitorValues()
         and ("Lv" .. formatWholeNumber(level))
         or "Lv?"
 
+    local shortName = string.sub(tostring(LocalPlayer.Name), 1, 5)
+
     Monitor.NameLabel.Text =
-        tostring(LocalPlayer.Name)
+        shortName
         .. ' <font color="#FFD84D">| '
         .. levelText
         .. "</font>"
@@ -7468,6 +7512,11 @@ local function updateMonitorValues()
         diamonds ~= nil
         and ("$" .. formatWholeNumber(diamonds))
         or "$?"
+
+    if Monitor.ClassLabel and Monitor.ClassLabel.Parent then
+        Monitor.ClassLabel.Text =
+            "Class: " .. readCurrentClassText()
+    end
 
     if level == nil then
         setTradeStatus("Waiting for level", "unknown")
@@ -7528,6 +7577,19 @@ if Config.AccountMonitor.Enabled then
 
     bindMonitorHudEvents()
     updateMonitorValues()
+
+    -- Current class/state updates immediately.
+    Runtime.Connect(
+        CurrentClass:GetPropertyChangedSignal("Text"),
+        updateMonitorValues
+    )
+
+    pcall(function()
+        Runtime.Connect(
+            CurrentClass:GetPropertyChangedSignal("ContentText"),
+            updateMonitorValues
+        )
+    end)
 
     -- If HUD gets rebuilt after respawn/teleport, re-bind the exact paths.
     Runtime.Connect(PlayerGui.ChildAdded, function(child)
