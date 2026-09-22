@@ -7215,6 +7215,15 @@ local function closeDirectProfile(profilePreview)
     end
 end
 
+local function enoughPlayersForTradeCheck()
+    local required = math.max(
+        5,
+        tonumber(Config.AccountMonitor.MinPlayersForTradeCheck) or 5
+    )
+
+    return #Players:GetPlayers() >= required
+end
+
 local function getProfileTargets()
     local targets = {}
 
