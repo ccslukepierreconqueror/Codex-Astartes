@@ -1,6 +1,6 @@
 -- language: Lua, file: art_monitor.lua, target: Roblox
--- *art class loop + trade monitor + stroke-font drawing + triple cap*
--- *caps: 4 levels/hr rolling · +10 levels/session · hard stop at level 75 (persistent across rejoin)*
+-- art class loop + trade monitor + stroke-font drawing + triple cap
+-- caps: 4 levels/hr rolling, +10 levels/session, hard stop at level 75 (persistent across rejoin)
 if not game:IsLoaded() then game.Loaded:Wait() end
 task.wait(1)
 
@@ -33,7 +33,7 @@ local makeHttpRequest = request or http_request or (http and http.request) or fl
 
 local PlayerState = { IsTyping = false, IsDrawing = false, LastInputTime = tick() }
 
--- ── LEVEL 75 HARD STOP (persistent, per-userid) ────────────
+-- LEVEL 75 HARD STOP (persistent, per-userid)
 local L75_FILE = "night_l75stop_" .. tostring(LocalPlayer.UserId) .. ".txt"
 local L75_ARMED = getgenv().Config.Level75Stop
 
@@ -61,11 +61,11 @@ local L75_TRIPPED = l75Read()
 if not L75_ARMED and L75_TRIPPED then
     l75Clear()
     L75_TRIPPED = false
-    print("[l75] Level75Stop disabled — flag cleared, farming resumes")
+    print("[l75] Level75Stop disabled - flag cleared, farming resumes")
 end
 
 if L75_ARMED and L75_TRIPPED then
-    print("[l75] level 75 flag present — account is retired, halting")
+    print("[l75] level 75 flag present - account is retired, halting")
     if GuiService then
         pcall(function() GuiService:LeaveGame() end)
         pcall(function() LocalPlayer:Kick("L75 stop") end)
@@ -73,14 +73,14 @@ if L75_ARMED and L75_TRIPPED then
     return
 end
 
-function getgenv().Check75Stop(level)
+getgenv().Check75Stop = function(level)
     if not L75_ARMED then return false end
     if not level then return false end
     if level < 75 then return false end
     if L75_TRIPPED then return true end
     L75_TRIPPED = true
     l75Write()
-    print(string.format("[l75] level %d reached — flag written, leaving", level))
+    print(string.format("[l75] level %d reached - flag written, leaving", level))
     task.spawn(function()
         pcall(function() GuiService:LeaveGame() end)
         task.wait(2)
@@ -89,7 +89,7 @@ function getgenv().Check75Stop(level)
     return true
 end
 
--- ── SESSION TRACKER (+10 levels, session-scoped) ───────────
+-- SESSION TRACKER (+10 levels, session-scoped)
 local SESSION_CAP = 10
 local Session = { Start = nil, High = nil, Done = false, LeaveSent = false }
 
@@ -97,7 +97,7 @@ local function forceLeaveSession(reason)
     if Session.Done then return end
     Session.Done = true
     getgenv().AccountSessionDone = true
-    print(string.format("[session] %s — leaving game", reason))
+    print(string.format("[session] %s - leaving game", reason))
 
     if Session.LeaveSent then return end
     Session.LeaveSent = true
@@ -107,7 +107,7 @@ local function forceLeaveSession(reason)
     pcall(function() game:Shutdown() end)
 end
 
-function getgenv().TrackSessionLevel(level)
+getgenv().TrackSessionLevel = function(level)
     if not level or Session.Done then return end
 
     if getgenv().Check75Stop(level) then
@@ -130,7 +130,7 @@ function getgenv().TrackSessionLevel(level)
     end
 end
 
-function getgenv().SessionHalted()
+getgenv().SessionHalted = function()
     return Session.Done or L75_TRIPPED
 end
 
@@ -502,7 +502,7 @@ if getgenv().Config.AccountMonitor then
                 if object:IsA("GuiButton") and profileGuiVisible(object) then
                     local name = monitorNormalize(object.Name)
                     local textValue = monitorNormalize((object:IsA("TextButton") and object.Text) or "")
-                    if name == "close" or string.find(name, "closebutton", 1, true) or textValue == "close" or textValue == "x" or textValue == "×" then
+                    if name == "close" or string.find(name, "closebutton", 1, true) or textValue == "close" or textValue == "x" then
                         best = object; break
                     end
                 end
@@ -533,7 +533,7 @@ if getgenv().Config.AccountMonitor then
 
         local function checkTradeIconStatus()
             if Monitor.TradeChecking or Monitor.TradeAccountBanned then return end
-            if enoughPlayersForTradeCheck() == false then setWaitingForPlayerCount(); return end
+            if not enoughPlayersForTradeCheck() then setWaitingForPlayerCount(); return end
             if os.clock() < (Monitor.NextTradeCheckAt or 0) then return end
             if not PROFILE_SHOW or not PROFILE_SHOW:IsA("RemoteEvent") then
                 setTradeStatus("Unknown (Profile remote unavailable)", "unknown")
@@ -709,7 +709,7 @@ if getgenv().Config.AutoArtClass then
         local artistsWordLabel = midGameArtist:WaitForChild("ArtistsWord", 10)
         local lastSentWord = ""
 
-        -- ── RATE CAP (4/hr rolling) ────────────────────────
+        -- RATE CAP (4/hr rolling)
         local LEVELS_PER_HOUR_CAP = 4
         local levelUpTimes = {}
         getgenv().LevelCapReached = false
@@ -734,7 +734,7 @@ if getgenv().Config.AutoArtClass then
         local function recordLevelUp()
             table.insert(levelUpTimes, os.clock())
             pruneLevelUpTimes(os.clock())
-            print(string.format("[cap] level up — %d/%d in last hour",
+            print(string.format("[cap] level up - %d/%d in last hour",
                 #levelUpTimes, LEVELS_PER_HOUR_CAP))
         end
 
