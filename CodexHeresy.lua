@@ -1,5 +1,6 @@
--- language: Lua, file: gemini-code-1790871675403_art_monitor.lua, target: Roblox
--- *standalone fusion: art class loop (with live level tracking + afk) running alongside the mass-account trade monitor*
+-- language: Lua, file: art_monitor.lua, target: Roblox
+-- *standalone fusion: art class loop (live level tracking + afk) + mass-account trade monitor*
+-- *stroke-font drawing: full A-Z 0-9, centered layout, polyline strokes*
 if not game:IsLoaded() then game.Loaded:Wait() end
 task.wait(1)
 
@@ -39,7 +40,7 @@ local function moveMouseSmooth(targetX, targetY)
         VirtualInputManager:SendMouseMoveEvent(targetX, targetY, game)
         return
     end
-    local steps = math.clamp(math.floor(distance / 20), 4, 10) 
+    local steps = math.clamp(math.floor(distance / 20), 4, 10)
     for i = 1, steps do
         local t = i / steps
         local currX = startPos.X + (targetX - startPos.X) * t
@@ -56,6 +57,14 @@ local function humanClickAt(x, y)
     VirtualInputManager:SendMouseButtonEvent(x, y, 0, true, game, 1)
     task.wait(0.02)
     VirtualInputManager:SendMouseButtonEvent(x, y, 0, false, game, 1)
+end
+
+local function clickUI(target)
+    if target and target:IsA("GuiObject") then
+        local pos, size = target.AbsolutePosition, target.AbsoluteSize
+        local s, inset = pcall(function() return GuiService:GetGuiInset() end)
+        humanClickAt(pos.X + (size.X / 2), pos.Y + (size.Y / 2) + (s and inset.Y or 0))
+    end
 end
 
 -- CAPTCHA SOLVER
@@ -107,7 +116,7 @@ if getgenv().Config.AutoCaptcha then
             if not btns then return false end
             local btn = btns:FindFirstChild(tostring(btnNum))
             if not btn then return false end
-            
+
             local absPos, absSize = btn.AbsolutePosition, btn.AbsoluteSize
             local s, inset = pcall(function() return GuiService:GetGuiInset() end)
             local insetY = s and inset.Y or 0
@@ -172,14 +181,6 @@ task.spawn(function()
 end)
 
 -- AUTO-SETUP
-local function clickUI(target)
-    if target and target:IsA("GuiObject") then
-        local pos, size = target.AbsolutePosition, target.AbsoluteSize
-        local s, inset = pcall(function() return GuiService:GetGuiInset() end)
-        humanClickAt(pos.X + (size.X / 2), pos.Y + (size.Y / 2) + (s and inset.Y or 0))
-    end
-end
-
 local safeEgirlNames = {"Luna", "Angel", "Mimi", "Yuna", "Ari"}
 local pcallSuccess, rpNameBox = pcall(function() return PlayerGui:WaitForChild("HUD"):WaitForChild("Frame"):WaitForChild("Top"):WaitForChild("RPName") end)
 
@@ -193,16 +194,16 @@ if pcallSuccess and rpNameBox then
         else
             rpNameBox.Text = randomName
         end
-        
+
         task.wait(0.5)
         local updatePfpEvent = ReplicatedStorage:FindFirstChild("UpdateProfilePicture")
         if updatePfpEvent then pcall(function() updatePfpEvent:FireServer("rbxassetid://115029257457567") end) end
-        
+
         local MainUI = PlayerGui:WaitForChild("CharacterCreation"):WaitForChild("Main")
         local dressUpBtn = PlayerGui:WaitForChild("HUD"):WaitForChild("Frame"):WaitForChild("DressUp"):WaitForChild("Button")
         clickUI(dressUpBtn)
         task.wait(1)
-        
+
         if MainUI.Visible then
             local doneBtn = MainUI:FindFirstChild("FirstSelection") and MainUI.FirstSelection:FindFirstChild("Done")
             if doneBtn then
@@ -217,7 +218,7 @@ if pcallSuccess and rpNameBox then
     end
 end
 
--- ACCOUNT MONITOR (Standalone Integration)
+-- ACCOUNT MONITOR
 if getgenv().Config.AccountMonitor then
     task.spawn(function()
         local Monitor = {
@@ -247,14 +248,6 @@ if getgenv().Config.AccountMonitor then
                 if count == 0 then break end
             end
             return sign .. digits
-        end
-
-        local function parseLooseNumber(value)
-            local textValue = tostring(value or "")
-            local compact = string.gsub(textValue, ",", "")
-            compact = string.gsub(compact, "%s", "")
-            local number = string.match(compact, "%-?%d+%.?%d*")
-            return tonumber(number)
         end
 
         local function parseLevelText(value)
@@ -470,7 +463,7 @@ if getgenv().Config.AccountMonitor then
                     local opened = pcall(function() PROFILE_SHOW:FireServer(targetPlayer, "Preview") end)
                     if not opened then continue end
 
-                    task.wait(2.40) -- Config.AccountMonitor.TradeProfileOpenWait
+                    task.wait(2.40)
 
                     if not enoughPlayersForTradeCheck() then
                         local preview = getDirectProfilePreview()
@@ -579,14 +572,14 @@ if getgenv().Config.AccountMonitor then
     end)
 end
 
--- ART CLASS BOT (Live Level Tracking + AFK)
+-- ART CLASS BOT (live level tracking + afk + stroke-font drawing)
 if getgenv().Config.AutoArtClass then
     task.spawn(function()
         local SERVER_ID = game.JobId == "" and "LocalServer" or game.JobId
         local MY_API_URL = "https://api.sharafaithcenabreflores.dev/api/word"
         local artClassGui = PlayerGui:WaitForChild("ArtClass", 15)
         if not artClassGui then return end
-        
+
         local guessingGame = artClassGui:WaitForChild("GuessingGame", 10)
         local chooseAWord = guessingGame:WaitForChild("ChooseAWord", 10)
         local midGameArtist = guessingGame:WaitForChild("Mid-GameArtist", 10)
@@ -612,48 +605,177 @@ if getgenv().Config.AutoArtClass then
             local cf = safeFind(guessingGame, "Canvas") or safeFind(guessingGame, "CanvasFrame") or safeFind(guessingGame, "Easel")
             if cf and cf:IsA("GuiObject") then
                 local s, i = pcall(function() return GuiService:GetGuiInset() end)
-                return { MinX = cf.AbsolutePosition.X + 10, MaxX = cf.AbsolutePosition.X + cf.AbsoluteSize.X - 10, MinY = cf.AbsolutePosition.Y + (s and i.Y or 0) + 10, MaxY = cf.AbsolutePosition.Y + cf.AbsoluteSize.Y + (s and i.Y or 0) - 10, Width = cf.AbsoluteSize.X - 20, Height = cf.AbsoluteSize.Y - 20 }
+                return {
+                    MinX = cf.AbsolutePosition.X + 10,
+                    MaxX = cf.AbsolutePosition.X + cf.AbsoluteSize.X - 10,
+                    MinY = cf.AbsolutePosition.Y + (s and i.Y or 0) + 10,
+                    MaxY = cf.AbsolutePosition.Y + cf.AbsoluteSize.Y + (s and i.Y or 0) - 10,
+                    Width = cf.AbsoluteSize.X - 20,
+                    Height = cf.AbsoluteSize.Y - 20
+                }
             end
             local vp = workspace.CurrentCamera.ViewportSize
-            return { MinX = vp.X * 0.2, MaxX = vp.X * 0.8, MinY = vp.Y * 0.2, MaxY = vp.Y * 0.7, Width = vp.X * 0.6, Height = vp.Y * 0.5 }
+            return {
+                MinX = vp.X * 0.2, MaxX = vp.X * 0.8,
+                MinY = vp.Y * 0.2, MaxY = vp.Y * 0.7,
+                Width = vp.X * 0.6, Height = vp.Y * 0.5
+            }
         end
 
-        local function drawLineOnCanvas(startX, startY, endX, endY)
-            while getgenv().IsCaptchaActive do task.wait(0.2) end
-            VirtualInputManager:SendMouseMoveEvent(startX, startY, game)
+        -- STROKE FONT: A-Z 0-9. Each stroke is a flat {x1,y1, x2,y2, ...} on a 0..1 grid.
+        local STROKE_FONT = {
+            ["A"] = { {0.10,1.00, 0.50,0.00, 0.90,1.00}, {0.25,0.62, 0.75,0.62} },
+            ["B"] = {
+                {0.15,0.00, 0.15,1.00},
+                {0.15,0.00, 0.62,0.00, 0.80,0.15, 0.80,0.35, 0.62,0.50, 0.15,0.50},
+                {0.15,0.50, 0.68,0.50, 0.85,0.65, 0.85,0.85, 0.68,1.00, 0.15,1.00},
+            },
+            ["C"] = { {0.85,0.15, 0.60,0.00, 0.35,0.00, 0.15,0.20, 0.15,0.80, 0.35,1.00, 0.60,1.00, 0.85,0.85} },
+            ["D"] = {
+                {0.15,0.00, 0.15,1.00},
+                {0.15,0.00, 0.55,0.00, 0.80,0.25, 0.80,0.75, 0.55,1.00, 0.15,1.00},
+            },
+            ["E"] = { {0.85,0.00, 0.15,0.00, 0.15,1.00, 0.85,1.00}, {0.15,0.50, 0.68,0.50} },
+            ["F"] = { {0.85,0.00, 0.15,0.00, 0.15,1.00}, {0.15,0.50, 0.68,0.50} },
+            ["G"] = { {0.85,0.15, 0.60,0.00, 0.35,0.00, 0.15,0.20, 0.15,0.80, 0.35,1.00, 0.60,1.00, 0.85,0.85, 0.85,0.55, 0.55,0.55} },
+            ["H"] = { {0.15,0.00, 0.15,1.00}, {0.85,0.00, 0.85,1.00}, {0.15,0.50, 0.85,0.50} },
+            ["I"] = { {0.50,0.00, 0.50,1.00}, {0.30,0.00, 0.70,0.00}, {0.30,1.00, 0.70,1.00} },
+            ["J"] = { {0.75,0.00, 0.75,0.80, 0.55,1.00, 0.35,1.00, 0.15,0.80} },
+            ["K"] = { {0.15,0.00, 0.15,1.00}, {0.85,0.00, 0.15,0.50}, {0.35,0.40, 0.85,1.00} },
+            ["L"] = { {0.15,0.00, 0.15,1.00, 0.85,1.00} },
+            ["M"] = { {0.15,1.00, 0.15,0.00, 0.50,0.50, 0.85,0.00, 0.85,1.00} },
+            ["N"] = { {0.15,1.00, 0.15,0.00, 0.85,1.00, 0.85,0.00} },
+            ["O"] = { {0.50,0.00, 0.75,0.15, 0.85,0.50, 0.75,0.85, 0.50,1.00, 0.25,0.85, 0.15,0.50, 0.25,0.15, 0.50,0.00} },
+            ["P"] = {
+                {0.15,1.00, 0.15,0.00},
+                {0.15,0.00, 0.65,0.00, 0.85,0.20, 0.85,0.35, 0.65,0.50, 0.15,0.50},
+            },
+            ["Q"] = {
+                {0.50,0.00, 0.75,0.15, 0.85,0.50, 0.75,0.85, 0.50,1.00, 0.25,0.85, 0.15,0.50, 0.25,0.15, 0.50,0.00},
+                {0.55,0.70, 0.90,1.05},
+            },
+            ["R"] = {
+                {0.15,1.00, 0.15,0.00},
+                {0.15,0.00, 0.65,0.00, 0.85,0.20, 0.85,0.35, 0.65,0.50, 0.15,0.50},
+                {0.40,0.50, 0.85,1.00},
+            },
+            ["S"] = { {0.85,0.15, 0.60,0.00, 0.35,0.00, 0.15,0.15, 0.15,0.35, 0.35,0.50, 0.65,0.50, 0.85,0.65, 0.85,0.85, 0.65,1.00, 0.35,1.00, 0.15,0.85} },
+            ["T"] = { {0.15,0.00, 0.85,0.00}, {0.50,0.00, 0.50,1.00} },
+            ["U"] = { {0.15,0.00, 0.15,0.80, 0.35,1.00, 0.65,1.00, 0.85,0.80, 0.85,0.00} },
+            ["V"] = { {0.15,0.00, 0.50,1.00, 0.85,0.00} },
+            ["W"] = { {0.15,0.00, 0.30,1.00, 0.50,0.30, 0.70,1.00, 0.85,0.00} },
+            ["X"] = { {0.15,0.00, 0.85,1.00}, {0.85,0.00, 0.15,1.00} },
+            ["Y"] = { {0.15,0.00, 0.50,0.50, 0.85,0.00}, {0.50,0.50, 0.50,1.00} },
+            ["Z"] = { {0.15,0.00, 0.85,0.00, 0.15,1.00, 0.85,1.00} },
+            ["0"] = { {0.50,0.00, 0.75,0.15, 0.85,0.50, 0.75,0.85, 0.50,1.00, 0.25,0.85, 0.15,0.50, 0.25,0.15, 0.50,0.00} },
+            ["1"] = { {0.30,0.15, 0.50,0.00, 0.50,1.00}, {0.30,1.00, 0.70,1.00} },
+            ["2"] = { {0.15,0.15, 0.35,0.00, 0.65,0.00, 0.85,0.15, 0.85,0.30, 0.15,1.00, 0.85,1.00} },
+            ["3"] = { {0.15,0.10, 0.40,0.00, 0.65,0.00, 0.85,0.20, 0.65,0.45, 0.40,0.50, 0.65,0.55, 0.85,0.80, 0.65,1.00, 0.40,1.00, 0.15,0.90} },
+            ["4"] = { {0.65,0.00, 0.15,0.70, 0.90,0.70}, {0.65,0.00, 0.65,1.00} },
+            ["5"] = { {0.85,0.00, 0.15,0.00, 0.15,0.45, 0.50,0.40, 0.75,0.50, 0.85,0.70, 0.75,0.90, 0.50,1.00, 0.20,1.00, 0.10,0.90} },
+            ["6"] = { {0.75,0.10, 0.55,0.00, 0.35,0.00, 0.15,0.20, 0.15,0.80, 0.35,1.00, 0.60,1.00, 0.80,0.85, 0.80,0.65, 0.60,0.50, 0.35,0.50, 0.15,0.65} },
+            ["7"] = { {0.15,0.00, 0.85,0.00, 0.40,1.00} },
+            ["8"] = {
+                {0.50,0.00, 0.30,0.15, 0.30,0.35, 0.50,0.50, 0.70,0.35, 0.70,0.15, 0.50,0.00},
+                {0.50,0.50, 0.25,0.65, 0.25,0.85, 0.50,1.00, 0.75,0.85, 0.75,0.65, 0.50,0.50},
+            },
+            ["9"] = { {0.85,0.35, 0.65,0.50, 0.40,0.50, 0.20,0.35, 0.20,0.15, 0.40,0.00, 0.60,0.00, 0.80,0.15, 0.85,0.35, 0.85,0.80, 0.65,1.00, 0.45,1.00, 0.25,0.90} },
+        }
+
+        local function drawPolyline(points)
+            if #points < 2 then return end
+            local p1 = points[1]
+            VirtualInputManager:SendMouseMoveEvent(p1.x, p1.y, game)
             task.wait(0.01)
-            VirtualInputManager:SendMouseButtonEvent(startX, startY, 0, true, game, 1)
+            VirtualInputManager:SendMouseButtonEvent(p1.x, p1.y, 0, true, game, 1)
             task.wait(0.01)
-            VirtualInputManager:SendMouseMoveEvent(endX, endY, game)
-            task.wait(0.01)
-            VirtualInputManager:SendMouseButtonEvent(endX, endY, 0, false, game, 1)
+
+            for i = 2, #points do
+                local a, b = points[i - 1], points[i]
+                local dx, dy = b.x - a.x, b.y - a.y
+                local dist = math.sqrt(dx * dx + dy * dy)
+                local steps = math.max(2, math.floor(dist / 6))
+                for s = 1, steps do
+                    local t = s / steps
+                    VirtualInputManager:SendMouseMoveEvent(a.x + dx * t, a.y + dy * t, game)
+                    task.wait(0.004)
+                end
+            end
+
+            local last = points[#points]
+            VirtualInputManager:SendMouseButtonEvent(last.x, last.y, 0, false, game, 1)
             task.wait(0.02)
         end
 
-        local function drawChar(char, x, y, s)
-            local b = getCanvasBounds()
-            local cX, cY = function(v) return math.clamp(v, b.MinX, b.MaxX) end, function(v) return math.clamp(v, b.MinY, b.MaxY) end
-            char = string.upper(char)
-            if char == "A" then drawLineOnCanvas(cX(x), cY(y+s), cX(x+s/2), cY(y)); drawLineOnCanvas(cX(x+s/2), cY(y), cX(x+s), cY(y+s)); drawLineOnCanvas(cX(x+s*0.25), cY(y+s*0.5), cX(x+s*0.75), cY(y+s*0.5))
-            elseif char == "B" then drawLineOnCanvas(cX(x), cY(y), cX(x), cY(y+s)); drawLineOnCanvas(cX(x), cY(y), cX(x+s*0.8), cY(y+s*0.25)); drawLineOnCanvas(cX(x+s*0.8), cY(y+s*0.25), cX(x), cY(y+s*0.5)); drawLineOnCanvas(cX(x), cY(y+s*0.5), cX(x+s*0.8), cY(y+s*0.75)); drawLineOnCanvas(cX(x+s*0.8), cY(y+s*0.75), cX(x), cY(y+s))
-            elseif char == "C" then drawLineOnCanvas(cX(x+s), cY(y), cX(x), cY(y)); drawLineOnCanvas(cX(x), cY(y), cX(x), cY(y+s)); drawLineOnCanvas(cX(x), cY(y+s), cX(x+s), cY(y+s))
-            elseif char == "D" then drawLineOnCanvas(cX(x), cY(y), cX(x), cY(y+s)); drawLineOnCanvas(cX(x), cY(y), cX(x+s*0.8), cY(y+s*0.5)); drawLineOnCanvas(cX(x+s*0.8), cY(y+s*0.5), cX(x), cY(y+s))
-            elseif char == "E" then drawLineOnCanvas(cX(x), cY(y), cX(x), cY(y+s)); drawLineOnCanvas(cX(x), cY(y), cX(x+s), cY(y)); drawLineOnCanvas(cX(x), cY(y+s*0.5), cX(x+s*0.8), cY(y+s*0.5)); drawLineOnCanvas(cX(x), cY(y+s), cX(x+s), cY(y+s))
+        local function drawGlyph(char, x, y, size, bounds)
+            local strokes = STROKE_FONT[char]
+            if not strokes then return end
+            for _, stroke in ipairs(strokes) do
+                local pts = {}
+                for i = 1, #stroke, 2 do
+                    local px = math.clamp(x + stroke[i]     * size, bounds.MinX, bounds.MaxX)
+                    local py = math.clamp(y + stroke[i + 1] * size, bounds.MinY, bounds.MaxY)
+                    pts[#pts + 1] = { x = px, y = py }
+                end
+                drawPolyline(pts)
             end
         end
 
         local function startWritingWord(wordToDraw)
             if PlayerState.IsDrawing then return end
             PlayerState.IsDrawing = true
+
             task.spawn(function()
                 task.wait(1)
+
+                local text = string.upper(tostring(wordToDraw or ""))
+                text = string.gsub(text, "[^%w ]", "")
+                text = string.gsub(text, "%s+", " ")
+                text = string.gsub(text, "^%s+", "")
+                text = string.gsub(text, "%s+$", "")
+                if #text == 0 then PlayerState.IsDrawing = false; return end
+
                 local b = getCanvasBounds()
-                local sX, sY, sz = b.MinX + (b.Width * 0.1), b.MinY + (b.Height * 0.3), math.clamp(b.Height * 0.3, 25, 45)
-                for i = 1, #wordToDraw do
+                local spaceFactor = 0.55
+                local advanceFactor = 1.12
+
+                local glyphUnits = 0
+                for i = 1, #text do
+                    local ch = string.sub(text, i, i)
+                    glyphUnits = glyphUnits + (ch == " " and spaceFactor or advanceFactor)
+                end
+                if glyphUnits <= 0 then PlayerState.IsDrawing = false; return end
+
+                local size = math.min(b.Height * 0.42, b.Width / glyphUnits)
+                size = math.clamp(size, 20, 60)
+
+                local spaceWidth = spaceFactor * size
+                local advance    = advanceFactor * size
+
+                local totalWidth = 0
+                for i = 1, #text do
+                    local ch = string.sub(text, i, i)
+                    totalWidth = totalWidth + (ch == " " and spaceWidth or advance)
+                end
+                totalWidth = totalWidth - (advance - size)
+
+                local startX = b.MinX + (b.Width  - totalWidth) / 2
+                local startY = b.MinY + (b.Height - size)       / 2
+
+                local cx = startX
+                for i = 1, #text do
                     if not midGameArtist.Visible then break end
                     while getgenv().IsCaptchaActive do task.wait(0.2) end
-                    drawChar(string.sub(wordToDraw, i, i), sX + ((i - 1) * sz * 1.2), sY, sz)
+
+                    local ch = string.sub(text, i, i)
+                    if ch == " " then
+                        cx = cx + spaceWidth
+                    else
+                        drawGlyph(ch, cx, startY, size, b)
+                        cx = cx + advance
+                    end
                 end
+
                 PlayerState.IsDrawing = false
             end)
         end
@@ -686,7 +808,7 @@ if getgenv().Config.AutoArtClass then
             local tb = guessingGame:FindFirstChildWhichIsA("TextBox", true)
             if not tb then return end
             PlayerState.IsTyping = true
-            
+
             tb:CaptureFocus(); tb.Text = text; task.wait(0.05)
             VirtualInputManager:SendKeyEvent(true, Enum.KeyCode.Return, false, game); task.wait(0.02)
             VirtualInputManager:SendKeyEvent(false, Enum.KeyCode.Return, false, game)
@@ -707,12 +829,12 @@ if getgenv().Config.AutoArtClass then
         task.spawn(function()
             local hud = PlayerGui:WaitForChild("HUD", 9999)
             local levelLabel = safeFind(hud, "Frame", "XPStuff", "Level")
-            
+
             local function handleLevelChange()
                 if not levelLabel then return end
                 local ok, txt = pcall(function() return levelLabel.Text end)
                 if not ok then return end
-                
+
                 local newLevel = parseLevelText(txt)
                 if not newLevel then return end
 
@@ -749,7 +871,7 @@ if getgenv().Config.AutoArtClass then
                                 task.spawn(function()
                                     local injectJitter = math.random(5, 12)
                                     task.wait(injectJitter)
-                                    
+
                                     while getgenv().IsCaptchaActive do task.wait(0.2) end
                                     if guessingGame.Visible and not midGameArtist.Visible then
                                         pcall(function() typeAnswer(finalAns) end)
