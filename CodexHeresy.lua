@@ -1,6 +1,6 @@
 -- language: Lua, file: art_monitor.lua, target: Roblox
--- *standalone fusion: art class loop (live level tracking + afk) + mass-account trade monitor*
--- *stroke-font drawing: full A-Z 0-9, centered layout, polyline strokes*
+-- *art class loop + trade monitor + stroke-font drawing + triple cap*
+-- *caps: 4 levels/hr rolling · +10 levels/session · hard stop at level 75 (persistent across rejoin)*
 if not game:IsLoaded() then game.Loaded:Wait() end
 task.wait(1)
 
@@ -16,13 +16,123 @@ local LocalPlayer = Players.LocalPlayer or Players.PlayerAdded:Wait()
 local PlayerGui = LocalPlayer:WaitForChild("PlayerGui", 9999)
 
 if type(getgenv().Config) ~= "table" then
-    getgenv().Config = { AutoArtClass = true, AutoCaptcha = true, AccountMonitor = true }
+    getgenv().Config = {
+        AutoArtClass = true,
+        AutoCaptcha = true,
+        AccountMonitor = true,
+        Level75Stop = true,
+    }
+end
+if getgenv().Config.Level75Stop == nil then
+    getgenv().Config.Level75Stop = true
 end
 
 getgenv().IsCaptchaActive = false
+getgenv().AccountSessionDone = false
 local makeHttpRequest = request or http_request or (http and http.request) or fluxus or (syn and syn.request)
 
 local PlayerState = { IsTyping = false, IsDrawing = false, LastInputTime = tick() }
+
+-- ── LEVEL 75 HARD STOP (persistent, per-userid) ────────────
+local L75_FILE = "night_l75stop_" .. tostring(LocalPlayer.UserId) .. ".txt"
+local L75_ARMED = getgenv().Config.Level75Stop
+
+local function l75Write()
+    if writefile then pcall(function() writefile(L75_FILE, "1") end) end
+end
+
+local function l75Read()
+    if readfile and isfile then
+        local ok, exists = pcall(function() return isfile(L75_FILE) end)
+        if ok and exists then
+            local ok2, content = pcall(function() return readfile(L75_FILE) end)
+            if ok2 and content and content ~= "" then return true end
+        end
+    end
+    return false
+end
+
+local function l75Clear()
+    if delfile then pcall(function() delfile(L75_FILE) end) end
+end
+
+local L75_TRIPPED = l75Read()
+
+if not L75_ARMED and L75_TRIPPED then
+    l75Clear()
+    L75_TRIPPED = false
+    print("[l75] Level75Stop disabled — flag cleared, farming resumes")
+end
+
+if L75_ARMED and L75_TRIPPED then
+    print("[l75] level 75 flag present — account is retired, halting")
+    if GuiService then
+        pcall(function() GuiService:LeaveGame() end)
+        pcall(function() LocalPlayer:Kick("L75 stop") end)
+    end
+    return
+end
+
+function getgenv().Check75Stop(level)
+    if not L75_ARMED then return false end
+    if not level then return false end
+    if level < 75 then return false end
+    if L75_TRIPPED then return true end
+    L75_TRIPPED = true
+    l75Write()
+    print(string.format("[l75] level %d reached — flag written, leaving", level))
+    task.spawn(function()
+        pcall(function() GuiService:LeaveGame() end)
+        task.wait(2)
+        pcall(function() LocalPlayer:Kick("L75 stop") end)
+    end)
+    return true
+end
+
+-- ── SESSION TRACKER (+10 levels, session-scoped) ───────────
+local SESSION_CAP = 10
+local Session = { Start = nil, High = nil, Done = false, LeaveSent = false }
+
+local function forceLeaveSession(reason)
+    if Session.Done then return end
+    Session.Done = true
+    getgenv().AccountSessionDone = true
+    print(string.format("[session] %s — leaving game", reason))
+
+    if Session.LeaveSent then return end
+    Session.LeaveSent = true
+
+    pcall(function() GuiService:LeaveGame() end)
+    pcall(function() LocalPlayer:Kick(reason) end)
+    pcall(function() game:Shutdown() end)
+end
+
+function getgenv().TrackSessionLevel(level)
+    if not level or Session.Done then return end
+
+    if getgenv().Check75Stop(level) then
+        forceLeaveSession("level 75 reached")
+        return
+    end
+
+    if Session.Start == nil then
+        Session.Start = level
+        Session.High = level
+        print(string.format("[session] start level = %d (cap +%d)", level, SESSION_CAP))
+        return
+    end
+    if level > Session.High then Session.High = level end
+    local delta = Session.High - Session.Start
+    if delta >= SESSION_CAP then
+        forceLeaveSession(string.format(
+            "gained %d levels (start %d, now %d)",
+            delta, Session.Start, Session.High))
+    end
+end
+
+function getgenv().SessionHalted()
+    return Session.Done or L75_TRIPPED
+end
 
 local function safeFind(parent, ...)
     local current = parent
@@ -423,7 +533,7 @@ if getgenv().Config.AccountMonitor then
 
         local function checkTradeIconStatus()
             if Monitor.TradeChecking or Monitor.TradeAccountBanned then return end
-            if not enoughPlayersForTradeCheck() then setWaitingForPlayerCount(); return end
+            if enoughPlayersForTradeCheck() == false then setWaitingForPlayerCount(); return end
             if os.clock() < (Monitor.NextTradeCheckAt or 0) then return end
             if not PROFILE_SHOW or not PROFILE_SHOW:IsA("RemoteEvent") then
                 setTradeStatus("Unknown (Profile remote unavailable)", "unknown")
@@ -512,12 +622,24 @@ if getgenv().Config.AccountMonitor then
             local level = readLevel()
             local diamonds = readDiamonds()
 
+            getgenv().TrackSessionLevel(level)
+
             local levelText = level ~= nil and ("Lv" .. formatWholeNumber(level)) or "Lv?"
             local shortName = string.sub(tostring(LocalPlayer.Name), 1, 5)
 
             Monitor.NameLabel.Text = shortName .. ' <font color="#FFD84D">| ' .. levelText .. "</font>"
             Monitor.DiamondLabel.Text = diamonds ~= nil and ("$" .. formatWholeNumber(diamonds)) or "$?"
-            if Monitor.ClassLabel and Monitor.ClassLabel.Parent then Monitor.ClassLabel.Text = "Class: " .. readCurrentClassText() end
+            if Monitor.ClassLabel and Monitor.ClassLabel.Parent then
+                local capTag = ""
+                if L75_TRIPPED then
+                    capTag = ' <font color="#FF6060">[L75 STOP]</font>'
+                elseif Session.Done then
+                    capTag = ' <font color="#FF8080">[SESSION DONE]</font>'
+                elseif getgenv().LevelCapReached then
+                    capTag = ' <font color="#FFB060">[RATE CAPPED]</font>'
+                end
+                Monitor.ClassLabel.Text = "Class: " .. readCurrentClassText() .. capTag
+            end
 
             if level == nil then setTradeStatus("Waiting for level", "unknown")
             elseif level < 75 then
@@ -565,6 +687,7 @@ if getgenv().Config.AccountMonitor then
 
         task.spawn(function()
             while true do
+                if getgenv().SessionHalted() then task.wait(5.0); continue end
                 if not Monitor.LevelLabel or not Monitor.LevelLabel.Parent or not Monitor.DiamondAmountLabel or not Monitor.DiamondAmountLabel.Parent then bindMonitorHudEvents() end
                 updateMonitorValues(); task.wait(1.0)
             end
@@ -572,7 +695,7 @@ if getgenv().Config.AccountMonitor then
     end)
 end
 
--- ART CLASS BOT (live level tracking + afk + stroke-font drawing)
+-- ART CLASS BOT
 if getgenv().Config.AutoArtClass then
     task.spawn(function()
         local SERVER_ID = game.JobId == "" and "LocalServer" or game.JobId
@@ -585,6 +708,35 @@ if getgenv().Config.AutoArtClass then
         local midGameArtist = guessingGame:WaitForChild("Mid-GameArtist", 10)
         local artistsWordLabel = midGameArtist:WaitForChild("ArtistsWord", 10)
         local lastSentWord = ""
+
+        -- ── RATE CAP (4/hr rolling) ────────────────────────
+        local LEVELS_PER_HOUR_CAP = 4
+        local levelUpTimes = {}
+        getgenv().LevelCapReached = false
+
+        local function pruneLevelUpTimes(now)
+            local cutoff = now - 3600
+            local i = 1
+            while i <= #levelUpTimes do
+                if levelUpTimes[i] < cutoff then table.remove(levelUpTimes, i)
+                else i = i + 1 end
+            end
+        end
+
+        local function isLevelCapped()
+            local now = os.clock()
+            pruneLevelUpTimes(now)
+            local capped = #levelUpTimes >= LEVELS_PER_HOUR_CAP
+            getgenv().LevelCapReached = capped
+            return capped
+        end
+
+        local function recordLevelUp()
+            table.insert(levelUpTimes, os.clock())
+            pruneLevelUpTimes(os.clock())
+            print(string.format("[cap] level up — %d/%d in last hour",
+                #levelUpTimes, LEVELS_PER_HOUR_CAP))
+        end
 
         local function cleanWord(str)
             local s = string.gsub(str, "Your Drawing Subject:", "")
@@ -622,7 +774,6 @@ if getgenv().Config.AutoArtClass then
             }
         end
 
-        -- STROKE FONT: A-Z 0-9. Each stroke is a flat {x1,y1, x2,y2, ...} on a 0..1 grid.
         local STROKE_FONT = {
             ["A"] = { {0.10,1.00, 0.50,0.00, 0.90,1.00}, {0.25,0.62, 0.75,0.62} },
             ["B"] = {
@@ -723,6 +874,8 @@ if getgenv().Config.AutoArtClass then
 
         local function startWritingWord(wordToDraw)
             if PlayerState.IsDrawing then return end
+            if getgenv().SessionHalted() then return end
+            if isLevelCapped() then return end
             PlayerState.IsDrawing = true
 
             task.spawn(function()
@@ -765,6 +918,7 @@ if getgenv().Config.AutoArtClass then
                 local cx = startX
                 for i = 1, #text do
                     if not midGameArtist.Visible then break end
+                    if getgenv().SessionHalted() then break end
                     while getgenv().IsCaptchaActive do task.wait(0.2) end
 
                     local ch = string.sub(text, i, i)
@@ -783,8 +937,10 @@ if getgenv().Config.AutoArtClass then
         chooseAWord:GetPropertyChangedSignal("Visible"):Connect(function()
             task.defer(function()
                 if chooseAWord.Visible then
+                    if getgenv().SessionHalted() then return end
                     while getgenv().IsCaptchaActive do task.wait(0.2) end
                     task.wait(0.5)
+                    if isLevelCapped() then return end
                     local op1 = chooseAWord:FindFirstChild("Option1")
                     if op1 then clickUI(op1) end
                 end
@@ -795,11 +951,14 @@ if getgenv().Config.AutoArtClass then
             task.defer(function()
                 task.wait(0.1)
                 if not midGameArtist.Visible then return end
+                if getgenv().SessionHalted() then return end
                 local cleanText = cleanWord(artistsWordLabel.ContentText)
                 if cleanText ~= "" and cleanText ~= lastSentWord then
                     lastSentWord = cleanText
                     sendData(cleanText)
-                    startWritingWord(cleanText)
+                    if not isLevelCapped() then
+                        startWritingWord(cleanText)
+                    end
                 end
             end)
         end)
@@ -838,7 +997,10 @@ if getgenv().Config.AutoArtClass then
                 local newLevel = parseLevelText(txt)
                 if not newLevel then return end
 
+                getgenv().TrackSessionLevel(newLevel)
+
                 if currentLevel and newLevel > currentLevel then
+                    recordLevelUp()
                     local afkTime = tick() + math.random(300, 420)
                     if afkTime > nextAnswerTick then nextAnswerTick = afkTime end
                 end
@@ -857,7 +1019,9 @@ if getgenv().Config.AutoArtClass then
 
         task.spawn(function()
             while task.wait(1.5) do
+                if getgenv().SessionHalted() then continue end
                 if midGameArtist.Visible or isProcessing then continue end
+                if isLevelCapped() then continue end
                 if tick() < nextAnswerTick then continue end
 
                 if makeHttpRequest then
@@ -872,6 +1036,7 @@ if getgenv().Config.AutoArtClass then
                                     local injectJitter = math.random(5, 12)
                                     task.wait(injectJitter)
 
+                                    if getgenv().SessionHalted() then isProcessing = false; return end
                                     while getgenv().IsCaptchaActive do task.wait(0.2) end
                                     if guessingGame.Visible and not midGameArtist.Visible then
                                         pcall(function() typeAnswer(finalAns) end)
@@ -892,6 +1057,7 @@ end
 task.spawn(function()
     while true do
         task.wait(math.random(15, 30))
+        if getgenv().SessionHalted() then continue end
         if not PlayerState.IsTyping and not PlayerState.IsDrawing and not getgenv().IsCaptchaActive then
             VirtualInputManager:SendKeyEvent(true, Enum.KeyCode.Space, false, game)
             task.wait(0.05)
