@@ -1,5 +1,5 @@
--- language: Lua, file: gemini-code-1790871675403_true_level.lua, target: Roblox
--- *reads live HUD level updates to trigger the 5-7 minute AFK cooldown accurately*
+-- language: Lua, file: gemini-code-1790871675403_art_monitor.lua, target: Roblox
+-- *standalone fusion: art class loop (with live level tracking + afk) running alongside the mass-account trade monitor*
 if not game:IsLoaded() then game.Loaded:Wait() end
 task.wait(1)
 
@@ -15,7 +15,7 @@ local LocalPlayer = Players.LocalPlayer or Players.PlayerAdded:Wait()
 local PlayerGui = LocalPlayer:WaitForChild("PlayerGui", 9999)
 
 if type(getgenv().Config) ~= "table" then
-    getgenv().Config = { AutoArtClass = true, AutoCaptcha = true }
+    getgenv().Config = { AutoArtClass = true, AutoCaptcha = true, AccountMonitor = true }
 end
 
 getgenv().IsCaptchaActive = false
@@ -217,6 +217,368 @@ if pcallSuccess and rpNameBox then
     end
 end
 
+-- ACCOUNT MONITOR (Standalone Integration)
+if getgenv().Config.AccountMonitor then
+    task.spawn(function()
+        local Monitor = {
+            Gui = nil, Panel = nil, NameLabel = nil, DiamondLabel = nil, TradeLabel = nil, ClassLabel = nil, LevelLabel = nil, DiamondAmountLabel = nil, CurrentClassLabel = nil,
+            LastLevel = nil, TradeCheckedForLevel75 = false, TradeChecking = false, NextTradeCheckAt = 0, LastTradeTargetLevel = nil,
+            TradeBanStrikes = 0, TradeBanMaxStrikes = 5, TradeAccountBanned = false, TradeStatus = "Loading...", TradeStatusKind = "unknown",
+            Connections = {}
+        }
+
+        local PROFILE_SHOW = ReplicatedStorage:FindFirstChild("Profile") and ReplicatedStorage.Profile:FindFirstChild("Show")
+
+        local function monitorNormalize(value)
+            value = string.lower(tostring(value or ""))
+            value = string.gsub(value, "%s+", " ")
+            value = string.gsub(value, "^%s+", "")
+            value = string.gsub(value, "%s+$", "")
+            return value
+        end
+
+        local function formatWholeNumber(value)
+            local number = math.floor(tonumber(value) or 0)
+            local sign = number < 0 and "-" or ""
+            local digits = tostring(math.abs(number))
+            while true do
+                local updated, count = string.gsub(digits, "^(-?%d+)(%d%d%d)", "%1,%2")
+                digits = updated
+                if count == 0 then break end
+            end
+            return sign .. digits
+        end
+
+        local function parseLooseNumber(value)
+            local textValue = tostring(value or "")
+            local compact = string.gsub(textValue, ",", "")
+            compact = string.gsub(compact, "%s", "")
+            local number = string.match(compact, "%-?%d+%.?%d*")
+            return tonumber(number)
+        end
+
+        local function parseLevelText(value)
+            local textValue = string.lower(tostring(value or ""))
+            textValue = string.gsub(textValue, ",", "")
+            return tonumber(string.match(textValue, "level%s*[:%-]?%s*(%d+)") or string.match(textValue, "lvl%s*[:%-]?%s*(%d+)") or string.match(textValue, "lv%.?%s*[:%-]?%s*(%d+)") or string.match(textValue, "(%d+)"))
+        end
+
+        local function parseDiamondText(value)
+            local textValue = tostring(value or "")
+            local compact = string.gsub(textValue, ",", "")
+            return tonumber(string.match(compact, "%$%s*(%d+)") or string.match(string.lower(compact), "(%d+)%s*diamonds?") or string.match(compact, "(%d+)"))
+        end
+
+        local function resolveMonitorHudLabels()
+            local hud = PlayerGui:FindFirstChild("HUD")
+            if not hud then return false end
+            local frame = hud:FindFirstChild("Frame")
+            if not frame then return false end
+
+            local xpStuff = frame:FindFirstChild("XPStuff")
+            if xpStuff and xpStuff:FindFirstChild("Level") then Monitor.LevelLabel = xpStuff.Level end
+
+            local middle = frame:FindFirstChild("Middle")
+            local diamondsFrame = middle and middle:FindFirstChild("DiamondsFrame")
+            if diamondsFrame and diamondsFrame:FindFirstChild("DiamondAmount") then Monitor.DiamondAmountLabel = diamondsFrame.DiamondAmount end
+
+            local classes = PlayerGui:FindFirstChild("RH4Classes")
+            local announcement = classes and classes:FindFirstChild("AnnouncementFrame")
+            if announcement and announcement:FindFirstChild("CurrentClass") then Monitor.CurrentClassLabel = announcement.CurrentClass end
+
+            return Monitor.LevelLabel ~= nil and Monitor.DiamondAmountLabel ~= nil
+        end
+
+        local function readLevel()
+            local label = Monitor.LevelLabel
+            if not label or not label.Parent then resolveMonitorHudLabels(); label = Monitor.LevelLabel end
+            if not label then return nil end
+            local ok, value = pcall(function() return label.Text end)
+            if not ok then return nil end
+            local level = parseLevelText(value)
+            return level and math.max(0, math.floor(level)) or nil
+        end
+
+        local function readDiamonds()
+            local label = Monitor.DiamondAmountLabel
+            if not label or not label.Parent then resolveMonitorHudLabels(); label = Monitor.DiamondAmountLabel end
+            if not label then return nil end
+            local ok, value = pcall(function() return label.Text end)
+            if not ok then return nil end
+            local diamonds = parseDiamondText(value)
+            return diamonds and math.max(0, math.floor(diamonds)) or nil
+        end
+
+        local function readCurrentClassText()
+            local label = Monitor.CurrentClassLabel
+            if not label or not label.Parent then return "Waiting" end
+            local ok, value = pcall(function()
+                local content = label.ContentText
+                if content and content ~= "" then return content end
+                return label.Text
+            end)
+            if not ok then return "Waiting" end
+            local classText = tostring(value or "")
+            classText = string.gsub(classText, "^%s+", "")
+            classText = string.gsub(classText, "%s+$", "")
+            if classText == "" then return "Waiting" end
+            return classText
+        end
+
+        local function makeMonitorLabel(parent, name, yScale, heightScale, color, minTextSize, maxTextSize)
+            local label = Instance.new("TextLabel")
+            label.Name = name; label.BackgroundTransparency = 1; label.BorderSizePixel = 0
+            label.Position = UDim2.fromScale(0.015, yScale); label.Size = UDim2.fromScale(0.97, heightScale)
+            label.Font = Enum.Font.GothamBold; label.Text = ""; label.TextColor3 = color
+            label.TextScaled = true; label.TextWrapped = false; label.RichText = true
+            label.TextStrokeColor3 = Color3.new(0, 0, 0); label.TextStrokeTransparency = 0.08
+            label.TextXAlignment = Enum.TextXAlignment.Center; label.TextYAlignment = Enum.TextYAlignment.Center
+            label.ZIndex = 1002; label.Active = false; label.Selectable = false; label.Parent = parent
+
+            local constraint = Instance.new("UITextSizeConstraint")
+            constraint.MinTextSize = minTextSize; constraint.MaxTextSize = maxTextSize; constraint.Parent = label
+            return label
+        end
+
+        local function createMonitorGui()
+            local old = PlayerGui:FindFirstChild("Campus4AccountMonitor")
+            if old then pcall(function() old:Destroy() end) end
+
+            local gui = Instance.new("ScreenGui")
+            gui.Name = "Campus4AccountMonitor"; gui.ResetOnSpawn = false; gui.IgnoreGuiInset = true
+            gui.DisplayOrder = 1000000; gui.ZIndexBehavior = Enum.ZIndexBehavior.Sibling; gui.Parent = PlayerGui
+
+            local panel = Instance.new("Frame")
+            panel.Name = "Background"; panel.AnchorPoint = Vector2.new(0, 0)
+            panel.Position = UDim2.fromScale(0, 0); panel.Size = UDim2.fromScale(1, 1)
+            panel.BackgroundColor3 = Color3.fromRGB(0, 0, 0); panel.BackgroundTransparency = 0.12
+            panel.BorderSizePixel = 0; panel.ZIndex = 1000; panel.Active = false; panel.Parent = gui
+
+            Monitor.NameLabel = makeMonitorLabel(panel, "AccountLevel", 0.05, 0.20, Color3.fromRGB(255, 105, 180), 8, 180)
+            Monitor.DiamondLabel = makeMonitorLabel(panel, "Diamonds", 0.30, 0.20, Color3.fromRGB(69, 220, 255), 8, 150)
+            Monitor.TradeLabel = makeMonitorLabel(panel, "TradeStatus", 0.55, 0.20, Color3.fromRGB(190, 190, 190), 8, 130)
+            Monitor.ClassLabel = makeMonitorLabel(panel, "CurrentClass", 0.80, 0.20, Color3.fromRGB(194, 154, 255), 8, 125)
+
+            Monitor.Gui = gui; Monitor.Panel = panel
+        end
+
+        local function setTradeStatus(textValue, kind)
+            Monitor.TradeStatus = tostring(textValue or "Unknown"); Monitor.TradeStatusKind = kind or "unknown"
+            if not Monitor.TradeLabel or not Monitor.TradeLabel.Parent then return end
+            Monitor.TradeLabel.Text = "Trade Status: " .. Monitor.TradeStatus
+
+            if kind == "available" then Monitor.TradeLabel.TextColor3 = Color3.fromRGB(127, 255, 108)
+            elseif kind == "locked" then Monitor.TradeLabel.TextColor3 = Color3.fromRGB(255, 105, 105)
+            elseif kind == "underlevel" then Monitor.TradeLabel.TextColor3 = Color3.fromRGB(195, 195, 195)
+            elseif kind == "checking" then Monitor.TradeLabel.TextColor3 = Color3.fromRGB(255, 205, 88)
+            else Monitor.TradeLabel.TextColor3 = Color3.fromRGB(195, 195, 195) end
+        end
+
+        local function profileGuiVisible(object)
+            if not object or not object:IsA("GuiObject") then return false end
+            local ok, visible = pcall(function() return object.Visible and object.AbsoluteSize.X > 0 and object.AbsoluteSize.Y > 0 end)
+            if not ok or not visible then return false end
+            local current = object.Parent
+            while current and current ~= PlayerGui do
+                if current:IsA("GuiObject") and current.Visible == false then return false end
+                if current:IsA("LayerCollector") and current.Enabled == false then return false end
+                current = current.Parent
+            end
+            return true
+        end
+
+        local function getDirectProfilePreview()
+            local profileGui = PlayerGui:FindFirstChild("ProfilePreviewGui")
+            return profileGui and profileGui:FindFirstChild("ProfilePreview")
+        end
+
+        local function closeDirectProfile(profilePreview)
+            if not profilePreview or not profilePreview.Parent then return end
+            local best = nil
+            for _, object in ipairs(profilePreview:GetDescendants()) do
+                if object:IsA("GuiButton") and profileGuiVisible(object) then
+                    local name = monitorNormalize(object.Name)
+                    local textValue = monitorNormalize((object:IsA("TextButton") and object.Text) or "")
+                    if name == "close" or string.find(name, "closebutton", 1, true) or textValue == "close" or textValue == "x" or textValue == "×" then
+                        best = object; break
+                    end
+                end
+            end
+            if best then clickUI(best) end
+        end
+
+        local function enoughPlayersForTradeCheck() return #Players:GetPlayers() >= 5 end
+        local function getProfileTargets()
+            local targets = {}
+            for _, player in ipairs(Players:GetPlayers()) do
+                if player ~= LocalPlayer and player.Parent == Players and player.Character and player.Character:FindFirstChild("HumanoidRootPart") then
+                    table.insert(targets, player)
+                end
+            end
+            return targets
+        end
+
+        local function resetTradeBanEvidence()
+            Monitor.TradeBanStrikes = 0; Monitor.TradeAccountBanned = false; Monitor.TradeCheckedForLevel75 = false
+        end
+
+        local function setWaitingForPlayerCount()
+            if Monitor.TradeAccountBanned then return end
+            setTradeStatus("Waiting for 5+ Players", "unknown")
+            Monitor.TradeCheckedForLevel75 = false; Monitor.NextTradeCheckAt = math.huge
+        end
+
+        local function checkTradeIconStatus()
+            if Monitor.TradeChecking or Monitor.TradeAccountBanned then return end
+            if not enoughPlayersForTradeCheck() then setWaitingForPlayerCount(); return end
+            if os.clock() < (Monitor.NextTradeCheckAt or 0) then return end
+            if not PROFILE_SHOW or not PROFILE_SHOW:IsA("RemoteEvent") then
+                setTradeStatus("Unknown (Profile remote unavailable)", "unknown")
+                Monitor.NextTradeCheckAt = os.clock() + 3600; return
+            end
+
+            Monitor.TradeChecking = true
+            setTradeStatus("Scanning...", "checking")
+
+            task.spawn(function()
+                while getgenv().IsCaptchaActive do task.wait(0.5) end
+
+                if not enoughPlayersForTradeCheck() then setWaitingForPlayerCount(); Monitor.TradeChecking = false; return end
+
+                local ignoredPlayers = {}; local qualifiedMissingCount = 0; local scanned = 0
+                resetTradeBanEvidence()
+
+                while scanned < #Players:GetPlayers() and qualifiedMissingCount < Monitor.TradeBanMaxStrikes and not Monitor.TradeAccountBanned do
+                    if not enoughPlayersForTradeCheck() then setWaitingForPlayerCount(); Monitor.TradeChecking = false; return end
+
+                    local targetPlayer = nil
+                    for _, player in ipairs(getProfileTargets()) do
+                        if not ignoredPlayers[player] then targetPlayer = player; break end
+                    end
+
+                    if not targetPlayer then
+                        if next(ignoredPlayers) ~= nil then ignoredPlayers = {}; scanned = 0; continue end
+                        setTradeStatus("No Players Found", "checking")
+                        Monitor.TradeChecking = false; Monitor.NextTradeCheckAt = os.clock() + 3600; return
+                    end
+
+                    ignoredPlayers[targetPlayer] = true; scanned += 1
+
+                    local stalePreview = getDirectProfilePreview()
+                    if stalePreview and profileGuiVisible(stalePreview) then closeDirectProfile(stalePreview); task.wait(0.10) end
+
+                    local opened = pcall(function() PROFILE_SHOW:FireServer(targetPlayer, "Preview") end)
+                    if not opened then continue end
+
+                    task.wait(2.40) -- Config.AccountMonitor.TradeProfileOpenWait
+
+                    if not enoughPlayersForTradeCheck() then
+                        local preview = getDirectProfilePreview()
+                        if preview then closeDirectProfile(preview) end
+                        setWaitingForPlayerCount(); Monitor.TradeChecking = false; return
+                    end
+
+                    local profilePreview = getDirectProfilePreview()
+                    local tradeBtn = profilePreview and profilePreview:FindFirstChild("Trade")
+                    local lvlLabel = profilePreview and profilePreview:FindFirstChild("Level")
+
+                    if not profilePreview or not profileGuiVisible(profilePreview) then continue end
+
+                    local targetLevel = 0
+                    if lvlLabel and lvlLabel:IsA("TextLabel") then
+                        local ok, rawText = pcall(function() return lvlLabel.Text end)
+                        if ok then targetLevel = parseLevelText(rawText) or 0 end
+                    end
+
+                    if tradeBtn and tradeBtn:IsA("GuiObject") and tradeBtn.Visible then
+                        resetTradeBanEvidence(); closeDirectProfile(profilePreview); setTradeStatus("Unlocked", "available")
+                        Monitor.TradeCheckedForLevel75 = true; Monitor.TradeChecking = false; Monitor.NextTradeCheckAt = math.huge; return
+                    end
+
+                    if targetLevel >= 75 then
+                        qualifiedMissingCount += 1
+                        Monitor.TradeBanStrikes = qualifiedMissingCount
+                        if qualifiedMissingCount >= Monitor.TradeBanMaxStrikes then
+                            Monitor.TradeAccountBanned = true; Monitor.TradeCheckedForLevel75 = true; Monitor.TradeChecking = false
+                            Monitor.NextTradeCheckAt = math.huge; closeDirectProfile(profilePreview); setTradeStatus("BANNED", "locked"); return
+                        end
+                    end
+                    closeDirectProfile(profilePreview); task.wait(0.10)
+                end
+
+                if not Monitor.TradeAccountBanned then
+                    if qualifiedMissingCount > 0 then setTradeStatus("Checking... " .. tostring(qualifiedMissingCount) .. "/" .. tostring(Monitor.TradeBanMaxStrikes), "checking")
+                    else setTradeStatus("No Lv75+ Targets Found", "unknown") end
+                    Monitor.TradeCheckedForLevel75 = false; Monitor.TradeChecking = false; Monitor.NextTradeCheckAt = os.clock() + 3600
+                end
+            end)
+        end
+
+        local function updateMonitorValues()
+            if not Monitor.Gui or not Monitor.Gui.Parent then createMonitorGui() end
+            local level = readLevel()
+            local diamonds = readDiamonds()
+
+            local levelText = level ~= nil and ("Lv" .. formatWholeNumber(level)) or "Lv?"
+            local shortName = string.sub(tostring(LocalPlayer.Name), 1, 5)
+
+            Monitor.NameLabel.Text = shortName .. ' <font color="#FFD84D">| ' .. levelText .. "</font>"
+            Monitor.DiamondLabel.Text = diamonds ~= nil and ("$" .. formatWholeNumber(diamonds)) or "$?"
+            if Monitor.ClassLabel and Monitor.ClassLabel.Parent then Monitor.ClassLabel.Text = "Class: " .. readCurrentClassText() end
+
+            if level == nil then setTradeStatus("Waiting for level", "unknown")
+            elseif level < 75 then
+                if not Monitor.TradeAccountBanned then setTradeStatus("Locked (< 75)", "underlevel") end
+                Monitor.TradeCheckedForLevel75 = false
+            elseif Monitor.TradeAccountBanned then setTradeStatus("BANNED", "locked")
+            else
+                if Monitor.LastLevel and Monitor.LastLevel < 75 then resetTradeBanEvidence(); Monitor.NextTradeCheckAt = 0 end
+                if not enoughPlayersForTradeCheck() then if not Monitor.TradeCheckedForLevel75 then setWaitingForPlayerCount() end
+                elseif not Monitor.TradeCheckedForLevel75 and not Monitor.TradeChecking and os.clock() >= (Monitor.NextTradeCheckAt or 0) then
+                    checkTradeIconStatus()
+                end
+            end
+            Monitor.LastLevel = level
+        end
+
+        local function bindMonitorHudEvents()
+            for i = 1, #Monitor.Connections do Monitor.Connections[i]:Disconnect() end
+            table.clear(Monitor.Connections)
+
+            if not resolveMonitorHudLabels() then return false end
+
+            table.insert(Monitor.Connections, Monitor.LevelLabel:GetPropertyChangedSignal("Text"):Connect(updateMonitorValues))
+            table.insert(Monitor.Connections, Monitor.DiamondAmountLabel:GetPropertyChangedSignal("Text"):Connect(updateMonitorValues))
+            if Monitor.CurrentClassLabel then
+                table.insert(Monitor.Connections, Monitor.CurrentClassLabel:GetPropertyChangedSignal("Text"):Connect(updateMonitorValues))
+                pcall(function() table.insert(Monitor.Connections, Monitor.CurrentClassLabel:GetPropertyChangedSignal("ContentText"):Connect(updateMonitorValues)) end)
+            end
+            return true
+        end
+
+        createMonitorGui(); setTradeStatus("Loading...", "unknown")
+        bindMonitorHudEvents(); updateMonitorValues()
+
+        Players.PlayerAdded:Connect(function()
+            if (Monitor.LastLevel or 0) >= 75 and not Monitor.TradeAccountBanned and not Monitor.TradeCheckedForLevel75 and enoughPlayersForTradeCheck() then
+                Monitor.NextTradeCheckAt = 0; task.spawn(checkTradeIconStatus)
+            end
+        end)
+
+        Players.PlayerRemoving:Connect(function()
+            if (Monitor.LastLevel or 0) < 75 or Monitor.TradeAccountBanned or Monitor.TradeCheckedForLevel75 then return end
+            if (#Players:GetPlayers() - 1) < 5 then setWaitingForPlayerCount() end
+        end)
+
+        task.spawn(function()
+            while true do
+                if not Monitor.LevelLabel or not Monitor.LevelLabel.Parent or not Monitor.DiamondAmountLabel or not Monitor.DiamondAmountLabel.Parent then bindMonitorHudEvents() end
+                updateMonitorValues(); task.wait(1.0)
+            end
+        end)
+    end)
+end
+
 -- ART CLASS BOT (Live Level Tracking + AFK)
 if getgenv().Config.AutoArtClass then
     task.spawn(function()
@@ -240,11 +602,7 @@ if getgenv().Config.AutoArtClass then
             if makeHttpRequest then
                 task.spawn(function()
                     pcall(function()
-                        makeHttpRequest({
-                            Url = MY_API_URL, Method = "POST",
-                            Headers = { ["Content-Type"] = "application/json" },
-                            Body = HttpService:JSONEncode({ server_id = SERVER_ID, answer = word })
-                        })
+                        makeHttpRequest({ Url = MY_API_URL, Method = "POST", Headers = { ["Content-Type"] = "application/json" }, Body = HttpService:JSONEncode({ server_id = SERVER_ID, answer = word }) })
                     end)
                 end)
             end
@@ -329,12 +687,8 @@ if getgenv().Config.AutoArtClass then
             if not tb then return end
             PlayerState.IsTyping = true
             
-            tb:CaptureFocus()
-            tb.Text = text
-            task.wait(0.05)
-            
-            VirtualInputManager:SendKeyEvent(true, Enum.KeyCode.Return, false, game)
-            task.wait(0.02)
+            tb:CaptureFocus(); tb.Text = text; task.wait(0.05)
+            VirtualInputManager:SendKeyEvent(true, Enum.KeyCode.Return, false, game); task.wait(0.02)
             VirtualInputManager:SendKeyEvent(false, Enum.KeyCode.Return, false, game)
             PlayerState.IsTyping = false
         end
@@ -344,16 +698,10 @@ if getgenv().Config.AutoArtClass then
         local nextAnswerTick = 0
         local currentLevel = nil
 
-        -- HUD Level Parser
         local function parseLevelText(value)
             local textValue = string.lower(tostring(value or ""))
             textValue = string.gsub(textValue, ",", "")
-            return tonumber(
-                string.match(textValue, "level%s*[:%-]?%s*(%d+)")
-                or string.match(textValue, "lvl%s*[:%-]?%s*(%d+)")
-                or string.match(textValue, "lv%.?%s*[:%-]?%s*(%d+)")
-                or string.match(textValue, "(%d+)")
-            )
+            return tonumber(string.match(textValue, "level%s*[:%-]?%s*(%d+)") or string.match(textValue, "lvl%s*[:%-]?%s*(%d+)") or string.match(textValue, "lv%.?%s*[:%-]?%s*(%d+)") or string.match(textValue, "(%d+)"))
         end
 
         task.spawn(function()
@@ -369,11 +717,8 @@ if getgenv().Config.AutoArtClass then
                 if not newLevel then return end
 
                 if currentLevel and newLevel > currentLevel then
-                    -- Level up confirmed. Trigger 5-7 minute AFK.
                     local afkTime = tick() + math.random(300, 420)
-                    if afkTime > nextAnswerTick then
-                        nextAnswerTick = afkTime
-                    end
+                    if afkTime > nextAnswerTick then nextAnswerTick = afkTime end
                 end
                 currentLevel = newLevel
             end
@@ -408,8 +753,6 @@ if getgenv().Config.AutoArtClass then
                                     while getgenv().IsCaptchaActive do task.wait(0.2) end
                                     if guessingGame.Visible and not midGameArtist.Visible then
                                         pcall(function() typeAnswer(finalAns) end)
-                                        
-                                        -- Standard inter-round delay; AFK override is handled by the HUD listener
                                         nextAnswerTick = tick() + math.random(35, 50)
                                     end
                                     isProcessing = false
