@@ -710,7 +710,7 @@ if getgenv().Config.AutoArtClass then
         local lastSentWord = ""
 
         -- RATE CAP (4/hr rolling)
-        local LEVELS_PER_HOUR_CAP = 4
+        local LEVELS_PER_HOUR_CAP = 5
         local levelUpTimes = {}
         getgenv().LevelCapReached = false
 
