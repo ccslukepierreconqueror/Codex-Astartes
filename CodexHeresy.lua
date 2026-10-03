@@ -715,7 +715,7 @@ if getgenv().Config.AutoArtClass then
         getgenv().LevelCapReached = false
 
         local function pruneLevelUpTimes(now)
-            local cutoff = now - 3600
+            local cutoff = now - 1800
             local i = 1
             while i <= #levelUpTimes do
                 if levelUpTimes[i] < cutoff then table.remove(levelUpTimes, i)
