@@ -20,11 +20,26 @@ if type(getgenv().Config) ~= "table" then
         AutoArtClass = true,
         AutoCaptcha = true,
         AccountMonitor = true,
-        Level75Stop = true,
+        LevelCap = 75,  -- single source of truth: local hard-stop + FarmSync target
+        FarmSync = true,
+        FarmSyncToken = "f6c74cbe7d79d0cdd2ad61cc483c37e35a4989339bafa1b29e4db5ae7924b2aa",
     }
 end
-if getgenv().Config.Level75Stop == nil then
-    getgenv().Config.Level75Stop = true
+-- Back-compat: honor legacy keys if someone sets them externally
+if getgenv().Config.LevelCap == nil then
+    if getgenv().Config.FarmSyncTargetLevel then
+        getgenv().Config.LevelCap = getgenv().Config.FarmSyncTargetLevel
+    elseif getgenv().Config.Level75Stop == false then
+        getgenv().Config.LevelCap = false
+    else
+        getgenv().Config.LevelCap = 75
+    end
+end
+if getgenv().Config.FarmSync == nil then
+    getgenv().Config.FarmSync = true
+end
+if getgenv().Config.FarmSyncToken == nil then
+    getgenv().Config.FarmSyncToken = "c40d93fc75bdf8e004d3b7f0be6e1205955acb2fef49d26848aea76c1133b5c3"
 end
 
 getgenv().IsCaptchaActive = false
@@ -33,61 +48,90 @@ local makeHttpRequest = request or http_request or (http and http.request) or fl
 
 local PlayerState = { IsTyping = false, IsDrawing = false, LastInputTime = tick() }
 
--- LEVEL 75 HARD STOP (persistent, per-userid)
-local L75_FILE = "night_l75stop_" .. tostring(LocalPlayer.UserId) .. ".txt"
-local L75_ARMED = getgenv().Config.Level75Stop
+-- LEVEL CAP HARD STOP (persistent, per-userid)
+-- Cap value comes from Config.LevelCap. File stores the tripped level so
+-- raising the cap later cleanly un-retires an account whose stored level
+-- is now below the new cap, while lowering the cap keeps it retired.
+local LCAP_FILE   = "night_lcap_" .. tostring(LocalPlayer.UserId) .. ".txt"
+local LCAP_VALUE  = (type(getgenv().Config.LevelCap) == "number") and getgenv().Config.LevelCap or nil
+local LCAP_ARMED  = LCAP_VALUE ~= nil
 
-local function l75Write()
-    if writefile then pcall(function() writefile(L75_FILE, "1") end) end
+local function lcapWrite(level)
+    if writefile then pcall(function() writefile(LCAP_FILE, tostring(level)) end) end
 end
 
-local function l75Read()
+local function lcapRead()
+    -- Legacy "night_l75stop_<uid>.txt" migration: treat its presence as "tripped at 75"
     if readfile and isfile then
-        local ok, exists = pcall(function() return isfile(L75_FILE) end)
-        if ok and exists then
-            local ok2, content = pcall(function() return readfile(L75_FILE) end)
-            if ok2 and content and content ~= "" then return true end
+        local legacyFile = "night_l75stop_" .. tostring(LocalPlayer.UserId) .. ".txt"
+        local ok, legacyExists = pcall(function() return isfile(legacyFile) end)
+        if ok and legacyExists then
+            lcapWrite(75)
+            if delfile then pcall(function() delfile(legacyFile) end) end
+            return 75
+        end
+        local ok2, exists = pcall(function() return isfile(LCAP_FILE) end)
+        if ok2 and exists then
+            local ok3, content = pcall(function() return readfile(LCAP_FILE) end)
+            if ok3 and content and content ~= "" then
+                return tonumber(string.match(content, "%d+"))
+            end
         end
     end
-    return false
+    return nil
 end
 
-local function l75Clear()
-    if delfile then pcall(function() delfile(L75_FILE) end) end
+local function lcapClear()
+    if delfile then pcall(function() delfile(LCAP_FILE) end) end
 end
 
-local L75_TRIPPED = l75Read()
+local LCAP_STORED  = lcapRead()               -- level at which this acct was retired, or nil
+local LCAP_TRIPPED = false                    -- true = this acct should not farm this session
 
-if not L75_ARMED and L75_TRIPPED then
-    l75Clear()
-    L75_TRIPPED = false
-    print("[l75] Level75Stop disabled - flag cleared, farming resumes")
+if LCAP_STORED then
+    if not LCAP_ARMED then
+        lcapClear()
+        print("[lcap] cap disabled - stored retire flag (L" .. LCAP_STORED .. ") cleared, farming resumes")
+    elseif LCAP_STORED >= LCAP_VALUE then
+        LCAP_TRIPPED = true
+    else
+        -- Cap was raised above the retired level: un-retire and keep farming
+        lcapClear()
+        print(string.format("[lcap] cap raised to %d (stored retire was L%d) - un-retiring account",
+            LCAP_VALUE, LCAP_STORED))
+    end
 end
 
-if L75_ARMED and L75_TRIPPED then
-    print("[l75] level 75 flag present - account is retired, halting")
+if LCAP_TRIPPED then
+    print(string.format("[lcap] account retired at L%d (cap=%d) - halting", LCAP_STORED, LCAP_VALUE))
     if GuiService then
         pcall(function() GuiService:LeaveGame() end)
-        pcall(function() LocalPlayer:Kick("L75 stop") end)
+        pcall(function() LocalPlayer:Kick("LevelCap retired") end)
     end
     return
 end
 
-getgenv().Check75Stop = function(level)
-    if not L75_ARMED then return false end
-    if not level then return false end
-    if level < 75 then return false end
-    if L75_TRIPPED then return true end
-    L75_TRIPPED = true
-    l75Write()
-    print(string.format("[l75] level %d reached - flag written, leaving", level))
+local function tripLevelCap(level)
+    if LCAP_TRIPPED then return true end
+    LCAP_TRIPPED = true
+    lcapWrite(level)
+    print(string.format("[lcap] level %d reached (cap=%d) - flag written, leaving", level, LCAP_VALUE))
     task.spawn(function()
         pcall(function() GuiService:LeaveGame() end)
         task.wait(2)
-        pcall(function() LocalPlayer:Kick("L75 stop") end)
+        pcall(function() LocalPlayer:Kick("LevelCap stop") end)
     end)
     return true
 end
+
+-- Kept the Check75Stop name for back-compat with existing call sites in this script.
+getgenv().Check75Stop = function(level)
+    if not LCAP_ARMED then return false end
+    if not level then return false end
+    if level < LCAP_VALUE then return false end
+    return tripLevelCap(level)
+end
+getgenv().CheckLevelCap = getgenv().Check75Stop  -- new preferred name
 
 -- SESSION TRACKER (+10 levels, session-scoped)
 local SESSION_CAP = 10
@@ -132,6 +176,139 @@ end
 
 getgenv().SessionHalted = function()
     return Session.Done or L75_TRIPPED
+end
+
+-- ============================================================================
+-- FARMSYNC: level-cap reporter wired to existing L75 stop
+-- Reports MAX_LEVEL to backend before the kick path fires.
+-- Wraps Check75Stop so persistent L75 flag + session cap + rate cap all still enforce.
+-- ============================================================================
+if getgenv().Config.FarmSync and type(getgenv().Config.LevelCap) == "number" then
+    local CoreGui = game:GetService("CoreGui")
+    local FS_TARGET = getgenv().Config.LevelCap
+    local FS_TOKEN  = getgenv().Config.FarmSyncToken
+    local FS_URL    = "https://api.farmsync.cloud/api/self/accounts/" .. LocalPlayer.Name
+    local fsReported = false
+
+    local function fsReport()
+        if fsReported then return true end
+        if not makeHttpRequest then
+            print("[FARMSYNC] no http request fn available, skipping report")
+            fsReported = true
+            return false
+        end
+        print(string.format("[FARMSYNC] L%d hit - reporting MAX_LEVEL", FS_TARGET))
+        for attempt = 1, 3 do
+            local ok, resp = pcall(function()
+                return makeHttpRequest({
+                    Url = FS_URL,
+                    Method = "PUT",
+                    Headers = {
+                        ["Content-Type"]  = "application/json",
+                        ["Authorization"] = "Bearer " .. FS_TOKEN,
+                    },
+                    Body = HttpService:JSONEncode({
+                        enabled  = false,
+                        username = LocalPlayer.Name,
+                        error    = "MAX_LEVEL",
+                    }),
+                })
+            end)
+            if ok and resp and (resp.StatusCode == 200 or resp.StatusCode == 204) then
+                print(string.format("[FARMSYNC] account disabled on backend (attempt %d)", attempt))
+                fsReported = true
+                return true
+            end
+            print(string.format("[FARMSYNC] report attempt %d failed, retrying", attempt))
+            task.wait(2)
+        end
+        print("[FARMSYNC] report failed after 3 attempts")
+        fsReported = true
+        return false
+    end
+    getgenv().FarmSyncReport = fsReport
+
+    -- Wrap Check75Stop: fire reporter BEFORE the original kick path runs
+    local originalCheck75Stop = getgenv().Check75Stop
+    getgenv().Check75Stop = function(level)
+        if level and level >= FS_TARGET and not fsReported then
+            fsReport()
+        end
+        return originalCheck75Stop(level)
+    end
+
+    -- Tracker UI
+    local trackerLabel
+    task.spawn(function()
+        local parent = CoreGui or PlayerGui
+        local gui = Instance.new("ScreenGui")
+        gui.Name = "FarmSync_LevelTracker"
+        gui.ResetOnSpawn = false
+        gui.IgnoreGuiInset = true
+        gui.Parent = parent
+
+        local label = Instance.new("TextLabel")
+        label.Parent = gui
+        label.Size = UDim2.new(0, 240, 0, 28)
+        label.Position = UDim2.new(1, -250, 0, 80)
+        label.BackgroundTransparency = 1
+        label.TextColor3 = Color3.fromRGB(0, 255, 255)
+        label.TextStrokeTransparency = 0
+        label.TextStrokeColor3 = Color3.fromRGB(0, 0, 0)
+        label.Font = Enum.Font.Code
+        label.TextSize = 16
+        label.TextXAlignment = Enum.TextXAlignment.Right
+        label.Text = "FarmSync: loading..."
+        trackerLabel = label
+    end)
+
+    local function fsUpdateUI(cur)
+        if not trackerLabel then return end
+        local kulang = FS_TARGET - cur
+        if kulang <= 0 then
+            trackerLabel.TextColor3 = Color3.fromRGB(0, 255, 0)
+            trackerLabel.Text = string.format("FarmSync: Lv%d REACHED", FS_TARGET)
+        else
+            trackerLabel.TextColor3 = Color3.fromRGB(0, 255, 255)
+            trackerLabel.Text = string.format("FarmSync: Lv%d - %d to go", FS_TARGET, kulang)
+        end
+    end
+
+    local function fsReadLevel()
+        local lbl
+        pcall(function()
+            lbl = PlayerGui:FindFirstChild("HUD")
+                   and PlayerGui.HUD:FindFirstChild("Frame")
+                   and PlayerGui.HUD.Frame:FindFirstChild("XPStuff")
+                   and PlayerGui.HUD.Frame.XPStuff:FindFirstChild("Level")
+        end)
+        if lbl and lbl:IsA("TextLabel") then
+            local ok, txt = pcall(function() return lbl.Text end)
+            if ok then return tonumber(string.match(txt or "", "%d+")) end
+        end
+        return nil
+    end
+
+    -- Poll loop: UI update + safety-net TrackSessionLevel in case the
+    -- main art-class HUD listener drops its Changed connection.
+    task.spawn(function()
+        task.wait(15)
+        print(string.format("[FARMSYNC] tracker armed, target = Lv%d", FS_TARGET))
+        while true do
+            if getgenv().SessionHalted and getgenv().SessionHalted() then
+                task.wait(10)
+            else
+                local cur = fsReadLevel()
+                if cur then
+                    fsUpdateUI(cur)
+                    if getgenv().TrackSessionLevel then
+                        getgenv().TrackSessionLevel(cur)
+                    end
+                end
+                task.wait(5)
+            end
+        end
+    end)
 end
 
 local function safeFind(parent, ...)
