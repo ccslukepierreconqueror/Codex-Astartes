@@ -22,7 +22,7 @@ if type(getgenv().Config) ~= "table" then
         AccountMonitor = true,
         LevelCap = 75,  -- single source of truth: local hard-stop + FarmSync target
         FarmSync = true,
-        FarmSyncToken = "f6c74cbe7d79d0cdd2ad61cc483c37e35a4989339bafa1b29e4db5ae7924b2aa",
+        FarmSyncToken = "c40d93fc75bdf8e004d3b7f0be6e1205955acb2fef49d26848aea76c1133b5c3",
     }
 end
 -- Back-compat: honor legacy keys if someone sets them externally
@@ -39,7 +39,16 @@ if getgenv().Config.FarmSync == nil then
     getgenv().Config.FarmSync = true
 end
 if getgenv().Config.FarmSyncToken == nil then
-    getgenv().Config.FarmSyncToken = "f6c74cbe7d79d0cdd2ad61cc483c37e35a4989339bafa1b29e4db5ae7924b2aa"
+    getgenv().Config.FarmSyncToken = "c40d93fc75bdf8e004d3b7f0be6e1205955acb2fef49d26848aea76c1133b5c3"
+end
+if getgenv().Config.FarmSyncStatsPush == nil then
+    getgenv().Config.FarmSyncStatsPush = true    -- periodic stats PUT to backend
+end
+if getgenv().Config.FarmSyncStatsInterval == nil then
+    getgenv().Config.FarmSyncStatsInterval = 60  -- seconds between periodic pushes
+end
+if getgenv().Config.FarmSyncStatsField == nil then
+    getgenv().Config.FarmSyncStatsField = "stats"  -- field on account doc; adjust to match schema
 end
 
 getgenv().IsCaptchaActive = false
@@ -265,10 +274,136 @@ if getgenv().Config.FarmSync and type(getgenv().Config.LevelCap) == "number" the
     end
     getgenv().FarmSyncReport = fsReport
 
-    -- Wrap Check75Stop: fire reporter BEFORE the original kick path runs
+    -- =========================================================================
+    -- STATS PUSHER: periodic PUT /api/self/accounts/:username with session stats
+    -- Field key is Config.FarmSyncStatsField (default "stats"); adjust to match
+    -- what your custom trackstat config expects. The whole stats object is sent
+    -- as a single key so you can see it as one blob in your dashboard.
+    -- Expose getgenv().FarmSyncStats as an open table - mutate it from anywhere
+    -- in the script to add arbitrary fields (e.g. captchas_solved, draws_done).
+    -- =========================================================================
+    local STATS_PUSH     = getgenv().Config.FarmSyncStatsPush == true
+    local STATS_FIELD    = getgenv().Config.FarmSyncStatsField
+    local STATS_INTERVAL = tonumber(getgenv().Config.FarmSyncStatsInterval) or 60
+
+    local session = {
+        start_time       = os.time(),
+        start_level      = nil,
+        current_level    = nil,
+        current_xp_pct   = nil,
+        current_diamonds = nil,
+        levels_gained    = 0,
+        last_pushed_at   = 0,
+        last_pushed_lvl  = nil,
+        push_count       = 0,
+        push_fails       = 0,
+    }
+    getgenv().FarmSyncSession = session
+
+    -- Open bag for user-added stats. Mutate from anywhere:
+    -- getgenv().FarmSyncStats.captchas_solved = (getgenv().FarmSyncStats.captchas_solved or 0) + 1
+    getgenv().FarmSyncStats = getgenv().FarmSyncStats or {}
+
+    local function fsReadXPPct()
+        -- Try common HUD paths for the XP bar fill. Returns 0-100 or nil.
+        local candidates = {
+            {"HUD","Frame","XPStuff","Bar","Fill"},
+            {"HUD","Frame","XPStuff","Progress","Bar"},
+            {"HUD","Frame","XPStuff","XPBar","Fill"},
+        }
+        for _, path in ipairs(candidates) do
+            local node = PlayerGui
+            for _, name in ipairs(path) do
+                node = node and node:FindFirstChild(name)
+                if not node then break end
+            end
+            if node then
+                local ok, size = pcall(function() return node.Size end)
+                if ok and size and size.X then
+                    return math.floor(size.X.Scale * 100 + 0.5)
+                end
+            end
+        end
+        return nil
+    end
+
+    local function fsReadDiamonds()
+        local candidates = {
+            {"HUD","Frame","Diamonds","Amount"},
+            {"HUD","Frame","Top","Diamonds","Amount"},
+            {"HUD","Frame","Currency","Diamonds"},
+        }
+        for _, path in ipairs(candidates) do
+            local node = PlayerGui
+            for _, name in ipairs(path) do
+                node = node and node:FindFirstChild(name)
+                if not node then break end
+            end
+            if node and node:IsA("TextLabel") then
+                local ok, txt = pcall(function() return node.Text end)
+                if ok and txt then
+                    local n = tonumber((txt:gsub("[^%d]", "")))
+                    if n then return n end
+                end
+            end
+        end
+        return nil
+    end
+
+    local function fsBuildPayload(reason)
+        local base = {
+            level              = session.current_level,
+            xp_pct             = session.current_xp_pct,
+            diamonds           = session.current_diamonds,
+            session_start_level = session.start_level,
+            session_levels_gained = session.levels_gained,
+            session_duration_s  = os.time() - session.start_time,
+            cap_target         = FS_TARGET,
+            cap_remaining      = session.current_level and (FS_TARGET - session.current_level) or nil,
+            last_update        = os.time(),
+            place_id           = game.PlaceId,
+            job_id             = game.JobId,
+            reason             = reason,
+        }
+        -- Merge user-added fields (user keys do NOT override core keys on collision)
+        for k, v in pairs(getgenv().FarmSyncStats) do
+            if base[k] == nil then base[k] = v end
+        end
+        return { [STATS_FIELD] = base }
+    end
+
+    local function fsPushStats(reason, force)
+        if not STATS_PUSH then return end
+        if not makeHttpRequest then return end
+        if not session.current_level then return end  -- nothing to report yet
+        -- Dedup: skip if nothing changed AND it's not a forced push
+        if not force
+           and session.last_pushed_lvl == session.current_level
+           and (os.time() - session.last_pushed_at) < STATS_INTERVAL then
+            return
+        end
+        local payload = fsBuildPayload(reason)
+        local ok, info = fsCall("PUT", "/api/self/accounts/" .. LocalPlayer.Name, payload)
+        if ok then
+            session.push_count     = session.push_count + 1
+            session.last_pushed_at = os.time()
+            session.last_pushed_lvl = session.current_level
+        else
+            session.push_fails = session.push_fails + 1
+            if session.push_fails <= 3 or session.push_fails % 10 == 0 then
+                print(string.format("[FARMSYNC] stats push failed (%d total): %s",
+                    session.push_fails, tostring(info)))
+            end
+        end
+    end
+    getgenv().FarmSyncPushStats = fsPushStats
+
+    -- Wrap Check75Stop: fire reporter BEFORE the original kick path runs,
+    -- and push final stats so the dashboard sees the retire-level snapshot.
     local originalCheck75Stop = getgenv().Check75Stop
     getgenv().Check75Stop = function(level)
         if level and level >= FS_TARGET and not fsReported then
+            fsPushStats("cap_hit", true)
             fsReport()
         end
         return originalCheck75Stop(level)
@@ -326,13 +461,19 @@ if getgenv().Config.FarmSync and type(getgenv().Config.LevelCap) == "number" the
         return nil
     end
 
-    -- Poll loop: UI update + safety-net TrackSessionLevel in case the
-    -- main art-class HUD listener drops its Changed connection.
+    -- Poll loop: UI update + safety-net TrackSessionLevel + stats push.
+    -- Pushes on: level change (immediate), every STATS_INTERVAL seconds, session halt (final).
     task.spawn(function()
         task.wait(15)
-        print(string.format("[FARMSYNC] tracker armed, target = Lv%d", FS_TARGET))
+        print(string.format("[FARMSYNC] tracker armed, target = Lv%d, stats push = %s (every %ds)",
+            FS_TARGET, tostring(STATS_PUSH), STATS_INTERVAL))
+        local haltPushed = false
         while true do
             if getgenv().SessionHalted and getgenv().SessionHalted() then
+                if not haltPushed then
+                    fsPushStats("session_halt", true)
+                    haltPushed = true
+                end
                 task.wait(10)
             else
                 local cur = fsReadLevel()
@@ -341,6 +482,25 @@ if getgenv().Config.FarmSync and type(getgenv().Config.LevelCap) == "number" the
                     if getgenv().TrackSessionLevel then
                         getgenv().TrackSessionLevel(cur)
                     end
+                    -- Update session state
+                    if not session.start_level then
+                        session.start_level = cur
+                        session.current_level = cur
+                        fsPushStats("session_start", true)
+                    elseif cur ~= session.current_level then
+                        if cur > session.current_level then
+                            session.levels_gained = session.levels_gained + (cur - session.current_level)
+                        end
+                        session.current_level = cur
+                        fsPushStats("level_change", true)
+                    else
+                        session.current_level = cur
+                    end
+                    -- Opportunistic sub-level readings
+                    session.current_xp_pct   = fsReadXPPct() or session.current_xp_pct
+                    session.current_diamonds = fsReadDiamonds() or session.current_diamonds
+                    -- Interval push
+                    fsPushStats("interval", false)
                 end
                 task.wait(5)
             end
