@@ -39,7 +39,7 @@ if getgenv().Config.FarmSync == nil then
     getgenv().Config.FarmSync = true
 end
 if getgenv().Config.FarmSyncToken == nil then
-    getgenv().Config.FarmSyncToken = "c40d93fc75bdf8e004d3b7f0be6e1205955acb2fef49d26848aea76c1133b5c3"
+    getgenv().Config.FarmSyncToken = "f6c74cbe7d79d0cdd2ad61cc483c37e35a4989339bafa1b29e4db5ae7924b2aa"
 end
 
 getgenv().IsCaptchaActive = false
@@ -185,11 +185,37 @@ end
 -- ============================================================================
 if getgenv().Config.FarmSync and type(getgenv().Config.LevelCap) == "number" then
     local CoreGui = game:GetService("CoreGui")
-    local FS_TARGET = getgenv().Config.LevelCap
-    local FS_TOKEN  = getgenv().Config.FarmSyncToken
-    local FS_URL    = "https://api.farmsync.cloud/api/self/accounts/" .. LocalPlayer.Name
+    local FS_TARGET  = getgenv().Config.LevelCap
+    local FS_TOKEN   = getgenv().Config.FarmSyncToken
+    local FS_BASE    = "https://api.farmsync.cloud"
+    local FS_HEADERS = {
+        ["Content-Type"]  = "application/json",
+        ["Authorization"] = "Bearer " .. FS_TOKEN,
+    }
     local fsReported = false
 
+    local function fsOk(resp)
+        return resp and (resp.StatusCode == 200 or resp.StatusCode == 201 or resp.StatusCode == 204)
+    end
+
+    local function fsCall(method, path, body)
+        local ok, resp = pcall(function()
+            return makeHttpRequest({
+                Url = FS_BASE .. path,
+                Method = method,
+                Headers = FS_HEADERS,
+                Body = HttpService:JSONEncode(body),
+            })
+        end)
+        if not ok then return false, tostring(resp) end
+        if fsOk(resp) then return true, resp end
+        return false, string.format("HTTP %s: %s",
+            tostring(resp and resp.StatusCode or "?"),
+            tostring(resp and resp.Body or ""))
+    end
+
+    -- Primary:  POST /api/self/accounts/mark-done   (semantic: account completed target)
+    -- Fallback: PUT  /api/self/bulk/accounts/enabled (hard-disable)
     local function fsReport()
         if fsReported then return true end
         if not makeHttpRequest then
@@ -197,32 +223,43 @@ if getgenv().Config.FarmSync and type(getgenv().Config.LevelCap) == "number" the
             fsReported = true
             return false
         end
-        print(string.format("[FARMSYNC] L%d hit - reporting MAX_LEVEL", FS_TARGET))
+        local uname = LocalPlayer.Name
+        print(string.format("[FARMSYNC] L%d hit - reporting mark-done for %s", FS_TARGET, uname))
+
+        -- Attempt 1-3: mark-done
         for attempt = 1, 3 do
-            local ok, resp = pcall(function()
-                return makeHttpRequest({
-                    Url = FS_URL,
-                    Method = "PUT",
-                    Headers = {
-                        ["Content-Type"]  = "application/json",
-                        ["Authorization"] = "Bearer " .. FS_TOKEN,
-                    },
-                    Body = HttpService:JSONEncode({
-                        enabled  = false,
-                        username = LocalPlayer.Name,
-                        error    = "MAX_LEVEL",
-                    }),
-                })
-            end)
-            if ok and resp and (resp.StatusCode == 200 or resp.StatusCode == 204) then
-                print(string.format("[FARMSYNC] account disabled on backend (attempt %d)", attempt))
+            local ok, info = fsCall("POST", "/api/self/accounts/mark-done", {
+                usernames = { uname },
+                reason    = "MAX_LEVEL",
+                level     = FS_TARGET,
+            })
+            if ok then
+                print(string.format("[FARMSYNC] mark-done OK (attempt %d)", attempt))
                 fsReported = true
                 return true
             end
-            print(string.format("[FARMSYNC] report attempt %d failed, retrying", attempt))
+            print(string.format("[FARMSYNC] mark-done attempt %d failed: %s", attempt, info))
             task.wait(2)
         end
-        print("[FARMSYNC] report failed after 3 attempts")
+
+        -- Fallback 1-2: bulk enable=false
+        print("[FARMSYNC] falling back to bulk/enabled disable")
+        for attempt = 1, 2 do
+            local ok, info = fsCall("PUT", "/api/self/bulk/accounts/enabled", {
+                usernames = { uname },
+                enabled   = false,
+                reason    = "MAX_LEVEL",
+            })
+            if ok then
+                print(string.format("[FARMSYNC] bulk disable OK (attempt %d)", attempt))
+                fsReported = true
+                return true
+            end
+            print(string.format("[FARMSYNC] bulk disable attempt %d failed: %s", attempt, info))
+            task.wait(2)
+        end
+
+        print("[FARMSYNC] all report attempts failed - account will be retired locally only")
         fsReported = true
         return false
     end
