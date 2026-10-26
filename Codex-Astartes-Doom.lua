@@ -1,6 +1,6 @@
 -- ========================================================================
 -- 🎓 CAMPUS 4 CLASS AUTOMATION FRAMEWORK (V77 + FRIEND TRADE STATUS LOGIC)
--- Includes: 👗 Auto Outfit | 🍳 Breakfast | 🏀 Basketball | 🔭 Star Gazing | 🧚 Fairy Flight | 💻 Computer | 🏊 Swim Spinner | 🧪 Potionology | 🏹 Archery | 🛒 Shopping | 📚 Homework | 📖 Study Hall | 📝 English | 🤖 API Captcha
+-- Includes: 🌙 Nightly Locker + Tidy | 👗 Auto Outfit | 🍳 Breakfast | 🏀 Basketball | 🔭 Star Gazing | 🧚 Fairy Flight | 💻 Computer | 🏊 Swim Spinner | 🧪 Potionology | 🏹 Archery | 🛒 Shopping | 📚 Homework | 📖 Study Hall | 📝 English | 🤖 API Captcha
 
 -- ========================================================================
 if not game:IsLoaded() then game.Loaded:Wait() end
@@ -94,6 +94,7 @@ if _G.AutoEnableSwimSpinner == nil then _G.AutoEnableSwimSpinner = true end
 if _G.AutoEnableEnglish == nil then _G.AutoEnableEnglish = true end
 if _G.AutoEnableSwimwearFashionShow == nil then _G.AutoEnableSwimwearFashionShow = true end
 if _G.AutoEnableAccountMonitor == nil then _G.AutoEnableAccountMonitor = true end
+if _G.AutoEnableNightLocker == nil then _G.AutoEnableNightLocker = true end
 local Config = { Debug = false, -- true = show detailed class diagnostics
     Basketball = { Enabled = _G.AutoEnableBasketball, Power = 37.0, ArcY = 1.5, Timeouts = { Acquisition = 2.0, Equip = 0.80, Teleport = 1.0, PromptReady = 0.75, Result = 2.50 }, Delays = { RequestRetry = 0.15, Cooldown = 0.35, Failure = 0.05, ReturnGrace = 1.50, FaceStabilize = 0.10 }, Tolerances = { Teleport = 1.5, Position = 2.0, FacingMax = 3.0, FacingCorrection = 0.5 }, MultiInstance = { Slots = 24, SlotSpacing = 0.08, GroupSize = 3, ShotGroupDuration = 1.20, LaneSpacing = 2.75, HoldSpacing = 3.5 } }, Potionology = { Enabled = _G.AutoEnablePotionologyClass, ClickDelay = 0.3, ChangeTimeout = 2.50, PollRate = 0.03 }, Archery = { Enabled = _G.AutoEnableArchery, Delays = { ShotCooldown = 0.42, TargetReuse = 0.52, BlockedRetry = 0.20, IdlePoll = 0.025 }, Timeouts = { Result = 1.40 }, Tolerances = { Endpoint = 6.0 } }, Shopping = { Enabled = _G.AutoEnableShopping, ClickDelay = 0.7, UpdateTimeout = 1.20, IdlePoll = 0.05 }, Computer = { Enabled = _G.AutoEnableComputer,
         -- The client sends one character at a time through
@@ -206,6 +207,23 @@ local Config = { Debug = false, -- true = show detailed class diagnostics
         TradeRetryDelay = 3600.00
     }, Controller = { MinPlayersToStart = 8, PlayerCountPollRate = 0.50, FallbackPollRate = 1.00, MouseReleaseTimeout = 0.40, WaitSlice = 0.04 } }
 
+-- In-game nightly window; real-time cash-out cooldown is handled by Tidy.
+Config.LockerNight = {
+    Enabled = _G.AutoEnableNightLocker,
+    RecoveryVersion = "locker-loading-v9",
+    StartMinute = 23 * 60 + 20,
+    EndMinute = 6 * 60,
+    MaxAttemptsPerNight = 3,
+    RetryDelay = 15,
+    ClockSearchInterval = 5,
+    SessionPollRate = 0.25,
+    ActiveFPS = 30,
+    ExitAttempts = 2,
+    ExitSettle = 0.35,
+    ExitMouseHold = 0.10,
+    ExitAckTimeout = 2.0,
+}
+
 -- ========================================================================
 -- ♻️ RUNTIME MANAGER
 -- ========================================================================
@@ -222,6 +240,15 @@ local function cleanupOldRuntimeRegistry(registry, operation)
     end
 end
 
+if _G.Campus4Runtime and _G.Campus4Runtime.NightLockerStop then
+    pcall(_G.Campus4Runtime.NightLockerStop, "Campus script reloaded.")
+end
+if _G.Campus4LockerClickRuntime and _G.Campus4LockerClickRuntime.Stop then
+    pcall(_G.Campus4LockerClickRuntime.Stop, "Campus scheduler is taking ownership.")
+end
+if _G.Campus4TidyRuntime and _G.Campus4TidyRuntime.Stop then
+    pcall(_G.Campus4TidyRuntime.Stop, "Campus scheduler is taking ownership.")
+end
 if _G.Campus4Runtime then
     cleanupOldRuntimeRegistry(
         _G.Campus4Runtime.Connections,
@@ -264,28 +291,40 @@ function Runtime.Spawn(func)
     return thread
 end
 
--- Startup gate: count all server players, including the local player.
--- Once released, farming continues even if the population later decreases.
-do
-    local startupRuntime = _G.Campus4Runtime
+-- Only farming workers wait for the player threshold; HUD setup stays live.
+Runtime.FarmingReady = false
+
+function Runtime.SpawnFarming(func)
+    local owner = _G.Campus4Runtime
+    return Runtime.Spawn(function()
+        while _G.Campus4Runtime == owner and not Runtime.FarmingReady do
+            task.wait(Config.Controller.PlayerCountPollRate)
+        end
+        if _G.Campus4Runtime ~= owner then return end
+        func()
+    end)
+end
+
+Runtime.Spawn(function()
+    local owner = _G.Campus4Runtime
     local required = Config.Controller.MinPlayersToStart
     local lastCount = nil
 
-    while _G.Campus4Runtime == startupRuntime do
+    while _G.Campus4Runtime == owner do
         local count = #Players:GetPlayers()
-        if count >= required then break end
-
+        if count >= required then
+            -- Latch once: departures after startup do not stop farming.
+            Runtime.FarmingReady = true
+            print(string.format("[Farming] Player requirement met (%d+); starting.", required))
+            return
+        end
         if count ~= lastCount then
             print(string.format("[Farming] Waiting for players: %d/%d", count, required))
             lastCount = count
         end
         task.wait(Config.Controller.PlayerCountPollRate)
     end
-
-    -- A newer execution owns the runtime; do not start duplicate workers.
-    if _G.Campus4Runtime ~= startupRuntime then return end
-    print(string.format("[Farming] Player requirement met (%d+); starting.", required))
-end
+end)
 
 -- ========================================================================
 -- 🛠️ UTILITIES, LOGGING & HUMANIZER ENGINE
@@ -434,7 +473,7 @@ local function stockCrystalIceToTarget()
     Logger.Debug("✅ [Crystal Ice] Auto-stock complete at " .. tostring(count) .. ".")
 end
 
-Runtime.Spawn(stockCrystalIceToTarget)
+Runtime.SpawnFarming(stockCrystalIceToTarget)
 end
 function Utils.deepWait(parent, timeout, ...)
     local current = parent
@@ -593,7 +632,7 @@ local function startSolveRoutine()
     Captcha.Solving = true
     _G.Campus4Runtime.CaptchaActive = true
     Logger.Debug("[Captcha] UI detected! Solver routine started.")
-    Runtime.Spawn(function()
+    Runtime.SpawnFarming(function()
         while captchaVisible() do
             if checkFailedToLoad() then
                 warn("[Captcha] Detected 'Failed to Load' state. Kicking player...")
@@ -626,7 +665,7 @@ local function startSolveRoutine()
         Logger.Debug("[Captcha] Solved or hidden. Shared solver state reset.")
     end)
 end
-Runtime.Spawn(function()
+Runtime.SpawnFarming(function()
     local cardCaptchaUI = PlayerGui:WaitForChild("CardCaptchaGame", 10)
     if cardCaptchaUI then
         local captchaGameFrame = cardCaptchaUI:WaitForChild("CaptchaGame", 10)
@@ -972,7 +1011,7 @@ local function startAutoOutfitDoneWatcher()
 
     -- Low-frequency fallback in case an executor misses a property signal or
     -- the game replaces/re-enables UI state in an unusual order.
-    Runtime.Spawn(function()
+    Runtime.SpawnFarming(function()
         while characterCreation.Parent do
             if AUTO_OUTFIT_STATE.HasDressed
                 and not AUTO_OUTFIT_STATE.Dressing
@@ -1236,9 +1275,8 @@ local function runAutoOutfit()
     Logger.Debug("✅ [AutoOutfit] Auto outfit complete; Done watcher is now active.")
 end
 
-startAutoOutfitDoneWatcher()
-
-Runtime.Spawn(function()
+Runtime.SpawnFarming(function()
+    startAutoOutfitDoneWatcher()
     local ok, err = pcall(runAutoOutfit)
     AUTO_OUTFIT_STATE.Dressing = false
 
@@ -1251,7 +1289,7 @@ end
 -- ========================================================================
 -- ⚙️ INITIAL SETTINGS & UI NUKE
 -- ========================================================================
-Runtime.Spawn(function()
+Runtime.SpawnFarming(function()
     local rh4Classes = PlayerGui:WaitForChild("RH4Classes", 5)
     if rh4Classes then
         local onBtn = Utils.deepWait(rh4Classes, 3, "AnnouncementFrame", "ScheduleVisual", "ClassJoinSettings", "On")
@@ -1266,7 +1304,7 @@ Runtime.Spawn(function()
         end
     end
 end)
-Runtime.Spawn(function()
+Runtime.SpawnFarming(function()
     local UI_HANDLERS = { ["WonRoll"] = function(gui) Utils.hideUI(gui) end, ["Reward"] = function(gui) Utils.hideUI(gui) end,
         -- RH4 report cards can appear at different day periods.
         -- Destroy the top-level report card UI immediately when it exists.
@@ -1283,7 +1321,7 @@ Runtime.Spawn(function()
             Utils.destroyUI(gui)
             Logger.Debug("🧹 [UI] Destroyed ResultsNight report card.")
         end, ["DailyRewardsMain"] = function(gui)
-            Runtime.Spawn(function()
+            Runtime.SpawnFarming(function()
                 local claimBtn = Utils.deepWait(gui, 5, "BottomButtonsFrame", "Claim")
                 if claimBtn then Utils.fireClick(claimBtn); task.wait(1.5) end
                 Utils.hideUI(gui)
@@ -1456,6 +1494,7 @@ function ClassController:Stop(reason)
 end
 
 function ClassController:Start(module)
+    if not Runtime.FarmingReady then return end
     if self.ActiveModule or not module or not module:IsEnabled() then
         return
     end
@@ -1514,6 +1553,9 @@ function ClassController:Start(module)
 end
 
 function ClassController:Update()
+    -- Observe day/night transitions even when another class has higher priority.
+    if self.NightLocker then self.NightLocker:WindowEligible() end
+    if not Runtime.FarmingReady then return end
     if _G.Campus4Runtime.CaptchaActive then return end
 
     -- Overrides are cached as module references so Update() does not rebuild
@@ -5478,6 +5520,1351 @@ ClassController:Register(Basketball)
 end -- scope: Basketball
 
 -- ========================================================================
+-- NIGHTLY LOCKER / TIDY TEXTBOOKS (in-game time, not the computer clock)
+-- ========================================================================
+do
+local Night = {ClassName = "Night Locker", IsOverride = true, UseSharedTimer = false}
+local hostOwner = _G.Campus4Runtime
+local saved = _G.Campus4NightLockerState
+if not saved or saved.JobId ~= game.JobId or saved.UserId ~= LocalPlayer.UserId then
+    saved = {JobId = game.JobId, UserId = LocalPlayer.UserId, Epoch = 0,
+        Attempts = 0, NextAttemptAt = 0}
+end
+if saved.RecoveryVersion ~= Config.LockerNight.RecoveryVersion then
+    -- Permit the corrected loader to retry a failed night after reinjection.
+    -- A confirmed cash-out remains latched and its real-time cooldown is retained.
+    if saved.DoneEpoch ~= saved.Epoch then saved.Attempts, saved.NextAttemptAt = 0, 0 end
+    saved.RecoveryVersion = Config.LockerNight.RecoveryVersion
+end
+_G.Campus4NightLockerState = saved
+Night.State = saved
+
+local function nightGuiVisible(node)
+    if not node or not node:IsDescendantOf(PlayerGui) then return false end
+    while node and node ~= PlayerGui do
+        if node:IsA("GuiObject") and not node.Visible then return false end
+        if node:IsA("ScreenGui") and not node.Enabled then return false end
+        node = node.Parent
+    end
+    return node == PlayerGui
+end
+
+-- BEGIN NIGHT POLICY
+local function parseGameClock(text)
+    text = tostring(text):gsub("<[^>]*>", ""):lower()
+    local hour, minute, suffix = text:match("^%s*(%d%d?):(%d%d)%s*([ap]m)%s*$")
+    hour, minute = tonumber(hour), tonumber(minute)
+    if not hour or not minute or hour < 1 or hour > 12 or minute > 59 then return nil end
+    return (hour % 12 + (suffix == "pm" and 12 or 0)) * 60 + minute
+end
+local function nightWindow(minutes, goodnight, dayClass)
+    if dayClass then return false end
+    if goodnight then return true end
+    if minutes == nil then return nil end
+    return minutes >= Config.LockerNight.StartMinute or minutes < Config.LockerNight.EndMinute
+end
+local function observeNight(state, window)
+    if window == nil then return end
+    if window and not state.WasNight then
+        state.Epoch += 1
+        state.Attempts, state.NextAttemptAt = 0, 0
+    end
+    state.WasNight = window
+end
+local function nightReady(state, window, now, maxAttempts)
+    return window == true and state.DoneEpoch ~= state.Epoch
+        and state.Attempts < maxAttempts and now >= state.NextAttemptAt
+end
+-- END NIGHT POLICY
+
+local clockLabel, nextClockSearch, clockWarning = nil, 0, false
+local function readGameClock()
+    if clockLabel and nightGuiVisible(clockLabel) then
+        local minutes = parseGameClock(clockLabel.Text)
+        if minutes then return minutes end
+    end
+    if os.clock() < nextClockSearch then return nil end
+    nextClockSearch = os.clock() + Config.LockerNight.ClockSearchInterval
+    clockLabel = nil
+    local path = _G.Campus4LockerClockPath
+    if type(path) == "table" then
+        local node = PlayerGui
+        for _, name in ipairs(path) do node = node and node:FindFirstChild(name) end
+        if node and (node:IsA("TextLabel") or node:IsA("TextButton")) and nightGuiVisible(node) and parseGameClock(node.Text) then
+            clockLabel = node
+        end
+    else
+        local hud = PlayerGui:FindFirstChild("HUD")
+        local candidate, value, ambiguous = nil, nil, false
+        if hud then
+            for _, node in ipairs(hud:GetDescendants()) do
+                if (node:IsA("TextLabel") or node:IsA("TextButton")) and nightGuiVisible(node) then
+                    local minutes = parseGameClock(node.Text)
+                    if minutes then
+                        if value ~= nil and value ~= minutes then ambiguous = true end
+                        candidate, value = candidate or node, value or minutes
+                    end
+                end
+            end
+        end
+        if not ambiguous then clockLabel = candidate end
+    end
+    if clockLabel then
+        Logger.Log("[NightLocker] In-game clock: " .. clockLabel:GetFullName())
+        return parseGameClock(clockLabel.Text)
+    end
+    if not clockWarning then
+        clockWarning = true
+        Logger.Warn("[NightLocker] No unambiguous HUD AM/PM clock yet; Goodnight detection remains active.")
+    end
+    return nil
+end
+
+function Night:IsEnabled()
+    return Config.LockerNight.Enabled and _G.AutoEnableNightLocker ~= false
+end
+function Night:WindowEligible()
+    local name = normalizeClassName(getCurrentClassName())
+    local compact = name:gsub("%W", "")
+    local goodnight = compact:find("goodnight", 1, true) ~= nil
+    local stars = compact:find("stargaz", 1, true) ~= nil or compact:find("telescope", 1, true) ~= nil
+    local namedModule = ClassController.Modules[name]
+    local dayClass = namedModule ~= nil and namedModule ~= self and not stars and not goodnight
+    local minutes = readGameClock()
+    local window = nightWindow(minutes, goodnight, dayClass)
+    -- A class taking priority within the same night must not reset the completion latch.
+    local period = nightWindow(minutes, goodnight, false)
+    if period == nil and dayClass then period = false end
+    observeNight(self.State, period)
+    -- Star Gazing's normal Stop() owns closing its telescope/results before we take input.
+    return window == true and not stars
+end
+function Night:CheckOverride()
+    local eligible = self:WindowEligible()
+    if not eligible then return false end
+    if self.Running then return true end
+    if self.State.DoneEpoch == self.State.Epoch then return false end
+    return nightReady(self.State, eligible, os.clock(), Config.LockerNight.MaxAttemptsPerNight)
+end
+function Night:CanStart()
+    return self:CheckOverride() and not hostOwner.ProfileScanActive
+        and not UserInputService:GetFocusedTextBox() and not GuiService.MenuIsOpen
+end
+
+local function launchNightLocker(nightGuard, onNightCashout, lastCashoutAt)
+-- BEGIN NIGHT LOCKER ENGINE
+-- Campus 4 locker + Tidy Textbooks cycle. Self-contained; run this file only.
+-- Stop: _G.Campus4LockerClickRuntime.Stop()
+-- Tidy configuration appears in startTidyController below.
+if not game:IsLoaded() then game.Loaded:Wait() end
+
+local Players = game:GetService("Players")
+local Workspace = game:GetService("Workspace")
+local GuiService = game:GetService("GuiService")
+local UserInputService = game:GetService("UserInputService")
+local VirtualInputManager = game:GetService("VirtualInputManager")
+
+local Config = {
+    Version = "9",
+    StreamTimeout = 8.0,
+    GuiSettleTimeout = 5.0,
+    GuiStableSeconds = 0.35,
+    GameButtonAttempts = 2,
+    Combination = "1123",
+    MaxLockerAttempts = 24,
+    UnlockTimeout = 12.0,
+    Debug = false,
+    Target = {
+        Path = { "LockerSpawn", "OuterDorm", "Colorable", "Door", "1" },
+        ReferenceHitPosition = Vector3.new(10589.5078125, 103.98564910888672, 6039.72265625),
+        MatchTolerance = 3.0,
+        MaxPathMatches = 256,
+        HallwayRadius = 120.0,
+        HallwayHeightTolerance = 12.0,
+    },
+    LoadTimeout = 10.0,
+    StandDistance = 5.0,
+    FloorProbeUp = 8.0,
+    FloorProbeDown = 64.0,
+    MaxFloorDrop = 12.0,
+    TeleportSettle = 0.50,
+    TeleportTolerance = 3.0,
+    CameraDistance = 2.5,
+    CameraHeight = 0.5,
+    MouseSettle = 0.20,
+    MouseHold = 0.10,
+    OpenTimeout = 5.0,
+    PollRate = 0.10,
+}
+
+local Logger = {}
+function Logger.Log(message) print("[Locker] " .. tostring(message)) end
+function Logger.Warn(message) warn("[Locker] " .. tostring(message)) end
+function Logger.Debug(message)
+    if Config.Debug then Logger.Log(message) end
+end
+
+-- Stop earlier controllers before taking over input.
+if _G.Campus4LockerClickRuntime and _G.Campus4LockerClickRuntime.Running then
+    if _G.Campus4LockerClickRuntime.Stop then
+        _G.Campus4LockerClickRuntime.Stop("Replaced by a new run.")
+    else
+        warn("[Locker] Previous click test is still running; wait for it to finish.")
+        return
+    end
+end
+if _G.Campus4TidyRuntime and _G.Campus4TidyRuntime.Stop then
+    _G.Campus4TidyRuntime.Stop("Handing input to the merged locker controller.")
+end
+local previousRuntime = _G.Campus4LockerClickRuntime
+local Runtime = {
+    Running = true,
+    Connections = {},
+    PromptVersion = 0, WrongVersion = 0,
+    -- Retain the tested local click location even if that reference locker streams out.
+    ClickTemplate = previousRuntime and previousRuntime.ClickTemplate or nil,
+}
+_G.Campus4LockerClickRuntime = Runtime
+
+local function waitForStep(seconds)
+    assert(Runtime.Running and nightGuard(), "Campus nightly session ended.")
+    task.wait(seconds)
+    assert(Runtime.Running and nightGuard(), "Campus nightly session ended.")
+end
+
+local player = Players.LocalPlayer
+local mouseDown = false
+local lastX, lastY = 0, 0
+local cameraState
+
+local function releaseMouse()
+    if not mouseDown then return true end
+    local ok, err = pcall(function()
+        VirtualInputManager:SendMouseButtonEvent(lastX, lastY, 0, false, game, 1)
+    end)
+    if ok then
+        mouseDown = false
+    else
+        Logger.Warn("Mouse release failed: " .. tostring(err))
+    end
+    return ok
+end
+
+local function collectDoorSurfaces()
+    -- Same names may appear under many different LockerSpawn instances.
+    local candidates = { Workspace }
+    for _, name in ipairs(Config.Target.Path) do
+        local nextCandidates = {}
+        for _, parent in ipairs(candidates) do
+            for _, child in ipairs(parent:GetChildren()) do
+                if child.Name == name then
+                    table.insert(nextCandidates, child)
+                    assert(#nextCandidates <= Config.Target.MaxPathMatches,
+                        "Too many matching locker instances; increase MaxPathMatches.")
+                end
+            end
+        end
+        candidates = nextCandidates
+    end
+    return candidates
+end
+
+local function captureClickTemplate(candidates)
+    if Runtime.ClickTemplate then return end
+    local reference, bestDistance, ambiguous
+    for _, part in ipairs(candidates) do
+        if part:IsA("BasePart") then
+            local point = part.CFrame:PointToObjectSpace(Config.Target.ReferenceHitPosition)
+            local half = part.Size * 0.5
+            local closest = Vector3.new(
+                math.clamp(point.X, -half.X, half.X),
+                math.clamp(point.Y, -half.Y, half.Y),
+                math.clamp(point.Z, -half.Z, half.Z))
+            local distance = (point - closest).Magnitude
+            if distance <= Config.Target.MatchTolerance then
+                if not bestDistance or distance < bestDistance - 0.01 then
+                    reference, bestDistance, ambiguous = part, distance, false
+                elseif math.abs(distance - bestDistance) <= 0.01 then
+                    ambiguous = true
+                end
+            end
+        end
+    end
+    assert(not ambiguous, "Multiple reference surfaces match the saved click position.")
+    if not reference then return end
+
+    -- Transfer the working surface point in local coordinates, not world coordinates.
+    local localHit = reference.CFrame:PointToObjectSpace(Config.Target.ReferenceHitPosition)
+    Runtime.ClickTemplate = {
+        UnitHit = Vector3.new(localHit.X / reference.Size.X,
+            localHit.Y / reference.Size.Y, localHit.Z / reference.Size.Z),
+        ClassName = reference.ClassName,
+        MeshId = reference:IsA("MeshPart") and reference.MeshId or nil,
+    }
+end
+
+local function combinationVisible(playerGui)
+    local gui = playerGui:FindFirstChild("Locker")
+    local panel = gui and gui:FindFirstChild("LockerCombination")
+    if not panel or not panel:IsA("GuiObject") then return false end
+    local current = panel
+    while current and current ~= playerGui do
+        if current:IsA("GuiObject") and not current.Visible then return false end
+        if current:IsA("ScreenGui") and not current.Enabled then return false end
+        current = current.Parent
+    end
+    return current == playerGui
+end
+
+-- Use the thin horizontal axis of the door and the captured side of its surface.
+local function getApproachNormal(part, localHit)
+    local axes = {
+        { Axis = Vector3.new(1, 0, 0), Size = part.Size.X, Hit = localHit.X },
+        { Axis = Vector3.new(0, 1, 0), Size = part.Size.Y, Hit = localHit.Y },
+        { Axis = Vector3.new(0, 0, 1), Size = part.Size.Z, Hit = localHit.Z },
+    }
+    local best, thickness
+    for _, item in ipairs(axes) do
+        local normal = part.CFrame:VectorToWorldSpace(item.Axis)
+        if math.abs(normal.Y) < 0.5 and (not thickness or item.Size < thickness) then
+            local sign = item.Hit >= 0 and 1 or -1
+            best = Vector3.new(normal.X, 0, normal.Z).Unit * sign
+            thickness = item.Size
+        end
+    end
+    assert(best, "Cannot determine the front of this door.")
+    return best
+end
+
+local function preflightDoor(part, localHit)
+    local character = player.Character
+    if not character then return false, "character unavailable" end
+    local hit = part.CFrame:PointToWorldSpace(localHit)
+    local normal = getApproachNormal(part, localHit)
+    local approach = hit + normal * Config.StandDistance
+    local spawn = part
+    while spawn.Parent and spawn.Parent ~= Workspace do spawn = spawn.Parent end
+    local params = RaycastParams.new()
+    params.FilterType = Enum.RaycastFilterType.Exclude
+    params.FilterDescendantsInstances = { character, spawn }
+    params.RespectCanCollide = true
+    local floor = Workspace:Raycast(approach + Vector3.new(0, Config.FloorProbeUp, 0),
+        Vector3.new(0, -Config.FloorProbeDown, 0), params)
+    if not floor or floor.Normal.Y <= 0.6
+        or math.abs(hit.Y - floor.Position.Y) > Config.MaxFloorDrop
+    then return false, "no nearby walkable floor" end
+
+    -- Test the actual camera-to-door ray before moving the character.
+    local cameraPosition = hit + normal * Config.CameraDistance + Vector3.new(0, Config.CameraHeight, 0)
+    params.FilterDescendantsInstances = { character }
+    params.RespectCanCollide = false
+    local delta = hit - cameraPosition
+    local result = Workspace:Raycast(cameraPosition, delta.Unit * (delta.Magnitude + 1), params)
+    if not result or not result.Instance:IsDescendantOf(part.Parent) then
+        return false, "door click path obstructed or misses geometry"
+    end
+    return true
+end
+
+local function resolveTargets()
+    waitForStep(0)
+    if Workspace.StreamingEnabled then
+        Logger.Log("Requesting hallway geometry before checking locker floors and click paths.")
+        local ok, err = pcall(function()
+            player:RequestStreamAroundAsync(Config.Target.ReferenceHitPosition, Config.StreamTimeout)
+        end)
+        waitForStep(0)
+        if not ok then Logger.Warn("Hallway streaming request failed: " .. tostring(err)) end
+    end
+
+    local deadline = os.clock() + Config.LoadTimeout
+    local previousSummary
+    repeat
+        local candidates = collectDoorSurfaces()
+        captureClickTemplate(candidates)
+        local template = Runtime.ClickTemplate
+        local lockers, seenDoors, reasons = {}, {}, {}
+        local outside, rejected, nearby, unmatched = 0, 0, 0, 0
+        if template then
+            for _, part in ipairs(candidates) do
+                if part:IsA("BasePart") and part.ClassName == template.ClassName
+                    and part.Parent:IsA("Model")
+                    and (not template.MeshId or part.MeshId == template.MeshId)
+                then
+                    if not seenDoors[part.Parent] then
+                        seenDoors[part.Parent] = true
+                        local offset = part.Position - Config.Target.ReferenceHitPosition
+                        local horizontal = Vector3.new(offset.X, 0, offset.Z).Magnitude
+                        if horizontal > Config.Target.HallwayRadius
+                            or math.abs(offset.Y) > Config.Target.HallwayHeightTolerance
+                        then
+                            outside += 1
+                        else
+                            nearby += 1
+                            local point = template.UnitHit
+                            local localHit = Vector3.new(point.X * part.Size.X,
+                                point.Y * part.Size.Y, point.Z * part.Size.Z)
+                            local ok, eligible, reason = pcall(preflightDoor, part, localHit)
+                            if ok and eligible then
+                                table.insert(lockers, {Part = part, LocalHit = localHit})
+                            else
+                                rejected += 1
+                                reason = tostring(ok and (reason or "unspecified rejection") or eligible)
+                                reasons[reason] = (reasons[reason] or 0) + 1
+                            end
+                        end
+                    end
+                else
+                    unmatched += 1
+                end
+            end
+        end
+        local detail = {}
+        for reason, count in pairs(reasons) do detail[#detail + 1] = reason .. "=" .. count end
+        table.sort(detail)
+        local summary = string.format("Loaded surfaces=%d | template=%s | hallway=%d | eligible=%d | outside=%d | unmatched=%d | rejected=%d",
+            #candidates, template and "ready" or "missing", nearby, #lockers, outside, unmatched, rejected)
+        if #detail > 0 then summary ..= " | " .. table.concat(detail, "; ") end
+        if summary ~= previousSummary then Logger.Log(summary); previousSummary = summary end
+        Runtime.LastResolveDiagnostic = summary
+        if #lockers > 0 then
+            local rng = Random.new()
+            for i = #lockers, 2, -1 do
+                local j = rng:NextInteger(1, i)
+                lockers[i], lockers[j] = lockers[j], lockers[i]
+            end
+            return lockers
+        end
+        waitForStep(Config.PollRate)
+    until os.clock() >= deadline
+    if not Runtime.ClickTemplate then
+        error("Reference locker surface is still unavailable after the hallway load request. " .. tostring(previousSummary))
+    end
+    error("No hallway doors passed checks after loading. No teleport or click sent. " .. tostring(previousSummary))
+end
+
+
+local function teleportInFront(part, localHit)
+    local character = player.Character
+    local humanoid = character and character:FindFirstChildOfClass("Humanoid")
+    local root = character and character:FindFirstChild("HumanoidRootPart")
+    assert(root and humanoid and humanoid.Health > 0, "Character is not ready.")
+    local hit = part.CFrame:PointToWorldSpace(localHit)
+    local normal = getApproachNormal(part, localHit)
+    local approach = hit + normal * Config.StandDistance
+
+    local spawn = part
+    while spawn.Parent and spawn.Parent ~= Workspace do spawn = spawn.Parent end
+    local params = RaycastParams.new()
+    params.FilterType = Enum.RaycastFilterType.Exclude
+    params.FilterDescendantsInstances = { character, spawn }
+    params.RespectCanCollide = true
+    local floor = Workspace:Raycast(
+        approach + Vector3.new(0, Config.FloorProbeUp, 0),
+        Vector3.new(0, -Config.FloorProbeDown, 0), params)
+    assert(floor and floor.Normal.Y > 0.6, "No walkable floor in front of the locker; teleport skipped.")
+
+    local height = humanoid.HipHeight + root.Size.Y * 0.5
+    if humanoid.RigType == Enum.HumanoidRigType.R6 then
+        local leg = character:FindFirstChild("Left Leg")
+        assert(leg and leg:IsA("BasePart"), "R6 leg is missing.")
+        height += leg.Size.Y
+    end
+    local destination = Vector3.new(approach.X, floor.Position.Y + height + 0.1, approach.Z)
+    local facing = Vector3.new(hit.X, destination.Y, hit.Z)
+    local desiredRoot = CFrame.lookAt(destination, facing)
+
+    -- Preserve the character pivot's offset from its root for either rig type.
+    local rootToPivot = root.CFrame:ToObjectSpace(character:GetPivot())
+    humanoid.Sit = false
+    character:PivotTo(desiredRoot * rootToPivot)
+    root.AssemblyLinearVelocity = Vector3.zero
+    root.AssemblyAngularVelocity = Vector3.zero
+    waitForStep(Config.TeleportSettle)
+    assert(player.Character == character and root.Parent and humanoid.Health > 0,
+        "Character changed during teleport.")
+    assert((root.Position - destination).Magnitude <= Config.TeleportTolerance,
+        "Character did not stay at the destination; no click sent.")
+    Logger.Log("Moved in front of the locker.")
+    return normal
+end
+
+local function aimAtDoor(part, localHit, normal)
+    local camera = Workspace.CurrentCamera
+    assert(camera and part:IsDescendantOf(Workspace), "Camera or locker is unavailable.")
+    local hit = part.CFrame:PointToWorldSpace(localHit)
+    local position = hit + normal * Config.CameraDistance + Vector3.new(0, Config.CameraHeight, 0)
+    local aimed = CFrame.lookAt(position, hit)
+    cameraState = {
+        Camera = camera, Type = camera.CameraType,
+        CFrame = camera.CFrame, Focus = camera.Focus, Aimed = aimed,
+    }
+    -- Camera sits between the character and door so the avatar doesn't cover the click.
+    camera.CameraType = Enum.CameraType.Scriptable
+    camera.CFrame = aimed
+    camera.Focus = CFrame.new(hit)
+    waitForStep(Config.MouseSettle)
+    local screen, onScreen = camera:WorldToScreenPoint(hit)
+    assert(onScreen and screen.Z > 0, "Door left the camera view before clicking.")
+    local inset = GuiService:GetGuiInset()
+    return { X = math.floor(screen.X + inset.X + 0.5), Y = math.floor(screen.Y + inset.Y + 0.5) }
+end
+
+local function restoreCamera()
+    if not cameraState then return end
+    local saved = cameraState
+    cameraState = nil
+    local camera = saved.Camera
+    -- If the locker UI took over the camera, leave its new camera state alone.
+    if Workspace.CurrentCamera == camera and camera.CameraType == Enum.CameraType.Scriptable
+        and camera.CFrame == saved.Aimed
+    then
+        if saved.Type == Enum.CameraType.Scriptable then
+            camera.CFrame = saved.CFrame
+            camera.Focus = saved.Focus
+        end
+        camera.CameraType = saved.Type
+    end
+end
+
+local function clickPoint(point, door)
+    assert(not UserInputService:GetFocusedTextBox(), "Exit the focused text box before testing.")
+    lastX, lastY = point.X, point.Y
+    VirtualInputManager:SendMouseMoveEvent(lastX, lastY, game)
+    waitForStep(Config.MouseSettle)
+    local mouse = player:GetMouse()
+    local cursorDeadline = os.clock() + 1.0
+    repeat
+        local surface = mouse.Target
+        if surface and surface:IsDescendantOf(door) then break end
+        waitForStep(Config.PollRate)
+    until os.clock() >= cursorDeadline
+    local surface = mouse.Target
+    Logger.Log("Mouse surface: " .. (surface and surface:GetFullName() or "none"))
+    assert(surface and surface:IsDescendantOf(door),
+        "Mouse is not over the selected door; click skipped.")
+    -- Mark before sending so error cleanup also attempts a release.
+    mouseDown = true
+    VirtualInputManager:SendMouseButtonEvent(lastX, lastY, 0, true, game, 1)
+    waitForStep(Config.MouseHold)
+    assert(releaseMouse(), "Could not release the simulated mouse button.")
+end
+
+
+function Runtime.Stop(reason)
+    if not Runtime.Running then return end
+    Runtime.Running = false
+    Runtime.StopReason = reason
+    if Runtime.Tidy and Runtime.Tidy.Running then Runtime.Tidy.Stop("Locker controller stopped.") end
+    for _, connection in ipairs(Runtime.Connections) do connection:Disconnect() end
+    table.clear(Runtime.Connections)
+    releaseMouse()
+    local ok, err = pcall(restoreCamera)
+    if not ok then Logger.Warn("Camera cleanup: " .. tostring(err)) end
+    Logger.Log(reason or "Stopped.")
+end
+local function connect(signal, callback)
+    table.insert(Runtime.Connections, signal:Connect(callback))
+end
+local function visible(instance)
+    if not instance or not instance:IsDescendantOf(player.PlayerGui) then return false end
+    local node = instance
+    while node and node ~= player.PlayerGui do
+        if node:IsA("GuiObject") and not node.Visible then return false end
+        if node:IsA("ScreenGui") and not node.Enabled then return false end
+        node = node.Parent
+    end
+    return true
+end
+local function waitUntil(predicate, seconds)
+    local deadline = os.clock() + seconds
+    repeat
+        assert(Runtime.Running and nightGuard(), "Campus nightly session ended.")
+        local result = predicate()
+        if result then return result end
+        waitForStep(Config.PollRate)
+    until os.clock() >= deadline
+    return predicate()
+end
+local function required(parent, name)
+    local result = parent:FindFirstChild(name)
+    assert(result, "Missing instance: " .. parent:GetFullName() .. "." .. name)
+    return result
+end
+
+-- BEGIN LOCKER POLICY
+local function allowedMode(mode, ownerId, localUserId)
+    if ownerId ~= nil and ownerId ~= localUserId then return nil end
+    if mode == "Set" then return "Set" end
+    if mode == "Unlock" and ownerId == localUserId then return "Unlock" end
+    return nil
+end
+-- END LOCKER POLICY
+
+local function clickGui(button)
+    assert(Runtime.Running and nightGuard(), "Campus nightly session ended.")
+    assert(button:IsA("GuiButton") and visible(button), "Requested button is not visible.")
+    assert(not UserInputService:GetFocusedTextBox() and not GuiService.MenuIsOpen,
+        "Close text input or the Roblox menu before running.")
+    local deadline, stableAt = os.clock() + Config.GuiSettleTimeout, os.clock()
+    local lastPosition, lastSize = button.AbsolutePosition, button.AbsoluteSize
+    repeat
+        waitForStep(Config.PollRate)
+        assert(visible(button), "Button disappeared while the menu was settling.")
+        local position, size = button.AbsolutePosition, button.AbsoluteSize
+        if math.abs(position.X - lastPosition.X) > 1 or math.abs(position.Y - lastPosition.Y) > 1
+            or math.abs(size.X - lastSize.X) > 1 or math.abs(size.Y - lastSize.Y) > 1 then
+            stableAt, lastPosition, lastSize = os.clock(), position, size
+        end
+        if size.X > 0 and size.Y > 0 and os.clock() - stableAt >= Config.GuiStableSeconds then break end
+    until os.clock() >= deadline
+    assert(os.clock() - stableAt >= Config.GuiStableSeconds and lastSize.X > 0 and lastSize.Y > 0,
+        "Locker menu did not settle before the click timeout.")
+    -- AbsolutePosition remains in CoreUISafeInsets coordinates even with IgnoreGuiInset=true.
+    local center = button.AbsolutePosition + button.AbsoluteSize * 0.5 + GuiService:GetGuiInset()
+    lastX, lastY = math.floor(center.X), math.floor(center.Y)
+    Logger.Log(string.format("GUI target: %s | click=(%d, %d)", button:GetFullName(), lastX, lastY))
+    VirtualInputManager:SendMouseMoveEvent(lastX, lastY, game)
+    mouseDown = true
+    VirtualInputManager:SendMouseButtonEvent(lastX, lastY, 0, true, game, 1)
+    waitForStep(Config.MouseHold)
+    assert(releaseMouse(), "Could not release the mouse.")
+end
+local function findButton(container)
+    local explicit = container:FindFirstChild("Button")
+    if explicit and explicit:IsA("GuiButton") and visible(explicit) then return explicit end
+    local found
+    for _, child in ipairs(container:GetDescendants()) do
+        if child:IsA("GuiButton") and visible(child) then
+            assert(not found, "Multiple visible buttons under " .. container:GetFullName())
+            found = child
+        end
+    end
+    if not found and container:IsA("GuiButton") and visible(container) then return container end
+    assert(found, "No visible button under " .. container:GetFullName())
+    return found
+end
+
+local function openLocker(locker)
+    local inside = required(locker, "InsideLocker")
+    if visible(inside) then return end
+    local network = required(game:GetService("ReplicatedStorage"), "RH4LockerNetwork")
+    local submit = required(network, "SubmitCombination")
+    connect(required(network, "PromptCombination").OnClientEvent, function(isOpen, mode, ownerId)
+        if not Runtime.Running then return end
+        Runtime.PromptVersion += 1
+        if isOpen then
+            Runtime.Prompt = {Mode = mode, OwnerId = ownerId, Version = Runtime.PromptVersion}
+        else Runtime.Prompt = nil end
+    end)
+    connect(required(network, "Wrong").OnClientEvent, function() Runtime.WrongVersion += 1 end)
+    local function closeKeypad()
+        if not combinationVisible(player.PlayerGui) then return end
+        assert(Runtime.Running and nightGuard(), "Campus nightly session ended.")
+        submit:FireServer(nil, "Close")
+        assert(waitUntil(function() return not combinationVisible(player.PlayerGui) end, 4),
+            "Keypad did not close; no other locker will be selected.")
+    end
+    closeKeypad()
+    local candidates = resolveTargets()
+    for index = 1, math.min(#candidates, Config.MaxLockerAttempts) do
+        assert(Runtime.Running and nightGuard(), "Campus nightly session ended.")
+        if visible(inside) then return end
+        local candidate = candidates[index]
+        Runtime.Prompt = nil
+        local beforePrompt = Runtime.PromptVersion
+        local function attempt()
+            Logger.Log(string.format("Trying random hallway locker %d/%d at %s",
+                index, math.min(#candidates, Config.MaxLockerAttempts), tostring(candidate.Part.Position)))
+            local normal = teleportInFront(candidate.Part, candidate.LocalHit)
+            if not combinationVisible(player.PlayerGui) then
+                local point = aimAtDoor(candidate.Part, candidate.LocalHit, normal)
+                clickPoint(point, candidate.Part.Parent)
+            end
+            local prompted = waitUntil(function()
+                return visible(inside) or (Runtime.Prompt and Runtime.Prompt.Version > beforePrompt
+                    and combinationVisible(player.PlayerGui))
+            end, Config.OpenTimeout)
+            if visible(inside) then return true end
+            if not prompted then return false, "No fresh combination prompt." end
+            for _ = 1, 2 do
+                local prompt = Runtime.Prompt
+                local mode = prompt and allowedMode(prompt.Mode, prompt.OwnerId, player.UserId)
+                if not mode then
+                    return false, "Claimed by another player or ownership/mode unknown; skipping."
+                end
+                local wrongBefore, version = Runtime.WrongVersion, prompt.Version
+                assert(Runtime.Running and nightGuard(), "Campus nightly session ended.")
+                Logger.Log("Submitting 1123 in " .. mode .. " mode.")
+                submit:FireServer(Config.Combination, mode)
+                waitUntil(function()
+                    return visible(inside) or Runtime.WrongVersion ~= wrongBefore
+                        or (Runtime.Prompt and Runtime.Prompt.Version > version)
+                end, Config.UnlockTimeout)
+                if visible(inside) then return true end
+                if Runtime.WrongVersion ~= wrongBefore then return false, "1123 was rejected; skipping." end
+                if not Runtime.Prompt or Runtime.Prompt.Version <= version then
+                    return false, "Locker did not open after combination submission."
+                end
+            end
+            return false, "Combination prompt did not complete within two submissions."
+        end
+        local ok, opened, reason = pcall(attempt)
+        releaseMouse()
+        restoreCamera()
+        assert(Runtime.Running and nightGuard(), "Campus nightly session ended.")
+        if ok and opened then Logger.Log("Locker opened."); return end
+        Logger.Warn(ok and reason or tostring(opened))
+        closeKeypad()
+    end
+    error("No eligible locker opened within the attempt limit.")
+end
+
+local function startTidyController()
+-- BEGIN EMBEDDED TIDY
+-- Tidy Textbooks: play, intentionally lose, cash out when available, repeat.
+-- Stop: _G.Campus4TidyRuntime.Stop()
+local Config = {
+    TargetScoreMin = 50, TargetScoreMax = 65,
+    MaxOffTargetRounds = 3,
+    CashoutIntervalSeconds = 30 * 60,
+    CashoutWaitTimeout = 35 * 60,
+    WaitForGameSeconds = 60, MaxRoundSeconds = 600,
+    IdleTimeoutSeconds = 30, InputAckTimeoutSeconds = 15,
+    MinPressInterval = 0.25, KeyHoldSeconds = 0.05,
+    IdlePollSeconds = 0.5, LogEveryPlacements = 10,
+}
+
+-- BEGIN TESTABLE LOGIC
+local function readColumns(cells)
+    if not cells or #cells == 0 then return nil end
+    local occupied, slots, maximum = {}, {}, 0
+    for _, cell in ipairs(cells) do
+        local column = cell.LayoutOrder
+        if type(column) ~= "number" or column % 1 ~= 0 or column < 1 or column > 7
+            or slots[column] then
+            return nil
+        end
+        slots[column] = cell.Name
+        maximum = math.max(maximum, column)
+        if cell.Name == "BookTemplate" then
+            table.insert(occupied, column)
+        elseif cell.Name ~= "Blank" then
+            return nil
+        end
+    end
+    if #occupied == 0 then return nil end
+    table.sort(occupied)
+    for column = 1, maximum do
+        if not slots[column] then return nil end
+        local expected = column < occupied[1] and "Blank" or "BookTemplate"
+        if slots[column] ~= expected then return nil end
+    end
+    return occupied
+end
+
+
+local function boardState(score, rows, scrolling)
+    if scrolling or type(score) ~= "number" or score < 0 or score % 1 ~= 0 then return nil end
+    local index = score == 0 and 1 or ((score - 1) % 12) + 2
+    for higher = index + 1, 13 do
+        if rows[higher] and #rows[higher] > 0 then return nil end
+    end
+    local moving = readColumns(rows[index])
+    if not moving then return nil end
+    if index == 1 then
+        if #moving == 3 then return index, moving, nil end
+        return nil
+    end
+    local support = readColumns(rows[index - 1])
+    if not support or #moving ~= #support then return nil end
+    return index, moving, support
+end
+
+local function decision(score, target, rows, scrolling)
+    local index, moving, support = boardState(score, rows, scrolling)
+    if not index then return nil end
+    if index == 1 then
+        -- An edge stack leaves room for a zero-overlap miss at the end.
+        return moving[1] == 1 and "Place" or nil
+    end
+    local overlap = 0
+    for _, column in ipairs(moving) do
+        if column >= support[1] and column <= support[#support] then overlap += 1 end
+    end
+    local width = #moving
+    local canMiss = support[1] > width or support[#support] <= 7 - width
+    if not canMiss then
+        -- A pre-existing centered stack may need trimming before the target.
+        if score >= Config.TargetScoreMax then return "CannotLose" end
+        if overlap > 0 and overlap < width then return "Place" end
+        return nil
+    end
+    if score >= target then return overlap == 0 and "Lose" or nil end
+    return overlap == width and "Place" or nil
+end
+
+local function placement(score, rows, scrolling)
+    if decision(score, math.huge, rows, scrolling) == "Place" then
+        return score == 0 and 1 or ((score - 1) % 12) + 2
+    end
+    return nil
+end
+
+local function cashoutAction(confirmed, available, pendingAt, now, timeout)
+    if confirmed then return "Confirmed" end
+    if pendingAt then return now - pendingAt > timeout and "Timeout" or "Wait" end
+    return available and "Click" or "Wait"
+end
+-- END TESTABLE LOGIC
+
+local Players = game:GetService("Players")
+local RunService = game:GetService("RunService")
+local UserInputService = game:GetService("UserInputService")
+local GuiService = game:GetService("GuiService")
+local VirtualInputManager = game:GetService("VirtualInputManager")
+local player = Players.LocalPlayer
+assert(player, "[Tidy] Run this in the client.")
+local old = _G.Campus4TidyRuntime
+if old and old.Stop then old.Stop("Replaced by a new run.") end
+local runtime = {Running = true, Connections = {}, LastCashoutAt = lastCashoutAt or (old and old.LastCashoutAt)}
+_G.Campus4TidyRuntime = runtime
+local keyDown, mouseDown, mouseX, mouseY = false, false, 0, 0
+
+local function releaseKey()
+    if not keyDown then return true end
+    local ok, err = pcall(function()
+        VirtualInputManager:SendKeyEvent(false, Enum.KeyCode.Space, false, game)
+    end)
+    if ok then keyDown = false else warn("[Tidy] Key release: " .. tostring(err)) end
+    return ok
+end
+local function releaseMouse()
+    if not mouseDown then return true end
+    local ok, err = pcall(function()
+        VirtualInputManager:SendMouseButtonEvent(mouseX, mouseY, 0, false, game, 1)
+    end)
+    if ok then mouseDown = false else warn("[Tidy] Mouse release: " .. tostring(err)) end
+    return ok
+end
+function runtime.Stop(reason)
+    if not runtime.Running then return end
+    runtime.Running = false
+    runtime.StopReason = reason
+    for _, connection in ipairs(runtime.Connections) do connection:Disconnect() end
+    table.clear(runtime.Connections)
+    for _ = 1, 3 do
+        local keyReleased, mouseReleased = releaseKey(), releaseMouse()
+        if keyReleased and mouseReleased then break end
+    end
+    print("[Tidy] " .. (reason or "Stopped."))
+end
+local function connect(signal, callback)
+    table.insert(runtime.Connections, signal:Connect(callback))
+end
+local function visible(instance)
+    if not instance or not instance:IsDescendantOf(player.PlayerGui) then return false end
+    local current = instance
+    while current and current ~= player.PlayerGui do
+        if current:IsA("GuiObject") and not current.Visible then return false end
+        if current:IsA("ScreenGui") and not current.Enabled then return false end
+        current = current.Parent
+    end
+    return true
+end
+local function required(parent, name)
+    local item = parent:FindFirstChild(name)
+    assert(item, "Missing GUI: " .. parent:GetFullName() .. "." .. name)
+    return item
+end
+local function clickButton(button)
+    assert(nightGuard(), "Campus nightly session ended.")
+    assert(button:IsA("GuiButton") and visible(button), "Cash-out button is not visible.")
+    -- AbsolutePosition uses CoreUISafeInsets coordinates regardless of IgnoreGuiInset.
+    local center = button.AbsolutePosition + button.AbsoluteSize * 0.5 + GuiService:GetGuiInset()
+    mouseX, mouseY = math.floor(center.X), math.floor(center.Y)
+    VirtualInputManager:SendMouseMoveEvent(mouseX, mouseY, game)
+    mouseDown = true
+    VirtualInputManager:SendMouseButtonEvent(mouseX, mouseY, 0, true, game, 1)
+    task.wait(Config.KeyHoldSeconds)
+    assert(releaseMouse(), "Could not release the mouse after cash-out.")
+end
+
+local function run()
+    assert(nightGuard(), "Campus nightly session ended.")
+    local playerGui = player:WaitForChild("PlayerGui", 10)
+    assert(playerGui, "PlayerGui did not load.")
+    local deadline, panel = os.clock() + Config.WaitForGameSeconds, nil
+    print("[Tidy] Waiting for the Tidy Textbooks panel.")
+    repeat
+        local locker = playerGui:FindFirstChild("Locker")
+        panel = locker and locker:FindFirstChild("TidyTextbooksGame")
+        if panel and visible(panel) then break end
+        task.wait(0.1)
+    until not runtime.Running or os.clock() >= deadline
+    if not runtime.Running then return end
+    assert(panel and visible(panel), "Tidy Textbooks did not open.")
+    local grid, startPanel = required(panel, "Grid"), required(panel, "Start")
+    local gameOver, results = required(panel, "GameOver"), required(panel, "ResultsFrame")
+    local scoreLabel, leaderboard = required(results, "Score"), required(panel, "HighScoresLeaderboard")
+    local cashContainer = required(gameOver, "CashOutButton")
+    local cashButton = required(required(required(cashContainer, "BG"), "MoveDown"), "TextButton")
+    local alreadySent, cooldown = required(gameOver, "AlreadySentScore"), required(gameOver, "CashOutCooldown")
+    local rows = {}
+    for i = 1, 13 do rows[i] = required(grid, tostring(i)) end
+
+    local phase, pending, cashPending, cashConfirmed = "Ready", nil, nil, false
+    local roundAt, progressAt, waitAt = os.clock(), os.clock(), os.clock()
+    local lastPress, lastScore, idlePoll, waitLog = -math.huge, nil, -math.huge, -math.huge
+    local queued, busy = false, false
+    local offTargetRounds = 0
+    local rng = Random.new()
+    local function newRound()
+        runtime.TargetScore = rng:NextInteger(Config.TargetScoreMin, Config.TargetScoreMax)
+        roundAt, progressAt, lastScore = os.clock(), os.clock(), nil
+        pending, cashPending, cashConfirmed = nil, nil, false
+        phase = "Playing"
+        print("[Tidy] New round: intentionally lose at score " .. runtime.TargetScore)
+    end
+    local function sendSpace(kind, score)
+        if not runtime.Running then return end
+        if not nightGuard() then runtime.Stop("Yielding to Campus."); return end
+        pending = {Kind = kind, Score = score, At = os.clock()}
+        lastPress = pending.At
+        keyDown = true
+        VirtualInputManager:SendKeyEvent(true, Enum.KeyCode.Space, false, game)
+        task.delay(Config.KeyHoldSeconds, function()
+            if not releaseKey() then runtime.Stop("Key release failed; cleanup retried it.") end
+        end)
+    end
+    local stacker = game:GetService("ReplicatedStorage"):FindFirstChild("StackerMinigame")
+    local cashRemote = stacker and stacker:FindFirstChild("CashOut")
+    if cashRemote and cashRemote:IsA("RemoteEvent") then
+        connect(cashRemote.OnClientEvent, function(_, canSubmit)
+            if cashPending and canSubmit == false then
+                cashConfirmed = true
+                runtime.LastCashoutAt, runtime.Completed = os.clock(), true
+                onNightCashout(runtime.LastCashoutAt)
+                runtime.Stop("Nightly cash-out complete.")
+            end
+        end)
+    end
+
+    local function evaluate()
+        if not runtime.Running then return end
+        runtime.Phase = phase
+        if not nightGuard() then runtime.Stop("Yielding to Campus class/captcha lifecycle."); return end
+        local now = os.clock()
+        -- Cooldown states never scan the board and poll only twice per second.
+        if phase ~= "Playing" and now - idlePoll < Config.IdlePollSeconds then return end
+        idlePoll = now
+        if not visible(panel) then runtime.Stop("Tidy Textbooks closed."); return end
+        local blocked = UserInputService:GetFocusedTextBox() or GuiService.MenuIsOpen
+            or visible(leaderboard) or UserInputService:IsKeyDown(Enum.KeyCode.Space)
+
+        if phase == "Ready" then
+            if visible(gameOver) then
+                phase, waitAt = "Cashout", now
+            elseif visible(startPanel) then
+                if blocked then return end
+                newRound()
+                sendSpace("Start", 0)
+                return
+            elseif visible(results) then newRound()
+            elseif now - waitAt > Config.IdleTimeoutSeconds then
+                runtime.Stop("No recognizable Tidy game state."); return
+            else return end
+        end
+
+        if phase == "Playing" and visible(gameOver) and not (pending and pending.Kind == "Start") then
+            phase, waitAt, pending = "Cashout", now, nil
+            assert(releaseKey(), "Could not release Space at Game Over.")
+            local finalScore = required(gameOver, "Score").Text
+            print("[Tidy] Round ended. Score: " .. finalScore .. "; reward: " .. required(gameOver, "Reward").Text)
+        end
+        if phase == "Cashout" then
+            assert(visible(gameOver), "Results panel closed while waiting for cash-out.")
+            if not cashPending and not cashConfirmed and not visible(alreadySent) then
+                local finalScore = tonumber(required(gameOver, "Score").Text)
+                assert(finalScore and finalScore % 1 == 0, "Final score is unreadable; cash-out skipped.")
+                if finalScore < Config.TargetScoreMin or finalScore > Config.TargetScoreMax then
+                    offTargetRounds += 1
+                    if offTargetRounds >= Config.MaxOffTargetRounds then
+                        runtime.Stop("Repeated results outside 50-65; check input timing. No cash-out sent.")
+                    else
+                        print("[Tidy] Score " .. finalScore .. " is outside 50-65; retrying without cashing out.")
+                        phase, pending, waitAt = "Restart", nil, now
+                    end
+                    return
+                end
+            end
+            local intervalReady = not runtime.LastCashoutAt
+                or now - runtime.LastCashoutAt >= Config.CashoutIntervalSeconds
+            local action = cashoutAction(cashConfirmed or visible(alreadySent),
+                visible(cashButton) and not visible(cooldown) and intervalReady,
+                cashPending, now, Config.InputAckTimeoutSeconds)
+            if action == "Confirmed" then
+                offTargetRounds = 0
+                if cashPending then
+                    runtime.LastCashoutAt = now
+                    runtime.Completed = true
+                    onNightCashout(runtime.LastCashoutAt)
+                    runtime.Stop("Nightly cash-out complete.")
+                    return
+                else print("[Tidy] This result was already cashed out; preparing the next round.") end
+                phase, pending, cashPending, waitAt = "Restart", nil, nil, now
+            elseif action == "Timeout" then
+                runtime.Stop("Cash-out was clicked but not confirmed. Stopped to avoid duplicate requests.")
+            elseif now - waitAt > Config.CashoutWaitTimeout then
+                runtime.Stop("Cash-out never became available within 35 minutes; check cooldown and eligibility.")
+            elseif action == "Click" and not blocked then
+                cashPending = now
+                print("[Tidy] Cashing out the displayed EXP reward.")
+                clickButton(cashButton)
+            elseif now - waitLog >= 300 then
+                waitLog = now
+                local label = cooldown:FindFirstChild("cooldown")
+                print("[Tidy] Waiting for cash-out eligibility; displayed cooldown: " .. (label and label.Text or "unknown"))
+            end
+            return
+        end
+        if phase == "Restart" then
+            if now - waitAt > Config.IdleTimeoutSeconds then runtime.Stop("Cannot restart while input is blocked."); return end
+            if blocked or keyDown or now - lastPress < Config.MinPressInterval then return end
+            newRound()
+            sendSpace("Start", 0) -- The supplied Space handler restarts directly from GameOver.
+            return
+        end
+
+        if now - roundAt > Config.MaxRoundSeconds then runtime.Stop("Round time limit reached."); return end
+        local score = tonumber(scoreLabel.Text)
+        if pending then
+            local acknowledged = pending.Kind == "Start" and not visible(startPanel) and visible(results)
+                or pending.Kind ~= "Start" and score and score > pending.Score
+            if acknowledged then
+                if pending.Kind == "Lose" then warn("[Tidy] The miss landed late; retrying a zero-overlap miss.") end
+                pending, progressAt = nil, now
+            elseif now - pending.At > Config.InputAckTimeoutSeconds then
+                runtime.Stop("Game did not acknowledge " .. pending.Kind .. " input."); return
+            else return end
+        end
+        if score ~= lastScore then
+            lastScore, progressAt = score, now
+            if score and score > 0 and score % Config.LogEveryPlacements == 0 then print("[Tidy] Score: " .. score) end
+        end
+        if now - progressAt > Config.IdleTimeoutSeconds then runtime.Stop("No round progress; check focus or board state."); return end
+        if blocked or keyDown or now - lastPress < Config.MinPressInterval then return end
+        if visible(startPanel) or not visible(results) or not visible(grid) or not score then return end
+
+        local position = grid.Position
+        local scrolling = math.abs(position.Y.Scale) > 0.001 or math.abs(position.Y.Offset) > 1
+        local cells = {}
+        -- Only the active/support rows need their full children copied.
+        local activeIndex = score == 0 and 1 or ((score - 1) % 12) + 2
+        for index = math.max(1, activeIndex - 1), 13 do
+            local row = {}
+            for _, child in ipairs(rows[index]:GetChildren()) do
+                if child:IsA("GuiObject") and (child.Name == "BookTemplate" or child.Name == "Blank") then
+                    table.insert(row, {Name = child.Name, LayoutOrder = child.LayoutOrder})
+                    if index > activeIndex then break end
+                end
+            end
+            cells[index] = row
+        end
+        local action = decision(score, runtime.TargetScore, cells, scrolling)
+        if action == "CannotLose" then
+            runtime.Stop("Existing centered stack cannot be missed without exceeding 65. Start a fresh round.")
+        elseif action then
+            if action == "Lose" then print("[Tidy] Target reached; dropping the books with zero overlap.") end
+            sendSpace(action, score)
+        end
+    end
+
+    local function schedule()
+        if queued or busy or not runtime.Running then return end
+        queued = true
+        task.defer(function()
+            queued = false
+            if not runtime.Running or busy then return end
+            busy = true
+            local ok, err = pcall(evaluate)
+            busy = false
+            if not ok then runtime.Stop("Stopped: " .. tostring(err)) end
+        end)
+    end
+    for _, row in ipairs(rows) do
+        connect(row.ChildAdded, schedule)
+        connect(row.ChildRemoved, schedule)
+    end
+    connect(scoreLabel:GetPropertyChangedSignal("Text"), schedule)
+    connect(RunService.Heartbeat, function()
+        if phase == "Playing" or os.clock() - idlePoll >= Config.IdlePollSeconds then schedule() end
+    end)
+    schedule()
+end
+task.spawn(function()
+    local ok, err = pcall(run)
+    if not ok then runtime.Stop("Stopped: " .. tostring(err)) end
+end)
+
+-- END EMBEDDED TIDY
+    return _G.Campus4TidyRuntime
+end
+
+local function run()
+    assert(player, "Run this on the client.")
+    Logger.Log("Locker + Tidy controller v" .. Config.Version)
+    local playerGui = player:WaitForChild("PlayerGui", Config.LoadTimeout)
+    assert(Runtime.Running and nightGuard(), "Campus nightly session ended.")
+    assert(playerGui, "PlayerGui did not load.")
+    local locker = required(playerGui, "Locker")
+    local tidy = required(locker, "TidyTextbooksGame")
+    if not visible(tidy) then
+        openLocker(locker)
+        local decorate = required(required(locker, "InsideLocker"), "Decorate")
+        local entry = required(decorate, "TidyTextbooks")
+        local opened = false
+        for attempt = 1, Config.GameButtonAttempts do
+            if visible(tidy) then opened = true; break end
+            local button = findButton(entry)
+            local downReceived, clickReceived = false, false
+            local downConnection = button.MouseButton1Down:Connect(function() downReceived = true end)
+            local clickConnection = button.MouseButton1Click:Connect(function() clickReceived = true end)
+            table.insert(Runtime.Connections, downConnection)
+            table.insert(Runtime.Connections, clickConnection)
+            local ok, err = pcall(clickGui, button)
+            if ok then opened = waitUntil(function() return visible(tidy) end, Config.OpenTimeout) end
+            downConnection:Disconnect()
+            clickConnection:Disconnect()
+            Logger.Log(string.format("Locker Game attempt %d: down=%s | click=%s | gameOpen=%s",
+                attempt, tostring(downReceived), tostring(clickReceived), tostring(opened)))
+            assert(ok, err)
+            if opened then break end
+            assert(not clickReceived, "Locker Game received the click but did not open. GUI target logged above.")
+        end
+        assert(opened, "Locker Game did not receive a working click. Check the logged GUI target and any overlay covering it.")
+    end
+    assert(Runtime.Running and nightGuard(), "Campus nightly session ended.")
+    Runtime.Tidy = startTidyController()
+    while Runtime.Running and Runtime.Tidy.Running do task.wait(0.5) end
+end
+task.spawn(function()
+    local ok, err = pcall(run)
+    if Runtime.Running then
+        Runtime.Stop(ok and "Tidy controller finished." or ("Stopped: " .. tostring(err)))
+    end
+end)
+
+-- END NIGHT LOCKER ENGINE
+    return _G.Campus4LockerClickRuntime
+end
+
+function Night:SetPerformance(mode)
+    if self.PerformanceMode == mode then return end
+    self.PerformanceMode = mode
+    if self.SavedFPS and type(setfpscap) == "function" then
+        pcall(setfpscap, mode == "Waiting" and self.SavedFPS or Config.LockerNight.ActiveFPS)
+    end
+    if self.RenderingWasDisabled then
+        local enabled = mode == "Opening"
+        if type(set3drenderingenabled) == "function" then pcall(set3drenderingenabled, enabled) end
+        pcall(function() RunService:Set3dRenderingEnabled(enabled) end)
+    end
+end
+function Night:RestorePerformance()
+    if self.SavedFPS and type(setfpscap) == "function" then pcall(setfpscap, self.SavedFPS) end
+    if self.RenderingWasDisabled then
+        if type(set3drenderingenabled) == "function" then pcall(set3drenderingenabled, false) end
+        pcall(function() RunService:Set3dRenderingEnabled(false) end)
+    end
+    self.SavedFPS, self.RenderingWasDisabled, self.PerformanceMode = nil, nil, nil
+end
+function Night:Run(sessionId)
+    self.Running = true
+    self.State.Attempts += 1
+    local epoch = self.State.Epoch
+    local function guard()
+        return _G.Campus4Runtime == hostOwner and self.Running and self:IsEnabled()
+            and ClassController.ActiveModule == self and ClassController.SessionId == sessionId
+            and not hostOwner.CaptchaActive and self:WindowEligible()
+    end
+    local function cashoutConfirmed(at)
+        self.State.LastCashoutAt, self.State.DoneEpoch = at, epoch
+        Logger.Log("[NightLocker] Cash-out confirmed; nightly visit complete. Next visit is next in-game night.")
+    end
+    self.SavedFPS = nil
+    if type(getfpscap) == "function" then
+        local ok, fps = pcall(getfpscap)
+        if ok and type(fps) == "number" and fps >= 0 then self.SavedFPS = fps end
+    end
+    if not self.SavedFPS and _G.Campus4MassInstanceMode then
+        self.SavedFPS = tonumber(_G.Campus4MassInstanceFPS) or 5
+    end
+    self.RenderingWasDisabled = _G.Campus4MassInstanceMode and _G.Campus4Disable3DRendering
+    self:SetPerformance("Opening")
+    Logger.Log(string.format("[NightLocker] Night %d, visit %d/%d: opening/resuming locker and Tidy.",
+        epoch, self.State.Attempts, Config.LockerNight.MaxAttemptsPerNight))
+    local engine = launchNightLocker(guard, cashoutConfirmed, self.State.LastCashoutAt)
+    self.Engine = engine
+    while engine and engine.Running do
+        if not guard() then engine.Stop("Yielding to Campus class/captcha lifecycle."); break end
+        local tidy = engine.Tidy
+        self:SetPerformance(not tidy and "Opening" or (tidy.Phase == "Cashout" and "Waiting" or "Playing"))
+        task.wait(Config.LockerNight.SessionPollRate)
+    end
+    if engine and engine.Tidy and engine.Tidy.LastCashoutAt then
+        self.State.LastCashoutAt = engine.Tidy.LastCashoutAt
+    end
+    if engine and engine.Tidy and engine.Tidy.Completed and guard() then
+        local locker = PlayerGui:FindFirstChild("Locker")
+        self:ExitTidyGame(locker and locker:FindFirstChild("TidyTextbooksGame"), sessionId)
+    end
+    if self.State.Epoch == epoch and self.State.DoneEpoch ~= epoch then
+        if hostOwner.CaptchaActive then self.State.Attempts = math.max(0, self.State.Attempts - 1) end
+        self.State.NextAttemptAt = os.clock() + Config.LockerNight.RetryDelay
+        Logger.Log("[NightLocker] Visit interrupted or pending. Unclaimed results are retained; recovery is limited to the nightly window.")
+    end
+end
+function Night:ExitTidyGame(tidy, sessionId)
+    if not tidy or not nightGuiVisible(tidy) then return true end
+    if sessionId then
+        local function ownsInput()
+            return _G.Campus4Runtime == hostOwner and self.Running
+                and ClassController.ActiveModule == self and ClassController.SessionId == sessionId
+                and not hostOwner.CaptchaActive and not GuiService.MenuIsOpen
+                and not UserInputService:GetFocusedTextBox()
+        end
+        local left = tidy:FindFirstChild("LeftButtons")
+        local exit = left and left:FindFirstChild("ExitGame")
+        local button = exit and (exit:IsA("GuiButton") and exit or exit:FindFirstChild("Button"))
+        if exit and (not button or not button:IsA("GuiButton")) then
+            button = nil
+            for _, node in ipairs(exit:GetDescendants()) do
+                if node:IsA("GuiButton") and nightGuiVisible(node) then
+                    if button then button = nil; break end
+                    button = node
+                end
+            end
+        end
+        if not button or not button:IsA("GuiButton") then
+            Logger.Warn("[NightLocker] No unique clickable button at PlayerGui.Locker.TidyTextbooksGame.LeftButtons.ExitGame.")
+            return false
+        end
+        for attempt = 1, Config.LockerNight.ExitAttempts do
+            if not ownsInput() then return false end
+            if not nightGuiVisible(tidy) then return true end
+            task.wait(Config.LockerNight.ExitSettle)
+            if not ownsInput() or not nightGuiVisible(button) then return false end
+            local size = button.AbsoluteSize
+            if size.X <= 0 or size.Y <= 0 then return false end
+            local center = button.AbsolutePosition + size * 0.5 + GuiService:GetGuiInset()
+            local x, y = math.floor(center.X), math.floor(center.Y)
+            Logger.Log(string.format("[NightLocker] Exit click %d: %s at (%d, %d)", attempt, button:GetFullName(), x, y))
+            local held = false
+            local ok, err = pcall(function()
+                VirtualInputManager:SendMouseMoveEvent(x, y, game)
+                held = true
+                VirtualInputManager:SendMouseButtonEvent(x, y, 0, true, game, 1)
+                task.wait(Config.LockerNight.ExitMouseHold)
+            end)
+            for _ = 1, 3 do
+                if not held then break end
+                local released = pcall(function() VirtualInputManager:SendMouseButtonEvent(x, y, 0, false, game, 1) end)
+                if released then held = false end
+            end
+            if not ok or held then
+                Logger.Warn("[NightLocker] Exit input failed: " .. tostring(err or "mouse release failed"))
+                return false
+            end
+            local deadline = os.clock() + Config.LockerNight.ExitAckTimeout
+            while nightGuiVisible(tidy) and ownsInput() and os.clock() < deadline do task.wait(0.05) end
+            if not nightGuiVisible(tidy) then
+                Logger.Log("[NightLocker] Exit Game clicked; Tidy panel confirmed closed after cash-out.")
+                return true
+            end
+        end
+        Logger.Warn("[NightLocker] Exit clicks sent but panel stayed open; check overlays. Cash-out is already recorded.")
+        return false
+    end
+    -- All three Exit Game controls use the same handler in StackerMinigameLocal.
+    for _, name in ipairs({"LeftButtons", "GameOver", "Start"}) do
+        local container = tidy:FindFirstChild(name)
+        local exit = container and container:FindFirstChild("ExitGame")
+        if exit then
+            local buttons = exit:IsA("GuiButton") and {exit} or exit:GetDescendants()
+            for _, button in ipairs(buttons) do
+                if button:IsA("GuiButton") and nightGuiVisible(button) then
+                    pcall(Utils.fireClick, button)
+                    if not nightGuiVisible(tidy) then
+                        Logger.Log("[NightLocker] Exit Game pressed; Tidy panel closed.")
+                        return true
+                    end
+                end
+            end
+        end
+    end
+    Logger.Warn("[NightLocker] Exit Game did not close the Tidy panel; no new round will be started.")
+    return false
+end
+function Night:Stop(reason)
+    local ownedSession = self.Running or self.Engine ~= nil
+    self.Running = false
+    if self.State.DoneEpoch ~= self.State.Epoch then
+        self.State.NextAttemptAt = os.clock() + Config.LockerNight.RetryDelay
+    end
+    if self.Engine and self.Engine.Running then self.Engine.Stop(reason or "Night window ended.") end
+    self:RestorePerformance()
+    -- Use the game's Exit Game handler so its result remains available on reopening.
+    local locker = PlayerGui:FindFirstChild("Locker")
+    local tidy = locker and locker:FindFirstChild("TidyTextbooksGame")
+    if not ownedSession then return end
+    local combination = locker and locker:FindFirstChild("LockerCombination")
+    if combination and nightGuiVisible(combination) then
+        local network = ReplicatedStorage:FindFirstChild("RH4LockerNetwork")
+        local submit = network and network:FindFirstChild("SubmitCombination")
+        if submit and submit:IsA("RemoteEvent") then
+            local ok, err = pcall(function() submit:FireServer(nil, "Close") end)
+            if not ok then Logger.Warn("[NightLocker] Keypad close failed: " .. tostring(err)) end
+        end
+    end
+    if self.State.DoneEpoch == self.State.Epoch and tidy and nightGuiVisible(tidy) then
+        Logger.Log("[NightLocker] Cash-out confirmed; pressing Exit Game.")
+    end
+    self:ExitTidyGame(tidy)
+    local inside = locker and locker:FindFirstChild("InsideLocker")
+    if inside and nightGuiVisible(inside) then
+        -- Resolve an actual close control; never guess a server remote or force camera state.
+        local candidates = {}
+        local names = {close = true, exit = true, closelocker = true, exitlocker = true,
+            closebutton = true, exitbutton = true}
+        for _, node in ipairs(inside:GetDescendants()) do
+            if node:IsA("GuiButton") and nightGuiVisible(node) then
+                local cursor = node
+                while cursor and cursor ~= inside do
+                    if names[cursor.Name:lower():gsub("%W", "")] then
+                        candidates[#candidates + 1] = node
+                        break
+                    end
+                    cursor = cursor.Parent
+                end
+            end
+        end
+        if #candidates == 1 then
+            Logger.Log("[NightLocker] Closing locker through " .. candidates[1]:GetFullName())
+            Utils.fireClick(candidates[1])
+        else
+            Logger.Warn("[NightLocker] Locker close control is missing or ambiguous; close the locker menu manually.")
+        end
+    end
+    self.Engine = nil
+end
+hostOwner.NightLockerStop = function(reason) Night:Stop(reason or "Campus runtime replaced.") end
+ClassController.NightLocker = Night
+ClassController:Register(Night)
+end -- scope: NightLocker
+
+
+-- ========================================================================
 
 -- ========================================================================
 -- 🖥️ MASS-ACCOUNT ACCOUNT OVERLAY
@@ -6077,7 +7464,7 @@ local function checkTradeIconStatus()
         do
             if not enoughPlayersForTradeCheck() then
                 setWaitingForPlayerCount()
-                Monitor.TradeChecking = false
+                Monitor.TradeChecking = false; _G.Campus4Runtime.ProfileScanActive = false
                 return
             end
 
@@ -6086,10 +7473,11 @@ local function checkTradeIconStatus()
 
         if not enoughPlayersForTradeCheck() then
             setWaitingForPlayerCount()
-            Monitor.TradeChecking = false
+            Monitor.TradeChecking = false; _G.Campus4Runtime.ProfileScanActive = false
             return
         end
 
+        _G.Campus4Runtime.ProfileScanActive = true
         local ignoredPlayers = {}
         local qualifiedMissingCount = 0
         local scanCount = getRequiredProfileScanCount()
@@ -6105,7 +7493,7 @@ local function checkTradeIconStatus()
         do
             if not enoughPlayersForTradeCheck() then
                 setWaitingForPlayerCount()
-                Monitor.TradeChecking = false
+                Monitor.TradeChecking = false; _G.Campus4Runtime.ProfileScanActive = false
                 return
             end
 
@@ -6128,7 +7516,7 @@ local function checkTradeIconStatus()
                 end
 
                 setTradeStatus("No Players Found", "checking")
-                Monitor.TradeChecking = false
+                Monitor.TradeChecking = false; _G.Campus4Runtime.ProfileScanActive = false
                 Monitor.NextTradeCheckAt =
                     os.clock() + Config.AccountMonitor.TradeRetryDelay
                 return
@@ -6161,7 +7549,7 @@ local function checkTradeIconStatus()
                 local preview = getDirectProfilePreview()
                 if preview then closeDirectProfile(preview) end
                 setWaitingForPlayerCount()
-                Monitor.TradeChecking = false
+                Monitor.TradeChecking = false; _G.Campus4Runtime.ProfileScanActive = false
                 return
             end
 
@@ -6206,7 +7594,7 @@ local function checkTradeIconStatus()
                 setTradeStatus("Unlocked", "available")
 
                 Monitor.TradeCheckedForLevel75 = true
-                Monitor.TradeChecking = false
+                Monitor.TradeChecking = false; _G.Campus4Runtime.ProfileScanActive = false
                 Monitor.NextTradeCheckAt = math.huge
                 return
             end
@@ -6218,7 +7606,7 @@ local function checkTradeIconStatus()
                 if qualifiedMissingCount >= Monitor.TradeBanMaxStrikes then
                     Monitor.TradeAccountBanned = true
                     Monitor.TradeCheckedForLevel75 = true
-                    Monitor.TradeChecking = false
+                    Monitor.TradeChecking = false; _G.Campus4Runtime.ProfileScanActive = false
                     Monitor.NextTradeCheckAt = math.huge
 
                     closeDirectProfile(profilePreview)
@@ -6247,7 +7635,7 @@ local function checkTradeIconStatus()
             end
 
             Monitor.TradeCheckedForLevel75 = false
-            Monitor.TradeChecking = false
+            Monitor.TradeChecking = false; _G.Campus4Runtime.ProfileScanActive = false
             Monitor.NextTradeCheckAt =
                 os.clock() + Config.AccountMonitor.TradeRetryDelay
         end
