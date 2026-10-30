@@ -1,5 +1,5 @@
 -- ================================================================
--- AUTO TRADE - STANDALONE V31
+-- AUTO TRADE - STANDALONE V32 (GUI HEART BEFORE REQUEST)
 -- ================================================================
 -- Current modes:
 --   SENDER: existing V22 queue/stock/offer/finalization flow.
@@ -251,6 +251,16 @@ local GlobalStockTargets,
     buildConfiguredItems()
 
 local Config = {
+    -- Set AutoTradeConfig.HeartBeforeTrade = false to disable this GUI step.
+    HeartBeforeTrade = {
+        Enabled = GlobalConfig.HeartBeforeTrade ~= false,
+        ReadyTimeout = 6.0,
+        ClickAckTimeout = 1.5,
+        GuiSettle = 0.35,
+        MouseSettle = 0.05,
+        MouseHold = 0.10,
+        PollRate = 0.05,
+    },
     TargetUsername =
         tostring(GlobalConfig.TargetUsername),
 
@@ -7217,6 +7227,139 @@ local function resolveConfiguredTarget()
     return nil
 end
 
+-- GUI-only heart step, once per target per sender run.
+local runHeartBeforeTrade
+do
+    local function atPath(names)
+        local node = PlayerGui
+        for _, name in ipairs(names) do node = node and node:FindFirstChild(name) end
+        return node
+    end
+    local function shown(node)
+        if not node or not node:IsDescendantOf(PlayerGui) then return false end
+        local current = node
+        while current and current ~= PlayerGui do
+            if current:IsA("GuiObject") and not current.Visible then return false end
+            if current:IsA("ScreenGui") and not current.Enabled then return false end
+            current = current.Parent
+        end
+        return true
+    end
+    local function targetNamedIn(profile, target)
+        if not shown(profile) then return false end
+        local nodes = {profile}
+        for _, child in ipairs(profile:GetDescendants()) do nodes[#nodes + 1] = child end
+        local wanted = target.Name:lower()
+        for _, node in ipairs(nodes) do
+            if shown(node) and (node:IsA("TextLabel") or node:IsA("TextButton") or node:IsA("TextBox")) then
+                for word in tostring(node.Text):lower():gmatch("[%w_]+") do
+                    if word == wanted then return true end
+                end
+            end
+        end
+        return false
+    end
+    local function clickTarget(container)
+        if not shown(container) or not container:IsA("GuiObject") then return nil end
+        if container:IsA("GuiButton") then return container end
+        local named = container:FindFirstChild("Button")
+        if named and named:IsA("GuiButton") and shown(named) then return named end
+        local found
+        for _, child in ipairs(container:GetDescendants()) do
+            if child:IsA("GuiButton") and shown(child) then
+                if found then return nil end
+                found = child
+            end
+        end
+        -- DiaryImage1 may itself be an ImageLabel with an input handler.
+        return found or container
+    end
+    local function allowed(target)
+        return target and target.Parent == Players and target ~= LocalPlayer
+            and State.Target == target and not State.TradeBanned
+            and not captchaChallengeVisible() and not isTradeOpen()
+    end
+    local function waitUntil(target, predicate, timeout)
+        local deadline = os.clock() + timeout
+        repeat
+            if not allowed(target) then return nil end
+            local result = predicate()
+            if result then return result end
+            task.wait(Config.HeartBeforeTrade.PollRate)
+        until os.clock() >= deadline
+        return nil
+    end
+    local function click(target, button, observe)
+        if not allowed(target) or not shown(button) then return false, "input_not_ready" end
+        local received, connection, held = false, nil, false
+        if observe then
+            if button:IsA("GuiButton") then
+                connection = button.MouseButton1Click:Connect(function() received = true end)
+            else
+                connection = button.InputEnded:Connect(function(input)
+                    if input.UserInputType == Enum.UserInputType.MouseButton1 then received = true end
+                end)
+            end
+        end
+        local x, y
+        local ok, err = pcall(function()
+            local position, size = button.AbsolutePosition, button.AbsoluteSize
+            local inset = GuiService:GetGuiInset()
+            assert(size.X > 0 and size.Y > 0, "button_has_no_size")
+            x, y = math.floor(position.X + size.X * 0.5 + inset.X), math.floor(position.Y + size.Y * 0.5 + inset.Y)
+            print(string.format("[AutoTrade][Heart] Click %s at (%d, %d)", button:GetFullName(), x, y))
+            VirtualInputManager:SendMouseMoveEvent(x, y, game)
+            task.wait(Config.HeartBeforeTrade.MouseSettle)
+            assert(allowed(target) and shown(button), "input_interrupted")
+            held = true
+            VirtualInputManager:SendMouseButtonEvent(x, y, 0, true, game, 1)
+            task.wait(Config.HeartBeforeTrade.MouseHold)
+        end)
+        for _ = 1, 3 do
+            if not held then break end
+            local released = pcall(function() VirtualInputManager:SendMouseButtonEvent(x, y, 0, false, game, 1) end)
+            if released then held = false end
+        end
+        if ok and not held and observe then
+            waitUntil(target, function() return received end, Config.HeartBeforeTrade.ClickAckTimeout)
+        end
+        if connection then connection:Disconnect() end
+        if not ok or held then return false, tostring(err or "mouse_release_failed") end
+        if observe and not received then return false, "love_button_did_not_receive_click" end
+        return true
+    end
+    runHeartBeforeTrade = function(target)
+        if not Config.HeartBeforeTrade.Enabled then return true, "disabled" end
+        State.HeartBeforeTradeDone = State.HeartBeforeTradeDone or {}
+        if target and State.HeartBeforeTradeDone[target.UserId] then return true, "already_clicked_this_run" end
+        if not allowed(target) then return false, "heart_target_or_input_unavailable" end
+        local diaryPath = {"DiaryGui", "NotebookPages", "Cover", "LoveButton"}
+        -- Do not click a diary left open from a different account.
+        if shown(atPath(diaryPath)) then return false, "diary_already_open_close_it_and_retry" end
+        local profilePath = {"ProfilePreviewGui", "ProfilePreview"}
+        local imagePath = {"ProfilePreviewGui", "ProfilePreview", "DiaryImage1"}
+        local image = waitUntil(target, function()
+            if targetNamedIn(atPath(profilePath), target) then return clickTarget(atPath(imagePath)) end
+        end, Config.HeartBeforeTrade.ReadyTimeout)
+        if not image then return false, "target_profile_or_DiaryImage1_not_ready" end
+        task.wait(Config.HeartBeforeTrade.GuiSettle)
+        if not targetNamedIn(atPath(profilePath), target) then return false, "profile_target_changed" end
+        local opened, reason = click(target, image, false)
+        if not opened then return false, reason end
+        local love = waitUntil(target, function() return clickTarget(atPath(diaryPath)) end,
+            Config.HeartBeforeTrade.ReadyTimeout)
+        if not love then return false, "diary_LoveButton_did_not_appear" end
+        task.wait(Config.HeartBeforeTrade.GuiSettle)
+        local clicked, clickReason = click(target, love, true)
+        if not clicked then return false, clickReason end
+        State.HeartBeforeTradeDone[target.UserId] = true
+        print("[AutoTrade][Heart] LoveButton received the click for " .. target.Name
+            .. "; proceeding to trade. Server heart award is not independently verified.")
+        return true, "love_button_clicked"
+    end
+end
+
+
 local function runQueuedTradeSender()
     print(
         "[AutoTrade] Global target config:",
@@ -7403,6 +7546,12 @@ local function runQueuedTradeSender()
                 "[AutoTrade] Request blocked by profile preflight:",
                 tostring(requestPreflightReason)
             )
+            return
+        end
+
+        local heartOK, heartReason = runHeartBeforeTrade(target)
+        if not heartOK then
+            warn("[AutoTrade][Heart] Stopped BEFORE sending trade request: " .. tostring(heartReason))
             return
         end
 
