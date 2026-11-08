@@ -1,5 +1,5 @@
 -- ================================================================
--- AUTO TRADE - STANDALONE V32 (GUI HEART BEFORE REQUEST)
+-- AUTO TRADE - STANDALONE V33 (REFRESHED TRADE CHAT)
 -- ================================================================
 -- Current modes:
 --   SENDER: existing V22 queue/stock/offer/finalization flow.
@@ -368,177 +368,179 @@ local Config = {
     ChatEnabled = true,
 
     Chat = {
-        -- SmartChat combines fragments instead of picking from only a few
-        -- complete fixed sentences. This gives hundreds of possible messages
-        -- while keeping the trade conversation relevant to the current stage.
         Smart = true,
-        -- Stage-aware cap: normally 5 core messages, with up to 2 more
-        -- only when the trade actually reaches/waits on later confirmation stages.
         MaxMessagesPerTrade = 7,
         LongConfirmationWaitMessageAt = 12.0,
-
         Greetings = {
             "hey",
             "hi",
             "hello",
             "hey there",
-            "hiya",
-            "hii",
-            "yo"
         },
-
         OpenActions = {
-            "give me a sec to load everything",
-            "one sec while i get my side ready",
-            "let me put everything in",
-            "i'm loading my trade stuff now",
-            "just a sec, getting everything ready",
-            "i'll add my side now",
-            "one moment while i set up the offer",
-            "let me get the trade filled in",
-            "putting my side together now",
-            "i'm getting the offer ready"
+            "give me a moment to add my offer",
+            "i'll get my side ready",
+            "i'm getting the offer together",
+            "let me add my items",
+            "i'll start adding now",
         },
-
         OpenTails = {
             "",
-            "should be quick",
-            "won't take long",
-            "just a moment",
-            "one sec",
-            "give me a little bit"
         },
-
         OfferGeneric = {
-            "adding my diamonds and items now",
-            "putting the diamonds and items in now",
-            "i'm filling in the offer now",
-            "adding everything on my side",
-            "working on my side of the trade now",
-            "putting everything into the offer",
-            "adding the stuff now",
-            "i'm setting the offer up now",
-            "filling my side in",
-            "getting all of it into the trade"
+            "adding the items now",
+            "still adding my items",
+            "putting the items into my offer",
+            "working through my item list",
+            "adding the rest of my items",
         },
-
         OfferShort = {
-            "should only take a sec",
-            "this one should be pretty quick",
-            "almost done adding",
-            "just a few things to add",
-            "finishing the last few items"
+            "",
         },
-
         OfferLong = {
-            "there are quite a few items so give me a sec",
-            "i have a bunch of items to add so one moment",
-            "this one has a few more items, just a sec",
-            "adding a bigger batch so give me a moment",
-            "there are several items on this one, still adding"
+            "",
         },
-
         ReadyGeneric = {
+            "my offer is ready",
+            "that's everything from me",
             "all set on my side",
-            "done adding everything",
-            "my side should be complete now",
-            "everything is in on my side",
-            "okay, my offer is ready",
-            "finished adding everything",
-            "my side is ready now",
-            "that should be everything from me",
-            "offer is complete on my side",
-            "i'm done adding now"
+            "i'm done adding",
+            "my side is ready to review",
         },
-
         ReadyWithCount = {
-            "all %d items are in now",
-            "done, all %d items are added",
-            "finished adding the %d items",
-            "%d items are in, my side is ready",
-            "all %d items should be showing now"
+            "all %d items are in",
+            "my %d items are added",
+            "ready with %d items",
+            "that's %d items from me",
+            "finished adding %d items",
         },
-
         ReadyWithDiamondsAndCount = {
-            "all %d items plus %s diamonds are in",
-            "done, %d items and %s diamonds are added",
-            "%d items + %s diamonds should all be showing",
-            "finished, i added %d items and %s diamonds",
-            "my side has %d items and %s diamonds now"
+            "my offer is %d items and %s diamonds",
+            "all %d items and %s diamonds are in",
+            "ready with %d items + %s diamonds",
+            "that's %d items and %s diamonds from me",
+            "added %d items and %s diamonds",
         },
-
         Accepting = {
-            "looks good, accepting on my side",
-            "okay, accepting now",
-            "all good on my end, accepting",
-            "my side is ready, i'll accept",
-            "everything looks right, accepting now",
-            "done on my side, accepting",
-            "okay i'm accepting mine now",
-            "offer looks good, i'll accept",
-            "ready here, accepting",
-            "all set, accepting my side",
-            "everything checks out, accepting mine",
-            "i'm good with this, accepting now"
+            "i'll accept my offer now",
+            "accepting on my side",
+            "i'm pressing accept now",
+            "ready to accept my side",
+            "i'll send my acceptance now",
         },
-
         PostAccept = {
-            "accepted mine, waiting on your side now",
-            "i accepted on my end, waiting for yours",
-            "mine is accepted, just waiting on the next step",
-            "accepted here, waiting for your side",
-            "my side is accepted now",
-            "accepted mine, take your time",
-            "i'm accepted on my side, waiting now",
-            "accepted here, just waiting for the confirmation",
-            "mine is locked in, waiting on your side",
-            "accepted my offer, waiting for the next screen",
-            "i've accepted mine, just waiting here",
-            "accepted on my end, we're good so far"
+            "pressed accept; waiting for confirmation",
+            "i've pressed accept on my side",
+            "waiting for the next trade screen",
+            "accept sent, waiting for confirmation",
+            "i'm waiting for the confirmation step",
         },
-
         WaitingForConfirmation = {
-            "still waiting on the confirmation screen on my side",
-            "i'm still here, waiting for the next confirmation",
-            "still waiting for the second confirmation to show",
-            "no rush, i'm just waiting on the confirmation screen",
-            "still on the trade, waiting for the final confirmation",
-            "i'm waiting for the next screen to come up",
-            "still waiting here for the confirmation step",
-            "the final confirmation hasn't shown for me yet",
-            "still here, just waiting for the confirmation",
-            "waiting for the second accept screen on my side"
+            "the confirmation screen has not appeared yet",
+            "still waiting for the next screen",
+            "i'm still on the offer screen",
+            "waiting for the confirmation page to open",
+            "no confirmation page yet on my side",
         },
-
         Confirmation = {
-            "got the confirmation screen, checking it now",
-            "final confirmation is up on my side now",
-            "i'm on the final confirmation screen now",
-            "got the second confirmation, one sec",
-            "confirmation screen is showing for me now",
-            "i'm checking the final confirmation now",
-            "the final accept screen just came up",
-            "got the last confirmation screen now",
-            "second confirmation is here, checking it",
-            "i'm at the final confirmation step now",
-            "final screen is up, just checking everything",
-            "confirmation came up on my side"
+            "the confirmation screen is open",
+            "i'm at the confirmation step",
+            "the next trade screen is up",
+            "confirmation is showing on my side",
+            "the confirmation page just opened",
         },
-
         FinalConfirmed = {
-            "confirmed on my side",
-            "final confirmation done here",
-            "confirmed mine, waiting for it to finish",
-            "all confirmed on my end",
-            "done with the final confirmation",
-            "confirmed everything on my side",
-            "final confirm is done for me",
-            "confirmed mine, should be finishing now",
-            "all done confirming here",
-            "my final confirmation is in",
-            "confirmed the last step on my side",
-            "final accept is done here"
-        }
+            "final confirmation sent",
+            "i've sent my final confirmation",
+            "final accept pressed on my side",
+            "waiting for the trade to finish",
+            "my final confirmation is submitted",
+        },
+        Receiver = {
+            Open = {
+                "hey, i'll add my offer",
+                "hi, give me a moment to get ready",
+                "hello, i'm setting up my side",
+                "hey, i'll start adding now",
+                "hi, let me get my offer together",
+            },
+            Offering = {
+                "i'm adding my items now",
+                "putting my items into the offer",
+                "still adding on my side",
+                "adding the rest of my items",
+                "working through my items now",
+            },
+            OfferSummary = {
+                "my offer is %d items and %s diamonds",
+                "added %d items + %s diamonds",
+                "all %d items and %s diamonds are in",
+                "that's %d items and %s diamonds from me",
+                "ready with %d items and %s diamonds",
+            },
+            Ready = {
+                "my offer is ready",
+                "all set on my side",
+                "i'm done adding my offer",
+                "ready on my end",
+                "my items and diamonds are added",
+            },
+            Reaccept = {
+                "the offer changed, so i pressed accept again",
+                "accepting again after the change",
+                "resent my acceptance for the updated offer",
+                "pressed accept on the updated offer",
+                "accept sent again after the update",
+            },
+            Confirmation = {
+                "the confirmation screen is open",
+                "confirmation is showing on my side",
+                "i'm at the confirmation step",
+                "the next trade screen just opened",
+                "the confirmation page is up",
+            },
+            ReplyWait = {
+                "take your time",
+                "no rush",
+                "okay, i'll wait",
+                "sure, let me know when you are ready",
+                "all good, take a moment",
+            },
+            ReplyPreparing = {
+                "i'm still adding my offer",
+                "give me a moment to finish my side",
+                "i'm not ready yet, still adding",
+                "still getting my offer ready",
+                "i'll be ready once my items are in",
+            },
+            ReplyReady = {
+                "my offer is ready too",
+                "ready on my side",
+                "i'm done adding too",
+                "all set here",
+                "my side is ready",
+            },
+            ReplyOffer = {
+                "thanks for the update",
+                "okay, thanks for letting me know",
+                "got your update, thanks",
+                "understood, thanks",
+                "thanks for explaining your offer",
+            },
+            ReplyThanks = {
+                "you're welcome",
+                "no problem",
+                "thanks to you too",
+                "of course",
+                "you are welcome",
+            },
+            ReplyGreeting = {
+                "hey",
+                "hello",
+                "hi there",
+                "hey there",
+            },
+        },
     },
 
     -- Actual outgoing text is entered character-by-character through VIM.
@@ -595,8 +597,8 @@ local Config = {
     RequireItemsBeforeAccept = true,
 
     RandomOffer = {
-        MinItems = 10,
-        MaxItems = 20,
+        MinItems = 13,
+        MaxItems = 22,
 
         -- Fixed pacing between each real inventory click.
         -- Example: Crystal Ice x10 = 10 separate clicks with this delay.
@@ -5214,39 +5216,41 @@ local function receiverSendChat(message)
     return false
 end
 
+local function receiverStageMessage(stage)
+    local choices = Config.Chat.Receiver[stage]
+    if not choices then return nil end
+    local text = pickFragment("Receiver_" .. stage, choices)
+    if stage == "OfferSummary" then
+        return string.format(text, tonumber(State.ItemOfferAddedCount) or 0,
+            formatDiamondAmount(State.ReceiverDiamondAmount) or "0")
+    end
+    return text
+end
+
 local function receiverBuildReply(message)
-    local text =
-        normalizeRuntimeName(message)
-
-    if string.find(text, "wait", 1, true)
-        or string.find(text, "sec", 1, true)
-        or string.find(text, "moment", 1, true)
-    then
-        return "no worries, take your time"
+    local words = {}
+    local text = tostring(message or ""):lower():gsub("don't", "dont")
+    for word in text:gmatch("[%w_]+") do words[word] = true end
+    if words.thanks or words.thank or words.ty or words.tysm then
+        return receiverStageMessage("ReplyThanks")
     end
-
-    if string.find(text, "ready", 1, true)
-        or string.find(text, "accept", 1, true)
-        or string.find(text, "done", 1, true)
+    if words.wait or words.sec or words.second or words.moment
+        or ((words["not"] or words.still or words.dont) and (words.ready or words.accept or words.done))
     then
-        return "yep, i'm ready on my side too"
+        return receiverStageMessage("ReplyWait")
     end
-
-    if string.find(text, "diamond", 1, true)
-        or string.find(text, "item", 1, true)
-        or string.find(text, "offer", 1, true)
-    then
-        return "got it, i can see the offer"
+    if words.ready or words.accept or words.accepted or words.done then
+        local ready = State.ItemsOffered == true and State.DiamondsOffered == true
+        return receiverStageMessage(ready and "ReplyReady" or "ReplyPreparing")
     end
-
-    if string.find(text, "thank", 1, true)
-        or text == "ty"
-        or string.find(text, "ty ", 1, true)
-    then
-        return "you're good"
+    if words.diamond or words.diamonds or words.item or words.items or words.offer then
+        return receiverStageMessage("ReplyOffer")
     end
-
-    return "got it"
+    if words.hi or words.hey or words.hello then
+        return receiverStageMessage("ReplyGreeting")
+    end
+    -- Unrelated messages do not need an automatic acknowledgement.
+    return nil
 end
 
 local function receiverMaybeReply(sender, message)
@@ -5273,13 +5277,16 @@ local function receiverMaybeReply(sender, message)
         return
     end
 
+    local reply = receiverBuildReply(message)
+    if not reply then return end
+
     State.ReceiverLastChatReplyAt = now
     State.ReceiverChatReplies += 1
 
-    local reply =
-        receiverBuildReply(message)
-
     task.spawn(function()
+        if State.ReceiverSender ~= sender or not isTradeOpen()
+            or isFinalConfirmationOverlayVisible()
+        then return end
         receiverSendChat(reply)
     end)
 end
@@ -5599,7 +5606,7 @@ local function receiverOfferConfiguredItems()
     task.wait(0.40)
 
     receiverSendChat(
-        "adding my items now"
+        receiverStageMessage("Offering")
     )
 
     print(
@@ -6064,7 +6071,7 @@ local function receiverWaitAndMaintainAccept()
                     if not reacceptChatSent then
                         reacceptChatSent = true
                         receiverSendChat(
-                            "reaccepted after the update"
+                            receiverStageMessage("Reaccept")
                         )
                     end
                 end
@@ -6186,7 +6193,7 @@ local function runReceiverActiveTrade(sender)
     task.wait(Config.ChatOpenDelay)
 
     receiverSendChat(
-        "got it, i'll add my side now"
+        receiverStageMessage("Open")
     )
 
     -- Build a fresh 10-20 item manifest from the configured safe pool.
@@ -6224,13 +6231,7 @@ local function runReceiverActiveTrade(sender)
     end
 
     receiverSendChat(
-        "i added "
-        .. tostring(State.ItemOfferAddedCount)
-        .. " items and "
-        .. formatDiamondAmount(
-            State.ReceiverDiamondAmount
-        )
-        .. " diamonds on my side"
+        receiverStageMessage("OfferSummary")
     )
 
     -- Bind AFTER our automated item + diamond changes so those 10-20 setup
@@ -6263,7 +6264,7 @@ local function runReceiverActiveTrade(sender)
     )
 
     receiverSendChat(
-        "i'm ready on my side"
+        receiverStageMessage("Ready")
     )
 
     local confirmationOK, confirmationReason =
@@ -6274,7 +6275,7 @@ local function runReceiverActiveTrade(sender)
     end
 
     receiverSendChat(
-        "final confirmation is up on my side"
+        receiverStageMessage("Confirmation")
     )
 
     local confirmOK, confirmReason =
