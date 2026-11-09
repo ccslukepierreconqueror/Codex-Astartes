@@ -183,6 +183,12 @@ then
             Category = "Accessories",
             Currency = "Diamonds",
             Target = 8
+        },
+        {
+            Item = "Mini Social Love Butterfly",
+            Category = "Wings",
+            Currency = "Diamonds",
+            Target = 3
         }
     }
 end
