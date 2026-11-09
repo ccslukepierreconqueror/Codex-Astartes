@@ -152,19 +152,37 @@ then
             Item = "Crystal Ice",
             Category = "Wings",
             Currency = "Diamonds",
-            Target = 15
+            Target = 2
         },
         {
             Item = "Miniskirt",
             Category = "Skirts",
             Currency = "Diamonds",
-            Target = 5
+            Target = 2
         },
         {
             Item = "Royale Rebel Bustle Skirt",
             Category = "Skirts",
             Currency = "Diamonds",
             Target = 2
+        },
+        {
+            Item = "Cute Carrot Nose",
+            Category = "Accessories",
+            Currency = "Diamonds",
+            Target = 8
+        },
+        {
+            Item = "Sparkly Candy Cane Ears",
+            Category = "Accessories",
+            Currency = "Diamonds",
+            Target = 8
+        },
+        {
+            Item = "Tidy Bowtie",
+            Category = "Accessories",
+            Currency = "Diamonds",
+            Target = 8
         }
     }
 end
@@ -597,8 +615,8 @@ local Config = {
     RequireItemsBeforeAccept = true,
 
     RandomOffer = {
-        MinItems = 20,
-        MaxItems = 30,
+        MinItems = 10,
+        MaxItems = 20,
 
         -- Fixed pacing between each real inventory click.
         -- Example: Crystal Ice x10 = 10 separate clicks with this delay.
