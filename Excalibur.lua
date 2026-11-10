@@ -1,5 +1,5 @@
 -- ================================================================
--- AUTO TRADE - STANDALONE V33 (REFRESHED TRADE CHAT)
+-- AUTO TRADE - STANDALONE V34 (PLAIN TRADE CHAT)
 -- ================================================================
 -- Current modes:
 --   SENDER: existing V22 queue/stock/offer/finalization flow.
@@ -426,24 +426,10 @@ local Config = {
         },
         ReadyGeneric = {
             "my offer is ready",
+            "is this enough?",
             "that's everything from me",
             "all set on my side",
-            "i'm done adding",
             "my side is ready to review",
-        },
-        ReadyWithCount = {
-            "all %d items are in",
-            "my %d items are added",
-            "ready with %d items",
-            "that's %d items from me",
-            "finished adding %d items",
-        },
-        ReadyWithDiamondsAndCount = {
-            "my offer is %d items and %s diamonds",
-            "all %d items and %s diamonds are in",
-            "ready with %d items + %s diamonds",
-            "that's %d items and %s diamonds from me",
-            "added %d items and %s diamonds",
         },
         Accepting = {
             "i'll accept my offer now",
@@ -496,18 +482,18 @@ local Config = {
                 "working through my items now",
             },
             OfferSummary = {
-                "my offer is %d items and %s diamonds",
-                "added %d items + %s diamonds",
-                "all %d items and %s diamonds are in",
-                "that's %d items and %s diamonds from me",
-                "ready with %d items and %s diamonds",
+                "my offer is ready",
+                "that's my offer",
+                "is this enough?",
+                "all set on my side",
+                "you can review my offer now",
             },
             Ready = {
                 "my offer is ready",
                 "all set on my side",
                 "i'm done adding my offer",
                 "ready on my end",
-                "my items and diamonds are added",
+                "my offer is set up",
             },
             Reaccept = {
                 "the offer changed, so i pressed accept again",
@@ -547,8 +533,7 @@ local Config = {
             ReplyOffer = {
                 "thanks for the update",
                 "okay, thanks for letting me know",
-                "got your update, thanks",
-                "understood, thanks",
+                "my offer is there for you to review",
                 "thanks for explaining your offer",
             },
             ReplyThanks = {
@@ -2488,46 +2473,7 @@ local function buildSmartTradeMessage(stage)
         end
 
     elseif stage == "Ready" then
-        local itemCount =
-            tonumber(State.ItemOfferTargetCount) or 0
-
-        local diamondAmount =
-            formatDiamondAmount(
-                State.DiamondOfferAmount
-            )
-
-        if itemCount > 0 and diamondAmount then
-            local template =
-                pickFragment(
-                    "ReadyWithDiamondsAndCount",
-                    chat.ReadyWithDiamondsAndCount
-                )
-
-            message = string.format(
-                template,
-                itemCount,
-                diamondAmount
-            )
-
-        elseif itemCount > 0 then
-            local template =
-                pickFragment(
-                    "ReadyWithCount",
-                    chat.ReadyWithCount
-                )
-
-            message = string.format(
-                template,
-                itemCount
-            )
-
-        else
-            message =
-                pickFragment(
-                    "ReadyGeneric",
-                    chat.ReadyGeneric
-                )
-        end
+        message = pickFragment("ReadyGeneric", chat.ReadyGeneric)
 
     elseif stage == "Accepting" then
         message =
@@ -5243,12 +5189,7 @@ end
 local function receiverStageMessage(stage)
     local choices = Config.Chat.Receiver[stage]
     if not choices then return nil end
-    local text = pickFragment("Receiver_" .. stage, choices)
-    if stage == "OfferSummary" then
-        return string.format(text, tonumber(State.ItemOfferAddedCount) or 0,
-            formatDiamondAmount(State.ReceiverDiamondAmount) or "0")
-    end
-    return text
+    return pickFragment("Receiver_" .. stage, choices)
 end
 
 local function receiverBuildReply(message)
