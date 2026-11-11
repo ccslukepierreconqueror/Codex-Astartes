@@ -606,8 +606,8 @@ local Config = {
     RequireItemsBeforeAccept = true,
 
     RandomOffer = {
-        MinItems = 10,
-        MaxItems = 20,
+        MinItems = 15,
+        MaxItems = 25,
 
         -- Fixed pacing between each real inventory click.
         -- Example: Crystal Ice x10 = 10 separate clicks with this delay.
