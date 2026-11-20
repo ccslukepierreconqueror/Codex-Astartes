@@ -205,7 +205,7 @@ local Config = { Debug = false, -- true = show detailed class diagnostics
         MaxProfileTargets = 0,
         TradeProfileOpenWait = 2.40,
         TradeRetryDelay = 3600.00
-    }, Controller = { MinPlayersToStart = 1, PlayerCountPollRate = 0.50, FallbackPollRate = 1.00, MouseReleaseTimeout = 0.40, WaitSlice = 0.04 } }
+    }, Controller = { MinPlayersToStart = 0, PlayerCountPollRate = 0.50, FallbackPollRate = 1.00, MouseReleaseTimeout = 0.40, WaitSlice = 0.04 } }
 
 -- In-game nightly window; real-time cash-out cooldown is handled by Tidy.
 Config.LockerNight = {
