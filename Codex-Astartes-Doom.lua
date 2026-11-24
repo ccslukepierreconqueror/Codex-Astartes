@@ -173,7 +173,7 @@ local Config = { Debug = false, -- true = show detailed class diagnostics
         Item = "Crystal Ice",
         Category = "Wings",
         Currency = "Diamonds",
-        Target = 15,
+        Target = 2,
         InitialReadyTimeout = 8.0,
         InitialSlotSpacing = 0.12,
         MaxInitialSlots = 12,
