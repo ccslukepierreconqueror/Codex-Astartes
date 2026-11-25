@@ -152,7 +152,7 @@ then
             Item = "Crystal Ice",
             Category = "Wings",
             Currency = "Diamonds",
-            Target = 2
+            Target = 0
         },
         {
             Item = "Miniskirt",
@@ -164,25 +164,25 @@ then
             Item = "Royale Rebel Bustle Skirt",
             Category = "Skirts",
             Currency = "Diamonds",
-            Target = 2
+            Target = 0
         },
         {
             Item = "Cute Carrot Nose",
             Category = "Accessories",
             Currency = "Diamonds",
-            Target = 8
+            Target = 5
         },
         {
             Item = "Sparkly Candy Cane Ears",
             Category = "Accessories",
             Currency = "Diamonds",
-            Target = 8
+            Target = 3
         },
         {
             Item = "Tidy Bowtie",
             Category = "Accessories",
             Currency = "Diamonds",
-            Target = 8
+            Target = 5
         },
         {
             Item = "Mini Social Love Butterfly",
